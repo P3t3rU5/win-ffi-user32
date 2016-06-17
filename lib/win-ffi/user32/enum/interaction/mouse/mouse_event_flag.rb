@@ -13,14 +13,14 @@ module WinFFI
         :MIDDLEUP,   0x0040, # The middle button is up.
         :XDOWN,      0x0080, # An X button was pressed.
         :XUP,        0x0100, # An X button was released.
-        :WHEEL,      0x0800, # The wheel has been moved, if the mouse has a wheel. The amount of movement is specified in
-        # dwData, # The wheel button is rotated.
+        :WHEEL,      0x0800, # The wheel has been moved, if the mouse has a wheel. The amount of movement is specified
+        # in dwData, The wheel button is rotated.
 
-        :VIRTUALDESK,     0x04000, # map to entire virtual desktop
-        :ABSOLUTE,   0x8000, # The dx and dy parameters contain normalized absolute coordinates. If not set, those
-    # parameters contain relative data: the change in position since the last reported position. This flag can be
-    # set, or not set, regardless of what kind of mouse or mouse-like device, if any, is connected to the system.
-    # For further information about relative mouse motion, see the following Remarks section.
+        :VIRTUALDESK, 0x04000, # map to entire virtual desktop
+        :ABSOLUTE,    0x8000, # The dx and dy parameters contain normalized absolute coordinates. If not set, those
+        # parameters contain relative data: the change in position since the last reported position. This flag can be
+        # set, or not set, regardless of what kind of mouse or mouse-like device, if any, is connected to the system.
+        # For further information about relative mouse motion, see the following Remarks section.
     ]
 
     if WindowsVersion >= :vista
@@ -31,5 +31,7 @@ module WinFFI
     end
 
     MouseEventFlag = enum :mouse_event_flag, buffer
+
+    define_prefix(:MOUSEEVENTF, MouseEventFlag)
   end
 end

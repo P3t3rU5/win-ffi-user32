@@ -1,6 +1,6 @@
 require 'win-ffi/user32'
 
-require 'win-ffi/user32/enum/user_object_information_flag'
+require 'win-ffi/user32/enum/desktop/user_object_information_flag'
 require 'win-ffi/user32/enum/desktop/desktop_access_flag'
 
 require 'win-ffi/core/struct/security_attributes'

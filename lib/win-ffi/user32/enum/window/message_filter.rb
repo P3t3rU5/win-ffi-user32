@@ -1,9 +1,9 @@
 require 'win-ffi/user32'
 
 module WinFFI
-  module User32
-    # Message filter action values (action parameter to ChangeWindowMessageFilterEx)
-    if WindowsVersion >= :vista
+  if WindowsVersion >= :vista
+    module User32
+      # Message filter action values (action parameter to ChangeWindowMessageFilterEx)
       # Message filter action values (action parameter to ChangeWindowMessageFilterEx)
       buffer = [
           :ADD,    1,
@@ -18,6 +18,8 @@ module WinFFI
         ]
       end
       MessageFilter = enum :message_filter, buffer
+
+      define_prefix(:MSGFLT, MessageFilter)
     end
   end
 end

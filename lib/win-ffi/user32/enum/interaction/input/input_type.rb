@@ -7,5 +7,7 @@ module WinFFI
         :KEYBOARD,  1, # The event is a keyboard event. Use the ki structure of the union.
         :HARDWARE,  2  # The event is a hardware event. Use the hi structure of the union.
     ]
+
+    define_prefix(:INPUT, InputType)
   end
 end

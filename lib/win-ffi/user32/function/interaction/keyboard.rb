@@ -3,7 +3,7 @@ require 'win-ffi/user32'
 require 'win-ffi/user32/enum/interaction/keyboard/keyboard_layout_flag'
 require 'win-ffi/user32/enum/interaction/keyboard/virtual_key_code'
 require 'win-ffi/user32/enum/interaction/keyboard/map_virtual_key'
-require 'win-ffi/user32/enum/interaction/keyboard/key_event_flag'
+require 'win-ffi/user32/enum/interaction/keyboard/keyboard_event_flag'
 
 require 'win-ffi/user32/struct/interaction/keyboard/last_input_info'
 require 'win-ffi/user32/struct/interaction/input/input'
@@ -92,7 +92,7 @@ module WinFFI
     #   _In_  BYTE bScan,
     #   _In_  DWORD dwFlags,
     #   _In_  ULONG_PTR dwExtraInfo )
-    attach_function 'keybd_event', [VirtualKeyCode, :byte, KeyEventFlag, :ulong], :void
+    attach_function 'keybd_event', [VirtualKeyCode, :byte, KeyboardEventFlag, :ulong], :void
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms646305(v=vs.85).aspx
     # HKL WINAPI LoadKeyboardLayout(

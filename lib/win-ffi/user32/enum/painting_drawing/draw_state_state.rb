@@ -14,5 +14,7 @@ module WinFFI
 
         :RIGHT,      0x8000,
     ]
+
+    define_prefix(:DSS, DrawStateState)
   end
 end

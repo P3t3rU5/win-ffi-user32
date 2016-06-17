@@ -23,5 +23,7 @@ module WinFFI
     end
 
     BroadcastSpecialFlag = enum :broadcast_special_flag, buffer
+
+    define_prefix(:BSF, BroadcastSpecialFlag)
   end
 end

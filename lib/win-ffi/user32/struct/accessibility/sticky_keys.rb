@@ -1,4 +1,4 @@
-require 'win-ffi/user32/enum/accessibility/flag/sticky_keys_flag'
+require 'win-ffi/user32/enum/accessibility/sticky_keys_flag'
 
 module WinFFI
   module User32

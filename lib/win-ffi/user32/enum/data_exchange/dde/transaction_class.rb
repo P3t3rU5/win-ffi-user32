@@ -9,5 +9,7 @@ module WinFFI
         :FLAGS,        0x4000,
         :NOTIFICATION, 0x8000,
     ]
+
+    define_prefix(:XCLASS, TransactionClass)
   end
 end

@@ -10,5 +10,7 @@ module WinFFI
         :BUTTON,   4,
         :STATIC,   5,
     ]
+
+    define_prefix(:ODT, OwnerDrawnControlType)
   end
 end

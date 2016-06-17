@@ -8,5 +8,7 @@ module WinFFI
         :RIGHTMARGIN, 0x0002,
         :USEFONTINFO, 0xffff
     ]
+
+    define_prefix(:EC, SetMarginFlag)
   end
 end

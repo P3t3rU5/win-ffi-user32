@@ -41,5 +41,7 @@ module WinFFI
         # function is no longer valid.
         :LAST,                0x4011,
     ]
+
+    define_prefix(:DMLERR, DdeManagementLibraryError)
   end
 end

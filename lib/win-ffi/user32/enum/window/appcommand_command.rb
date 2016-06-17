@@ -64,15 +64,17 @@ module WinFFI
           :MEDIA_CHANNEL_UP,                  51,
           :MEDIA_CHANNEL_DOWN,                52
       ]
+
       if WindowsVersion >= :vista
         buffer += [
             :DELETE,     53,
             :DWM_FLIP3D, 54,
         ]
       end
-
     end
     # cmd for HSHELL_APPCOMMAND and WM_APPCOMMAND
-    APPCOMMAND_Command = enum :appcommand_command, buffer
+    AppCommand = enum :app_command, buffer
+
+    define_prefix(:APPCOMMAND, AppCommand)
   end
 end

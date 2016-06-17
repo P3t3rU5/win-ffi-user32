@@ -3,11 +3,11 @@ require 'win-ffi/user32'
 require 'win-ffi/user32/typedef/hmenu'
 
 require 'win-ffi/user32/enum/color_type'
-require 'win-ffi/user32/enum/window/flag/animate_window_flag'
-require 'win-ffi/user32/enum/window/flag/get_window_flag'
-require 'win-ffi/user32/enum/window/flag/set_window_pos_flag'
-require 'win-ffi/user32/enum/window/flag/show_window_flag'
-require 'win-ffi/user32/enum/window/flag/system_metrics_flag'
+require 'win-ffi/user32/enum/window/animate_window_flag'
+require 'win-ffi/user32/enum/window/get_window_flag'
+require 'win-ffi/user32/enum/window/set_window_pos_flag'
+require 'win-ffi/user32/enum/window/show_window_flag'
+require 'win-ffi/user32/enum/window/system_metrics_flag'
 require 'win-ffi/user32/enum/resource/menu/track_popup_menu_flag'
 require 'win-ffi/user32/enum/window/style/window_style'
 require 'win-ffi/user32/enum/window/style/window_style_ex'
@@ -436,7 +436,7 @@ module WinFFI
     #   _In_  COLORREF crKey,
     #   _In_  BYTE bAlpha,
     #   _In_  DWORD dwFlags )
-    attach_function 'SetLayeredWindowAttributes', [:hwnd, :colorref, :byte, LayeredWindowAttributesFlag], :bool
+    attach_function 'SetLayeredWindowAttributes', [:hwnd, :colorref, :byte, UpdateLayeredWindowFlag], :bool
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633541(v=vs.85).aspx
     # HWND WINAPI SetParent(
@@ -521,7 +521,7 @@ module WinFFI
     #   _In_      COLORREF crKey,
     #   _In_opt_  BLENDFUNCTION *pblend,
     #   _In_      DWORD dwFlags )
-    attach_function 'UpdateLayeredWindow', [:hwnd, :hdc, POINT.ptr, SIZE.ptr, :hdc, POINT.ptr, :colorref, :pointer, LayeredWindowAttributesFlag], :bool
+    attach_function 'UpdateLayeredWindow', [:hwnd, :hdc, POINT.ptr, WinFFI::SIZE.ptr, :hdc, POINT.ptr, :colorref, :pointer, UpdateLayeredWindowFlag], :bool
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633558(v=vs.85).aspx
     # HWND WINAPI WindowFromPoint( _In_  POINT Point )
@@ -551,7 +551,7 @@ module WinFFI
       #   _Out_opt_  COLORREF *pcrKey,
       #   _Out_opt_  BYTE *pbAlpha,
       #   _Out_opt_  DWORD *pdwFlags )
-      attach_function 'GetLayeredWindowAttributes', [:hwnd, :pointer, :pointer, LayeredWindowAttributesFlag], :bool
+      attach_function 'GetLayeredWindowAttributes', [:hwnd, :pointer, :pointer, UpdateLayeredWindowFlag], :bool
 
       # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633525(v=vs.85).aspx
       # BOOL WINAPI IsGUIThread( _In_  BOOL bConvert )

@@ -10,5 +10,7 @@ module WinFFI
         :NOTIFYBYPOS, 0x08000000,
         :CHECKORBMP,  0x04000000,
     ]
+
+    define_prefix(:MNS, MenuStyle)
   end
 end

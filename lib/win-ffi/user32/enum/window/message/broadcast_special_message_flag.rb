@@ -11,5 +11,7 @@ module WinFFI
         :APPLICATIONS,       0x00000008, # Broadcast to applications.
         :ALLDESKTOPS,        0x00000010, # Broadcast to all desktops. Requires the SE_TCB_NAME privilege.
     ]
+
+    define_prefix(:BSM, BroadcastSpecialMessageFlag)
   end
 end

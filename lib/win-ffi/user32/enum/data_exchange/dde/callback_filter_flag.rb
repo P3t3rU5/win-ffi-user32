@@ -17,5 +17,7 @@ module WinFFI
         :SKIP_DISCONNECTS,      0x00200000,
         :SKIP_ALLNOTIFICATIONS, 0x003c0000,
     ]
+
+    define_prefix(:CBF, CallbackFilterFlag)
   end
 end

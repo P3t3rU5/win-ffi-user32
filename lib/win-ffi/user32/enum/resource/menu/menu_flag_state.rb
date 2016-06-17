@@ -12,5 +12,7 @@ module WinFFI
         :UNHILITE,  0x00000000,
         :DEFAULT,   0x00001000
     ]
+
+    define_prefix(:MFS, MenuFlagState)
   end
 end

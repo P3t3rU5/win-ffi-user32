@@ -1,4 +1,4 @@
-require 'win-ffi/user32/enum/window/flag/gui_flag'
+require 'win-ffi/user32/enum/window/gui_flag'
 
 require 'win-ffi/core/struct/rect'
 

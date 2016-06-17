@@ -13,5 +13,7 @@ module WinFFI
         :BITMAP,      0x00000080,
         :FTYPE,       0x00000100,
     ]
+
+    define_prefix(:MIIM, MenuItemInfoMember)
   end
 end

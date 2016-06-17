@@ -8,5 +8,7 @@ module WinFFI
         :SELECT,     0x0002,
         :FOCUS,      0x0004,
     ]
+
+    define_prefix(:ODA, OwnerDrawnAction)
   end
 end

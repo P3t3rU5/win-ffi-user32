@@ -12,5 +12,7 @@ module WinFFI
         :CHILDREN,     0x00000010,
         :OWNED,        0x00000020,
     ]
+
+    define_prefix(:PRF, PrintFlag)
   end
 end

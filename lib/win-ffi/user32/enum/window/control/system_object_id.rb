@@ -19,6 +19,8 @@ module WinFFI
         :QUERYCLASSNAMEIDX, (0xFFFFFFF4),
         :NATIVEOM,          (0xFFFFFFF0),
     ]
+
+    define_prefix(:OBJID, SystemObjectId)
   end
 end
 

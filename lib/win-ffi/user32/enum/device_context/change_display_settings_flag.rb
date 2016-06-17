@@ -23,5 +23,7 @@ module WinFFI
     end
 
     ChangeDisplaySettingsFlag = enum :change_display_settings_flag, buffer
+
+    define_prefix(:CDS, ChangeDisplaySettingsFlag)
   end
 end

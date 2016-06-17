@@ -2,8 +2,7 @@ require 'win-ffi/user32'
 
 module WinFFI
   module User32
-    WindowLong = enum :window_long,
-    [
+    WindowLong = enum :window_long, [
       :WNDPROC,    -4,  #Sets a new address for the window_class procedure. You cannot change this attribute if the
       # window_class does not belong to the same process as the calling thread.
 

@@ -1,3 +1,5 @@
+require 'win-ffi/core/struct/rect'
+
 module WinFFI
   module User32
     if WindowsVersion >= :vista

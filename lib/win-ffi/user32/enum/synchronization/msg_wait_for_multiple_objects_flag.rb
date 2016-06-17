@@ -13,5 +13,7 @@ module WinFFI
         :WAITALL, 0x0001, # The function returns when all objects in the pHandles array are signaled and an input event
                           # has been received, all at the same time.
     ]
+
+    define_prefix(:MWMO, MsgWaitForMultipleObjectsFlag)
   end
 end

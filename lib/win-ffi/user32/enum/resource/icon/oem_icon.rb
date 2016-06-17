@@ -21,5 +21,7 @@ module WinFFI
     end
 
     OemIcon = enum :oem_icon, buffer
+
+    define_prefix(:OIC, OemIcon)
   end
 end

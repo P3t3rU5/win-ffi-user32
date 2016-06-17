@@ -9,5 +9,7 @@ module WinFFI
         # (0xFFFF) in both x- and y-coordinates. This is the resolution provided by absolute coordinate pointing devices
         # such as drawing tablets.
     ]
+
+    define_prefix(:GMMP, GetMouseMovePointsFlag)
   end
 end

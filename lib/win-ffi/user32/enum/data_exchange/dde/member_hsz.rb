@@ -8,5 +8,7 @@ module WinFFI
         :DELETE,  3,
         :CLEANUP, 4,
     ]
+
+    define_prefix(:MH, MemberHsz)
   end
 end

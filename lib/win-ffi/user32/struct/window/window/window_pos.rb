@@ -1,4 +1,4 @@
-require 'win-ffi/user32/enum/window/flag/set_window_pos_flag'
+require 'win-ffi/user32/enum/window/set_window_pos_flag'
 
 module WinFFI
   module User32

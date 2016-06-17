@@ -16,12 +16,10 @@ module WinFFI
     buffer += [
         :EXINPUTSINK,       0x00001000,
         :DEVNOTIFY,         0x00002000
-    ]
+    ] if WindowsVersion >= :xp
 
     RawInputDeviceFlag = enum :rawinput_device_flag, buffer
 
-    def EXMODE(mode)
-      mode & RawInputDeviceFlags[:EXMODEMASK]
-    end
+    define_prefix(:RIDEV, RawInputDeviceFlag)
   end
 end

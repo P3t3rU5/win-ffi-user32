@@ -1,4 +1,4 @@
-require 'win-ffi/user32/enum/window/flag/layered_window_attributes_flag'
+require 'win-ffi/user32/enum/window/update_layered_window_flag'
 
 require 'win-ffi/core/struct/point'
 require 'win-ffi/core/struct/size'
@@ -16,7 +16,7 @@ module WinFFI
              :pptSrc,   POINT.ptr,
              :crKey,    :dword,
              :pblend,   :pointer,
-             :dwFlags,  LayeredWindowAttributesFlag,
+             :dwFlags,  UpdateLayeredWindowFlag,
              :prcDirty, RECT.ptr
 
       def initialize

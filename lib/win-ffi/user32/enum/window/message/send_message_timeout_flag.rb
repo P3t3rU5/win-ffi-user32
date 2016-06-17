@@ -25,5 +25,7 @@ module WinFFI
     end
 
     SendMessageTimeoutFlag = enum :send_message_timeout_flag, buffer
+
+    define_prefix(:SMTO, SendMessageTimeoutFlag)
   end
 end

@@ -6,5 +6,7 @@ module WinFFI
         :TOPGAP,    0x00000001,
         :BOTTOMGAP, 0x00000002
     ]
+
+    define_prefix(:MNGOF, MenuGetObjectInfoFlag)
   end
 end

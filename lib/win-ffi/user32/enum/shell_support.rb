@@ -32,5 +32,7 @@ module WinFFI
     end
 
     ShellSupport = enum :shell_support, buffer
+
+    define_prefix(:HSHELL, ShellSupport)
   end
 end

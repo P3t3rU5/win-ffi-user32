@@ -10,5 +10,7 @@ module WinFFI
         :STYLE,           0x00000010,
         :APPLYTOSUBMENUS, 0x80000000
     ]
+
+    define_prefix(:MIM, MenuInfoMember)
   end
 end

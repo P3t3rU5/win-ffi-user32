@@ -8,5 +8,7 @@ module WinFFI
         :SKIPDISABLED,    0x0002,
         :SKIPTRANSPARENT, 0x0004
     ]
+
+    define_prefix(:CWP, ChildWindowFromPointExFlag)
   end
 end

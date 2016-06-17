@@ -1,4 +1,4 @@
-require 'win-ffi/user32/enum/queue_status_flag'
+require 'win-ffi/user32/enum/window/message/queue_status_flag'
 require 'win-ffi/user32/enum/synchronization/msg_wait_for_multiple_objects_flag'
 
 module WinFFI

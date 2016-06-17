@@ -1,7 +1,7 @@
-require 'win-ffi/user32/enum/accessibility/flag/sound_sentry_flag'
-require 'win-ffi/user32/enum/accessibility/flag/sound_sentry_text_flag'
-require 'win-ffi/user32/enum/accessibility/flag/sound_sentry_graph_flag'
-require 'win-ffi/user32/enum/accessibility/flag/sound_sentry_window_flag'
+require 'win-ffi/user32/enum/accessibility/sound_sentry_flag'
+require 'win-ffi/user32/enum/accessibility/sound_sentry_text_flag'
+require 'win-ffi/user32/enum/accessibility/sound_sentry_graph_flag'
+require 'win-ffi/user32/enum/accessibility/sound_sentry_window_flag'
 
 
 module WinFFI

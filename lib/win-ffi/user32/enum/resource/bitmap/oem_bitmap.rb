@@ -38,5 +38,7 @@ module WinFFI
         :OLD_ZOOM,    32756,
         :OLD_RESTORE, 32755,
     ]
+
+    define_prefix(:OBM, OemBitmap)
   end
 end

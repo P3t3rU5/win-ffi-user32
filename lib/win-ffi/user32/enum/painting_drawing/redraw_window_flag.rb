@@ -17,5 +17,7 @@ module WinFFI
         :FRAME,           0x0400,
         :NOFRAME,         0x0800
     ]
+
+    define_prefix(:RDW,  RedrawWindowFlag)
   end
 end

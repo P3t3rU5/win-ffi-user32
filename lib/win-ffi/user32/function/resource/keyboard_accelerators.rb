@@ -1,11 +1,10 @@
 require 'win-ffi/user32'
 
+require 'win-ffi/user32/typedef/haccel'
 require 'win-ffi/user32/struct/window/message/msg'
 
 module WinFFI
   module User32
-
-    typedef :pointer, :haccel
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms646364(v=vs.85).aspx
     #int WINAPI CopyAcceleratorTable(
@@ -18,7 +17,7 @@ module WinFFI
     # HACCEL WINAPI CreateAcceleratorTable(
     #   _In_  LPACCEL lpaccl,
     #   _In_  int cEntries )
-    encoded_function 'CreateAcceleratorTable', [:pointer, :int], :pointer
+    encoded_function 'CreateAcceleratorTable', [:pointer, :int], :haccel
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms646368(v=vs.85).aspx
     # BOOL WINAPI DestroyAcceleratorTable( _In_  HACCEL hAccel )

@@ -16,5 +16,7 @@ module WinFFI
         :NOACCEL,      0x0100,
         :NOFOCUSRECT,  0x0200,
     ]
+
+    define_prefix(:ODS, OwnerDrawnState)
   end
 end

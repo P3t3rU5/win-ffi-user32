@@ -1,4 +1,4 @@
-require 'win-ffi/user32/enum/accessibility/flag/filter_keys_flag'
+require 'win-ffi/user32/enum/accessibility/filter_keys_flag'
 
 module WinFFI
   module User32

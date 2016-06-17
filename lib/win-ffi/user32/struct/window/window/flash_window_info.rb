@@ -1,4 +1,4 @@
-require 'win-ffi/user32/enum/window/flag/flash_window_flag'
+require 'win-ffi/user32/enum/window/flash_window_flag'
 
 module WinFFI
   module User32

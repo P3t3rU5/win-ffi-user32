@@ -14,5 +14,7 @@ module WinFFI
         :WRITEOBJECTS,    0x0080,
         :SWITCHDESKTOP,   0x0100
     ]
+
+    define_prefix(:DESKTOP, DesktopAccessFlag)
   end
 end

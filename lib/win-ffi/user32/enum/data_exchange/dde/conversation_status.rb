@@ -14,5 +14,7 @@ module WinFFI
         :BLOCKNEXT,  0x0080,
         :ISSELF,     0x0100,
     ]
+
+    define_prefix(:ST, ConversationStatus)
   end
 end

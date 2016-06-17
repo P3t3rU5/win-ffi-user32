@@ -10,5 +10,7 @@ module WinFFI
         :ALTDOWN,           0x00000020,
         :UP,                0x00000080
     ]
+
+    define_prefix(:LLKHF, LowLevelKeyboardHookFlag)
   end
 end

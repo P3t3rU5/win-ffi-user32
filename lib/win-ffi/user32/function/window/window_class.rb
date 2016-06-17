@@ -1,7 +1,7 @@
 require 'win-ffi/user32'
 
-require 'win-ffi/user32/enum/window/flag/get_class_long_flag'
-require 'win-ffi/user32/enum/window/flag/get_window_long_flag'
+require 'win-ffi/user32/enum/window/get_class_long_flag'
+require 'win-ffi/user32/enum/window/get_window_long_flag'
 require 'win-ffi/user32/enum/window/window_long'
 
 require 'win-ffi/user32/struct/window/window_class/wndclass'

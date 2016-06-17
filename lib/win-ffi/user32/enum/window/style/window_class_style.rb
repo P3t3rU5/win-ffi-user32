@@ -52,5 +52,7 @@ module WinFFI
     end
 
     WindowClassStyle = enum :window_class_style, buffer
+
+    define_prefix(:CS, WindowClassStyle)
   end
 end

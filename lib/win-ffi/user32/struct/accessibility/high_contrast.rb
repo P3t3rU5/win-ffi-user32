@@ -1,4 +1,4 @@
-require 'win-ffi/user32/enum/accessibility/flag/high_contrast_flag'
+require 'win-ffi/user32/enum/accessibility/high_contrast_flag'
 
 module WinFFI
   module User32

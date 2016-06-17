@@ -9,5 +9,7 @@ module WinFFI
         :QUERY,     0x40000000,
         :CANCEL,    0x80000000,
     ]
+
+    define_prefix(:TME, TrackMouseEventFlag)
   end
 end

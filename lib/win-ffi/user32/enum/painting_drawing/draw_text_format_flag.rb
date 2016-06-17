@@ -32,5 +32,7 @@ module WinFFI
         :HIDEPREFIX,            0x00100000,
         :PREFIXONLY,            0x00200000
     ]
+
+    define_prefix(:DT, DrawTextFormatFlag)
   end
 end

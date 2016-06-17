@@ -1,8 +1,8 @@
 require 'win-ffi/user32'
 
 module WinFFI
-  module User32
-    if WindowsVersion >= 7
+  if WindowsVersion >= 7
+    module User32
       # Gesture IDs
       GestureIdentifier = enum :gesture_identifier, [
           :BEGIN,        1,
@@ -14,6 +14,8 @@ module WinFFI
           :PRESSANDTAP,  7,
           :ROLLOVER,     7
       ]
+
+      define_prefix(:GID, GestureIdentifier)
     end
   end
 end

@@ -89,5 +89,7 @@ module WinFFI
     end
 
     WindowStyleExtended = enum :window_style_extended, buffer
+
+    define_prefix(:WS_EX, WindowStyleExtended)
   end
 end

@@ -1,8 +1,8 @@
 require 'win-ffi/user32'
 
 module WinFFI
-  module User32
-    if WindowsVersion >= 8
+  if WindowsVersion >= 8
+    module User32
       # wParam values for WM_POINTERDEVICECHANGE
       PointerDeviceChange = enum :pointer_device_change, [
           :ARRIVAL,                   0x001,
@@ -18,6 +18,8 @@ module WinFFI
           :ORIGIN,                    0x400,
           :MODE_ASPECTRATIOPRESERVED, 0x800
       ]
+
+      define_prefix(:PDC, PointerDeviceChange)
     end
   end
 end

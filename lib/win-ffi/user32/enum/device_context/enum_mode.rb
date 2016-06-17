@@ -6,5 +6,7 @@ module WinFFI
         :CURRENT_SETTINGS,  -1,
         :REGISTRY_SETTINGS, -2,
     ]
+
+    define_prefix(:ENUM, EnumMode)
   end
 end

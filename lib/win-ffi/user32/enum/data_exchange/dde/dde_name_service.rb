@@ -8,5 +8,7 @@ module WinFFI
         :FILTERON,   0x0004,
         :FILTEROFF,  0x0008,
     ]
+
+    define_prefix(:DNS, DdeNameService)
   end
 end

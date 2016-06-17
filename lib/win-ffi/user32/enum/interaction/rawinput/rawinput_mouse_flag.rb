@@ -15,5 +15,7 @@ module WinFFI
 
     # Define the mouse indicator flags.
     RawInputMouseFlag = enum :rawinput_mouse_flag, buffer
+
+    define_prefix(:MOUSE, RawInputMouseFlag)
   end
 end

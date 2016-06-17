@@ -1,7 +1,7 @@
 require 'win-ffi/user32'
 
-require 'win-ffi/user32/enum/window/flag/message_box_flag'
-require 'win-ffi/user32/enum/window/return/message_box_return'
+require 'win-ffi/user32/enum/window/message_box_flag'
+require 'win-ffi/user32/enum/window/control/dialog/dialog_box_command_id'
 
 require 'win-ffi/core/struct/rect'
 require 'win-ffi/user32/struct/window/dialog/dlg_template'

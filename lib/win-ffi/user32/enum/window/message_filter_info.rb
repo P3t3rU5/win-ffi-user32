@@ -12,5 +12,7 @@ module WinFFI
         :ALLOWED_HIGHER,           3  # The message is allowed at a scope higher than the window_class. Applies to
         # MSGFLT_DISALLOW.
     ]
+
+    define_prefix(:MSGFLTINFO, MessageFilterInfo)
   end
 end

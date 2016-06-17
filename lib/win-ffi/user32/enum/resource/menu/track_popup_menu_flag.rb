@@ -67,5 +67,7 @@ module WinFFI
     end
 
     TrackPopupMenuFlag = enum :track_popup_menu_flag, buffer
+
+    define_prefix(:TPM, TrackPopupMenuFlag)
   end
 end

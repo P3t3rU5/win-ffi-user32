@@ -10,6 +10,8 @@ module WinFFI
     buffer += [:SMALL2, 2] if WindowsVersion >= :xp
 
     IconType = enum :icon_type, buffer
+
+    define_prefix(:ICON, IconType)
   end
 end
 

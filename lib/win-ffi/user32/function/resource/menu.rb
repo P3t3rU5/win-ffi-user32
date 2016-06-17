@@ -3,7 +3,6 @@ require 'win-ffi/user32'
 require 'win-ffi/user32/typedef/hmenu'
 
 require 'win-ffi/user32/enum/resource/menu/menu_flag'
-require 'win-ffi/user32/enum/resource/menu/append_menu_flag'
 require 'win-ffi/user32/enum/resource/menu/track_popup_menu_flag'
 require 'win-ffi/user32/enum/resource/menu/get_menu_default_item_flag'
 
@@ -22,7 +21,7 @@ module WinFFI
     #   _In_      UINT uFlags,
     #   _In_      UINT_PTR uIDNewItem,
     #   _In_opt_  LPCTSTR lpNewItem )
-    encoded_function 'AppendMenu', [:hmenu, AppendMenuFlag, :uint, :pointer], :bool
+    encoded_function 'AppendMenu', [:hmenu, MenuFlag, :uint, :pointer], :bool
 
     # Deprecated
     # http://winapi.freetechsecrets.com/win32/WIN32ChangeMenu.htm

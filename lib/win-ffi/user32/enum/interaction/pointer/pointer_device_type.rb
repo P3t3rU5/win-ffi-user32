@@ -1,8 +1,8 @@
 require 'win-ffi/user32'
 
 module WinFFI
-  module User32
-    if WindowsVersion >= 8
+  if WindowsVersion >= 8
+    module User32
       buffer = [
           :INTEGRATED_PEN, 0x00000001,
           :EXTERNAL_PEN,   0x00000002,
@@ -16,7 +16,9 @@ module WinFFI
         ]
       end
 
-      POINTER_DEVICE_TYPE = enum :pointer_device_type, buffer
+      PointerDeviceType = enum :pointer_device_type, buffer
+
+      define_prefix(:POINTER_DEVICE_TYPE, PointerDeviceType)
     end
   end
 end

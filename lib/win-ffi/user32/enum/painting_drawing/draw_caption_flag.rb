@@ -16,5 +16,7 @@ module WinFFI
     end
 
     DrawCaptionFlag = enum :draw_caption_flag, buffer
+
+    define_prefix(:DC, DrawCaptionFlag)
   end
 end

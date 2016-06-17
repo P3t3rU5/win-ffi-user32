@@ -64,5 +64,7 @@ module WinFFI
         :MAXIMIZEBOX,      0x00010000, # has a maximize button. Cannot be combined with the WS_EX_CONTEXTHELP style. The
     # WS_SYSMENU style must also be specified.
     ]
+
+    define_prefix(:WS, WindowStyle)
   end
 end

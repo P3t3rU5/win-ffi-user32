@@ -14,5 +14,7 @@ module WinFFI
         :CONTROL,  0x08, # The CTRL key must be held down when the accelerator key is pressed.
         :ALT,      0x10  # The ALT key must be held down when the accelerator key is pressed.
     ]
+
+    define_prefix(:F, AcceleratorFlag)
   end
 end

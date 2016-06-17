@@ -1,7 +1,7 @@
 require 'win-ffi/user32'
 
 require 'win-ffi/core/enum/load_resource_flags'
-require 'win-ffi/user32/enum/draw_icon_ex_flag'
+require 'win-ffi/user32/enum/resource/icon/draw_icon_ex_flag'
 
 require 'win-ffi/user32/struct/resource/icon/icon_info'
 

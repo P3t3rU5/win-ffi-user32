@@ -1,11 +1,10 @@
-require 'win-ffi/user32/function/multiple_display_monitors'
+require 'win-ffi/user32'
 
 module WinFFI
   if WindowsVersion >= 8
-
-    require 'win-ffi/user32/struct/interaction/pointer/pointer_device_info'
     require 'win-ffi/user32/enum/interaction/pointer/pointer_device_type'
-
+    require 'win-ffi/user32/struct/interaction/pointer/pointer_device_info'
+    require 'win-ffi/user32/function/multiple_display_monitors'
     module User32
 
 
@@ -15,7 +14,7 @@ module WinFFI
       class POINTER_DEVICE_INFO < FFIStruct
         layout :displayOrientation, :dword,
                :device,             :handle,
-               :pointerDeviceType,  POINTER_DEVICE_TYPE,
+               :pointerDeviceType,  PointerDeviceType,
                :monitor,            :hmonitor,
                :startingCursorId,   :ulong,
                :maxActiveContacts,  :ushort,

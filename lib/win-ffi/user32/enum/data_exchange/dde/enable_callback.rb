@@ -8,5 +8,7 @@ module WinFFI
         :DISABLE,      0x0008,
         :QUERYWAITING, 0x0002,
     ]
+
+    define_prefix(:EC, EnableCallback)
   end
 end

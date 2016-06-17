@@ -20,5 +20,7 @@ module WinFFI
     end
 
     ChangeDisplaySettingsReturn = enum :change_display_settings_return, buffer
+
+    define_prefix(:DISP_CHANGE, ChangeDisplaySettingsReturn)
   end
 end

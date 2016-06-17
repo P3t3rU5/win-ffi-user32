@@ -18,5 +18,7 @@ module WinFFI
 
         :VALIDATE,         0x00200000,
     ]
+
+    define_prefix(:DCX, GetDCExFlag)
   end
 end

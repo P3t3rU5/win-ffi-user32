@@ -1,4 +1,4 @@
-require 'win-ffi/user32/enum/accessibility/flag/access_timeout_flag'
+require 'win-ffi/user32/enum/accessibility/access_timeout_flag'
 
 module WinFFI
   module User32

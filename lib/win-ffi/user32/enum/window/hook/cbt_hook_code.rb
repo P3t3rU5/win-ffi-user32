@@ -14,5 +14,7 @@ module WinFFI
         :SYSCOMMAND,
         :SETFOCUS
     ]
+
+    define_prefix(:HCBT, CBTHookCode)
   end
 end

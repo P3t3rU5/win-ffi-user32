@@ -14,5 +14,7 @@ module WinFFI
         :REPLIED,  0x00000008  # The window_class procedure has processed the message. The thread that sent the message is no
         # longer blocked.
     ]
+
+    define_prefix(:ISMEX, InSendMessageExReturn)
   end
 end

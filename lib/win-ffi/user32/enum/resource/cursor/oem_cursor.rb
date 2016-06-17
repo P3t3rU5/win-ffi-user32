@@ -20,5 +20,7 @@ module WinFFI
         :APPSTARTING,  32650, # not in win3.1
         :HELP,         32651,
     ]
+
+    define_prefix(:OCR, OemCursor)
   end
 end

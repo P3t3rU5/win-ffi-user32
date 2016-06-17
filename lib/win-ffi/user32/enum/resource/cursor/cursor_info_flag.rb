@@ -8,8 +8,12 @@ module WinFFI
         :SHOWING, 0x00000001
     ]
 
-    buffer += [:SUPPRESSED, 0x00000002]
+    if WindowsVersion >= 8
+      buffer += [:SUPPRESSED, 0x00000002]
+    end
 
     CursorInfoFlag = enum :cursor_info_flag, buffer
+
+    define_prefix(:CURSOR, CursorInfoFlag)
   end
 end

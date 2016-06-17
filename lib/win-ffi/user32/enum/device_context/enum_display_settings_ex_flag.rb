@@ -7,5 +7,7 @@ module WinFFI
         :RAWMODE,     0x00000002,
         :ROTATEDMODE, 0x00000004,
     ]
+
+    define_prefix(:EDS, EnumDisplaySettingsExFlag)
   end
 end

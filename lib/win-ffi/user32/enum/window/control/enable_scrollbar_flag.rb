@@ -14,5 +14,7 @@ module WinFFI
         :DISABLE_UP,    0x0001,
         :DISABLE_DOWN,  0x0002,
     ]
+
+    define_prefix(:ESB, EnableScrollBarFlag)
   end
 end

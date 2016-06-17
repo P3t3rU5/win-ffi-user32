@@ -18,5 +18,7 @@ module WinFFI
         :ZOOMSHOW,   3,
         :ZOOMHIDE,   4
     ]
+
+    define_prefix(:SIZE, WindowSize)
   end
 end

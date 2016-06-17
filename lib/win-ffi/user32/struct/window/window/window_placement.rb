@@ -1,8 +1,8 @@
 require 'win-ffi/core/struct/point'
 require 'win-ffi/core/struct/rect'
 
-require 'win-ffi/user32/enum/window/flag/window_placement_flag'
-require 'win-ffi/user32/enum/window/flag/show_window_flag'
+require 'win-ffi/user32/enum/window/window_placement_flag'
+require 'win-ffi/user32/enum/window/show_window_flag'
 
 module WinFFI
   module User32

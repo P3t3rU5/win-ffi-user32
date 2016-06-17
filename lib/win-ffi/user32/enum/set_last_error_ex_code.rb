@@ -8,5 +8,7 @@ module WinFFI
         :MINORERROR, 0x00000002,
         :WARNING,    0x00000003,
     ]
+
+    define_prefix(:SLE, SetLastErrorExCode)
   end
 end

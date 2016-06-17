@@ -7,10 +7,8 @@ module WinFFI
 
     ffi_lib 'user32'
 
-    # typedef :pointer, :hcursor
-    # typedef :pointer, :hmenu
-    # typedef :pointer, :hrgn
-    
+    require 'win-ffi/user32/typedef/hwineventhook'
+
     if WindowsVersion >= :xp
       # VOID WINAPI DisableProcessWindowsGhosting(void)
       attach_function 'DisableProcessWindowsGhosting', [], :void
@@ -39,10 +37,12 @@ module WinFFI
       #   _In_  UINT dwflags )
       attach_function 'SetWinEventHook', [:uint, :uint, :pointer, :pointer, :dword, :dword, :uint], :pointer
 
-      # Process and Threads
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/ms684136(v=vs.85).aspx
-      # BOOL WINAPI IsWow64Message(void)
-      attach_function 'IsWow64Message', [], :bool
+      if WindowsVersion >= :vista || (WindowsVersion == :xp && WindowsVersion.sp >= 2)
+        # Process and Threads
+        # https://msdn.microsoft.com/en-us/library/windows/desktop/ms684136(v=vs.85).aspx
+        # BOOL WINAPI IsWow64Message(void)
+        attach_function 'IsWow64Message', [], :bool
+      end
     end
 
     CW_USEDEFAULT   = -0x80000000
@@ -75,7 +75,7 @@ module WinFFI
     #encoded_function 'SetClassLongPtr', [:hwnd, ClassLong, :pointer], :pointer
 
     #BOOL WINAPI UnhookWinEvent( _In_  HWINEVENTHOOK hWinEventHook )
-    attach_function 'UnhookWinEvent', [:pointer], :bool
+    attach_function 'UnhookWinEvent', [:hwineventhook], :bool
 
     #This function is obsolete and should not be used.
     #BOOL WINAPI WINNLSEnableIME(

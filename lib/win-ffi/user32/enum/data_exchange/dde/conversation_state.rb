@@ -22,5 +22,7 @@ module WinFFI
         :ADVDATASENT,    15,
         :ADVDATAACKRCVD, 16,
     ]
+
+    define_prefix(:XST, ConversationState)
   end
 end

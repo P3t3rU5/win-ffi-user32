@@ -7,5 +7,7 @@ module WinFFI
         :INJECTED,          0x00000001,
         :LOWER_IL_INJECTED, 0x00000002
     ]
+
+    define_prefix(:LLMHF, LowLevelMouseHookFlag)
   end
 end

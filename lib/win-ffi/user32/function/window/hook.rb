@@ -1,6 +1,6 @@
 require 'win-ffi/user32'
 
-require 'win-ffi/user32/enum/window_hook'
+require 'win-ffi/user32/enum/window/hook/window_hook'
 
 require 'win-ffi/user32/struct/window/message/msg'
 
@@ -117,7 +117,7 @@ module WinFFI
     #   _In_  HOOKPROC lpfn,
     #   _In_  HINSTANCE hMod,
     #   _In_  DWORD dwThreadId )
-    encoded_function 'SetWindowsHookEx', [WindowHook, :pointer, :pointer, :dword], :pointer
+    encoded_function 'SetWindowsHookEx', [WindowHook, :pointer, :pointer, :dword], :hhook
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644991(v=vs.85).aspx
     # LRESULT CALLBACK ShellProc(

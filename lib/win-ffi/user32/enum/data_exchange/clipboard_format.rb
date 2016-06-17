@@ -36,5 +36,7 @@ module WinFFI
         :GDIOBJFIRST,     0x0300,
         :GDIOBJLAST,      0x03FF,
     ]
+
+    define_prefix(:CF, ClipboardFormat)
   end
 end

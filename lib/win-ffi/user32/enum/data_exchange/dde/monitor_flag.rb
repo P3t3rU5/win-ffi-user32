@@ -13,5 +13,7 @@ module WinFFI
         :CONV,      0x40000000,
         :MASK,      0xFF000000,
     ]
+
+    define_prefix(:MF, MonitorFlag)
   end
 end

@@ -2,10 +2,10 @@ require 'win-ffi/user32'
 
 require 'win-ffi/user32/enum/window/message/broadcast_special_flag'
 require 'win-ffi/user32/enum/window/message/broadcast_special_message_flag'
-require 'win-ffi/user32/enum/window/flag/peek_message_flag'
+require 'win-ffi/user32/enum/window/message/peek_message_flag'
 require 'win-ffi/user32/enum/window/message/send_message_timeout_flag'
 require 'win-ffi/user32/enum/window/message/window_message'
-require 'win-ffi/user32/enum/queue_status_flag'
+require 'win-ffi/user32/enum/window/message/queue_status_flag'
 require 'win-ffi/user32/enum/window/message/icon_type'
 require 'win-ffi/user32/enum/window/return/in_send_message_ex_return'
 

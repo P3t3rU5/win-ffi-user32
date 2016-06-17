@@ -1,4 +1,4 @@
-require 'win-ffi/user32/enum/window/flag/scroll_info_flag'
+require 'win-ffi/user32/enum/window/control/scrollbar/scroll_info_flag'
 
 module WinFFI
   module User32

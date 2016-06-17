@@ -7,6 +7,8 @@ module WinFFI
           :CLOSEST,   0x000,
           :FARTHEST,  0xFFF
       ]
+
+      define_prefix(:TOUCH_HIT_TESTING_PROXIMITY, TouchHitTestingProximity)
     end
   end
 end

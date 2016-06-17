@@ -13,5 +13,7 @@ module WinFFI
         :RIGHTORDER,   0x00002000,
         :RIGHTJUSTIFY, 0x00004000
     ]
+
+    define_prefix(:MFT, MenuFlagType)
   end
 end

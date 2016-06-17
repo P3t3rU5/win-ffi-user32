@@ -26,5 +26,7 @@ module WinFFI
         :HTML,         23,
         :MANIFEST,     24
     ]
+
+    define_prefix(:RT, PredefinedResourceType)
   end
 end

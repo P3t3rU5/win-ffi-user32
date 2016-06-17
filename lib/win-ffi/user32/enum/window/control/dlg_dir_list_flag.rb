@@ -15,5 +15,7 @@ module WinFFI
         :DRIVES,    0x4000,
         :EXCLUSIVE, 0x8000,
     ]
+
+    define_prefix(:DDL, DlgDirListFlag)
   end
 end
