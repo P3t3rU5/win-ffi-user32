@@ -1,20 +1,20 @@
-# WinFFI
+# WinFFI User32
 
 [![Join the chat at https://gitter.im/P3t3rU5/win-ffi-user32](https://badges.gitter.im/P3t3rU5/win-ffi-user32.svg)](https://gitter.im/P3t3rU5/win-ffi-user32?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-WinFFI is a gem to use the windows API using the ffi gem inspired by windows-pr gem.
-This gem is work in progress
+WinFFI User32 is a component gem of [WinFFI](https://github.com/P3t3rU5/win-ffi).
+This gem is work in progress.
 To install:
 
 ```
-gem install win-ffi
+gem install win-ffi-user32
 ```
 
 # License
 
 (The MIT License)
 
-Copyright &copy; 2013 Pedro Miranda
+Copyright &copy; 2016 Pedro Miranda
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
