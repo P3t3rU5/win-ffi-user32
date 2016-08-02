@@ -4,7 +4,8 @@ module WinFFI
   if WindowsVersion >= :xp
     module User32
       # Raw Input Device Information
-      RawInputDeviceInformation = enum :raw_input_device_information, [
+      # https://msdn.microsoft.com/en-us/library/windows/desktop/ms645597(v=vs.85).aspx
+      RawInputDeviceInformation = enum :rawinput_device_information, [
           :PREPARSEDDATA,      0x20000005,
           :DEVICENAME,         0x20000007,  # the return valus is the character length, not the byte size
           :DEVICEINFO,         0x2000000b

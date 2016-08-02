@@ -1,6 +1,7 @@
 require 'win-ffi/user32'
 
 require 'win-ffi/user32/enum/desktop/desktop_access_flag'
+require 'win-ffi/user32/enum/desktop/open_desktop_flag'
 
 require 'win-ffi/core/struct/security_attributes'
 
@@ -56,7 +57,7 @@ module WinFFI
     #   _In_  DWORD dwFlags,
     #   _In_  BOOL fInherit,
     #   _In_  ACCESS_MASK dwDesiredAccess )
-    encoded_function 'OpenDesktop', [:string, :dword, :bool, DesktopAccessFlag], :hdesk
+    encoded_function 'OpenDesktop', [:string, OpenDesktopFlag, :bool, DesktopAccessFlag], :hdesk
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms684309(v=vs.85).aspx
     # HDESK WINAPI OpenInputDesktop(

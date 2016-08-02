@@ -2,8 +2,9 @@ require 'win-ffi/user32'
 
 module WinFFI
   module User32
+    # cmd for HSHELL_APPCOMMAND and WM_APPCOMMAND
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx
     buffer = [
-        :KEY,                  0,
         :BROWSER_BACKWARD,     1,
         :BROWSER_FORWARD,      2,
         :BROWSER_REFRESH,      3,
@@ -27,9 +28,6 @@ module WinFFI
         :BASS_UP,             21,
         :TREBLE_DOWN,         22,
         :TREBLE_UP,           23,
-        :OEM,             0x1000,
-        :MOUSE,           0x8000,
-        :MASK,            0xF000,
     ]
 
     if WindowsVersion >= :xp
@@ -72,7 +70,7 @@ module WinFFI
         ]
       end
     end
-    # cmd for HSHELL_APPCOMMAND and WM_APPCOMMAND
+
     AppCommand = enum :app_command, buffer
 
     define_prefix(:APPCOMMAND, AppCommand)

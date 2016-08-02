@@ -3,6 +3,7 @@ require 'win-ffi/user32'
 module WinFFI
   if WindowsVersion >= 8
     module User32
+      # https://msdn.microsoft.com/en-us/library/windows/desktop/hh802893(v=vs.85).aspx
       buffer = [
           :INTEGRATED_PEN, 0x00000001,
           :EXTERNAL_PEN,   0x00000002,

@@ -6,7 +6,7 @@ require 'win-ffi/user32/enum/window/message/peek_message_flag'
 require 'win-ffi/user32/enum/window/message/send_message_timeout_flag'
 require 'win-ffi/user32/enum/window/message/window_message'
 require 'win-ffi/user32/enum/window/message/queue_status_flag'
-require 'win-ffi/user32/enum/window/message/icon_type'
+require 'win-ffi/user32/enum/resource/icon/icon_type'
 require 'win-ffi/user32/enum/window/return/in_send_message_ex_return'
 
 require 'win-ffi/user32/struct/window/message/bsm_info'

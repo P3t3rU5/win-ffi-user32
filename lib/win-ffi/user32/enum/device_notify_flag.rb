@@ -2,20 +2,16 @@ require 'win-ffi/user32'
 
 module WinFFI
   module User32
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/aa363431(v=vs.85).aspx
     buffer = [
-      :WINDOW_HANDLE,  0x00000000, # The hRecipient parameter is a window_class handle.
-      :SERVICE_HANDLE, 0x00000001, # The hRecipient parameter is a service status handle.
+      :WINDOW_HANDLE,  0x00000000,
+      :SERVICE_HANDLE, 0x00000001,
     ]
 
-    if WindowsVersion >= :xp
-      buffer += [
-          # In addition, you can specify the following value.
-          :ALL_INTERFACE_CLASSES, 0x00000004, # Notifies the recipient of device interface events for all device
-          # interface classes. (The dbcc_classguid member is ignored.) This value can be used only if the
-          # dbch_devicetype member is DBT_DEVTYP_DEVICEINTERFACE.
-      ]
-    end
+    buffer += [:ALL_INTERFACE_CLASSES, 0x00000004,] if WindowsVersion >= :xp
 
     DeviceNotifyFlag = enum :device_notify_flag, buffer
+
+    define_prefix(:DEVICE_NOTIFY, DeviceNotifyFlag)
   end
 end

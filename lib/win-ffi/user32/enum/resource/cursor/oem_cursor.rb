@@ -2,7 +2,9 @@ require 'win-ffi/user32'
 
 module WinFFI
   module User32
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648395(v=vs.85).aspx
     OemCursor = enum :oem_cursor, [
+        :NORMAL,       32512,
         :ARROW,        32512,
         :IBEAM,        32513,
         :WAIT,         32514,

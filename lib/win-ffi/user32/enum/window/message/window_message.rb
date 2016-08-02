@@ -2,6 +2,8 @@ require 'win-ffi/user32'
 
 module WinFFI
   module User32
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ff468922(v=vs.85).aspx2
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ff468921(v=vs.85).aspx
     buffer = [
         :NULL,                   0x0000,
         :CREATE,                 0x0001,
@@ -19,12 +21,12 @@ module WinFFI
         :PAINT,                  0x000F,
         :CLOSE,                  0x0010,
         :QUERYENDSESSION,        0x0011,
-        :QUIT,                   0x0012,
         :QUERYOPEN,              0x0013,
+        :ENDSESSION,             0x0016,
+        :QUIT,                   0x0012,
         :ERASEBKGND,             0x0014,
         :SYSCOLORCHANGE,         0x0015,
-        :ENDSESSION,             0x0016,
-        :SYSTEMERROR,            0x0017,
+
         :SHOWWINDOW,             0x0018,
         :CTLCOLOR,               0x0019,
         :WININICHANGE,           0x001A,
@@ -96,8 +98,6 @@ module WinFFI
         :NCXBUTTONDOWN,          0x00AB,
         :NCXBUTTONUP,            0x00AC,
         :NCXBUTTONDBLCLK,        0x00AD,
-        :NCUAHDRAWCAPTION,       0x00AE,
-        :NCUAHDRAWFRAME,         0x00AF,
         :KEYFIRST,               0x0100,
         :KEYDOWN,                0x0100,
         :KEYUP,                  0x0101,
@@ -107,10 +107,11 @@ module WinFFI
         :SYSKEYUP,               0x0105,
         :SYSCHAR,                0x0106,
         :SYSDEADCHAR,            0x0107,
+
         :IME_STARTCOMPOSITION,   0x010D,
         :IME_ENDCOMPOSITION,     0x010E,
-        :IME_KEYLAST,            0x010F,
         :IME_COMPOSITION,        0x010F,
+        :IME_KEYLAST,            0x010F,
         :INITDIALOG,             0x0110,
         :COMMAND,                0x0111,
         :SYSCOMMAND,             0x0112,
@@ -119,16 +120,17 @@ module WinFFI
         :VSCROLL,                0x0115,
         :INITMENU,               0x0116,
         :INITMENUPOPUP,          0x0117,
+
         :MENUSELECT,             0x011F,
         :MENUCHAR,               0x0120,
         :ENTERIDLE,              0x0121,
 
         # WindowsCE
-        # :MENURBUTTONUP,          0x0122,
-        # :MENUDRAG,               0x0123,
-        # :MENUGETOBJECT,          0x0124,
-        # :UNINITMENUPOPUP,        0x0125,
-        # :MENUCOMMAND,            0x0126,
+        :MENURBUTTONUP,          0x0122,
+        :MENUDRAG,               0x0123,
+        :MENUGETOBJECT,          0x0124,
+        :UNINITMENUPOPUP,        0x0125,
+        :MENUCOMMAND,            0x0126,
 
         :CHANGEUISTATE,          0x0127,
         :UPDATEUISTATE,          0x0128,
@@ -164,6 +166,7 @@ module WinFFI
         :CAPTURECHANGED,         0x0215,
         :MOVING,                 0x0216,
         :POWERBROADCAST,         0x0218,
+
         :DEVICECHANGE,           0x0219,
         :MDICREATE,              0x0220,
         :MDIDESTROY,             0x0221,
@@ -191,10 +194,10 @@ module WinFFI
         :IME_KEYDOWN,            0x0290,
         :IME_KEYUP,              0x0291,
 
-        :NCMOUSEHOVER,           0x02A0,
         :MOUSEHOVER,             0x02A1,
-        :NCMOUSELEAVE,           0x02A2,
         :MOUSELEAVE,             0x02A3,
+        :NCMOUSEHOVER,           0x02A0,
+        :NCMOUSELEAVE,           0x02A2,
 
         :CUT,                    0x0300,
         :COPY,                   0x0301,
@@ -240,17 +243,22 @@ module WinFFI
         :DDE_LAST,               0x03E8,
 
         :USER,                   0x0400,
-        :TRAYICON,               0x0401,
-        :EM_GETBIDIOPTIONS,         0x04C9,
-        :APP,                    0x8000,
-    ]
-    buffer += WindowsVersion >= :xp ? [:UNICHAR, 0x0109, :KEYLAST, 0x0109] : [:UNICHAR, :KEYLAST, 0x0108]
+        :EM_GETBIDIOPTIONS,      0x04C9,
 
-    if WindowsVersion >= :vista
-      buffer += [:MOUSELAST, 0x020E]
-    elsif WindowsVersion >= 2000
-      buffer += [:MOUSELAST, 0x020D]
-    end
+        :RASDIALEVENT,           0xCCCD,
+
+        :APP,                    0x8000,
+
+        # not documented
+        :SYSTEMERROR,            0x0017,
+        :NCUAHDRAWCAPTION,       0x00AE,
+        :NCUAHDRAWFRAME,         0x00AF,
+
+        :GETHMENU,               0x01E1,
+    ]
+    buffer += WindowsVersion >= :xp ? [:UNICHAR, 0x0109, :KEYLAST, 0x0109] : [:KEYLAST, 0x0108]
+
+    buffer += (WindowsVersion >= :vista) ? [:MOUSELAST, 0x020E] : [:MOUSELAST, 0x020D]
 
     if WindowsVersion >= :xp
       buffer += [
@@ -264,7 +272,6 @@ module WinFFI
       ]
       if WindowsVersion >= :vista
         buffer += [
-            :MOUSEHWHEEL,                 0x020E,
             :DWMCOMPOSITIONCHANGED,       0x031E,
             :DWMNCRENDERINGCHANGED,       0x031F,
             :DWMCOLORIZATIONCOLORCHANGED, 0x0320,
@@ -275,7 +282,9 @@ module WinFFI
           buffer += [
               :GESTURE,                        0x0119,
               :GESTURENOTIFY,                  0x011A,
+
               :TOUCH,                          0x0240,
+
               :DPICHANGED,                     0x02E0,
               :DWMSENDICONICTHUMBNAIL,         0x0323,
               :DWMSENDICONICLIVEPREVIEWBITMAP, 0x0326,
@@ -298,6 +307,9 @@ module WinFFI
                 :TOUCHHITTESTING,         0x024D,
                 :POINTERWHEEL,            0x024E,
                 :POINTERHWHEEL,           0x024F,
+                :POINTERROUTEDTO,         0x0251,
+                :POINTERROUTEDAWAY,       0x0252,
+                :POINTERROUTEDRELEASED,   0x0253,
             ]
           end
         end
@@ -305,6 +317,8 @@ module WinFFI
     end
 
     WindowMessage = enum :window_message, buffer
+
+    MN_GETHMENU = 0x01E1
 
     define_prefix(:WM, WindowMessage)
   end

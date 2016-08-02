@@ -3,6 +3,7 @@ require 'win-ffi/user32'
 module WinFFI
   module User32
     # Static Control Constants
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/bb760773(v=vs.85).aspx
     buffer = [
         :LEFT,           0x00000000,
         :CENTER,         0x00000001,

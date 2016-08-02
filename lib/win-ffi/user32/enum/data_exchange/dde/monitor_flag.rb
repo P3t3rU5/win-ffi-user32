@@ -3,6 +3,7 @@ require 'win-ffi/user32'
 module WinFFI
   module User32
     # Callback filter flags for use with MONITOR apps - 0 implies no monitor callbacks.
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648771(v=vs.85).aspx
     MonitorFlag = enum :monitor_flag, [
         :HSZ_INFO,  0x01000000,
         :SENDMSGS,  0x02000000,

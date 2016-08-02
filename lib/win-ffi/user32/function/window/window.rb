@@ -3,20 +3,20 @@ require 'win-ffi/user32'
 require 'win-ffi/user32/typedef/hmenu'
 
 require 'win-ffi/user32/enum/color_type'
-require 'win-ffi/user32/enum/window/animate_window_flag'
-require 'win-ffi/user32/enum/window/get_window_flag'
-require 'win-ffi/user32/enum/window/set_window_pos_flag'
-require 'win-ffi/user32/enum/window/show_window_flag'
-require 'win-ffi/user32/enum/window/system_metrics_flag'
+require 'win-ffi/user32/enum/window/function/animate_window_flag'
+require 'win-ffi/user32/enum/window/function/get_window_flag'
+require 'win-ffi/user32/enum/window/function/set_window_pos_flag'
+require 'win-ffi/user32/enum/window/function/show_window_flag'
+require 'win-ffi/user32/enum/window/function/system_metrics_flag'
 require 'win-ffi/user32/enum/resource/menu/track_popup_menu_flag'
 require 'win-ffi/user32/enum/window/style/window_style'
 require 'win-ffi/user32/enum/window/style/window_style_ex'
-require 'win-ffi/user32/enum/window/get_ancestor_flag'
+require 'win-ffi/user32/enum/window/function/get_ancestor_flag'
 require 'win-ffi/user32/enum/window/message_filter'
 require 'win-ffi/user32/enum/window/message_filter_info'
-require 'win-ffi/user32/enum/window/window_display_affinity'
-require 'win-ffi/user32/enum/feedback_type'
-require 'win-ffi/user32/enum/window/child_window_from_point_ex_flag'
+require 'win-ffi/user32/enum/window/function/window_display_affinity'
+require 'win-ffi/user32/enum/interaction/feedback_type'
+require 'win-ffi/user32/enum/window/function/child_window_from_point_ex_flag'
 
 require 'win-ffi/core/struct/rect'
 require 'win-ffi/user32/struct/window/window/alt_tab_info'
@@ -112,33 +112,6 @@ module WinFFI
     #   _In_      UINT32 nHeight,
     #   _Out_     IInspectable **ppWindow)
     # attach_function 'CreateOwnedToolWindow', [:pointer, :string, :int, :int, :uint32, :uint32, :pointer], :void
-
-    class << self
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632679(v=vs.85).aspx
-      # HWND WINAPI CreateWindow(
-      #   _In_opt_ LPCTSTR   lpClassName,
-      #   _In_opt_ LPCTSTR   lpWindowName,
-      #   _In_     DWORD     dwStyle,
-      #   _In_     int       x,
-      #   _In_     int       y,
-      #   _In_     int       nWidth,
-      #   _In_     int       nHeight,
-      #   _In_opt_ HWND      hWndParent,
-      #   _In_opt_ HMENU     hMenu,
-      #   _In_opt_ HINSTANCE hInstance,
-      #   _In_opt_ LPVOID    lpParam)
-      def CreateWindow(lpClassName, lpWindowName, dwStyle, x, y, nWidth, nHeight, hWndParent, hMenu, hInstance, lpParam)
-        CreateWindowEx(0, lpClassName, lpWindowName, dwStyle, x, y, nWidth, nHeight, hWndParent, hMenu, hInstance, lpParam)
-      end
-
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633509(v=vs.85).aspx
-      # HWND WINAPI GetNextWindow(
-      #   _In_  HWND hWnd,
-      #   _In_  UINT wCmd )
-      def GetNextWindow(hWnd, wCmd)
-        GetWindow(hWnd, wCmd.is_a?(Symbol) ? GetWindowFlag[wCmd] : wCmd)
-      end
-    end
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632680(v=vs.85).aspx
     # HWND CreateWindowEx(

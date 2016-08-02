@@ -2,6 +2,7 @@ require 'win-ffi/user32'
 
 module WinFFI
   module User32
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/bb775988(v=vs.85).aspx
     ButtonState = enum :button_state, [
         :UNCHECKED,     0x0000,
         :CHECKED,       0x0001,

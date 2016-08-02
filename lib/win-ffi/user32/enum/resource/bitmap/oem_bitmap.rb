@@ -2,6 +2,7 @@ require 'win-ffi/user32'
 
 module WinFFI
   module User32
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/dd145033(v=vs.85).aspx
     OemBitmap = enum :oem_bitmap, [
         :CLOSE,       32754,
         :UPARROW,     32753,

@@ -3,6 +3,7 @@ require 'win-ffi/user32'
 module WinFFI
   module User32
     # Scroll bar messages
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ff486023(v=vs.85).aspx
     buffer = [
         :SETPOS,         0x00E0,
         :GETPOS,         0x00E1,

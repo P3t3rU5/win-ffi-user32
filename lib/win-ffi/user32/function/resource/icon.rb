@@ -1,6 +1,6 @@
 require 'win-ffi/user32'
 
-require 'win-ffi/core/enum/load_resource_flags'
+require 'win-ffi/user32/enum/resource/load_resource_flag'
 require 'win-ffi/user32/enum/resource/icon/draw_icon_ex_flag'
 
 require 'win-ffi/user32/struct/resource/icon/icon_info'
@@ -39,7 +39,7 @@ module WinFFI
     #   _In_  int cxDesired,
     #   _In_  int cyDesired,
     #   _In_  UINT uFlags )
-    attach_function 'CreateIconFromResourceEx', [:pointer, :dword, :bool, :dword, :int, :int, LoadResourceFlags], :hicon
+    attach_function 'CreateIconFromResourceEx', [:pointer, :dword, :bool, :dword, :int, :int, LoadResourceFlag], :hicon
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648062(v=vs.85).aspx
     # HICON WINAPI CreateIconIndirect( _In_  PICONINFO piconinfo )
@@ -95,7 +95,7 @@ module WinFFI
     #   _In_  int cxDesired,
     #   _In_  int cyDesired,
     #   _In_  UINT Flags )
-    attach_function 'LookupIconIdFromDirectoryEx', [:pointer, :bool, :int, :int, LoadResourceFlags], :int
+    attach_function 'LookupIconIdFromDirectoryEx', [:pointer, :bool, :int, :int, LoadResourceFlag], :int
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648075(v=vs.85).aspx
     # This function is not intended for general use. It may be altered or unavailable in subsequent versions of Windows.
@@ -108,7 +108,7 @@ module WinFFI
     #   _Out_opt_  UINT *piconid,
     #   _In_       UINT nIcons,
     #   _In_       UINT flags )
-    encoded_function 'PrivateExtractIcons', [:string, :int, :int, :int, :hicon, :pointer, :uint, LoadResourceFlags], :uint
+    encoded_function 'PrivateExtractIcons', [:string, :int, :int, :int, :hicon, :pointer, :uint, LoadResourceFlag], :uint
 
     if WindowsVersion >= :vista
 

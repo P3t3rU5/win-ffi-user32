@@ -3,8 +3,8 @@ require 'win-ffi/user32'
 module WinFFI
   if WindowsVersion >= 8
     module User32
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/hh448795(v=vs.85).aspx
       # Identifiers for message input source device type.
+      # https://msdn.microsoft.com/en-us/library/windows/desktop/hh448795(v=vs.85).aspx
       buffer = [
           :UNAVAILABLE, 0x00000000,      # not specified
           :KEYBOARD,    0x00000001,      # from keyboard

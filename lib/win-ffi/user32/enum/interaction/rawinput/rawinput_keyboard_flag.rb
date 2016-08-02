@@ -4,7 +4,7 @@ module WinFFI
   if WindowsVersion >= :xp
     module User32
       # Define the keyboard input data Flags.
-      RawInputKeybpardFlag = enum :raw_input_keybpard_flag, [
+      RawInputKeybpardFlag = enum :rawinput_keybpard_flag, [
           :MAKE,            0x00,
           :BREAK,           0x01,
           :E0,              0x02,

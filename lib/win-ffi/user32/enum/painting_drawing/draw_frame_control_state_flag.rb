@@ -2,6 +2,7 @@ require 'win-ffi/user32'
 
 module WinFFI
   module User32
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/dd162480(v=vs.85).aspx
     DrawFrameControlStateFlag = enum :draw_frame_control_state_flag, [
         :CAPTIONCLOSE,   0x0000,
         :CAPTIONMIN,     0x0001,

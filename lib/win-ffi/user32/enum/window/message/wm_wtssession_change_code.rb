@@ -3,6 +3,7 @@ require 'win-ffi/user32'
 module WinFFI
   module User32
     # codes passed in WPARAM for WM_WTSSESSION_CHANGE
+    # https://msdn.microsoft.com/en-us/library/aa383828(v=vs.85).aspx
     if WindowsVersion >= :xp
       WmWtssessionChangeCode = enum :wm_wtssession_change_code, [
           :CONSOLE_CONNECT,        0x1,

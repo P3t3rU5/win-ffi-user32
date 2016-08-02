@@ -83,5 +83,14 @@ module WinFFI
     #  _In_  BOOL bFlag )
     attach_function 'WINNLSEnableIME', [:hwnd, :bool], :bool
 
+    require 'win-ffi/user32/typedef/hcursor'
+
+    # DWORD DragObject(
+    #   _In_ HWND hwndParent,
+    #   _In_ HWND hwndFrom,
+    #   _In_ UINT fmt,
+    #   _In_ ULONG_PTR data,
+    #   _In_opt_ HCURSOR hcur)
+    attach_function 'DragObject', [:hwnd, :hwnd, :uint, :ulong, :hcursor], :dword
   end
 end

@@ -3,6 +3,7 @@ require 'win-ffi/user32'
 module WinFFI
   module User32
     # conversation status bits (fsStatus)
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648731(v=vs.85).aspx
     ConversationStatus = enum :conversation_status, [
         :CONNECTED,  0x0001,
         :ADVISE,     0x0002,

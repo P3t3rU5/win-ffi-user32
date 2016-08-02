@@ -1,4 +1,4 @@
-require 'win-ffi/user32/enum/window/update_layered_window_flag'
+require 'win-ffi/user32/enum/window/function/update_layered_window_flag'
 
 require 'win-ffi/core/struct/point'
 require 'win-ffi/core/struct/size'

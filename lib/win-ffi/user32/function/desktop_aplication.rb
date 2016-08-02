@@ -40,7 +40,7 @@ module WinFFI
 
     if WindowsVersion >= :xp
 
-      require 'win-ffi/user32/enum/set_last_error_ex_code'
+      require 'win-ffi/user32/enum/error/set_last_error_ex_code'
 
       # Error
       # https://msdn.microsoft.com/en-us/library/windows/desktop/ms680629(v=vs.85).aspx

@@ -2,6 +2,7 @@ require 'win-ffi/user32'
 
 module WinFFI
   module User32
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648072(v=vs.85).aspx
     buffer = [
         :SAMPLE,          32512,
         :HAND,            32513,
@@ -14,11 +15,7 @@ module WinFFI
         :INFORMATION,     32516
     ]
 
-    if WindowsVersion >= :vista
-      buffer += [
-          :SHIELD, 32518
-      ]
-    end
+    buffer += [:SHIELD, 32518] if WindowsVersion >= :vista
 
     OemIcon = enum :oem_icon, buffer
 

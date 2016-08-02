@@ -3,6 +3,7 @@ require 'win-ffi/user32'
 module WinFFI
   module User32
     # User Button Notification Codes
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ff485887(v=vs.85).aspx
     ButtonNotification = enum :button_notification, [
         :CLICKED,       0,
         :PAINT,         1,

@@ -3,6 +3,7 @@ require 'win-ffi/user32'
 module WinFFI
   module User32
     # GetDCEx() flags
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/dd144873(v=vs.85).aspx
     GetDCExFlag = enum :get_dc_ex_flag, [
         :WINDOW,           0x00000001,
         :CACHE,            0x00000002,

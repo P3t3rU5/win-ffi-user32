@@ -3,6 +3,7 @@ require 'win-ffi/user32'
 module WinFFI
   module User32
     # Desktop-specific access flags
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms682575(v=vs.85).aspx
     DesktopAccessFlag = enum :desktop_access_flag, [
         :READOBJECTS,     0x0001,
         :CREATEWINDOW,    0x0002,

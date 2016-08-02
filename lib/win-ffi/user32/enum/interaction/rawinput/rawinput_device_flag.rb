@@ -11,7 +11,7 @@ module WinFFI
         :CAPTUREMOUSE, 0x00000200,  # effective when mouse nolegacy is specified, otherwise it would be an error
         :NOHOTKEYS,    0x00000200,  # effective for keyboard.
         :APPKEYS,      0x00000400,  # effective for keyboard.
-        :EXMODEMASK,   0x000000F0
+        :EXMODEMASK,   0x000000F0,
     ]
     buffer += [
         :EXINPUTSINK,       0x00001000,

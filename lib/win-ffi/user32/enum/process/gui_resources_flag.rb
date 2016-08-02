@@ -14,6 +14,10 @@ module WinFFI
       ]
     end
 
+    # The GUI object type
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms683192(v=vs.85).aspx
     GuiResourcesFlag = enum :gui_resources_flag, buffer
+
+    define_prefix(:GR, GuiResourcesFlag)
   end
 end

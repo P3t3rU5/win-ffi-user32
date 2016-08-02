@@ -5,6 +5,7 @@ require 'win-ffi/user32/enum/window/message/queue_status_flag'
 module WinFFI
   module User32
     # PeekMessage() Options
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644943(v=vs.85).aspx
     PeekMessageFlag = enum :peek_message_flag, [
       :NOREMOVE, 0x0000, # Messages are not removed from the queue after processing by PeekMessage.
       :REMOVE,   0x0001, # Messages are removed from the queue after processing by PeekMessage.

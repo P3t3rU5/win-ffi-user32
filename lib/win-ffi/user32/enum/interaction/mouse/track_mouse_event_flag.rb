@@ -2,6 +2,7 @@ require 'win-ffi/user32'
 
 module WinFFI
   module User32
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms645604(v=vs.85).aspx
     TrackMouseEventFlag = enum :track_mouse_event_flag, [
         :HOVER,     0x00000001,
         :LEAVE,     0x00000002,

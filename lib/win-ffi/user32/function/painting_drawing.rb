@@ -44,7 +44,7 @@ module WinFFI
     #   _Inout_  LPRECT qrc,
     #   _In_     UINT edge,
     #   _In_     UINT grfFlags )
-    attach_function 'DrawEdge', [:hdc, RECT.ptr, EdgeFlag, BorderFlag], :bool
+    attach_function 'DrawEdge', [:hdc, RECT.ptr, Gdi32::EdgeFlag, BorderFlag], :bool
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/dd162479(v=vs.85).aspx
     # BOOL DrawFocusRect(

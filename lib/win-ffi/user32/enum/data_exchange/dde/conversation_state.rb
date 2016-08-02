@@ -3,6 +3,7 @@ require 'win-ffi/user32'
 module WinFFI
   module User32
     # conversation states (usState)
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648731(v=vs.85).aspx
     ConversationState = enum :conversation_state, [
         :NULL,            0,  # quiescent states
         :INCOMPLETE,      1,

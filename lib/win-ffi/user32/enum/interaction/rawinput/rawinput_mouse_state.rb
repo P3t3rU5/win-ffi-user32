@@ -4,19 +4,20 @@ module WinFFI
   if WindowsVersion >= :xp
     module User32
       # Define the mouse button state indicators.
+      # https://msdn.microsoft.com/en-us/library/windows/desktop/ms645578%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396
       buffer = [
-          :BUTTON_1_DOWN,      0x0001,
           :LEFT_BUTTON_DOWN,   0x0001,  # Left Button changed to down.
-          :BUTTON_1_UP,        0x0002,
           :LEFT_BUTTON_UP,     0x0002,  # Left Button changed to up.
-          :BUTTON_2_DOWN,      0x0004,
           :RIGHT_BUTTON_DOWN,  0x0004,  # Right Button changed to down.
-          :BUTTON_2_UP,        0x0008,
           :RIGHT_BUTTON_UP,    0x0008,  # Right Button changed to up.
-          :BUTTON_3_DOWN,      0x0010,
           :MIDDLE_BUTTON_DOWN, 0x0010,  # Middle Button changed to down.
-          :BUTTON_3_UP,        0x0020,
           :MIDDLE_BUTTON_UP,   0x0020,  # Middle Button changed to up.
+          :BUTTON_1_DOWN,      0x0001,
+          :BUTTON_1_UP,        0x0002,
+          :BUTTON_2_DOWN,      0x0004,
+          :BUTTON_2_UP,        0x0008,
+          :BUTTON_3_DOWN,      0x0010,
+          :BUTTON_3_UP,        0x0020,
           :BUTTON_4_DOWN,      0x0040,
           :BUTTON_4_UP,        0x0080,
           :BUTTON_5_DOWN,      0x0100,

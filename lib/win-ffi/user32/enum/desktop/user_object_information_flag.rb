@@ -2,6 +2,7 @@ require 'win-ffi/user32'
 
 module WinFFI
   module User32
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms683238(v=vs.85).aspx
     buffer = [
         :FLAGS,    1, # The handle flags. The pvInfo parameter must point to a USEROBJECTFLAGS structure.
         :NAME,     2, # The name of the object, as a string.
@@ -10,6 +11,7 @@ module WinFFI
         # object. If no user is associated with the object, the value returned in the buffer pointed to by
         # lpnLengthNeeded is zero. Note that SID is a variable length structure. You will usually make a call to
         # GetUserObjectInformation to determine the length of the SID before retrieving its value.
+        :TIMERPROC_EXCEPTION_SUPPRESSION, 7
     ]
 
     if WindowsVersion >= :vista

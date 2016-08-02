@@ -4,7 +4,7 @@ module WinFFI
   module User32
     if WindowsVersion >= 8
 
-      require 'win-ffi/user32/enum/feedback_type'
+      require 'win-ffi/user32/enum/interaction/feedback_type'
 
       # https://msdn.microsoft.com/en-us/library/windows/desktop/hh802870(v=vs.85).aspx
       # BOOL WINAPI GetWindowFeedbackSetting(

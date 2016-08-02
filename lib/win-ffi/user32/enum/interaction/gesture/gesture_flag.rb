@@ -4,6 +4,7 @@ module WinFFI
   if WindowsVersion >= 7
     module User32
       # Gesture flags - GESTUREINFO.dwFlags
+      # https://msdn.microsoft.com/en-us/library/windows/desktop/dd353232(v=vs.85).aspx
       GestureFlag = enum :gesture_flag, [
           :BEGIN,   0x00000001,
           :INERTIA, 0x00000002,

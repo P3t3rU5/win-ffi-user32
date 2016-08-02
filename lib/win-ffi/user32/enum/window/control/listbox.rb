@@ -6,6 +6,7 @@ module WinFFI
     # Listbox messages
     buffer = [
         # Listbox Return Values
+        :CTLCODE,   0,
         :OKAY,      0,
         :ERR,      -1,
         :ERRSPACE, -2,
@@ -50,7 +51,8 @@ module WinFFI
         :GETLOCALE,           0x01A6,
         :SETCOUNT,            0x01A7,
         :INITSTORAGE,         0x01A8,
-        :ITEMFROMPOINT,       0x01A9
+        :ITEMFROMPOINT,       0x01A9,
+        :MULTIPLEADDSTRING,   0x01B1
     ]
 
 #if defined(_WIN32_WCE) && (_WIN32_WCE >= 0x0400)
@@ -59,7 +61,7 @@ module WinFFI
 #elif defined(_WIN32_WCE) && (_WIN32_WCE >= 0x0400)
 # :MSGMAX,              0x01B1,
 
-    buffer += WindowsVersion > :xp ? [:GETLISTBOXINFO, 0x01B2, :MSGMAX, 0x01B3] : [:MSGMAX, 0x01B0]
+    buffer += WindowsVersion >= :xp ? [:GETLISTBOXINFO, 0x01B2, :MSGMAX, 0x01B3] : [:MSGMAX, 0x01B0]
 
     ListBox = enum :list_box_message, buffer
     define_prefix(:LB, ListBox)

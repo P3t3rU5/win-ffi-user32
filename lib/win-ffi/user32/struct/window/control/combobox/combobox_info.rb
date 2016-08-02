@@ -2,14 +2,15 @@ require 'win-ffi/core/struct/rect'
 
 module WinFFI
   module User32
+    # Combobox information
     class COMBOBOXINFO < FFIStruct
       layout :cbSize,      :dword,
-             :rcItem,      RECT,
-             :rcButton,    RECT,
+             :rcItem,        RECT,
+             :rcButton,      RECT,
              :stateButton, :dword,
-             :hwndCombo,   :hwnd,
-             :hwndItem,    :hwnd,
-             :hwndList,    :hwnd
+             :hwndCombo,    :hwnd,
+             :hwndItem,     :hwnd,
+             :hwndList,     :hwnd
 
       def initialize
         super

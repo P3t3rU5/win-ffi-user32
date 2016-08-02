@@ -3,6 +3,7 @@ require 'win-ffi/user32/enum/data_exchange/dde/transaction_class'
 
 module WinFFI
   module User32
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648731(v=vs.85).aspx
     TransactionType = enum :transaction_type, [
         :ERROR,           0x8002,
         :ADVDATA,         0x4010,

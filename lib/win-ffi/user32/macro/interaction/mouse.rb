@@ -37,6 +37,7 @@ module WinFFI
       end
 
       # https://msdn.microsoft.com/en-us/library/windows/desktop/ms646254(v=vs.85).aspx
+      #define GET_WHEEL_DELTA_WPARAM(wParam)  ((short)HIWORD(wParam))
       def GET_WHEEL_DELTA_WPARAM(wParam)
         HIWORD(wParam)
       end

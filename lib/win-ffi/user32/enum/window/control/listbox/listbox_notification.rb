@@ -3,7 +3,7 @@ require 'win-ffi/user32'
 module WinFFI
   module User32
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ff485968(v=vs.85).aspx
-    ListBoxNotification = enum :list_box_notification, [
+    ListBoxNotification = enum :listbox_notification, [
         :ERRSPACE,  -2,
         :SELCHANGE,  1,
         :DBLCLK,     2,

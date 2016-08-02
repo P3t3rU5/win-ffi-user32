@@ -2,8 +2,8 @@ module WinFFI
   module User32
     if WindowsVersion >= 8
 
-      require 'win-ffi/user32/enum/interaction/pen_flag'
-      require 'win-ffi/user32/enum/interaction/pen_mask'
+      require 'win-ffi/user32/enum/interaction/pen/pen_flag'
+      require 'win-ffi/user32/enum/interaction/pen/pen_mask'
 
       require 'win-ffi/user32/struct/interaction/pointer/pointer_info'
 

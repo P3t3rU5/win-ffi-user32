@@ -2,6 +2,7 @@ require 'win-ffi/user32'
 
 module WinFFI
   module User32
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ff485901(v=vs.85).aspx
     buffer =  [
         # Combo Box return Values
         :OKAY,                       0,

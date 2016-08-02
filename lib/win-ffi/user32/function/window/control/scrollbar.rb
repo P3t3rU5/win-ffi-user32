@@ -4,7 +4,7 @@ module WinFFI
 
     require 'win-ffi/user32/typedef/hrgn'
 
-    require 'win-ffi/user32/enum/window/control/enable_scrollbar_flag'
+    require 'win-ffi/user32/enum/window/control/scrollbar/enable_scrollbar_flag'
     require 'win-ffi/user32/enum/window/control/scrollbar'
     require 'win-ffi/user32/enum/window/control/scroll_window_flag'
     require 'win-ffi/user32/enum/window/control/system_object_id'

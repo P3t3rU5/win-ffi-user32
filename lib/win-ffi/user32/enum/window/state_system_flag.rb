@@ -2,6 +2,7 @@ require 'win-ffi/user32'
 
 module WinFFI
   module User32
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/dd373609(v=vs.85).aspx
     if WindowsVersion >= :vista
       StateSystemFlag = enum :state_system_flag, [
           :UNAVAILABLE,     0x00000001, # Disabled; The element is unavailable.
@@ -37,6 +38,8 @@ module WinFFI
           :PROTECTED,       0x20000000, # access to this is restricted
           :VALID,           0x3FFFFFFF,
       ]
+
+      define_prefix(:STATE_SYSTEM, StateSystemFlag)
     end
   end
 end

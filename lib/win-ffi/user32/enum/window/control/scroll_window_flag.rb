@@ -2,6 +2,7 @@ require 'win-ffi/user32'
 
 module WinFFI
   module User32
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/bb787593(v=vs.85).aspx
     buffer = [
        :SCROLLCHILDREN, 0x0001, # Scroll children within *lprcScroll.
        :INVALIDATE,     0x0002, # Invalidate after scrolling

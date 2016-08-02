@@ -3,6 +3,7 @@ require 'win-ffi/user32'
 module WinFFI
   module User32
     # Flags for ChangeDisplaySettings
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/dd183413(v=vs.85).aspx
     buffer = [
         :UPDATEREGISTRY,  0x00000001,
         :TEST,            0x00000002,

@@ -2,6 +2,7 @@ require 'win-ffi/user32'
 
 module WinFFI
   module User32
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648065(v=vs.85).aspx
     buffer = [
         :MASK,         0x0001,
         :IMAGE,        0x0002,

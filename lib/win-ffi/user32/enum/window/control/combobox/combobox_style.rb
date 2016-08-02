@@ -2,7 +2,9 @@ require 'win-ffi/user32'
 
 module WinFFI
   module User32
-    ComboBoxStyle = enum :combo_box_style, [
+    # Combo Box styles
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/bb775796(v=vs.85).aspx
+    ComboBoxStyle = enum :combobox_style, [
         :SIMPLE,            0x0001,
         :DROPDOWN,          0x0002,
         :DROPDOWNLIST,      0x0003,

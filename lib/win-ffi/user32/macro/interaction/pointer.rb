@@ -1,4 +1,4 @@
-require 'win-ffi/user32/enum/interaction/pointer/pointer_message_flag'
+require 'win-ffi/user32/enum/interaction/pointer/pointer_flag'
 require 'win-ffi/core/macro/util'
 
 module WinFFI
@@ -13,14 +13,15 @@ module WinFFI
         loword(wParam)
       end
 
+      # Macros to retrieve information from pointer input message parameters
       #define IS_POINTER_FLAG_SET_WPARAM(wParam, flag)    (((DWORD)HIWORD(wParam) & (flag)) == (flag))
       def IS_POINTER_FLAG_SET_WPARAM(wParam, flag)
-        hiword(wParam) & PointerMessageFlag[flag] == PointerMessageFlag[flag]
+        hiword(wParam) & PointerMessageFlag[flag] == PointerFlag[flag]
       end
 
-      PointerMessageFlag.symbols.each do |flag|
+      PointerFlag.symbols.each do |flag|
         define_method("IS_POINTER_#{flag}_WPARAM", ->(wParam) do
-          hiword(wParam) & PointerMessageFlag[flag] == PointerMessageFlag[flag]
+          hiword(wParam) & PointerFlag[flag] == PointerFlag[flag]
         end)
       end
     end

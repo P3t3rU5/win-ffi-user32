@@ -1,4 +1,4 @@
-require 'win-ffi/user32/enum/display_device_flag'
+require 'win-ffi/gdi32/enum/display_device_flag'
 
 module WinFFI
   module User32
@@ -6,7 +6,7 @@ module WinFFI
       layout :cb,           :dword,
              :DeviceName,   WideInlineString.new(32),
              :DeviceString, WideInlineString.new(128),
-             :StateFlags,   DisplayDeviceFlag,
+             :StateFlags,   Gdi32::DisplayDeviceFlag,
              :DeviceID,     WideInlineString.new(128),
              :DeviceKey,    WideInlineString.new(128)
 

@@ -1,6 +1,7 @@
 require 'win-ffi/user32'
 
 require 'win-ffi/core/struct/rect'
+require 'win-ffi/core/struct/point'
 
 module WinFFI
   module User32
@@ -45,7 +46,7 @@ module WinFFI
     # BOOL PtInRect(
     #   _In_  const RECT *lprc,
     #   _In_  POINT pt )
-    attach_function 'PtInRect', [RECT.ptr, POINT], :bool
+    attach_function 'PtInRect', [RECT.ptr, POINT.ptr], :bool
 
     # https://msdn.microsoft.com/en-us/library/dd145085/
     # BOOL SetRect(

@@ -3,6 +3,7 @@ require 'win-ffi/user32'
 module WinFFI
   module User32
     # Scroll Bar Styles
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/bb787533(v=vs.85).aspx
     ScrollBarStyle = enum :scroll_bar_style, [
         :HORZ,                    0x0000,
         :VERT,                    0x0001,
@@ -15,5 +16,7 @@ module WinFFI
         :SIZEBOX,                 0x0008,
         :SIZEGRIP,                0x0010,
     ]
+
+    define_prefix(:SBS, ScrollBarStyle)
   end
 end

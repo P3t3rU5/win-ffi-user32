@@ -1,7 +1,7 @@
 require 'win-ffi/user32'
 
-require 'win-ffi/user32/enum/window/system_parameters_info_action'
-require 'win-ffi/user32/enum/window/system_metrics_flag'
+require 'win-ffi/user32/enum/window/function/system_parameters_info_action'
+require 'win-ffi/user32/enum/window/function/system_metrics_flag'
 
 module WinFFI
   module User32

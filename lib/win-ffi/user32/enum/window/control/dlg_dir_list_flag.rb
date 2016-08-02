@@ -3,6 +3,8 @@ require 'win-ffi/user32'
 module WinFFI
   module User32
     # DlgDirList, DlgDirListComboBox flags values
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/bb761366(v=vs.85).aspx
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/bb775935(v=vs.85).aspx
     DlgDirListFlag = enum :dlg_dir_list_flag, [
         :READWRITE, 0x0000,
         :READONLY,  0x0001,

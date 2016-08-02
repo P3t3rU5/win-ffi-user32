@@ -3,6 +3,7 @@ require 'win-ffi/user32'
 module WinFFI
   module User32
     # Callback filter flags for use with standard apps.
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648757(v=vs.85).aspx
     CallbackFilterFlag = enum :callback_filter_flag, [
         :FAIL_SELFCONNECTIONS,  0x00001000,
         :FAIL_CONNECTIONS,      0x00002000,

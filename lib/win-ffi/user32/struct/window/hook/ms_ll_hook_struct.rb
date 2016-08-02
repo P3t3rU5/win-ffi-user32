@@ -1,4 +1,4 @@
-require 'win-ffi/user32/enum/window/hook/xbutton'
+require 'win-ffi/user32/enum/interaction/mouse/xbutton'
 require 'win-ffi/user32/enum/window/hook/low_level_mouse_hook_flag'
 
 require 'win-ffi/core/struct/point'

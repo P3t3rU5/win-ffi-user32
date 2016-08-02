@@ -3,7 +3,7 @@ require 'win-ffi/user32'
 require 'win-ffi/core/struct/rect'
 require 'win-ffi/core/struct/point'
 
-require 'win-ffi/user32/enum/monitor'
+require 'win-ffi/user32/enum/multiple_display_monitors/monitor_from_point_flag'
 
 require 'win-ffi/user32/struct/info/monitor_info'
 
@@ -38,18 +38,18 @@ module WinFFI
     # HMONITOR MonitorFromPoint(
     #   _In_  POINT pt,
     #   _In_  DWORD dwFlags )
-    attach_function 'MonitorFromPoint', [POINT.ptr(:in), Monitor], :hmonitor
+    attach_function 'MonitorFromPoint', [POINT.ptr(:in), MonitorFromPointFlag], :hmonitor
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/dd145062(v=vs.85).aspx
     # HMONITOR MonitorFromRect(
     #   _In_  LPCRECT lprc,
     #   _In_  DWORD dwFlags )
-    attach_function 'MonitorFromRect', [RECT.ptr(:in), Monitor], :hmonitor
+    attach_function 'MonitorFromRect', [RECT.ptr(:in), MonitorFromPointFlag], :hmonitor
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/dd145064(v=vs.85).aspx
     # HMONITOR MonitorFromWindow(
     #   _In_  HWND hwnd,
     #   _In_  DWORD dwFlags )
-    attach_function 'MonitorFromWindow', [:hwnd, Monitor], :hmonitor
+    attach_function 'MonitorFromWindow', [:hwnd, MonitorFromPointFlag], :hmonitor
   end
 end

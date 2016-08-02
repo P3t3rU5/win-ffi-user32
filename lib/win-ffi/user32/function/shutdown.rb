@@ -34,12 +34,6 @@ module WinFFI
         #   _Inout_    DWORD *pcchBuff )
         attach_function 'ShutdownBlockReasonQuery', [:hwnd , :buffer_out, :buffer_inout], :bool
       end
-
-      class << self
-        def self.ExitWindows
-          ExitWindowsEx(:LOGOFF, 0xFFFFFFFF)
-        end
-      end
     end
   end
 end

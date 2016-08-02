@@ -3,6 +3,7 @@ require 'win-ffi/user32'
 module WinFFI
   module User32
     # RedrawWindow() flags
+    # https://msdn.microsoft.com/en-us/library/dd162911(v=vs.85).aspx
     RedrawWindowFlag = enum :redraw_window_flag, [
         :INVALIDATE,      0x0001,
         :INTERNALPAINT,   0x0002,
@@ -18,6 +19,6 @@ module WinFFI
         :NOFRAME,         0x0800
     ]
 
-    define_prefix(:RDW,  RedrawWindowFlag)
+    define_prefix(:RDW, RedrawWindowFlag)
   end
 end

@@ -2,6 +2,7 @@ require 'win-ffi/user32'
 
 module WinFFI
   module User32
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/aa376868(v=vs.85).aspx
     buffer = [
         :LOGOFF,          0x00000000,
         :SHUTDOWN,        0x00000001,

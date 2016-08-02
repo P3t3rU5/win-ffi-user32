@@ -1,6 +1,6 @@
 require 'win-ffi/user32'
 
-require 'win-ffi/core/enum/load_resource_flags'
+require 'win-ffi/user32/enum/resource/load_resource_flag'
 require 'win-ffi/user32/enum/resource/bitmap/oem_bitmap'
 require 'win-ffi/user32/enum/resource/cursor/oem_cursor'
 require 'win-ffi/user32/enum/resource/icon/oem_icon'
@@ -15,7 +15,7 @@ module WinFFI
     #   _In_  int cxDesired,
     #   _In_  int cyDesired,
     #   _In_  UINT fuFlags )
-    attach_function 'CopyImage', [:handle, Image, :int, :int, LoadResourceFlags], :handle
+    attach_function 'CopyImage', [:handle, Image, :int, :int, LoadResourceFlag], :handle
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648045(v=vs.85).aspx
     # HANDLE LoadImage(

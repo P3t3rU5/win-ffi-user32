@@ -3,9 +3,9 @@ require 'win-ffi/user32'
 module WinFFI
   module User32
     # Button Control Styles
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/bb775951(v=vs.85).aspx
     ButtonStyle = enum :button_style, [
       :PUSHBUTTON,       0x00000000,
-      :TEXT,             0x00000000,
       :DEFPUSHBUTTON,    0x00000001,
       :CHECKBOX,         0x00000002,
       :AUTOCHECKBOX,     0x00000003,
@@ -18,8 +18,8 @@ module WinFFI
       :PUSHBOX,          0x0000000A,
       :OWNERDRAW,        0x0000000B,
       :TYPEMASK,         0x0000000F,
-      :RIGHTBUTTON,      0x00000020,
       :LEFTTEXT,         0x00000020,
+      :TEXT,             0x00000000,
       :ICON,             0x00000040,
       :BITMAP,           0x00000080,
       :LEFT,             0x00000100,
@@ -31,7 +31,8 @@ module WinFFI
       :PUSHLIKE,         0x00001000,
       :MULTILINE,        0x00002000,
       :NOTIFY,           0x00004000,
-      :FLAT,             0x00008000
+      :FLAT,             0x00008000,
+      :RIGHTBUTTON,      0x00000020,
     ]
 
     define_prefix(:BS, ButtonStyle)

@@ -3,6 +3,7 @@ require 'win-ffi/user32'
 module WinFFI
   module User32
     # InSendMessageEx return value
+    # https://msdn.microsoft.com/en-us/library/ms644942(v=vs.85).aspx
     InSendMessageExReturn = enum :in_send_message_ex_return, [
         :NOSEND,   0x00000000,
         :SEND,     0x00000001, # The message was sent using the SendMessage or SendMessageTimeout function. If

@@ -1,6 +1,6 @@
 require 'win-ffi/user32'
 
-require 'win-ffi/user32/enum/window/timer_value_coalescing'
+require 'win-ffi/user32/enum/window/function/timer_value_coalescing'
 
 module WinFFI
   module User32

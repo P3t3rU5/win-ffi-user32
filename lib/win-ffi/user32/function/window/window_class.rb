@@ -1,8 +1,7 @@
 require 'win-ffi/user32'
 
-require 'win-ffi/user32/enum/window/get_class_long_flag'
-require 'win-ffi/user32/enum/window/get_window_long_flag'
-require 'win-ffi/user32/enum/window/window_long'
+require 'win-ffi/user32/enum/window/function/get_class_long_flag'
+require 'win-ffi/user32/enum/window/function/window_long'
 
 require 'win-ffi/user32/struct/window/window_class/wndclass'
 require 'win-ffi/user32/struct/window/window_class/wndclassex'
@@ -47,7 +46,7 @@ module WinFFI
     # LONG WINAPI GetWindowLong(
     #   __in  HWND hWnd,
     #   __in  int nIndex)
-    encoded_function 'GetWindowLong', [:hwnd, GetWindowLongFlag], :long
+    encoded_function 'GetWindowLong', [:hwnd, WindowLong], :long
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633583(v=vs.85).aspx
     # The function is provided only for compatibility with 16-bit versions of Windows
@@ -83,7 +82,7 @@ module WinFFI
     #   __in  HWND hWnd,
     #   __in  int nIndex,
     #   __in  LONG dwNewLong)
-    encoded_function 'SetWindowLong', [:hwnd, GetWindowLongFlag, :long], :long
+    encoded_function 'SetWindowLong', [:hwnd, WindowLong, :long], :long
 
     # WORD SetWindowWord(
     #   _In_ HWND hWnd,
@@ -122,7 +121,7 @@ module WinFFI
       #   __in  HWND hWnd,
       #   __in  int nIndex,
       #   __in  LONG_PTR dwNewLong)
-      encoded_function 'SetWindowLongPtr',  [:hwnd, GetWindowLongFlag, :long], :long
+      encoded_function 'SetWindowLongPtr',  [:hwnd, WindowLong, :long], :long
     end
   end
 end

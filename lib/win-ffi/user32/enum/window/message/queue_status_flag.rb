@@ -3,18 +3,20 @@ require 'win-ffi/user32'
 module WinFFI
   module User32
     # Queue status flags for GetQueueStatus() and MsgWaitForMultipleObjects()
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644940(v=vs.85).aspx
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms684242(v=vs.85).aspx
     buffer = [
         :KEY,            0x0001, # A WM_KEYUP, WM_KEYDOWN, WM_SYSKEYUP, or WM_SYSKEYDOWN message is in the queue.
         :MOUSEMOVE,      0x0002, # A WM_MOUSEMOVE message is in the queue.
         :MOUSEBUTTON,    0x0004, # A mouse-button message (WM_LBUTTONUP, WM_RBUTTONDOWN, and so on).
-        :MOUSE,          0x0006, #:MOUSEMOVE | :MOUSEBUTTON, A WM_MOUSEMOVE message or mouse-button message
-        # (WM_LBUTTONUP, WM_RBUTTONDOWN, and so on).
         :POSTMESSAGE,    0x0008, # A posted message (other than those listed here) is in the queue.
+        # (WM_LBUTTONUP, WM_RBUTTONDOWN, and so on).
         :TIMER,          0x0010, # A WM_TIMER message is in the queue.
         :PAINT,          0x0020, # A WM_PAINT message is in the queue.
         :SENDMESSAGE,    0x0040, # A message sent by another thread or application is in the queue.
         :HOTKEY,         0x0080, # A WM_HOTKEY message is in the queue.
         :ALLPOSTMESSAGE, 0x0100, # A posted message (other than those listed here) is in the queue.
+        :MOUSE,          0x0006, #:MOUSEMOVE | :MOUSEBUTTON, A WM_MOUSEMOVE message or mouse-button message
     ]
 
     if WindowsVersion >= :xp

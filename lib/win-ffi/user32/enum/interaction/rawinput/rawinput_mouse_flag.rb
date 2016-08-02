@@ -2,6 +2,7 @@ require 'win-ffi/user32'
 
 module WinFFI
   module User32
+    # https://msdn.microsoft.com/en-us/library/windows/hardware/ff542403(v=vs.85).aspx
     buffer = [
         :MOVE_RELATIVE,         0,
         :MOVE_ABSOLUTE,         1,
