@@ -4,7 +4,7 @@ module WinFFI
     # DDEADVISE structure
     # WM_DDE_ADVISE parameter structure for hOptions (LOWORD(lParam))
     # TODO
-    # class DDEADVISE < FFIStruct
+    # class DDEADVISE < FFIAdditions::Struct
     #   layout :short,    :unsigned,
     #          :cfFormat, ClipboardFormats
     # end

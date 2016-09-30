@@ -1,14 +1,16 @@
+require 'win-ffi/user32'
+
 require 'win-ffi/core/struct/rect'
 
 module WinFFI
-  module User32
-    if WindowsVersion >= :vista
+  if WindowsVersion >= :vista
+    module User32
       # https://msdn.microsoft.com/en-us/library/windows/desktop/aa969233(v=vs.85).aspx
-      class TITLEBARINFOEX < FFIStruct
-        layout :cbSize,     :dword,
-               :rcTitleBar, RECT,
-               :rgstate,    [:dword, 6],
-               :rgrect,     [RECT, 6]
+      class TITLEBARINFOEX < FFIAdditions::Struct
+        layout cbSize:       :dword,
+               rcTitleBar:     RECT,
+               rgstate: [:dword, 6],
+               rgrect:    [RECT, 6]
 
         def initialize
           super

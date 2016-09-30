@@ -5,16 +5,16 @@ require 'win-ffi/core/struct/rect'
 module WinFFI
   module User32
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632604(v=vs.85).aspx
-    class GUITHREADINFO < FFIStruct
-      layout :cbSize,        :dword,
-             :flags,         GUIFlag,
-             :hwndActive,    :hwnd,
-             :hwndFocus,     :hwnd,
-             :hwndCapture,   :hwnd,
-             :hwndMenuOwner, :hwnd,
-             :hwndMoveSize,  :hwnd,
-             :hwndCaret,     :hwnd,
-             :rcCaret,       RECT
+    class GUITHREADINFO < FFIAdditions::Struct
+      layout cbSize:       :dword,
+             flags:       GUIFlag,
+             hwndActive:    :hwnd,
+             hwndFocus:     :hwnd,
+             hwndCapture:   :hwnd,
+             hwndMenuOwner: :hwnd,
+             hwndMoveSize:  :hwnd,
+             hwndCaret:     :hwnd,
+             rcCaret:        RECT
 
       def initialize
         super

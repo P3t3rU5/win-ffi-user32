@@ -7,19 +7,19 @@ require 'win-ffi/user32/function/window/window_proc'
 module WinFFI
   module User32
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633577(v=vs.85).aspx
-    class WNDCLASSEX < FFIStruct
-      layout :cbSize,        :uint,
-             :style,         WindowClassStyle,
-             :lpfnWndProc,   WindowProc,
-             :cbClsExtra,    :int,
-             :cbWndExtra,    :int,
-             :hInstance,     :hinstance,
-             :hIcon,         :hicon,
-             :hCursor,       :hcursor,
-             :hbrBackground, :hbrush,
-             :lpszMenuName,  :pointer,
-             :lpszClassName, :pointer,
-             :hIconSm,       :pointer
+    class WNDCLASSEX < FFIAdditions::Struct
+      layout cbSize:           :uint,
+             style: WindowClassStyle,
+             lpfnWndProc: WindowProc,
+             cbClsExtra:        :int,
+             cbWndExtra:        :int,
+             hInstance:   :hinstance,
+             hIcon:           :hicon,
+             hCursor:       :hcursor,
+             hbrBackground:  :hbrush,
+             lpszMenuName:  :pointer,
+             lpszClassName: :pointer,
+             hIconSm:       :pointer
 
       def initialize(class_name)
         super()

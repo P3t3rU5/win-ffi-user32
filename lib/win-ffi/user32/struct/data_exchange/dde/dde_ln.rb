@@ -2,7 +2,7 @@ module WinFFI
   module User32
 
     # TODO
-    # class DDELN < FFIStruct
+    # class DDELN < FFIAdditions::Struct
     #   layout :short,    :unsigned,
     #          :cfFormat, ClipboardFormats
     # end

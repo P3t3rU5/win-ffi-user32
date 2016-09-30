@@ -1,10 +1,13 @@
 require 'win-ffi/user32'
 
 module WinFFI
-  module User32
-    if WindowsVersion >= :xp
+  if WindowsVersion >= :xp
 
-      require 'win-ffi/user32/enum/exit_windows_flag'
+    require 'win-ffi/user32/enum/exit_windows_flag'
+
+    module User32
+
+      attach_function 'CancelShutdown', [], :bool
 
       # https://msdn.microsoft.com/en-us/library/windows/desktop/aa376868(v=vs.85).aspx
       # BOOL WINAPI ExitWindowsEx(

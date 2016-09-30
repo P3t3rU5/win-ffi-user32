@@ -5,7 +5,7 @@ require 'win-ffi/core/struct/point'
 
 require 'win-ffi/user32/enum/multiple_display_monitors/monitor_from_point_flag'
 
-require 'win-ffi/user32/struct/info/monitor_info'
+require 'win-ffi/user32/struct/multiple_display_monitors/monitor_info'
 
 module WinFFI
   module User32

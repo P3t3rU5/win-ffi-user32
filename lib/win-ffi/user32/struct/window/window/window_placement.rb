@@ -1,3 +1,5 @@
+require 'win-ffi/user32'
+
 require 'win-ffi/core/struct/point'
 require 'win-ffi/core/struct/rect'
 
@@ -7,13 +9,13 @@ require 'win-ffi/user32/enum/window/function/show_window_flag'
 module WinFFI
   module User32
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632611(v=vs.85).aspx
-    class WINDOWPLACEMENT < FFIStruct
-      layout :length,           :uint,
-             :flags,            WindowPlacementFlag,
-             :showCmd,          :uint,
-             :ptMinPosition,    POINT,
-             :ptMaxPosition,    POINT,
-             :rcNormalPosition, RECT
+    class WINDOWPLACEMENT < FFIAdditions::Struct
+      layout length:              :uint,
+             flags: WindowPlacementFlag,
+             showCmd:             :uint,
+             ptMinPosition:       POINT,
+             ptMaxPosition:       POINT,
+             rcNormalPosition:     RECT
 
       def initialize
         super

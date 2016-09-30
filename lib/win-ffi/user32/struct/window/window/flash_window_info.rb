@@ -1,15 +1,16 @@
-require 'win-ffi/user32/enum/window/function/flash_window_flag'
+require 'win-ffi/user32'
 
 module WinFFI
-  module User32
-    if WindowsVersion >= :xp
+  if WindowsVersion >= :xp
+    require 'win-ffi/user32/enum/window/function/flash_window_flag'
+    module User32
       # https://msdn.microsoft.com/en-us/library/windows/desktop/ms679348(v=vs.85).aspx
-      class FLASHWINFO < FFIStruct
-        layout :cbSize,    :uint,
-               :hwnd,      :hwnd,
-               :dwFlags,   FlashWindowFlag,
-               :uCount,    :uint,
-               :dwTimeout, :dword
+      class FLASHWINFO < FFIAdditions::Struct
+        layout cbSize:            :uint,
+               hwnd:              :hwnd,
+               dwFlags: FlashWindowFlag,
+               uCount:            :uint,
+               dwTimeout:        :dword
 
         def initialize
           super

@@ -13,11 +13,11 @@ module WinFFI
     #     float m[4][4];
     #   } DUMMYUNIONNAME;
     # } INPUT_TRANSFORM;
-    # class INPUT_TRANSFORM_UNION < FFIStruct
+    # class INPUT_TRANSFORM_UNION < FFIAdditions::Struct
     #
     # end
     #
-    # class INPUT_TRANSFORM < FFIStruct
+    # class INPUT_TRANSFORM < FFIAdditions::Struct
     #   layout :dummy_union, INPUT_TRANSFORM_UNION
     # end
   end

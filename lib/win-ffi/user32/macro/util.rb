@@ -5,13 +5,13 @@ module WinFFI
       # { (pt).x = (LONG)(SHORT)LOWORD(*(LONG*)&pts);
       #   (pt).y = (LONG)(SHORT)HIWORD(*(LONG*)&pts); }
       def POINTSTOPOINT(pt, pts)
-        pt.x = loword(pts)
-        pt.y = hiword(pts)
+        pt.x = LOWORD(pts)
+        pt.y = HIWORD(pts)
       end
 
       #define POINTTOPOINTS(pt) (MAKELONG((short)((pt).x), (short)((pt).y)))
       def POINTTOPOINTS(pt)
-        makelong(pt.x, pt.y)
+        MAKELONG(pt.x, pt.y)
       end
 
       #define MAKEWPARAM(l, h) ((WPARAM)(DWORD)MAKELONG(l, h))

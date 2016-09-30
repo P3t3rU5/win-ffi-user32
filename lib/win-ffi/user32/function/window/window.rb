@@ -127,7 +127,8 @@ module WinFFI
     #   __in_opt  HMENU     hMenu,
     #   __in_opt  HINSTANCE hInstance,
     #   __in_opt  LPVOID    lpParam )
-    encoded_function 'CreateWindowEx', [:dword, :pointer, :buffer_in , :dword, :int, :int, :int, :int, :hwnd, :hmenu, :hinstance, :pointer], :hwnd
+    encoded_function 'CreateWindowEx', [:dword, :pointer, :string , :dword, :int, :int, :int, :int, :hwnd, :hmenu,
+                                        :hinstance, :pointer], :hwnd
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632681(v=vs.85).aspx
     # HDWP WINAPI DeferWindowPos(

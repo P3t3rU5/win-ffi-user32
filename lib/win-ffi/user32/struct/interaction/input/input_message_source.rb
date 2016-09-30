@@ -6,9 +6,9 @@ module WinFFI
     if WindowsVersion >= 8
       # https://msdn.microsoft.com/en-us/library/windows/desktop/hh448799(v=vs.85).aspx
       # Input source structure.
-      class INPUT_MESSAGE_SOURCE < FFIStruct
-        layout :deviceType, INPUT_MESSAGE_DEVICE_TYPE,
-               :originId,   INPUT_MESSAGE_ORIGIN_ID
+      class INPUT_MESSAGE_SOURCE < FFIAdditions::Struct
+        layout deviceType: INPUT_MESSAGE_DEVICE_TYPE,
+               originId:     INPUT_MESSAGE_ORIGIN_ID
       end
     end
   end

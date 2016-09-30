@@ -3,9 +3,9 @@ require 'win-ffi/user32/enum/window/message_filter_info'
 module WinFFI
   module User32
     # https://msdn.microsoft.com/en-us/library/windows/desktop/dd388197(v=vs.85).aspx
-    class CHANGEFILTERSTRUCT < FFIStruct
-      layout :cbSize,    :dword,
-             :ExtStatus, MessageFilterInfo
+    class CHANGEFILTERSTRUCT < FFIAdditions::Struct
+      layout cbSize:               :dword,
+             ExtStatus: MessageFilterInfo
 
       def initialize
         super

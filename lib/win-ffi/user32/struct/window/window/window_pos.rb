@@ -4,16 +4,16 @@ module WinFFI
   module User32
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632612(v=vs.85).aspx
     # WM_WINDOWPOSCHANGING/CHANGED struct pointed to by lParam
-    class WINDOWPOS < FFIStruct
-      FLAGS_INV = SetWindowPosFlag.to_hash.reduce(Hash.new{|h,k| h[k] = []}){|h,(k,v)| h[v] << k; h}.freeze
+    class WINDOWPOS < FFIAdditions::Struct
+      FLAGS_INV = SetWindowPosFlag.to_hash.reduce(Hash.new {|h,k| h[k] = [] } ){ |h,(k,v)| h[v] << k; h }.freeze
 
-      layout :hwnd,            :hwnd, #HWND
-             :hwndInsertAfter, :hwnd, #HWND
-             :left,            :int,
-             :top,             :int,
-             :width,           :int,
-             :height,          :int,
-             :flags,           :uint
+      layout hwnd:            :hwnd, #HWND
+             hwndInsertAfter: :hwnd, #HWND
+             left:             :int,
+             top:              :int,
+             width:            :int,
+             height:           :int,
+             flags:           :uint
 
       def flags
         val = self[:flags]

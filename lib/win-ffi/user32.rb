@@ -1,9 +1,12 @@
 require 'win-ffi/core'
+require 'win-ffi/user32/version'
 require 'win-ffi/core/lib_base'
 
 module WinFFI
   module User32
     extend LibBase
+
+    LOGGER.info LOGGER.info "WinFFI User32 v#{WinFFI::User32::VERSION}"
 
     ffi_lib 'user32'
 

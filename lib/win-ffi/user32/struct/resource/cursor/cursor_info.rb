@@ -7,11 +7,11 @@ require 'win-ffi/user32/enum/resource/cursor/cursor_info_flag'
 module WinFFI
   module User32
     # Information about the global cursor.
-    class CURSORINFO < FFIStruct
-      layout :cbSize,      :dword,
-             :flags,       CursorInfoFlag,
-             :hCursor,     :hcursor,
-             :ptScreenPos, POINT
+    class CURSORINFO < FFIAdditions::Struct
+      layout cbSize:        :dword,
+             flags: CursorInfoFlag,
+             hCursor:     :hcursor,
+             ptScreenPos:    POINT
 
       def initialize
         super

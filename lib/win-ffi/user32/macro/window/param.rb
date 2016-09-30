@@ -20,6 +20,13 @@ module WinFFI
       def GET_Y_LPARAM(lp)
         HIWORD(lp)
       end
+
+      # System Menu Command Values
+      #define GET_SC_WPARAM(wParam) ((int)wParam & 0xFFF0)
+      def GET_SC_WPARAM(wParam)
+        wParam & 0xFFF0
+      end
+
     end
   end
 end

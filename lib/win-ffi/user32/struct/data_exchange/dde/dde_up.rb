@@ -2,7 +2,7 @@ module WinFFI
   module User32
 
     # TODO
-    # class DDEUP < FFIStruct
+    # class DDEUP < FFIAdditions::Struct
     #   layout :short,    :unsigned,
     #          :cfFormat, ClipboardFormats,
     #          :rgb,      [:byte, 1]

@@ -3,10 +3,10 @@ require 'win-ffi/user32/enum/accessibility/access_timeout_flag'
 module WinFFI
   module User32
     # https://msdn.microsoft.com/en-us/library/windows/desktop/dd317982(v=vs.85).aspx
-    class ACCESSTIMEOUT < FFIStruct
-      layout :cbSize,       :uint,
-             :dwFlags,      AccessTimeoutFlag,
-             :iTimeOutMSec, :dword
+    class ACCESSTIMEOUT < FFIAdditions::Struct
+      layout cbSize:              :uint,
+             dwFlags: AccessTimeoutFlag,
+             iTimeOutMSec:       :dword
 
       def initialize
         super
