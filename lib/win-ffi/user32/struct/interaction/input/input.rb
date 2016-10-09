@@ -1,5 +1,6 @@
 require 'win-ffi/user32/enum/interaction/mouse/mouse_event_flag'
 require 'win-ffi/user32/enum/interaction/keyboard/keyboard_event_flag'
+require 'win-ffi/user32/enum/interaction/input/input_type'
 
 module WinFFI
   module User32
@@ -34,8 +35,8 @@ module WinFFI
     end
 
     class INPUT < FFIAdditions::Struct
-      layout type:   :dword,
-             u: INPUT_UNION
+      layout type: InputType,
+             u:  INPUT_UNION
     end
   end
 end

@@ -1,9 +1,9 @@
-require 'win-ffi/user32'
-
 require 'win-ffi/user32/enum/interaction/keyboard/keyboard_layout_flag'
 require 'win-ffi/user32/enum/interaction/keyboard/virtual_key_code'
 require 'win-ffi/user32/enum/interaction/keyboard/map_virtual_key'
 require 'win-ffi/user32/enum/interaction/keyboard/keyboard_event_flag'
+require 'win-ffi/user32/enum/interaction/keyboard/keyboard_type_argument'
+require 'win-ffi/user32/enum/interaction/keyboard/keyboard_type'
 
 require 'win-ffi/user32/struct/interaction/keyboard/last_input_info'
 require 'win-ffi/user32/struct/interaction/input/input'
@@ -56,7 +56,7 @@ module WinFFI
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms646298(v=vs.85).aspx
     # BOOL WINAPI GetKeyboardLayoutName( _Out_  LPTSTR pwszKLID )
-    encoded_function 'GetKeyboardLayoutName', [:string], :bool
+    encoded_function 'GetKeyboardLayoutName', [:pointer], :bool
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms646299(v=vs.85).aspx
     # BOOL WINAPI GetKeyboardState( _Out_  PBYTE lpKeyState )
@@ -64,14 +64,14 @@ module WinFFI
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms724336(v=vs.85).aspx
     # int WINAPI GetKeyboardType( _In_  int nTypeFlag )
-    attach_function 'GetKeyboardType', [:int], :int
+    attach_function 'GetKeyboardType', [KeyboardTypeArgument], :int
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms646300(v=vs.85).aspx
     # int WINAPI GetKeyNameText(
     #   _In_   LONG lParam,
     #   _Out_  LPTSTR lpString,
     #   _In_   int cchSize )
-    encoded_function 'GetKeyNameText', [:long, :string, :int], :int
+    encoded_function 'GetKeyNameText', [:long, :pointer, :int], :int
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms646301(v=vs.85).aspx
     # SHORT WINAPI GetKeyState()_In_  int nVirtKey)
@@ -122,7 +122,7 @@ module WinFFI
     #   _In_  UINT nInputs,
     #   _In_  LPINPUT pInputs,
     #   _In_  int cbSize )
-    attach_function 'SendInput', [:uint, INPUT.ptr, :int], :uint
+    attach_function 'SendInput', [:uint, :pointer, :int], :uint
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms646311(v=vs.85).aspx
     # HWND WINAPI SetActiveWindow( _In_  HWND hWnd )
@@ -163,7 +163,7 @@ module WinFFI
     #   _Out_     LPWSTR pwszBuff,
     #   _In_      int cchBuff,
     #   _In_      UINT wFlags )
-    attach_function 'ToUnicode', [VirtualKeyCode, :uint, :pointer, :string, :int, :uint], :int
+    attach_function 'ToUnicode', [VirtualKeyCode, :uint, :pointer, :pointer , :int, :uint], :int
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms646322(v=vs.85).aspx
     # int WINAPI ToUnicodeEx(
@@ -174,7 +174,7 @@ module WinFFI
     #   _In_      int cchBuff,
     #   _In_      UINT wFlags,
     #   _In_opt_  HKL dwhkl )
-    attach_function 'ToUnicodeEx', [VirtualKeyCode, :uint, :pointer, :string, :int, :uint, :hkl], :int
+    attach_function 'ToUnicodeEx', [VirtualKeyCode, :uint, :pointer, :pointer , :int, :uint, :hkl], :int
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms646324(v=vs.85).aspx
     # BOOL WINAPI UnloadKeyboardLayout( _In_  HKL hkl )

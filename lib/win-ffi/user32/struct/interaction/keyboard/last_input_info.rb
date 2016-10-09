@@ -4,11 +4,12 @@ module WinFFI
     class LASTINPUTINFO < FFIAdditions::Struct
       layout cbSize:  :uint,
              dwTime: :dword
+
+      def initialize
+        super
+        self.cbSize = self.size
+      end
     end
 
-    def initialize
-      super
-      self.cbSize = self.size
-    end
   end
 end
