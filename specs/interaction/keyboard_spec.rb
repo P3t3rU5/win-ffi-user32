@@ -1,4 +1,4 @@
-require_relative '../test/test_helper'
+require_relative '../spec_helper'
 
 require 'win-ffi/user32/function/interaction/keyboard'
 require 'win-ffi/core/macro/util'

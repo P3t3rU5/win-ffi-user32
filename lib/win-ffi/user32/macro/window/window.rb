@@ -36,7 +36,7 @@ module WinFFI
       end
 
       #define GetSysModalWindow() (NULL)
-      def GetSysModalWindow()
+      def GetSysModalWindow
         nil
       end
 

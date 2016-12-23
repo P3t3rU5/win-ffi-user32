@@ -5,17 +5,17 @@ module WinFFI
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633565(v=vs.85).aspx
     # BOOL CALLBACK PropEnumProc(
     #   _In_  HWND hwnd,
-    #   _In_  LPCTSTR lpszString,
+    #   _In_  LPCTSTR lpszString, TODO [A, W]
     #   _In_  HANDLE hData )
-    PropEnumProc = callback 'PropEnumProc', [:hwnd, :string, :handle], :bool
+    PropEnumProc = callback 'PropEnumProc', [:hwnd, :pointer, :handle], :bool
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633566(v=vs.85).aspx
     # BOOL CALLBACK PropEnumProcEx(
     #   _In_  HWND hwnd,
-    #   _In_  LPTSTR lpszString,
+    #   _In_  LPTSTR lpszString, TODO [A, W]
     #   _In_  HANDLE hData,
     #   _In_  ULONG_PTR dwData )
-    PropEnumProcEx = callback 'PropEnumProcEx', [:hwnd, :string, :handle, :ulong], :bool
+    PropEnumProcEx = callback 'PropEnumProcEx', [:hwnd, :pointer, :handle, :ulong], :bool
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633562(v=vs.85).aspx
     # int WINAPI EnumProps(

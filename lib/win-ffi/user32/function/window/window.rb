@@ -17,6 +17,7 @@ require 'win-ffi/user32/enum/window/message_filter_info'
 require 'win-ffi/user32/enum/window/function/window_display_affinity'
 require 'win-ffi/user32/enum/interaction/feedback_type'
 require 'win-ffi/user32/enum/window/function/child_window_from_point_ex_flag'
+require 'win-ffi/user32/enum/window/multiple_document_interface_tile'
 
 require 'win-ffi/core/struct/rect'
 require 'win-ffi/user32/struct/window/window/alt_tab_info'
@@ -83,7 +84,7 @@ module WinFFI
     #   _In_opt_  const RECT *lpRect,
     #   _In_      UINT cKids,
     #   _In_opt_  const HWND *lpKids )
-    attach_function 'CascadeWindows', [:hwnd, :uint, RECT.ptr, :uint, :pointer], :word
+    attach_function 'CascadeWindows', [:hwnd, MultipleDocumentInterfaceTile, RECT.ptr, :uint, :pointer], :word
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632676(v=vs.85).aspx
     # HWND WINAPI ChildWindowFromPoint(
@@ -221,7 +222,7 @@ module WinFFI
     #   _Inout_    PALTTABINFO pati,
     #   _Out_opt_  LPTSTR pszItemText,
     #   _In_       UINT cchItemText )
-    encoded_function 'GetAltTabInfo', [:hwnd, :int, ALTTABINFO.ptr, :string, :uint], :bool
+    encoded_function 'GetAltTabInfo', [:hwnd, :int, ALTTABINFO.ptr, :pointer, :uint], :bool
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633502(v=vs.85).aspx
     # HWND WINAPI GetAncestor(
@@ -434,7 +435,7 @@ module WinFFI
     #   __inout  WINDOWPLACEMENT *lpwndpl)
     attach_function 'SetWindowPlacement', [:hwnd, WINDOWPLACEMENT.ptr], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633544(v=vs.85).aspx
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633545(v=vs.85).aspx
     # BOOL WINAPI SetWindowPos(
     #   _In_      HWND hWnd,
     #   _In_opt_  HWND hWndInsertAfter,

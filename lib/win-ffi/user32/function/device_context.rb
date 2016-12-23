@@ -14,7 +14,6 @@ require 'win-ffi/gdi32/struct/devmode'
 
 module WinFFI
   module User32
-    # TODO DEVMODE
     # https://msdn.microsoft.com/en-us/library/windows/desktop/dd183411(v=vs.85).aspx
     # LONG ChangeDisplaySettings(
     #   _In_  DEVMODE *lpDevMode,

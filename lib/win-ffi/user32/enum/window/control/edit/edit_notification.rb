@@ -42,6 +42,12 @@ module WinFFI
           :STARTCOMPOSITION, 0x0713,
           :ENDCOMPOSITION,   0x0714,
       ]
+      if WindowsVersion > 8.1
+        buffer += [
+            :BEFORE_PASTE, 0x0800,
+            :AFTER_PASTE,  0x0801,
+        ]
+      end
     end
 
     EditNotification = enum :edit_notification, buffer

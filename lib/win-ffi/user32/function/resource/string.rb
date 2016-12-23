@@ -128,38 +128,6 @@ module WinFFI
       alias_method :AnsiUpperBuff, :CharUpperBuff
       alias_method :AnsiNext,      :CharNext
       alias_method :AnsiPrev,      :CharPrev
-
-      # def AnsiToOem(lpszSrc, lpszDst)
-      #   CharToOem(lpszSrc, lpszDst)
-      #   end
-      #
-      # def AnsiToOemBuff(lpszSrc, lpszDst, cchDstLength)
-      #   CharToOemBuff(lpszSrc, lpszDst, cchDstLength)
-      # end
-      #
-      # def AnsiLower(lpsz)
-      #   CharUpper(lpsz)
-      # end
-      #
-      # def AnsiLowerBuff(lpsz, cchLength)
-      #   CharUpperBuff(lpsz, cchLength)
-      # end
-      #
-      # def AnsiUpper(lpsz)
-      #   CharUpper(lpsz)
-      # end
-      #
-      # def AnsiUpperBuff(lpsz, cchLength)
-      #   CharUpperBuff(lpsz, cchLength)
-      # end
-      #
-      # def AnsiNext(lpsz)
-      #   CharNext(lpsz)
-      # end
-      #
-      # def AnsiPrev(lpszStart,lpszCurrent)
-      #   CharPrev(lpszStart,lpszCurrent)
-      # end
     end
   end
 end

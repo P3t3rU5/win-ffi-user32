@@ -1,4 +1,5 @@
-require 'win-ffi/gdi32/struct/text/log_font'
+require 'win-ffi/user32'
+require 'win-ffi/gdi32/struct/font/log_font'
 
 module WinFFI
   module User32

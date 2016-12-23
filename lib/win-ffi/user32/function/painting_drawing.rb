@@ -16,6 +16,13 @@ require 'win-ffi/user32/struct/painting_drawing/draw_text_params'
 
 module WinFFI
   module User32
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/dd162756(v=vs.85).aspx
+    # BOOL CALLBACK OutputProc(
+    #   _In_  HDC hdc,
+    #   _In_  LPARAM lpData,
+    #   _In_  int cchData )
+    OutputProc = callback 'OutputProc', [:hdc, :lparam, :int], :bool
+
     # https://msdn.microsoft.com/en-us/library/windows/desktop/dd183362(v=vs.85).aspx
     # HDC BeginPaint(
     #   _In_   HWND hwnd,
@@ -130,7 +137,7 @@ module WinFFI
     #   _In_  int Y,
     #   _In_  int nWidth,
     #   _In_  int nHeight )
-    encoded_function 'GrayString', [:hdc, :hbrush, :pointer, :lparam, :int, :int, :int, :int, :int], :bool
+    encoded_function 'GrayString', [:hdc, :hbrush, OutputProc, :lparam, :int, :int, :int, :int, :int], :bool
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/dd145002(v=vs.85).aspx
     # BOOL InvalidateRect(
@@ -149,13 +156,6 @@ module WinFFI
     # https://msdn.microsoft.com/en-us/library/windows/desktop/dd145034(v=vs.85).aspx
     # BOOL LockWindowUpdate( _In_  HWND hWndLock )
     attach_function 'LockWindowUpdate', [:hwnd], :bool
-
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/dd162756(v=vs.85).aspx
-    # BOOL CALLBACK OutputProc(
-    #   _In_  HDC hdc,
-    #   _In_  LPARAM lpData,
-    #   _In_  int cchData )
-    callback 'OutputProc', [:hdc, :lparam, :int], :bool
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/dd162758(v=vs.85).aspx
     # BOOL PaintDesktop( _In_  HDC hdc )

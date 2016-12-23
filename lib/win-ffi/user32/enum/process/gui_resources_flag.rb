@@ -10,7 +10,8 @@ module WinFFI
     if WindowsVersion >= 7
       buffer += [
           :GDIOBJECTS_PEAK,  2, # Peak count of GDI objects
-          :USEROBJECTS_PEAK, 4  # Peak count of USER objects
+          :USEROBJECTS_PEAK, 4, # Peak count of USER objects
+          # :GLOBAL,         ((HANDLE)-2)
       ]
     end
 

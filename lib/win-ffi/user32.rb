@@ -1,25 +1,36 @@
+require 'win-ffi/logger'
+WinFFI::LOGGER.level = 'info'
 require 'win-ffi/core'
-require 'win-ffi/user32/version'
 require 'win-ffi/core/lib_base'
+require 'win-ffi/user32/version'
 
 module WinFFI
   module User32
     extend LibBase
 
-    LOGGER.info LOGGER.info "WinFFI User32 v#{WinFFI::User32::VERSION}"
+    LOGGER.info "WinFFI User32 v#{WinFFI::User32::VERSION}"
 
     ffi_lib 'user32'
 
     require 'win-ffi/user32/typedef/hwineventhook'
 
     if WindowsVersion >= :xp
-      # VOID WINAPI DisableProcessWindowsGhosting(void)
-      attach_function 'DisableProcessWindowsGhosting', [], :void
 
       #Active Accessibility
       # https://msdn.microsoft.com/en-us/library/windows/desktop/dd318528(v=vs.85).aspx
       # BOOL WINAPI IsWinEventHookInstalled( _In_  DWORD event )
       attach_function 'IsWinEventHookInstalled', [:dword], :bool
+
+      # https://msdn.microsoft.com/en-us/library/windows/desktop/dd373885(v=vs.85).aspx
+      # void CALLBACK WinEventProc(
+      #   HWINEVENTHOOK hWinEventHook,
+      #   DWORD         event,
+      #   HWND          hwnd,
+      #   LONG          idObject,
+      #   LONG          idChild,
+      #   DWORD         dwEventThread,
+      #   DWORD         dwmsEventTime)
+      WinEventProc = callback 'WinEventProc', [:pointer, :dword, :hwnd, :long, :long, :dword, :dword], :void
 
       # https://msdn.microsoft.com/en-us/library/windows/desktop/dd373603(v=vs.85).aspx
       # void WINAPI NotifyWinEvent(
@@ -38,7 +49,7 @@ module WinFFI
       #   _In_  DWORD idProcess,
       #   _In_  DWORD idThread,
       #   _In_  UINT dwflags )
-      attach_function 'SetWinEventHook', [:uint, :uint, :pointer, :pointer, :dword, :dword, :uint], :pointer
+      attach_function 'SetWinEventHook', [:uint, :uint, :pointer, WinEventProc, :dword, :dword, :uint], :pointer
 
       if WindowsVersion >= :vista || (WindowsVersion == :xp && WindowsVersion.sp >= 2)
         # Process and Threads
@@ -71,19 +82,19 @@ module WinFFI
     #  _In_  LPARAM lParam )
     encoded_function 'SendIMEMessageEx', [:hwnd, :lparam], :lresult
 
-    #ULONG_PTR WINAPI SetClassLongPtr(
-    #  __in  HWND hWnd,
-    #  __in  int nIndex,
-    #  __in  LONG_PTR dwNewLong)
-    #encoded_function 'SetClassLongPtr', [:hwnd, ClassLong, :pointer], :pointer
+    # ULONG_PTR WINAPI SetClassLongPtr(
+    #   __in  HWND hWnd,
+    #   __in  int nIndex,
+    #   __in  LONG_PTR dwNewLong)
+    # encoded_function 'SetClassLongPtr', [:hwnd, ClassLong, :pointer], :pointer
 
-    #BOOL WINAPI UnhookWinEvent( _In_  HWINEVENTHOOK hWinEventHook )
+    # BOOL WINAPI UnhookWinEvent( _In_  HWINEVENTHOOK hWinEventHook )
     attach_function 'UnhookWinEvent', [:hwineventhook], :bool
 
-    #This function is obsolete and should not be used.
-    #BOOL WINAPI WINNLSEnableIME(
-    #  _In_  HWND hwnd,
-    #  _In_  BOOL bFlag )
+    # This function is obsolete and should not be used.
+    # BOOL WINAPI WINNLSEnableIME(
+    #   _In_  HWND hwnd,
+    #   _In_  BOOL bFlag )
     attach_function 'WINNLSEnableIME', [:hwnd, :bool], :bool
 
     require 'win-ffi/user32/typedef/hcursor'
@@ -95,5 +106,14 @@ module WinFFI
     #   _In_ ULONG_PTR data,
     #   _In_opt_ HCURSOR hcur)
     attach_function 'DragObject', [:hwnd, :hwnd, :uint, :ulong, :hcursor], :dword
+
+    # WINUSERAPI BOOL WINAPI InheritWindowMonitor(_In_ HWND hwnd, _In_opt_ HWND hwndInherit);
+    attach_function 'InheritWindowMonitor', [:hwnd, :hwnd], :bool
+
+    # WINUSERAPI VOID WINAPI SetDebugErrorLevel(_In_ DWORD dwLevel);
+    attach_function 'SetDebugErrorLevel', [:dword], :void
+
+    # WINUSERAPI BOOL WINAPI SetMessageQueue(_In_ int cMessagesMax);
+    attach_function 'SetMessageQueue', [:int], :bool
   end
 end

@@ -80,6 +80,7 @@ module WinFFI
         :GETMOUSETRAILS,               0x005E,
         :SETSCREENSAVERRUNNING,        0x0061,
         :SCREENSAVERRUNNING,           0x0061,
+
         :GETFILTERKEYS,                0x0032,
         :SETFILTERKEYS,                0x0033,
         :GETTOGGLEKEYS,                0x0034,
@@ -268,8 +269,11 @@ module WinFFI
 
             if WindowsVersion > 8.1
               buffer += [
-                  :GETPENVISUALIZATION, 0x201E,
-                  :SETPENVISUALIZATION, 0x201F,
+                  :GETPENVISUALIZATION,   0x201E,
+                  :SETPENVISUALIZATION,   0x201F,
+
+                  :GETPENARBITRATIONTYPE, 0x2020,
+                  :SETPENARBITRATIONTYPE, 0x2021,
               ]
             end
           end

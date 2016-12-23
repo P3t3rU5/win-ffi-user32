@@ -12,8 +12,8 @@ module WinFFI
     end
 
     class POINTER_TYPE_INFO < FFIAdditions::Struct
-      layout type: PointerInputType,
-             u:          PTI_UNION
+      layout type: POINTER_INPUT_TYPE,
+             u:    PTI_UNION
 
     end
   end

@@ -8,5 +8,7 @@ module WinFFI
         :RESTORETOMAXIMIZED,   0x0002,
         :ASYNCWINDOWPLACEMENT, 0x0004,
     ]
+
+    define_prefix(:WPF, WindowPlacementFlag)
   end
 end

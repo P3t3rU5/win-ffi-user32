@@ -1,4 +1,4 @@
-require 'win-ffi/user32'
+require 'win-ffi/user32/constant/window'
 
 require 'win-ffi/core/struct/rect'
 
@@ -8,7 +8,7 @@ module WinFFI
     class TITLEBARINFO < FFIAdditions::Struct
       layout cbSize:      :dword,
              rcTitleBar:    RECT,
-             rgstate: [:dword, 6]  # ARRAY rgstate[CCHILDREN_TITLEBAR + 1];
+             rgstate: [:dword, CCHILDREN_TITLEBAR + 1]  # ARRAY rgstate[CCHILDREN_TITLEBAR + 1];
 
       def initialize
         super

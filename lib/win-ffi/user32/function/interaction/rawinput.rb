@@ -52,7 +52,7 @@ module WinFFI
       #   _Out_opt_  PRAWINPUTDEVICE pRawInputDevices,
       #   _Inout_    PUINT puiNumDevices,
       #   _In_       UINT cbSize )
-      attach_function 'GetRegisteredRawInputDevices', [RAWINPUTDEVICELIST.ptr, :pointer, :uint], :uint
+      attach_function 'GetRegisteredRawInputDevices', [RAWINPUTDEVICE.ptr, :pointer, :uint], :uint
 
       # https://msdn.microsoft.com/en-us/library/windows/desktop/ms645600(v=vs.85).aspx
       # BOOL WINAPI RegisterRawInputDevices(

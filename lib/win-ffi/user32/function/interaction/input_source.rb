@@ -12,7 +12,7 @@ module WinFFI
       attach_function 'GetCIMSSM', [INPUT_MESSAGE_SOURCE], :bool
 
       # https://msdn.microsoft.com/en-us/library/windows/desktop/hh448793(v=vs.85).aspx
-      #BOOL GetCurrentInputMessageSource( _Out_  INPUT_MESSAGE_SOURCE *inputMessageSource )
+      # BOOL GetCurrentInputMessageSource( _Out_  INPUT_MESSAGE_SOURCE *inputMessageSource )
       attach_function 'GetCurrentInputMessageSource', [INPUT_MESSAGE_SOURCE], :bool
     end
   end

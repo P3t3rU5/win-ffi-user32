@@ -9,8 +9,6 @@ module WinFFI
     require 'win-ffi/core/struct/rect'
 
     module User32
-
-
       # DRAWITEMSTRUCT for ownerdraw
       # https://msdn.microsoft.com/en-us/library/windows/desktop/bb775802(v=vs.85).aspx
       class DRAWITEMSTRUCT < FFIAdditions::Struct

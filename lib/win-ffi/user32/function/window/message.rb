@@ -192,8 +192,8 @@ module WinFFI
 
     end
 
-    def self.PostAppMessageW(idThread, wMsg, wParam, lParam)
-      PostThreadMessageW(idThread, wMsg, wParam, lParam)
+    def self.PostAppMessage(idThread, wMsg, wParam, lParam)
+      PostThreadMessage(idThread, wMsg, wParam, lParam)
     end
   end
 end

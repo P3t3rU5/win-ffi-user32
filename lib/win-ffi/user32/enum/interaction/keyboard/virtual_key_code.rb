@@ -174,7 +174,7 @@ module WinFFI
         :BROWSER_REFRESH,     0xA8, # Browser Refresh_key
         :BROWSER_STOP,        0xA9, # Browser Stop_key
         :BROWSER_SEARCH,      0xAA, # Browser Search_key
-        :BROWSERFAVORITES,   0xAB, # Browser Favorites_key
+        :BROWSERFAVORITES,    0xAB, # Browser Favorites_key
         :BROWSER_HOME,        0xAC, # Browser Start and Home_key
         :VOLUME_MUTE,         0xAD, # Volume Mute_key
         :VOLUME_DOWN,         0xAE, # Volume Down_key

@@ -6,7 +6,7 @@ module WinFFI
     require 'win-ffi/user32/enum/exit_windows_flag'
 
     module User32
-
+      # WINUSERAPI BOOL WINAPI CancelShutdown(VOID);
       attach_function 'CancelShutdown', [], :bool
 
       # https://msdn.microsoft.com/en-us/library/windows/desktop/aa376868(v=vs.85).aspx

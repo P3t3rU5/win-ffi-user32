@@ -307,6 +307,7 @@ module WinFFI
                 :TOUCHHITTESTING,         0x024D,
                 :POINTERWHEEL,            0x024E,
                 :POINTERHWHEEL,           0x024F,
+                :POINTERHITTEST,          0x0250,
                 :POINTERROUTEDTO,         0x0251,
                 :POINTERROUTEDAWAY,       0x0252,
                 :POINTERROUTEDRELEASED,   0x0253,
@@ -318,8 +319,11 @@ module WinFFI
 
     WindowMessage = enum :window_message, buffer
 
-    MN_GETHMENU = 0x01E1
-
     define_prefix(:WM, WindowMessage)
+
+    MN_GETHMENU = 0x01E1
+    if WindowsVersion >= 8
+      DM_POINTERHITTEST = 0x0250
+    end
   end
 end

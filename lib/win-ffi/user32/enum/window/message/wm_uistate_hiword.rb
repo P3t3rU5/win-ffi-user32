@@ -15,6 +15,6 @@ module WinFFI
 
     WmUistateHiword = enum :wm_uistate_hiword, buffer
 
-    define_prefix(:UIS, WmUistateHiword)
+    define_prefix(:UISF, WmUistateHiword)
   end
 end

@@ -19,7 +19,9 @@ module WinFFI
     class RID_DEVICE_INFO_HID < FFIAdditions::Struct
       layout dwVendorId:      :dword,
              dwProductId:     :dword,
-             dwVersionNumber: :dword, # Top level collection UsagePage and Usage
+             dwVersionNumber: :dword,
+
+             # Top level collection UsagePage and Usage
              usUsagePage:    :ushort,
              usUsage:        :ushort
     end

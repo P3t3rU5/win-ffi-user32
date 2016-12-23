@@ -17,9 +17,9 @@ module WinFFI
         ]
       end
 
-      PointerInputType = enum :pointer_input_type, buffer
+      POINTER_INPUT_TYPE = enum :pointer_input_type, buffer
 
-      define_prefix(:PT, PointerInputType)
+      define_prefix(:PT, POINTER_INPUT_TYPE)
     end
   end
 end

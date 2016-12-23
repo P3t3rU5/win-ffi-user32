@@ -1,4 +1,4 @@
-require 'win-ffi/user32'
+require 'win-ffi/user32/constant/window'
 
 require 'win-ffi/core/struct/rect'
 
@@ -13,7 +13,7 @@ module WinFFI
              xyThumbTop:    :int,
              xyThumbBottom: :int,
              reserved:      :int,
-             rgstate:     :dword
+             rgstate:     [:dword, CCHILDREN_SCROLLBAR + 1]
 
       def initialize
         self.cbSize = self.size

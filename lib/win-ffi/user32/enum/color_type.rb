@@ -32,6 +32,7 @@ module WinFFI
         :HOTLIGHT,                26,
         :GRADIENTACTIVECAPTION,   27,
         :GRADIENTINACTIVECAPTION, 28,
+
         :DESKTOP,                  1,
         :'3DFACE',                15,
         :'3DSHADOW',              16,

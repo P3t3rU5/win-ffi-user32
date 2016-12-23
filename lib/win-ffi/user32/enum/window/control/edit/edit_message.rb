@@ -191,6 +191,11 @@ module WinFFI
           :SETUIANAME,          0x540,
           :GETELLIPSISSTATE,    0x542
       ]
+      if WindowsVersion >= 8.1
+        buffer += [
+            :ENABLEFEATURE, 0x00DA
+        ]
+      end
 
     end
 

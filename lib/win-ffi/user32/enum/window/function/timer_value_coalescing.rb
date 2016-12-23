@@ -8,6 +8,8 @@ module WinFFI
           :COALESCING_MIN,     0x00000001,
           :COALESCING_MAX,     0x7FFFFFF5,
       ]
+
+      define_prefix(:TIMERV, TimerValueCoalescing)
     end
   end
 end

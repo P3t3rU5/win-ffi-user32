@@ -4,7 +4,7 @@ require 'win-ffi/core/struct/point'
 
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/dd183434(v=vs.85).aspx
+    # https://msdn.microsoft.com/en-us/library/dd183434
     # BOOL ClientToScreen(
     #   _In_     HWND hWnd,
     #   _Inout_  LPPOINT lpPoint )
@@ -23,19 +23,5 @@ module WinFFI
     #   _In_  HWND hWnd,
     #   LPPOINT lpPoint )
     attach_function 'ScreenToClient', [:hwnd, POINT.ptr], :bool
-
-    if WindowsVersion >= 8.1
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/dn384110(v=vs.85).aspx
-      # BOOL LogicalToPhysicalPointForPerMonitorDPI(
-      # _In_    HWND    hwnd,
-      # _Inout_ LPPOINT lpPoint )
-      attach_function 'LogicalToPhysicalPointForPerMonitorDPI', [:hwnd, POINT.ptr], :bool
-
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/dn384112(v=vs.85).aspx
-      # BOOL PhysicalToLogicalPointForPerMonitorDPI(
-      # _In_    HWND    hwnd,
-      # _Inout_ LPPOINT lpPoint )
-      attach_function 'PhysicalToLogicalPointForPerMonitorDPI', [:hwnd, POINT.ptr], :bool
-    end
   end
 end

@@ -2,7 +2,7 @@ require 'win-ffi/msftedit/enum/window/control/rich_edit/char_format_mask'
 require 'win-ffi/msftedit/enum/window/control/rich_edit/char_format_effect'
 require 'win-ffi/msftedit/enum/window/control/rich_edit/char_format_underline_type'
 
-require 'win-ffi/gdi32/struct/text/enum_log_font'
+require 'win-ffi/gdi32/struct/font/enum_log_font'
 
 module WinFFI
   if WindowsVersion >= :vista

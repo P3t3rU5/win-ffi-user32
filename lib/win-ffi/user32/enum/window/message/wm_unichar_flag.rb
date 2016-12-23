@@ -1,12 +1,15 @@
 require 'win-ffi/user32'
 
 module WinFFI
-  module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms646288(v=vs.85).aspx
-    WmUnicharFlag = enum :wm_unichar_flag, [
-        :NOCHAR,0xFFFF,
-    ]
+  if WindowsVersion >= :xp
+    module User32
 
-    define_prefix(:UNICODE, WmUnicharFlag)
+      # https://msdn.microsoft.com/en-us/library/windows/desktop/ms646288(v=vs.85).aspx
+      WmUnicharFlag = enum :wm_unichar_flag, [
+          :NOCHAR, 0xFFFF,
+      ]
+
+      define_prefix(:UNICODE, WmUnicharFlag)
+    end
   end
 end

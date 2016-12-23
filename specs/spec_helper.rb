@@ -1,0 +1,5 @@
+$LOAD_PATH.unshift File.expand_path('../../win-ffi-core/lib', __dir__)
+$LOAD_PATH.unshift File.expand_path('../../win-ffi-gdi32/lib', __dir__)
+$LOAD_PATH.unshift File.expand_path('../../win-ffi-kernel32/lib', __dir__)
+$LOAD_PATH.unshift File.expand_path('../../win-ffi-user32/lib', __dir__)
+$LOAD_PATH.unshift File.expand_path('../../../ffi-additions', __dir__)

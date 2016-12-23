@@ -1,5 +1,5 @@
 require 'win-ffi/user32'
-require 'win-ffi/gdi32'
+require 'win-ffi/gdi32/constant'
 
 require 'win-ffi/user32/enum/multiple_display_monitors/monitor_info_flag'
 

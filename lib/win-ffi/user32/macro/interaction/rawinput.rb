@@ -1,15 +1,22 @@
 require 'win-ffi/user32'
 
 module WinFFI
-  module User32
-    if WindowsVersion >= :xp
+  if WindowsVersion >= :xp
+    module User32
       class << self
-        def EXMODE(mode)
+        def RIDEV_EXMODE(mode)
           mode & RIDEV_EXMODEMASK
         end
 
         #define RAWINPUT_ALIGN(x)   (((x) + sizeof(QWORD) - 1) & ~(sizeof(QWORD) - 1))
         def RAWINPUT_ALIGN(x)   (((x) + FFI.type_size(:dword) - 1) & ~(FFI.type_size(:dword) - 1)); end
+
+        #ifdef _WIN64
+        #define RAWINPUT_ALIGN(x)   (((x) + sizeof(QWORD) - 1) & ~(sizeof(QWORD) - 1))
+        #else   // _WIN64
+        #define RAWINPUT_ALIGN(x)   (((x) + sizeof(DWORD) - 1) & ~(sizeof(DWORD) - 1))
+        #endif  // _WIN64
+        # TODO
 
         # https://msdn.microsoft.com/en-us/library/windows/desktop/ms645593(v=vs.85).aspx
         #define NEXTRAWINPUTBLOCK(ptr) ((PRAWINPUT)RAWINPUT_ALIGN((ULONG_PTR)((PBYTE)(ptr) + (ptr)->header.dwSize)))

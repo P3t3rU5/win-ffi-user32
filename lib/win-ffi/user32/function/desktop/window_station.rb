@@ -2,8 +2,11 @@ require 'win-ffi/user32'
 
 require 'win-ffi/user32/enum/desktop/user_object_information_flag'
 require 'win-ffi/user32/enum/desktop/desktop_access_flag'
+require 'win-ffi/user32/enum/desktop/create_windows_station_flag'
 
 require 'win-ffi/core/struct/security_attributes'
+
+require 'win-ffi/user32/enum/desktop/window_station_security_and_access_rights'
 
 module WinFFI
   module User32
@@ -20,7 +23,7 @@ module WinFFI
     #   DWORD dwFlags,
     #   _In_      ACCESS_MASK dwDesiredAccess,
     #   _In_opt_  LPSECURITY_ATTRIBUTES lpsa )
-    encoded_function 'CreateWindowStation', [:string, :dword, DesktopAccessFlag, SECURITY_ATTRIBUTES.ptr], :hwinsta
+    encoded_function 'CreateWindowStation', [:string, CreateWindowsStationFlag, WindowStationSecurityAndAccessRights, SECURITY_ATTRIBUTES.ptr], :hwinsta
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms682643(v=vs.85).aspx
     # BOOL CALLBACK EnumWindowStationProc(
@@ -81,7 +84,6 @@ module WinFFI
       #   _In_ PSECURITY_INFORMATION pSIRequested,
       #   _In_ PSECURITY_DESCRIPTOR  pSID)
       attach_function 'GetUserObjectSecurity', [:handle, :pointer, :pointer], :bool
-
     end
   end
 end

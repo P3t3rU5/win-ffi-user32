@@ -1,9 +1,10 @@
 require 'win-ffi/user32'
 
-require 'win-ffi/gdi32/struct/text/log_font'
+require 'win-ffi/gdi32/struct/font/log_font'
 
 module WinFFI
   module User32
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ff729175(v=vs.85).aspx
     class NONCLIENTMETRICS < FFIAdditions::Struct
       buffer = [
           :cbSize,                   :uint,
@@ -25,7 +26,7 @@ module WinFFI
 
       buffer += [:iPaddedBorderWidth, :int] if WindowsVersion >= :vista
 
-      layout buffer
+      layout *buffer
 
       def initialize
         super

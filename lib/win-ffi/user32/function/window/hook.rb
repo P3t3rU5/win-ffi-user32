@@ -133,6 +133,15 @@ module WinFFI
     #   _In_  LPARAM lParam )
     SysMsgProc = callback 'SysMsgProc', [:int, :wparam, :lparam], :lresult
 
+    # LRESULT CALLBACK HookProc(int nCode, WPARAM wParam, LPARAM lParam)
+    HookProc = callback 'HookProc', [:int, :wparam, :lparam], :lresult
+
+    # WINUSERAPI HOOKPROC WINAPI SetWindowsHook(_In_ int nFilterType, _In_ HOOKPROC pfnFilterProc);
+    encoded_function 'SetWindowsHook', [:int, :pointer], :pointer
+
+    # WINUSERAPI BOOL WINAPI UnhookWindowsHook(_In_ int nCode, _In_ HOOKPROC pfnFilterProc);
+    attach_function 'UnhookWindowsHook', [:int, :pointer], :bool
+
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644993(v=vs.85).aspx
     # BOOL WINAPI UnhookWindowsHookEx( _In_  HHOOK hhk )
     attach_function 'UnhookWindowsHookEx', [:pointer], :bool

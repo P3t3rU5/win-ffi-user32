@@ -20,6 +20,6 @@ module WinFFI
 
     LoadIconId = enum :load_icon_id, buffer
 
-    define_prefix(:IDC, LoadIconId)
+    define_prefix(:IDI, LoadIconId)
   end
 end
