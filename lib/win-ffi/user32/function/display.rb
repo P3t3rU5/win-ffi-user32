@@ -9,7 +9,7 @@ require 'win-ffi/gdi32/struct/display_config/path_info'
 
 module WinFFI
   module User32
-    if WindowsVersion >= :vista
+    if WINDOWS_VERSION >= :vista
       # https://msdn.microsoft.com/en-us/library/windows/hardware/ff553903(v=vs.85).aspx
       # LONG DisplayConfigGetDeviceInfo(   _Inout_  DISPLAYCONFIG_DEVICE_INFO_HEADER *requestPacket )
       attach_function 'DisplayConfigGetDeviceInfo', [Gdi32::DISPLAYCONFIG_DEVICE_INFO_HEADER.ptr], :long
@@ -26,7 +26,7 @@ module WinFFI
       #   _Out_  UINT32 *pNumModeInfoArrayElements )
       attach_function 'GetDisplayConfigBufferSizes', [Gdi32::QueryDisplayConfigFlag, :pointer, :pointer], :long
 
-      if WindowsVersion >= 7
+      if WINDOWS_VERSION >= 7
 
         # https://msdn.microsoft.com/en-us/library/windows/hardware/ff569215(v=vs.85).aspx
         # LONG QueryDisplayConfig(

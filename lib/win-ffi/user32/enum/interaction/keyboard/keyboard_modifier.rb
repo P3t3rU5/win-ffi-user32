@@ -12,7 +12,7 @@ module WinFFI
         :WIN,      0x0008,
     ]
 
-    if WindowsVersion >= 7
+    if WINDOWS_VERSION >= 7
       buffer += [
         :NOREPEAT, 0x4000, #Changes the hotkey behavior so that the keyboard auto-repeat does not yield multiple hotkey notifications.
         #Windows Vista and Windows XP/2000:  This flag is not supported.

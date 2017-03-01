@@ -241,7 +241,7 @@ module WinFFI
     ]
 
     #if(_WIN32_WINNT >= 0x0604)
-    if WindowsVersion > 8.1
+    if WINDOWS_VERSION > 8.1
       # 0x88 - 0x8F : UI navigation
       buffer += [
           :NAVIGATION_VIEW,   0x88,

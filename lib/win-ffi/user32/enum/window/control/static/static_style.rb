@@ -38,7 +38,7 @@ module WinFFI
         :ELLIPSISMASK,   0x0000C000
     ]
 
-    buffer += [:REALSIZECONTROL, 0x00000040] if WindowsVersion >= :xp
+    buffer += [:REALSIZECONTROL, 0x00000040] if WINDOWS_VERSION >= :xp
 
     StaticStyle = enum :static_style, buffer
 

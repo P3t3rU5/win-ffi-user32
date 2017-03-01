@@ -256,11 +256,11 @@ module WinFFI
 
         :GETHMENU,               0x01E1,
     ]
-    buffer += WindowsVersion >= :xp ? [:UNICHAR, 0x0109, :KEYLAST, 0x0109] : [:KEYLAST, 0x0108]
+    buffer += WINDOWS_VERSION >= :xp ? [:UNICHAR, 0x0109, :KEYLAST, 0x0109] : [:KEYLAST, 0x0108]
 
-    buffer += (WindowsVersion >= :vista) ? [:MOUSELAST, 0x020E] : [:MOUSELAST, 0x020D]
+    buffer += (WINDOWS_VERSION >= :vista) ? [:MOUSELAST, 0x020E] : [:MOUSELAST, 0x020D]
 
-    if WindowsVersion >= :xp
+    if WINDOWS_VERSION >= :xp
       buffer += [
           :INPUT_DEVICE_CHANGE, 0x00FE,
           :INPUT,               0x00FF,
@@ -270,7 +270,7 @@ module WinFFI
           :THEMECHANGED,        0x031A,
           :CLIPBOARDUPDATE,     0x031D,
       ]
-      if WindowsVersion >= :vista
+      if WINDOWS_VERSION >= :vista
         buffer += [
             :DWMCOMPOSITIONCHANGED,       0x031E,
             :DWMNCRENDERINGCHANGED,       0x031F,
@@ -278,7 +278,7 @@ module WinFFI
             :DWMWINDOWMAXIMIZEDCHANGE,    0x0321,
             :GETTITLEBARINFOEX,           0x033F
         ]
-        if WindowsVersion >= 7
+        if WINDOWS_VERSION >= 7
           buffer += [
               :GESTURE,                        0x0119,
               :GESTURENOTIFY,                  0x011A,
@@ -289,7 +289,7 @@ module WinFFI
               :DWMSENDICONICTHUMBNAIL,         0x0323,
               :DWMSENDICONICLIVEPREVIEWBITMAP, 0x0326,
           ]
-          if WindowsVersion >= 8
+          if WINDOWS_VERSION >= 8
             buffer += [
                 :POINTERDEVICECHANGE,     0x0238,
                 :POINTERDEVICEINRANGE,    0x0239,
@@ -322,7 +322,7 @@ module WinFFI
     define_prefix(:WM, WindowMessage)
 
     MN_GETHMENU = 0x01E1
-    if WindowsVersion >= 8
+    if WINDOWS_VERSION >= 8
       DM_POINTERHITTEST = 0x0250
     end
   end

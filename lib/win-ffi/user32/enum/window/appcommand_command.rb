@@ -30,7 +30,7 @@ module WinFFI
         :TREBLE_UP,           23,
     ]
 
-    if WindowsVersion >= :xp
+    if WINDOWS_VERSION >= :xp
       buffer += [
           :MICROPHONE_VOLUME_MUTE,            24,
           :MICROPHONE_VOLUME_DOWN,            25,
@@ -63,7 +63,7 @@ module WinFFI
           :MEDIA_CHANNEL_DOWN,                52
       ]
 
-      if WindowsVersion >= :vista
+      if WINDOWS_VERSION >= :vista
         buffer += [
             :DELETE,     53,
             :DWM_FLIP3D, 54,

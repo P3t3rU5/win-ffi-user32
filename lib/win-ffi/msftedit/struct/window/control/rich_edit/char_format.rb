@@ -1,7 +1,7 @@
 require 'win-ffi/msftedit'
 
 module WinFFI
-  if WindowsVersion >= :vista
+  if WINDOWS_VERSION >= :vista
     require 'win-ffi/msftedit/enum/window/control/rich_edit/char_format_mask'
     require 'win-ffi/msftedit/enum/window/control/rich_edit/char_format_effect'
 

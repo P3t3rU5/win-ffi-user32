@@ -4,7 +4,7 @@ require 'win-ffi/user32/enum/device_notify_flag'
 
 module WinFFI
   module User32
-    if WindowsVersion >= :xp
+    if WINDOWS_VERSION >= :xp
       typedef :pointer, :hdevnotify
 
       # https://msdn.microsoft.com/en-us/library/windows/desktop/aa363431(v=vs.85).aspx

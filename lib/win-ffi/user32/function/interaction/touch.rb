@@ -2,7 +2,7 @@ require 'win-ffi/user32'
 
 module WinFFI
   module User32
-    if WindowsVersion >= 7
+    if WINDOWS_VERSION >= 7
 
       require 'win-ffi/user32/enum/interaction/touch/touch_injection_flag'
       require 'win-ffi/user32/enum/interaction/touch/touch_window_flag'
@@ -39,7 +39,7 @@ module WinFFI
       # BOOL WINAPI UnregisterTouchWindow( _In_  HWND hWnd )
       attach_function 'UnregisterTouchWindow', [:hwnd], :bool
 
-      if WindowsVersion >= 8
+      if WINDOWS_VERSION >= 8
 
         require 'win-ffi/user32/struct/interaction/touch/touch_hit_testing_input'
         require 'win-ffi/user32/struct/interaction/touch/touch_hit_testing_proximity_evaluation'

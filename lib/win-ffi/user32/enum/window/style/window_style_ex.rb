@@ -38,9 +38,9 @@ module WinFFI
         :NOACTIVATE,       0x08000000,
     ]
 
-    if WindowsVersion >= :xp
+    if WINDOWS_VERSION >= :xp
       buffer += [:COMPOSITED,       0x02000000,]
-      buffer += [:NOREDIRECTIONBITMAP, 0x00200000] if WindowsVersion >= 8
+      buffer += [:NOREDIRECTIONBITMAP, 0x00200000] if WINDOWS_VERSION >= 8
     end
 
     WindowStyleExtended = enum :window_style_extended, buffer

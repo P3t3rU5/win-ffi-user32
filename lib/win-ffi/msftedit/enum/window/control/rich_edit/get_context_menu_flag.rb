@@ -1,7 +1,7 @@
 require 'win-ffi/msftedit'
 
 module WinFFI
-  if WindowsVersion >= 8
+  if WINDOWS_VERSION >= 8
     module Msftedit
       # bits for GETCONTEXTMENUEX::dwFlags
       # https://msdn.microsoft.com/en-us/library/windows/desktop/hh768388(v=vs.85).aspx

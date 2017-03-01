@@ -15,7 +15,7 @@ module WinFFI
         :BOOTOPTIONS,     0x01000000
     ]
 
-    buffer += [:RESTARTAPPS, 0x00000040] if WindowsVersion >= :vista
+    buffer += [:RESTARTAPPS, 0x00000040] if WINDOWS_VERSION >= :vista
 
     ExitWindowsFlag = enum :exit_windows_flag, buffer
 

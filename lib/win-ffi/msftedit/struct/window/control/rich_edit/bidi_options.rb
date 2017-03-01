@@ -2,7 +2,7 @@ require 'win-ffi/msftedit'
 
 
 module WinFFI
-  if WindowsVersion >= :vista
+  if WINDOWS_VERSION >= :vista
     require 'win-ffi/msftedit/enum/window/control/rich_edit/bidi_options_mask'
     require 'win-ffi/msftedit/enum/window/control/rich_edit/bidi_options_effect'
     module Msftedit

@@ -1,7 +1,7 @@
 require 'win-ffi/msftedit'
 
 module WinFFI
-  if WindowsVersion >= :xp
+  if WINDOWS_VERSION >= :xp
     module Msftedit
       # Extended edit style masks
       # https://msdn.microsoft.com/en-us/library/windows/desktop/bb788031(v=vs.85).aspx
@@ -33,7 +33,7 @@ module WinFFI
           :MAX,                  0x20000000,
       ]
 
-      if WindowsVersion >= 8
+      if WINDOWS_VERSION >= 8
         buffer += [
             :EXTENDBACKCOLOR,   4,
             :HYPERLINKTOOLTIPS, 8,

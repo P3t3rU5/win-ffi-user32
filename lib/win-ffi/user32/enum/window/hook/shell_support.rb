@@ -22,12 +22,12 @@ module WinFFI
         :RUDEAPPACTIVATED,    0x8004,
     ]
 
-    if WindowsVersion >= :xp
+    if WINDOWS_VERSION >= :xp
       buffer += [
           :WINDOWREPLACED,  13,
           :WINDOWREPLACING, 14
       ]
-      if WindowsVersion >= 8
+      if WINDOWS_VERSION >= 8
         buffer += [:MONITORCHANGED, 16]
       end
     end

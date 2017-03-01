@@ -14,7 +14,7 @@ module WinFFI
         :SETIMAGE, 0x00F7
     ]
 
-    buffer += [:SETDONTCLICK, 0x00F8,] if WindowsVersion >= :vista
+    buffer += [:SETDONTCLICK, 0x00F8,] if WINDOWS_VERSION >= :vista
 
     ButtonMessage = enum :button_message, buffer
 

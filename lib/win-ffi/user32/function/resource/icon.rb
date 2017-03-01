@@ -110,7 +110,7 @@ module WinFFI
     #   _In_       UINT flags )
     encoded_function 'PrivateExtractIcons', [:string, :int, :int, :int, :hicon, :pointer, :uint, LoadResourceFlag], :uint
 
-    if WindowsVersion >= :vista
+    if WINDOWS_VERSION >= :vista
 
       require 'win-ffi/user32/struct/resource/icon/icon_info_ex'
 

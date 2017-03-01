@@ -11,7 +11,7 @@ module WinFFI
         :POPUPMENUMODE,  0x00000010,
     ]
 
-    if WindowsVersion >= :xp
+    if WINDOWS_VERSION >= :xp
       buffer += if Architecture == "x64-mingw32"
         [:'16BITTASK', 0x00000000]
       else

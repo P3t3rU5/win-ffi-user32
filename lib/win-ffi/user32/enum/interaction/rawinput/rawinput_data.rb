@@ -1,7 +1,7 @@
 require 'win-ffi/user32'
 
 module WinFFI
-  if WindowsVersion >= :xp
+  if WINDOWS_VERSION >= :xp
     module User32
       # Flags for GetRawInputData
       # https://msdn.microsoft.com/en-us/library/windows/desktop/ms645596(v=vs.85).aspx

@@ -12,7 +12,7 @@ module WinFFI
 
     typedef :hresult, :stdapi
 
-    if WindowsVersion >= 8
+    if WINDOWS_VERSION >= 8
 
       # https://msdn.microsoft.com/en-us/library/windows/desktop/dn302122(v=vs.85).aspx
       # STDAPI SetProcessDpiAwareness(_In_ PROCESS_DPI_AWARENESS value)
@@ -37,7 +37,7 @@ module WinFFI
       # STDAPI_(DEVICE_SCALE_FACTOR) GetScaleFactorForDevice(_In_ DISPLAY_DEVICE_TYPE deviceType);
       attach_function 'GetScaleFactorForDevice', [DisplayDeviceType], :dword
 
-      if WindowsVersion >= 8.1
+      if WINDOWS_VERSION >= 8.1
         # https://msdn.microsoft.com/en-us/library/windows/desktop/dn280510(v=vs.85).aspx
         # HRESULT WINAPI GetDpiForMonitor(
         #   _In_  HMONITOR         hmonitor,
@@ -56,7 +56,7 @@ module WinFFI
 
         # STDAPI UnregisterScaleChangeEvent(_In_ DWORD_PTR dwCookie);
 
-        if WindowsVersion >= 10
+        if WINDOWS_VERSION >= 10
           # https://msdn.microsoft.com/en-us/library/windows/desktop/dn706120(v=vs.85).aspx
           # UINT WINAPI GetDpiForShellUiComponent(_In_ SHELL_UI_COMPONENT component)
           # attach_function 'GetDpiForShellUiComponent', [ShellUiComponent], :uint

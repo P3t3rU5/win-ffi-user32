@@ -11,7 +11,7 @@ module WinFFI
         :HIDEACCEL, 0x2,
     ]
 
-    buffer += [:ACTIVE, 0x4] if WindowsVersion >= :xp
+    buffer += [:ACTIVE, 0x4] if WINDOWS_VERSION >= :xp
 
     WmUistateHiword = enum :wm_uistate_hiword, buffer
 

@@ -13,7 +13,7 @@ module WinFFI
     #   _Out_ WCHAR *pch)
     attach_function 'GetMathAlphanumeric', [:dword, :string], :char
 
-    if WindowsVersion >= :vista
+    if WINDOWS_VERSION >= :vista
 
       # DWORD CALLBACK EditStreamCallback(
       #   _In_ DWORD_PTR dwCookie,
@@ -29,7 +29,7 @@ module WinFFI
       #   _In_ INT  code)
       EditWordBreakProcEx = callback 'EditWordBreakProcEx', [:string, :long, :byte, :int], :long
 
-      if WindowsVersion >= 8
+      if WINDOWS_VERSION >= 8
         # https://msdn.microsoft.com/en-us/library/windows/desktop/hh768289(v=vs.85).aspx
         # int WINAPI AutoCorrectProc(
         #   LANGID langid,

@@ -1,7 +1,7 @@
 require 'win-ffi/user32'
 
 module WinFFI
-  if WindowsVersion >= :vista
+  if WINDOWS_VERSION >= :vista
     module User32
 
       require 'win-ffi/user32/enum/window/control/owner_drawn_control_type'

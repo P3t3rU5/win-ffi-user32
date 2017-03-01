@@ -9,7 +9,7 @@ module WinFFI
        :ERASE,          0x0004, # If SW_INVALIDATE, don't send WM_ERASEBACKGROUND
     ]
 
-    if WindowsVersion >= :xp
+    if WINDOWS_VERSION >= :xp
       buffer += [
           :SMOOTHSCROLL,   0x0010 # Use smooth scrolling
       ]

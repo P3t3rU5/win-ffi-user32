@@ -14,7 +14,7 @@ module WinFFI
         :BADPARAM,   -5,
     ]
 
-    if WindowsVersion >= :xp
+    if WINDOWS_VERSION >= :xp
       buffer += [
           :BADDUALVIEW, -6
       ]

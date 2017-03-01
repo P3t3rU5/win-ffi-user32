@@ -1,6 +1,6 @@
 module WinFFI
   module User32
-    if WindowsVersion >= 7
+    if WINDOWS_VERSION >= 7
       # https://msdn.microsoft.com/en-us/library/windows/desktop/hh405404(v=vs.85).aspx
       TimerValueCoalescing = enum :timer_value_coalescing, [
           :DEFAULT_COALESCING, 0x00000000,

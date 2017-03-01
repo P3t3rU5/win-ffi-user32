@@ -1,7 +1,7 @@
 require 'win-ffi/msftedit'
 
 module WinFFI
-  if WindowsVersion >= :vista
+  if WINDOWS_VERSION >= :vista
     module Msftedit
       # Stream formats. Flags are all in low word, since high word gives possible codepage choice.
       #

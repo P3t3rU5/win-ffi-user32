@@ -1,7 +1,7 @@
 require 'win-ffi/user32'
 
 module WinFFI
-  if WindowsVersion >= :xp
+  if WINDOWS_VERSION >= :xp
     require 'win-ffi/user32/enum/window/function/flash_window_flag'
     module User32
       # https://msdn.microsoft.com/en-us/library/windows/desktop/ms679348(v=vs.85).aspx

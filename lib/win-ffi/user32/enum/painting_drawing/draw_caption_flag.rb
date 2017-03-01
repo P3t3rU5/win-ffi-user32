@@ -11,7 +11,7 @@ module WinFFI
         :GRADIENT, 0x0020,
     ]
 
-    if WindowsVersion >= :xp
+    if WINDOWS_VERSION >= :xp
       buffer += [:BUTTONS,  0x1000]
     end
 

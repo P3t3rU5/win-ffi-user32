@@ -69,7 +69,7 @@ module WinFFI
     #   _In_  DWORD nLength )
     encoded_function 'SetUserObjectInformation', [:handle, UserObjectInformationFlag, :pointer, :dword], :bool
 
-    if WindowsVersion >= :xp
+    if WINDOWS_VERSION >= :xp
       # BOOL WINAPI GetUserObjectSecurity(
       #   _In_        HANDLE                hObj,
       #   _In_        PSECURITY_INFORMATION pSIRequested,

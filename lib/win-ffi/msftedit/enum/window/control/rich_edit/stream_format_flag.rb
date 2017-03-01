@@ -1,7 +1,7 @@
 require 'win-ffi/msftedit'
 
 module WinFFI
-  if WindowsVersion >= :vista
+  if WINDOWS_VERSION >= :vista
     module Msftedit
       StreamFormatFlag = enum :stream_format_flag, [
           :WRITEXTRAPAR,       0x80,

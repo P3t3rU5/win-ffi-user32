@@ -6,7 +6,7 @@ require 'win-ffi/core/struct/point'
 
 module WinFFI
   module User32
-    if WindowsVersion >= 8.1
+    if WINDOWS_VERSION >= 8.1
       # https://msdn.microsoft.com/en-us/library/windows/desktop/dn384110(v=vs.85).aspx
       # BOOL LogicalToPhysicalPointForPerMonitorDPI(
       # _In_    HWND    hwnd,
@@ -17,7 +17,7 @@ module WinFFI
       # BOOL PhysicalToLogicalPointForPerMonitorDPI(_In_    HWND    hwnd, _Inout_ LPPOINT lpPoint);
       attach_function 'PhysicalToLogicalPointForPerMonitorDPI', [:hwnd, POINT.ptr], :bool
 
-      if WindowsVersion >= 10
+      if WINDOWS_VERSION >= 10
         # https://msdn.microsoft.com/en-us/library/windows/desktop/mt748618(v=vs.85).aspx
         # BOOL AdjustWindowRectExForDpi(
         #   _Inout_ LPRECT lpRect,

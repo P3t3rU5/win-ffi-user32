@@ -1,7 +1,7 @@
 require 'win-ffi/msftedit'
 
 module WinFFI
-  if WindowsVersion >= :xp
+  if WINDOWS_VERSION >= :xp
     module Msftedit
       # EM_SETPAGEROTATE wparam values
       # https://msdn.microsoft.com/en-us/library/windows/desktop/bb774256(v=vs.85).aspx
@@ -12,7 +12,7 @@ module WinFFI
           :'90',  3,
       ]
 
-      buffer += [:SE, 5,] if WindowsVersion >= 8
+      buffer += [:SE, 5,] if WINDOWS_VERSION >= 8
 
       EmSetpagerotateFlag = enum :em_setpagerotate_flag, buffer
 

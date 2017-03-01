@@ -1,7 +1,7 @@
 require 'win-ffi/msftedit'
 
 module WinFFI
-  if WindowsVersion >= 8
+  if WINDOWS_VERSION >= 8
     module Msftedit
       # lparam for EM_INSERTIMAGE
       class RICHEDIT_IMAGE_PARAMETERS < FFIAdditions::Struct

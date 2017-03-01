@@ -176,7 +176,7 @@ module WinFFI
     # BOOL WINAPI WaitMessage(void)
     attach_function 'WaitMessage', [], :bool
 
-    if WindowsVersion >= :xp
+    if WINDOWS_VERSION >= :xp
 
       # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644933(v=vs.85).aspx
       # long WINAPI BroadcastSystemMessageEx(

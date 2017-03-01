@@ -34,7 +34,7 @@ module WinFFI
 
     ]
 
-    buffer += [:CXPADDEDBORDER, 92] if WindowsVersion >= :vista
+    buffer += [:CXPADDEDBORDER, 92] if WINDOWS_VERSION >= :vista
 
     GetDpiMetricsFlag = enum :get_dpi_metrics_flag, buffer
 

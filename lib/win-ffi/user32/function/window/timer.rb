@@ -26,7 +26,7 @@ module WinFFI
     #   _In_  DWORD dwTime )
     TimerProc = callback 'TimerProc', [:hwnd, :uint, :ulong, :dword], :void
 
-    if WindowsVersion >= 7
+    if WINDOWS_VERSION >= 7
       # https://msdn.microsoft.com/en-us/library/windows/desktop/hh405404(v=vs.85).aspx
       # UINT_PTR WINAPI SetCoalescableTimer(
       #   _In_opt_  HWND hwnd,

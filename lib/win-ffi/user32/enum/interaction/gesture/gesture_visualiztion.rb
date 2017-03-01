@@ -1,7 +1,7 @@
 require 'win-ffi/user32'
 
 module WinFFI
-  if WindowsVersion >= 8
+  if WINDOWS_VERSION >= 8
     module User32
       # constants for SPI_GETGESTUREVISUALIZATION and SPI_SETGESTUREVISUALIZATION
       # https://msdn.microsoft.com/en-us/library/windows/desktop/hh924310(v=vs.85).aspx

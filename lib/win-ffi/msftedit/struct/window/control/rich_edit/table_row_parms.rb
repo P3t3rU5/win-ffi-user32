@@ -1,7 +1,7 @@
 require 'win-ffi/msftedit'
 
 module WinFFI
-  if WindowsVersion >= :vista
+  if WINDOWS_VERSION >= :vista
     module Msftedit
       # Data type defining table rows for EM_INSERTTABLE
       # https://msdn.microsoft.com/en-us/library/windows/desktop/hh768761(v=vs.85).aspx

@@ -1,7 +1,7 @@
 require 'win-ffi/user32'
 module WinFFI
   module User32
-    if WindowsVersion >= :xp
+    if WINDOWS_VERSION >= :xp
 
       require 'win-ffi/user32/struct/interaction/rawinput/rawinput'
 

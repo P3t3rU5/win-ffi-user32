@@ -47,7 +47,7 @@ module WinFFI
         :MULTIPLEADDSTRING,     0x0163,
     ]
 
-    buffer += (WindowsVersion >= :xp) ? [:GETCOMBOBOXINFO, 0x0164, :MSGMAX, 0x0165] : [:MSGMAX, 0x0162]
+    buffer += (WINDOWS_VERSION >= :xp) ? [:GETCOMBOBOXINFO, 0x0164, :MSGMAX, 0x0165] : [:MSGMAX, 0x0162]
     # :MSGMAX, 0x0163 windows CE
     ComboBox = enum :combobox_message, buffer
 

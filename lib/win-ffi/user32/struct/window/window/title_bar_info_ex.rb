@@ -2,7 +2,7 @@ require 'win-ffi/user32/constant/window'
 require 'win-ffi/core/struct/rect'
 
 module WinFFI
-  if WindowsVersion >= :vista
+  if WINDOWS_VERSION >= :vista
     module User32
 
 

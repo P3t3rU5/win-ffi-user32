@@ -29,7 +29,7 @@ module WinFFI
         :ZOOM,         0xF030,
     ]
 
-    if WindowsVersion >= :vista
+    if WINDOWS_VERSION >= :vista
       buffer += [:ISSECURE, 0x00000001]
     end
 

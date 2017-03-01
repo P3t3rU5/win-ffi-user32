@@ -1,7 +1,7 @@
 require 'win-ffi/user32'
 
 module WinFFI
-  if WindowsVersion >= 8
+  if WINDOWS_VERSION >= 8
     module User32
       # https://msdn.microsoft.com/en-us/library/windows/desktop/hh969210(v=vs.85).aspx
       # wParam values for WM_POINTERDEVICECHANGE

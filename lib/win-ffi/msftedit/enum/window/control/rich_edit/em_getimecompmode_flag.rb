@@ -1,7 +1,7 @@
 require 'win-ffi/msftedit'
 
 module WinFFI
-  if WindowsVersion >= 8
+  if WINDOWS_VERSION >= 8
     module Msftedit
       # EM_SETCTFMODEBIAS wparam values
       # https://msdn.microsoft.com/pt-br/library/windows/desktop/bb774232(v=vs.85).aspx

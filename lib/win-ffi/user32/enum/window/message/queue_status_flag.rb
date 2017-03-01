@@ -19,11 +19,11 @@ module WinFFI
         :MOUSE,          0x0006, #:MOUSEMOVE | :MOUSEBUTTON, A WM_MOUSEMOVE message or mouse-button message
     ]
 
-    if WindowsVersion >= :xp
+    if WINDOWS_VERSION >= :xp
       buffer += [
           :RAWINPUT, 0x0400, #A raw input message is in the queue. For more information, see Raw Input.
       ]
-      if WindowsVersion >= 8
+      if WINDOWS_VERSION >= 8
         buffer += [
             :TOUCH,     0x0800,
             :POINTER,   0x1000,

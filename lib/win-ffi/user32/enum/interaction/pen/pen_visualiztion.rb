@@ -1,7 +1,7 @@
 require 'win-ffi/user32'
 
 module WinFFI
-  if WindowsVersion >= 10
+  if WINDOWS_VERSION >= 10
     module User32
       # constants for SPI_{GET|SET}PENVISUALIZATION
       # https://msdn.microsoft.com/en-us/library/windows/desktop/dn903653(v=vs.85).aspx

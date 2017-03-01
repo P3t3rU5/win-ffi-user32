@@ -36,13 +36,13 @@ module WinFFI
         :ALIGNRTL,          0x0711,
     ]
 
-    if WindowsVersion >= 8
+    if WINDOWS_VERSION >= 8
       buffer += [
           :CLIPFORMAT,       0x0712,
           :STARTCOMPOSITION, 0x0713,
           :ENDCOMPOSITION,   0x0714,
       ]
-      if WindowsVersion > 8.1
+      if WINDOWS_VERSION > 8.1
         buffer += [
             :BEFORE_PASTE, 0x0800,
             :AFTER_PASTE,  0x0801,

@@ -5,7 +5,7 @@ require 'win-ffi/msftedit/enum/window/control/rich_edit/char_format_underline_ty
 require 'win-ffi/gdi32/struct/font/enum_log_font'
 
 module WinFFI
-  if WindowsVersion >= :vista
+  if WINDOWS_VERSION >= :vista
     module Msftedit
 
       class CHARFORMAT2UNION < FFIAdditions::Union

@@ -2,7 +2,7 @@ require 'win-ffi/user32'
 
 
 module WinFFI
-  if WindowsVersion >= 8
+  if WINDOWS_VERSION >= 8
     require 'win-ffi/msftedit/enum/window/control/rich_edit/end_composition_notify_code'
 
     require 'win-ffi/user32/struct/window/control/notification_message_header'

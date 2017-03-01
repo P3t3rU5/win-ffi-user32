@@ -164,7 +164,7 @@ module WinFFI
         :SETQUERYRTFOBJ,   0x50E,
     ]
 
-    if WindowsVersion >= 8 # New messages as of Win8
+    if WINDOWS_VERSION >= 8 # New messages as of Win8
       buffer += [
           :INSERTTABLE,         0x4E8,
 
@@ -191,7 +191,7 @@ module WinFFI
           :SETUIANAME,          0x540,
           :GETELLIPSISSTATE,    0x542
       ]
-      if WindowsVersion >= 8.1
+      if WINDOWS_VERSION >= 8.1
         buffer += [
             :ENABLEFEATURE, 0x00DA
         ]

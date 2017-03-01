@@ -1,7 +1,7 @@
 require 'win-ffi/msftedit'
 
 module WinFFI
-  if WindowsVersion >= 8
+  if WINDOWS_VERSION >= 8
     module Msftedit
       # DWORD: *lparam for EM_GETELLIPSISMODE, lparam for EM_SETELLIPSISMODE
       # https://msdn.microsoft.com/en-us/library/windows/desktop/hh768368(v=vs.85).aspx

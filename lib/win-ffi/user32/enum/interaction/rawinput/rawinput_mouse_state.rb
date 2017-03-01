@@ -1,7 +1,7 @@
 require 'win-ffi/user32'
 
 module WinFFI
-  if WindowsVersion >= :xp
+  if WINDOWS_VERSION >= :xp
     module User32
       # Define the mouse button state indicators.
       # https://msdn.microsoft.com/en-us/library/windows/desktop/ms645578%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396
@@ -27,7 +27,7 @@ module WinFFI
           :WHEEL,              0x0400
       ]
 
-      if WindowsVersion >= :vista
+      if WINDOWS_VERSION >= :vista
         buffer += [:HWHEEL, 0x0800]
       end
 

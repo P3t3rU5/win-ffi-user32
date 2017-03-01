@@ -1,7 +1,7 @@
 require 'win-ffi/user32'
 
 module WinFFI
-  if WindowsVersion >= 7
+  if WINDOWS_VERSION >= 7
     module User32
       # Orientation preference structure. This is used by applications to specify their orientation preferences to
       # windows.

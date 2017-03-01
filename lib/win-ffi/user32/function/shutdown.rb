@@ -1,7 +1,7 @@
 require 'win-ffi/user32'
 
 module WinFFI
-  if WindowsVersion >= :xp
+  if WINDOWS_VERSION >= :xp
 
     require 'win-ffi/user32/enum/exit_windows_flag'
 
@@ -19,7 +19,7 @@ module WinFFI
       # BOOL WINAPI LockWorkStation(void)
       attach_function 'LockWorkStation', [], :bool
 
-      if WindowsVersion >= :vista
+      if WINDOWS_VERSION >= :vista
         # https://msdn.microsoft.com/en-us/library/windows/desktop/aa376877(v=vs.85).aspx
         # BOOL WINAPI ShutdownBlockReasonCreate(
         #   _In_  HWND hWnd,

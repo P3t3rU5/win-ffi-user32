@@ -31,9 +31,9 @@ module WinFFI
         :NOANIMATION,     0x4000,
     ]
 
-    if WindowsVersion >= :xp
+    if WINDOWS_VERSION >= :xp
       buffer += [:LAYOUTRTL, 0x8000]
-      if WindowsVersion >= 7
+      if WINDOWS_VERSION >= 7
         buffer += [
             # The following flag is available starting with Windows 7.
             :WORKAREA, 0x10000, # Restricts the pop-up window_class to within the work area. If this flag is not set, the pop-up

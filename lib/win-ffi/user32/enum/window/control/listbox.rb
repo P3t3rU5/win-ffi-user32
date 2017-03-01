@@ -61,7 +61,7 @@ module WinFFI
 #elif defined(_WIN32_WCE) && (_WIN32_WCE >= 0x0400)
 # :MSGMAX,              0x01B1,
 
-    buffer += WindowsVersion >= :xp ? [:GETLISTBOXINFO, 0x01B2, :MSGMAX, 0x01B3] : [:MSGMAX, 0x01B0]
+    buffer += WINDOWS_VERSION >= :xp ? [:GETLISTBOXINFO, 0x01B2, :MSGMAX, 0x01B3] : [:MSGMAX, 0x01B0]
 
     ListBox = enum :list_box_message, buffer
     define_prefix(:LB, ListBox)

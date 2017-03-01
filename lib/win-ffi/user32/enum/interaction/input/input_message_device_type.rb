@@ -1,7 +1,7 @@
 require 'win-ffi/user32'
 
 module WinFFI
-  if WindowsVersion >= 8
+  if WINDOWS_VERSION >= 8
     module User32
       # Identifiers for message input source device type.
       # https://msdn.microsoft.com/en-us/library/windows/desktop/hh448795(v=vs.85).aspx
@@ -13,7 +13,7 @@ module WinFFI
           :PEN,         0x00000008,      # from pen
       ]
 
-      if WindowsVersion >= 8.1
+      if WINDOWS_VERSION >= 8.1
         buffer += [
             :TOUCHPAD, 0x00000010, # from touchpad
         ]

@@ -1,7 +1,7 @@
 require 'win-ffi/shcore'
 
 module WinFFI
-  if WindowsVersion >= 10
+  if WINDOWS_VERSION >= 10
     module Shcore
       ShellUiComponent = enum :ShellUiComponent, [
           :TASKBARS,         0,

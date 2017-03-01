@@ -2,7 +2,7 @@ require 'win-ffi/user32'
 
 module WinFFI
   module User32
-    if WindowsVersion >= :xp
+    if WINDOWS_VERSION >= :xp
       # https://msdn.microsoft.com/en-us/library/windows/desktop/aa446675(v=vs.85).aspx
       # BOOL WINAPI GetUserObjectSecurity(
       #   _In_         HANDLE hObj,

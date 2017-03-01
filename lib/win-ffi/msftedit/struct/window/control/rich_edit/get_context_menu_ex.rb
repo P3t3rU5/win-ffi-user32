@@ -1,7 +1,7 @@
 require 'win-ffi/msftedit'
 
 module WinFFI
-  if WindowsVersion >= 8
+  if WINDOWS_VERSION >= 8
 require 'win-ffi/msftedit/enum/window/control/rich_edit/get_context_menu_flag'
 
     require 'win-ffi/msftedit/struct/window/control/rich_edit/get_context_menu_ex'

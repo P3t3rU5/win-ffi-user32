@@ -1,7 +1,7 @@
 require 'win-ffi/msftedit'
 
 module WinFFI
-  if WindowsVersion >= 8
+  if WINDOWS_VERSION >= 8
     module Msftedit
       # wparam values for EM_SETEDITSTYLEEX/EM_GETEDITSTYLEEX
       # https://msdn.microsoft.com/en-us/library/windows/desktop/hh768367(v=vs.85).aspx

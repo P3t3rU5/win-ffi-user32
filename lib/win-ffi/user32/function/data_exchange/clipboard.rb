@@ -81,7 +81,7 @@ module WinFFI
     # HWND WINAPI SetClipboardViewer( _In_  HWND hWndNewViewer )
     attach_function 'SetClipboardViewer', [:hwnd], :hwnd
 
-    if WindowsVersion >= :vista
+    if WINDOWS_VERSION >= :vista
       # https://msdn.microsoft.com/en-us/library/windows/desktop/ms649033(v=vs.85).aspx
       # BOOL WINAPI AddClipboardFormatListener( _In_  HWND hwnd )
       attach_function 'AddClipboardFormatListener', [:hwnd], :bool

@@ -1,7 +1,7 @@
 require 'win-ffi/user32'
 
 module WinFFI
-  if WindowsVersion >= :vista
+  if WINDOWS_VERSION >= :vista
     module User32
       # Message filter action values (action parameter to ChangeWindowMessageFilterEx)
       # https://msdn.microsoft.com/en-us/library/windows/desktop/dd388202(v=vs.85).aspx
@@ -11,7 +11,7 @@ module WinFFI
           :REMOVE, 2
       ]
 
-      if WindowsVersion >= 7
+      if WINDOWS_VERSION >= 7
         buffer += [
             :RESET,    0,
             :ALLOW,    1,

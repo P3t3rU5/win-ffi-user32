@@ -1,5 +1,5 @@
 module WinFFI
-  if WindowsVersion >= :vista
+  if WINDOWS_VERSION >= :vista
     require 'win-ffi/user32'
 
     require 'win-ffi/user32/typedef/hrgn'

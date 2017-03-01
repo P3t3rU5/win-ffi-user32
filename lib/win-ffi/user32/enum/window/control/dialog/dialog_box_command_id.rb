@@ -18,7 +18,7 @@ module WinFFI
         :CONTINUE, 11 # The Continue button was selected.
     ]
 
-    buffer += [:TIMEOUT, 32000] if WindowsVersion >= :xp
+    buffer += [:TIMEOUT, 32000] if WINDOWS_VERSION >= :xp
 
     DialogBoxCommandID = enum :dialog_box_command_id, buffer
 

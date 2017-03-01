@@ -10,7 +10,7 @@ module WinFFI
         :ATTRIBUTES_CHANGED, 0x04  # requery for mouse attributes
     ]
 
-    if WindowsVersion >= :vista
+    if WINDOWS_VERSION >= :vista
       buffer += [:MOVE_NOCOALESCE, 0x08]# do not coalesce mouse moves
     end
 

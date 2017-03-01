@@ -20,7 +20,7 @@ module WinFFI
 
     ]
 
-    buffer += [:POWERSETTINGCHANGE, 0x8013] if WindowsVersion >= :vista
+    buffer += [:POWERSETTINGCHANGE, 0x8013] if WINDOWS_VERSION >= :vista
 
     PBTF_APMRESUMEFROMFAILURE = 0x00000001
 

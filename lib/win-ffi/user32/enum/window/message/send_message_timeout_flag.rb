@@ -11,7 +11,7 @@ module WinFFI
         :NOTIMEOUTIFNOTHUNG, 0x0008,
     ]
 
-    buffer += [:ERRORONEXIT, 0x0020] if WindowsVersion >= :vista
+    buffer += [:ERRORONEXIT, 0x0020] if WINDOWS_VERSION >= :vista
 
     SendMessageTimeoutFlag = enum :send_message_timeout_flag, buffer
 

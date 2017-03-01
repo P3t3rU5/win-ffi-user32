@@ -1,7 +1,7 @@
 require 'win-ffi/user32'
 
 module WinFFI
-  if WindowsVersion >= :vista
+  if WINDOWS_VERSION >= :vista
     module User32
       class AUDIODESCRIPTION < FFIAdditions::Struct
         layout cbSize:  :uint,

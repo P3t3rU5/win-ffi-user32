@@ -2,7 +2,7 @@ require 'win-ffi/user32'
 
 
 module WinFFI
-  if WindowsVersion >= :xp
+  if WINDOWS_VERSION >= :xp
 
     require 'win-ffi/user32/enum/process/gui_resources_flag'
     require 'win-ffi/user32/enum/process/auto_rotation_state'
@@ -29,7 +29,7 @@ module WinFFI
       #   _In_  BOOL bGrant )
       attach_function 'UserHandleGrantAccess', [:handle, :handle, :bool], :bool
 
-      if WindowsVersion >= 7
+      if WINDOWS_VERSION >= 7
 
         # https://msdn.microsoft.com/en-us/library/windows/desktop/dn629264(v=vs.85).aspx
         # BOOL WINAPI GetAutoRotationState(_Out_ PAR_STATE pState)
@@ -51,7 +51,7 @@ module WinFFI
         # BOOL WINAPI SetDisplayAutoRotationPreferences(_In_ ORIENTATION_PREFERENCE *pOrientation)
         attach_function 'SetDisplayAutoRotationPreferences', [OrientationPreference], :bool
 
-        if WindowsVersion >= 8
+        if WINDOWS_VERSION >= 8
 
           # https://msdn.microsoft.com/en-us/library/windows/desktop/hh448383(v=vs.85).aspx
           # BOOL WINAPI IsImmersiveProcess( _In_  HANDLE hProcess )

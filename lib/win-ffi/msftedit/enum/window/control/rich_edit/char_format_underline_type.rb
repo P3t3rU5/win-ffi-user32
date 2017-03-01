@@ -1,7 +1,7 @@
 require 'win-ffi/msftedit'
 
 module WinFFI
-  if WindowsVersion >= :vista
+  if WINDOWS_VERSION >= :vista
     module Msftedit
       # Underline types. RE 1.0 displays only CFU_UNDERLINE
       # https://msdn.microsoft.com/en-us/library/windows/desktop/bb787883(v=vs.85).aspx

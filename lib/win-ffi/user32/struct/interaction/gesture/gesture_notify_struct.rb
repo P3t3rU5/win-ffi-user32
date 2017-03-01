@@ -1,6 +1,6 @@
 module WinFFI
   module User32
-    if WindowsVersion >= 7
+    if WINDOWS_VERSION >= 7
       # https://msdn.microsoft.com/en-us/library/windows/desktop/dd353233(v=vs.85).aspx
       class GESTURENOTIFYSTRUCT < FFIAdditions::Struct
         layout cbSize:         :uint, # size, in bytes, of this structure,

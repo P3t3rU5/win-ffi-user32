@@ -2,7 +2,7 @@ require 'win-ffi/user32'
 
 module WinFFI
   module User32
-    if WindowsVersion >= 8
+    if WINDOWS_VERSION >= 8
       require 'win-ffi/user32/enum/interaction/pointer/pointer_input_type'
 
       require 'win-ffi/user32/struct/interaction/pointer/pointer_info'

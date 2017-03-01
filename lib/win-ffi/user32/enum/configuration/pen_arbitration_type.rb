@@ -1,7 +1,7 @@
 require 'win-ffi/user32'
 
 module WinFFI
-  if WindowsVersion > 8.1
+  if WINDOWS_VERSION > 8.1
     module User32
       # constants for SPI_{GET|SET}PENARBITRATIONTYPE
       PenArbitrationType = enum :pen_arbitration_type, [

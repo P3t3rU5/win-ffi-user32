@@ -14,7 +14,7 @@ module WinFFI
         :TIMERPROC_EXCEPTION_SUPPRESSION, 7
     ]
 
-    if WindowsVersion >= :vista
+    if WINDOWS_VERSION >= :vista
       buffer += [
           :HEAPSIZE, 5, # The size of the desktop heap, in KB, as a ULONG value. The hObj parameter must be a handle to a
           # desktop object, otherwise, the function fails.

@@ -1,7 +1,7 @@
 require 'win-ffi/user32'
 
 module WinFFI
-  if WindowsVersion >= :xp
+  if WINDOWS_VERSION >= :xp
     module User32
       # Commands to pass to WinHelp()
       # https://msdn.microsoft.com/en-us/library/windows/desktop/bb762267(v=vs.85).aspx

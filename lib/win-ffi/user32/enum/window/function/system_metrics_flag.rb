@@ -93,7 +93,7 @@ module WinFFI
         :REMOTESESSION, 0x1000,
     ]
 
-    if WindowsVersion >= :xp
+    if WINDOWS_VERSION >= :xp
       buffer += [
           :CXFOCUSBORDER,            83,
           :CYFOCUSBORDER,            84,
@@ -105,18 +105,18 @@ module WinFFI
           :REMOTECONTROL,        0x2001,
           :CARETBLINKINGENABLED, 0x2002
       ]
-      if WindowsVersion >= :vista
+      if WINDOWS_VERSION >= :vista
         buffer += [
             :MOUSEHORIZONTALWHEELPRESENT, 91,
             :CXPADDEDBORDER,              92,
         ]
-        if WindowsVersion >= 7
+        if WINDOWS_VERSION >= 7
           buffer += [
               :DIGITIZER,      94,
               :MAXIMUMTOUCHES, 95,
               :CMETRICS,       97
           ]
-          if WindowsVersion >= 8
+          if WINDOWS_VERSION >= 8
             buffer += [
                 :CONVERTIBLESLATEMODE, 0x2003,
                 :SYSTEMDOCKED,         0x2004,

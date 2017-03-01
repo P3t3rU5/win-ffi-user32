@@ -19,7 +19,7 @@ module WinFFI
         :ABSOLUTE,    0x8000,
     ]
 
-    if WindowsVersion >= :vista
+    if WINDOWS_VERSION >= :vista
       buffer += [
           :HWHEEL,          0x01000,
           :MOVE_NOCOALESCE, 0x02000,

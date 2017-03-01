@@ -1,7 +1,7 @@
 require 'win-ffi/msftedit'
 
 module WinFFI
-  if WindowsVersion >= :vista
+  if WINDOWS_VERSION >= :vista
     module Msftedit
       # Options for EM_SETLANGOPTIONS and EM_GETLANGOPTIONS
       # https://msdn.microsoft.com/en-us/library/windows/desktop/bb788040(v=vs.85).aspx
@@ -17,7 +17,7 @@ module WinFFI
           :IMEUIINTEGRATION,    0x2000,
       ]
 
-      if WindowsVersion >= 8
+      if WINDOWS_VERSION >= 8
         buffer += [
             :NOIMPLICITLANG,      0x0040,
             :NOKBDLIDFIXUP,       0x0200,

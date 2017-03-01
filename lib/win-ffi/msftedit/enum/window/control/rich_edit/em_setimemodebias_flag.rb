@@ -1,7 +1,7 @@
 require 'win-ffi/msftedit'
 
 module WinFFI
-  if WindowsVersion >= :xp
+  if WINDOWS_VERSION >= :xp
     module Msftedit
       # EM_SETIMEMODEBIAS lparam values
       # https://msdn.microsoft.com/en-us/library/windows/desktop/bb774246(v=vs.85).aspx

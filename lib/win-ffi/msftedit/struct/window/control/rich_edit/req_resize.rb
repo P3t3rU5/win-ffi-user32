@@ -1,7 +1,7 @@
 require 'win-ffi/msftedit'
 
 module WinFFI
-  if WindowsVersion >= :vista
+  if WINDOWS_VERSION >= :vista
     require 'win-ffi/core/struct/rect'
     require 'win-ffi/user32/struct/window/control/notification_message_header'
     module Msftedit

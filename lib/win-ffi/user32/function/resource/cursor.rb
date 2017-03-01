@@ -75,7 +75,7 @@ module WinFFI
     # int WINAPI ShowCursor( _In_  BOOL bShow )
     attach_function 'ShowCursor', [:bool], :int
 
-    if WindowsVersion >= :vista
+    if WINDOWS_VERSION >= :vista
       # https://msdn.microsoft.com/en-us/library/windows/desktop/aa969464(v=vs.85).aspx
       # BOOL WINAPI GetPhysicalCursorPos( _Out_  LPPOINT lpPoint )
       attach_function 'GetPhysicalCursorPos', [POINT.ptr], :bool

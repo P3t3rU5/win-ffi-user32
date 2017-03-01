@@ -1,7 +1,7 @@
 require 'win-ffi/msftedit'
 
 module WinFFI
-  if WindowsVersion >= :vista
+  if WINDOWS_VERSION >= :vista
     module Msftedit
     # https://msdn.microsoft.com/en-us/library/windows/desktop/bb787879(v=vs.85).aspx
     BidiOptionsMask = enum :bidi_options_mask, [

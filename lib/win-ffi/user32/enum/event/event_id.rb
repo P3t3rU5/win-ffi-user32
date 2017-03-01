@@ -53,7 +53,7 @@ module WinFFI
         :OBJECT_ACCELERATORCHANGE,                0x8012,
     ]
 
-    if WindowsVersion >= :xp
+    if WINDOWS_VERSION >= :xp
       buffer += [
           :CONSOLE_CARET,             0x4001,
           :CONSOLE_UPDATE_REGION,     0x4002,
@@ -63,14 +63,14 @@ module WinFFI
           :CONSOLE_START_APPLICATION, 0x4006,
           :CONSOLE_END_APPLICATION,   0x4007,
       ]
-    if WindowsVersion >= :vista
+    if WINDOWS_VERSION >= :vista
       buffer += [
           :SYSTEM_DESKTOPSWITCH,        0x0020,
           :OBJECT_INVOKED,              0x8013,
           :OBJECT_TEXTSELECTIONCHANGED, 0x8014,
           :OBJECT_CONTENTSCROLLED,      0x8015,
       ]
-      if WindowsVersion >= 7
+      if WINDOWS_VERSION >= 7
         buffer += [
             :SYSTEM_END,               0x00FF,
 
@@ -91,7 +91,7 @@ module WinFFI
             :AIA_START,                0xA000,
             :AIA_END,                  0xAFFF,
         ]
-        if WindowsVersion >= 8
+        if WINDOWS_VERSION >= 8
           buffer += [
               :SYSTEM_SWITCHER_APPGRABBED,    0x0024,
               :SYSTEM_SWITCHER_APPOVERTARGET, 0x0025,

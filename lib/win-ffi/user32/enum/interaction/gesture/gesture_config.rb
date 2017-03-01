@@ -1,7 +1,7 @@
 require 'win-ffi/user32'
 
 module WinFFI
-  if WindowsVersion >= 7
+  if WINDOWS_VERSION >= 7
     module User32
       # Gesture configuration flags - GESTURECONFIG.dwWant or GESTURECONFIG.dwBlock
       # https://msdn.microsoft.com/en-us/library/windows/desktop/dd353241(v=vs.85).aspx

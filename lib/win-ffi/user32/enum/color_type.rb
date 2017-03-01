@@ -41,7 +41,7 @@ module WinFFI
         :BTNHIGHLIGHT,            20,
     ]
 
-    if WindowsVersion >= :xp
+    if WINDOWS_VERSION >= :xp
       buffer += [
           :MENUHILIGHT, 29,
           :MENUBAR,     30

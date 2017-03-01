@@ -1,7 +1,7 @@
 require 'win-ffi/msftedit'
 
 module WinFFI
-  if WindowsVersion >= 8
+  if WINDOWS_VERSION >= 8
     module Msftedit
       require 'win-ffi/user32/struct/window/control/notification_message_header'
       require 'win-ffi/user32/enum/data_exchange/clipboard_format'

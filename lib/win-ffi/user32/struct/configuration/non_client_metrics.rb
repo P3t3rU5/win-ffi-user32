@@ -24,7 +24,7 @@ module WinFFI
           :lfMessageFont,   Gdi32::LOGFONT
       ]
 
-      buffer += [:iPaddedBorderWidth, :int] if WindowsVersion >= :vista
+      buffer += [:iPaddedBorderWidth, :int] if WINDOWS_VERSION >= :vista
 
       layout *buffer
 

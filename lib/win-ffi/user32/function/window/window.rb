@@ -509,7 +509,7 @@ module WinFFI
     #   _In_  int nCmdShow )
     WinMain = callback 'WinMain', [:hinstance, :hinstance, :string, ShowWindowFlag], :int
 
-    if WindowsVersion >= :xp
+    if WINDOWS_VERSION >= :xp
       # https://msdn.microsoft.com/en-us/library/windows/desktop/ms679346(v=vs.85).aspx
       # BOOL WINAPI FlashWindow(
       #   _In_  HWND hWnd,
@@ -532,7 +532,7 @@ module WinFFI
       # BOOL WINAPI IsGUIThread( _In_  BOOL bConvert )
       attach_function 'IsGUIThread', [:bool], :bool
 
-      if WindowsVersion >= :vista
+      if WINDOWS_VERSION >= :vista
         # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632675(v=vs.85).aspx
         # BOOL WINAPI ChangeWindowMessageFilter(
         #   _In_  UINT message,
@@ -578,7 +578,7 @@ module WinFFI
         #HWND WINAPI WindowFromPhysicalPoint( _In_  POINT Point )
         attach_function 'WindowFromPhysicalPoint', [POINT.ptr(:in)], :hwnd
 
-        if WindowsVersion >= 7
+        if WINDOWS_VERSION >= 7
           # https://msdn.microsoft.com/en-us/library/windows/desktop/dd565861(v=vs.85).aspx
           # BOOL WINAPI CalculatePopupWindowPosition(
           #   _In_      const POINT *anchorPoint,
@@ -608,7 +608,7 @@ module WinFFI
           #   _In_  DWORD dwAffinity )
           attach_function 'SetWindowDisplayAffinity', [:hwnd, WindowDisplayAffinity], :bool
 
-          if WindowsVersion >= 8
+          if WINDOWS_VERSION >= 8
             # https://msdn.microsoft.com/en-us/library/windows/desktop/hh405402(v=vs.85).aspx
             # BOOL WINAPI SetWindowFeedbackSetting(
             #   _In_           HWND          hwnd,

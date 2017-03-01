@@ -2,7 +2,7 @@ require 'win-ffi/user32'
 
 module WinFFI
   module User32
-    if WindowsVersion >= 7
+    if WINDOWS_VERSION >= 7
 
       require 'win-ffi/user32/struct/interaction/gesture/gesture_config'
       require 'win-ffi/user32/struct/interaction/gesture/gesture_info'

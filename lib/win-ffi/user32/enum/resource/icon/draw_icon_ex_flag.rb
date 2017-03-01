@@ -11,7 +11,7 @@ module WinFFI
         :DEFAULTSIZE,  0x0008,
     ]
 
-    buffer += [:NOMIRROR, 0x0010] if WindowsVersion >= :xp
+    buffer += [:NOMIRROR, 0x0010] if WINDOWS_VERSION >= :xp
 
     DrawIconExFlag = enum :draw_icon_ex_flag, buffer
 

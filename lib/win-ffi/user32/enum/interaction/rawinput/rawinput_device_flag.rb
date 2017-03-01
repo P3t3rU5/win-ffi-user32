@@ -16,7 +16,7 @@ module WinFFI
     buffer += [
         :EXINPUTSINK,       0x00001000,
         :DEVNOTIFY,         0x00002000
-    ] if WindowsVersion >= :xp
+    ] if WINDOWS_VERSION >= :xp
 
     RawInputDeviceFlag = enum :rawinput_device_flag, buffer
 

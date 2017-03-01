@@ -1,7 +1,7 @@
 require 'win-ffi/msftedit'
 
 module WinFFI
-  if WindowsVersion >= :vista
+  if WINDOWS_VERSION >= :vista
     require 'win-ffi/msftedit/enum/window/control/rich_edit/set_text_ex_flag'
     module Msftedit
       # EM_SETTEXTEX info; this struct is passed in the wparam of the message

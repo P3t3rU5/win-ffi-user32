@@ -74,7 +74,7 @@ module WinFFI
     # BOOL WINAPI SwitchDesktop( _In_  HDESK hDesktop )
     attach_function 'SwitchDesktop', [:hdesk], :bool
 
-    if WindowsVersion >= :vista
+    if WINDOWS_VERSION >= :vista
       # https://msdn.microsoft.com/en-us/library/windows/desktop/ms682127(v=vs.85).aspx
       # HDESK WINAPI CreateDesktopEx(
       #   _In_        LPCTSTR lpszDesktop,

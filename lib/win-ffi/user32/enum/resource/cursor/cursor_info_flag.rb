@@ -8,7 +8,7 @@ module WinFFI
         :SHOWING, 0x00000001
     ]
 
-    if WindowsVersion >= 8
+    if WINDOWS_VERSION >= 8
       buffer += [:SUPPRESSED, 0x00000002]
     end
 

@@ -9,7 +9,7 @@ module WinFFI
         :SMALL, 0,
         :BIG,   1
     ]
-    buffer += [:SMALL2, 2] if WindowsVersion >= :xp
+    buffer += [:SMALL2, 2] if WINDOWS_VERSION >= :xp
 
     IconType = enum :icon_type, buffer
 

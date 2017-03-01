@@ -233,7 +233,7 @@ module WinFFI
     #   _In_  int nTabOrigin )
     encoded_function 'TabbedTextOut', [:hdc, :int, :int, :string, :int, :int, :pointer, :int], :long
 
-    if WindowsVersion >= :xp
+    if WINDOWS_VERSION >= :xp
       # https://msdn.microsoft.com/en-us/library/windows/desktop/dd144951(v=vs.85).aspx
       # int GetWindowRgnBox(
       #   _In_   HWND hWnd,

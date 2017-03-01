@@ -159,7 +159,7 @@ module WinFFI
         :SETCARETWIDTH,                0x2007,
     ]
 
-    if WindowsVersion >= :xp
+    if WINDOWS_VERSION >= :xp
       buffer += [
           :GETMOUSESONAR,               0x101C,
           :SETMOUSESONAR,               0x101D,
@@ -188,7 +188,7 @@ module WinFFI
           :SETFONTSMOOTHINGORIENTATION, 0x2013,
       ]
 
-      if WindowsVersion >= :vista
+      if WINDOWS_VERSION >= :vista
         buffer += [
             :GETWHEELSCROLLCHARS,         0x006C,
             :SETWHEELSCROLLCHARS,         0x006D,
@@ -213,7 +213,7 @@ module WinFFI
             :SETMESSAGEDURATION,          0x2017,
         ]
 
-        if WindowsVersion >= 7
+        if WINDOWS_VERSION >= 7
           buffer += [
               :GETHUNGAPPTIMEOUT,           0x0078,
               :SETHUNGAPPTIMEOUT,           0x0079,
@@ -250,7 +250,7 @@ module WinFFI
               :SETSYSTEMLANGUAGEBAR,        0x1051,
           ]
 
-          if WindowsVersion >= 8
+          if WINDOWS_VERSION >= 8
             buffer += [
                 :GETTOUCHPREDICTIONPARAMETERS, 0x009C,
                 :SETTOUCHPREDICTIONPARAMETERS, 0x009D,
@@ -267,7 +267,7 @@ module WinFFI
                 :SETMOUSEWHEELROUTING,         0x201D,
             ]
 
-            if WindowsVersion > 8.1
+            if WINDOWS_VERSION > 8.1
               buffer += [
                   :GETPENVISUALIZATION,   0x201E,
                   :SETPENVISUALIZATION,   0x201F,

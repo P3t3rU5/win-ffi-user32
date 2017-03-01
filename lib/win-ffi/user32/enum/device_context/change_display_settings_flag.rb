@@ -16,7 +16,7 @@ module WinFFI
         :NORESET,         0x10000000,
     ]
 
-    if WindowsVersion >= :vista
+    if WINDOWS_VERSION >= :vista
       buffer += [
           :ENABLE_UNSAFE_MODES,  0x00000100,
           :DISABLE_UNSAFE_MODES, 0x00000200

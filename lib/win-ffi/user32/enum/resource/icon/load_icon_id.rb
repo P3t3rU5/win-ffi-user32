@@ -16,7 +16,7 @@ module WinFFI
         :INFORMATION,     32516,
     ]
 
-    buffer += [:SHIELD, 32518] if WindowsVersion >= :vista
+    buffer += [:SHIELD, 32518] if WINDOWS_VERSION >= :vista
 
     LoadIconId = enum :load_icon_id, buffer
 

@@ -1,7 +1,7 @@
 require 'win-ffi/user32'
 
 module WinFFI
-  if WindowsVersion >= 8
+  if WINDOWS_VERSION >= 8
     module User32
       # https://msdn.microsoft.com/en-us/library/windows/desktop/hh802893(v=vs.85).aspx
       buffer = [
@@ -11,7 +11,7 @@ module WinFFI
           :MAX,            0xFFFFFFFF
       ]
 
-      if WindowsVersion >= 8.1
+      if WINDOWS_VERSION >= 8.1
         buffer += [
             :TOUCH_PAD, 0x00000004
         ]

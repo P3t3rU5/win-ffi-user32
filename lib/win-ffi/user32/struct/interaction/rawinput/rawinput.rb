@@ -1,7 +1,7 @@
 require 'win-ffi/user32'
 
 module WinFFI
-  if WindowsVersion >= :xp
+  if WINDOWS_VERSION >= :xp
 
     require 'win-ffi/user32/enum/interaction/rawinput/rawinput_type'
     require 'win-ffi/user32/enum/interaction/rawinput/rawinput_device_flag'

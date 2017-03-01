@@ -15,7 +15,7 @@ module WinFFI
         :INFORMATION,     32516
     ]
 
-    buffer += [:SHIELD, 32518] if WindowsVersion >= :vista
+    buffer += [:SHIELD, 32518] if WINDOWS_VERSION >= :vista
 
     OemIcon = enum :oem_icon, buffer
 

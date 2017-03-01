@@ -10,7 +10,7 @@ module WinFFI
       :VSC_TO_VK_EX, 3,
     ]
 
-    if WindowsVersion >= :vista
+    if WINDOWS_VERSION >= :vista
       buffer += [:VK_TO_VSC_EX, 4]
     end
 

@@ -8,7 +8,7 @@ module WinFFI
     #   DWORD fdwEffect )
     SoundSentryProc = callback :SoundSentryProc, [:dword, :dword], :lresult
 
-    if WindowsVersion >= 8
+    if WINDOWS_VERSION >= 8
 
       require 'win-ffi/user32/enum/interaction/pointer/pointer_input_type'
 
@@ -23,7 +23,7 @@ module WinFFI
       #   _In_  POINTER_INPUT_TYPE  pointerType )
       attach_function 'UnregisterPointerInputTarget', [:hwnd, POINTER_INPUT_TYPE], :bool
 
-      if WindowsVersion >= 10
+      if WINDOWS_VERSION >= 10
         # https://msdn.microsoft.com/en-us/library/windows/desktop/mt608589(v=vs.85).aspx
         # RegisterPointerInputTargetEx is not supported and may be altered or unavailable in the future. Instead,
         # use RegisterPointerInputTarget.

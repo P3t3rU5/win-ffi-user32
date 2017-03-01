@@ -1,7 +1,7 @@
 require 'win-ffi/msftedit'
 
 module WinFFI
-  if WindowsVersion >= :vista
+  if WINDOWS_VERSION >= :vista
     module Msftedit
       # EM_SETCHARFORMAT wParam masks
       # https://msdn.microsoft.com/en-us/library/windows/desktop/bb774230(v=vs.85).aspx

@@ -1,7 +1,7 @@
 require 'win-ffi/user32'
 
 module WinFFI
-  if WindowsVersion >= 8
+  if WINDOWS_VERSION >= 8
     require 'win-ffi/core/struct/point'
     require 'win-ffi/core/struct/rect'
 

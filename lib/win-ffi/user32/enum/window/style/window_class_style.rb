@@ -18,7 +18,7 @@ module WinFFI
         :IME,         0x00010000
     ]
 
-    buffer += [:DROPSHADOW, 0x00020000] if WindowsVersion >= :xp
+    buffer += [:DROPSHADOW, 0x00020000] if WINDOWS_VERSION >= :xp
 
     WindowClassStyle = enum :window_class_style, buffer
 

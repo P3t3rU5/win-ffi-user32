@@ -38,7 +38,7 @@ module WinFFI
     # HBRUSH GetSysColorBrush( _In_  int nIndex )
     attach_function 'GetSysColorBrush', [ColorType], :int
 
-    if WindowsVersion >= :xp
+    if WINDOWS_VERSION >= :xp
 
       require 'win-ffi/core/enum/error/set_last_error_ex_code'
 
@@ -67,7 +67,7 @@ module WinFFI
       #   UINT nFlags )
       attach_function 'PrintWindow', [:hwnd, :hdc, PrintWindowFlag], :bool
 
-      if WindowsVersion >= :vista
+      if WINDOWS_VERSION >= :vista
         # https://msdn.microsoft.com/en-us/library/windows/desktop/gg583869(v=vs.85).aspx
         #BOOL WINAPI IsWindowRedirectedForPrint( _In_    HWND hWnd )
         attach_function 'IsWindowRedirectedForPrint', [:hwnd], :bool

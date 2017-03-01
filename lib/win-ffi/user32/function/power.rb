@@ -1,5 +1,5 @@
 module WinFFI
-  if WindowsVersion >= 2003
+  if WINDOWS_VERSION >= 2003
     require 'win-ffi/user32'
 
     require 'win-ffi/user32/typedef/hpowernotify'
@@ -20,7 +20,7 @@ module WinFFI
       # BOOL WINAPI UnregisterPowerSettingNotification( _In_  HPOWERNOTIFY Handle )
       attach_function 'UnregisterPowerSettingNotification', [:hpowernotify], :bool
 
-      if WindowsVersion >= 8
+      if WINDOWS_VERSION >= 8
 
         # https://msdn.microsoft.com/en-us/library/windows/desktop/jj613321(v=vs.85).aspx
         # HPOWERNOTIFY WINAPI RegisterSuspendResumeNotification(

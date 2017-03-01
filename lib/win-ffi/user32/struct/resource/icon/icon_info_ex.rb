@@ -1,7 +1,7 @@
 require 'win-ffi/user32'
 
 module WinFFI
-  if WindowsVersion >= :vista
+  if WINDOWS_VERSION >= :vista
     module User32
       # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648053(v=vs.85).aspx
       class ICONINFOEX < FFIAdditions::Struct

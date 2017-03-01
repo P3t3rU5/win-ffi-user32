@@ -8,7 +8,7 @@ module WinFFI
       :SERVICE_HANDLE, 0x00000001,
     ]
 
-    buffer += [:ALL_INTERFACE_CLASSES, 0x00000004,] if WindowsVersion >= :xp
+    buffer += [:ALL_INTERFACE_CLASSES, 0x00000004,] if WINDOWS_VERSION >= :xp
 
     DeviceNotifyFlag = enum :device_notify_flag, buffer
 

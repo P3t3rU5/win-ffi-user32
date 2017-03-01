@@ -15,7 +15,7 @@ module WinFFI
         :GETSCROLLINFO,  0x00EA,
     ]
 
-    buffer += [:GETSCROLLBARINFO, 0x00EB] if WindowsVersion >= :xp
+    buffer += [:GETSCROLLBARINFO, 0x00EB] if WINDOWS_VERSION >= :xp
 
     ScrollbarMessage = enum :scrollbar_message, buffer
 

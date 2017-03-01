@@ -196,7 +196,7 @@ module WinFFI
     #   _In_  HKL dwhkl )
     encoded_function 'VkKeyScanEx', [:char, :hkl], :short
 
-    if WindowsVersion >= :vista
+    if WINDOWS_VERSION >= :vista
 
       require 'win-ffi/user32/enum/interaction/keyboard/keyboard_modifier'
 

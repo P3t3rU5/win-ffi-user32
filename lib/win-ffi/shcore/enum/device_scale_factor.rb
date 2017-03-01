@@ -1,7 +1,7 @@
 require 'win-ffi/shcore'
 
 module WinFFI
-  if WindowsVersion >= :vista
+  if WINDOWS_VERSION >= :vista
     module Shcore
       DeviceScaleFactor = enum :device_scale_factor, [
           :FACTOR_INVALID, 0,

@@ -1,7 +1,7 @@
 require 'win-ffi/user32'
 
 module WinFFI
-  if WindowsVersion >= 8
+  if WINDOWS_VERSION >= 8
     module User32
       TouchPredictionParameters = enum :touch_prediction_parameters, [
           :LATENCY,                      8,

@@ -14,7 +14,7 @@ module WinFFI
 
     require 'win-ffi/user32/typedef/hwineventhook'
 
-    if WindowsVersion >= :xp
+    if WINDOWS_VERSION >= :xp
 
       #Active Accessibility
       # https://msdn.microsoft.com/en-us/library/windows/desktop/dd318528(v=vs.85).aspx
@@ -51,7 +51,7 @@ module WinFFI
       #   _In_  UINT dwflags )
       attach_function 'SetWinEventHook', [:uint, :uint, :pointer, WinEventProc, :dword, :dword, :uint], :pointer
 
-      if WindowsVersion >= :vista || (WindowsVersion == :xp && WindowsVersion.sp >= 2)
+      if WINDOWS_VERSION >= :vista || (WINDOWS_VERSION == :xp && WINDOWS_VERSION.sp >= 2)
         # Process and Threads
         # https://msdn.microsoft.com/en-us/library/windows/desktop/ms684136(v=vs.85).aspx
         # BOOL WINAPI IsWow64Message(void)

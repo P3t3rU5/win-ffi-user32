@@ -1,7 +1,7 @@
 require 'win-ffi/user32'
 
 module WinFFI
-  if WindowsVersion >= 7
+  if WINDOWS_VERSION >= 7
     require 'win-ffi/user32/enum/interaction/touch/touch_event_flag'
     module User32
 

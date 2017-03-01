@@ -16,7 +16,7 @@ module WinFFI
         :SENDNOTIFYMESSAGE,  0x00000100,
     ]
 
-    if WindowsVersion >= :xp
+    if WINDOWS_VERSION >= :xp
       buffer += [
           :RETURNHDESK, 0x00000200,
           :LUID,        0x00000400

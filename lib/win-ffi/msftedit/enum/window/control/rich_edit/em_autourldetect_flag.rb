@@ -1,7 +1,7 @@
 require 'win-ffi/msftedit'
 
 module WinFFI
-  if WindowsVersion >= 8
+  if WINDOWS_VERSION >= 8
     module Msftedit
       # https://technet.microsoft.com/en-US/sysinternals/bb787991
       EmAutourldetectFlag = enum :em_autourldetect_flag, [
