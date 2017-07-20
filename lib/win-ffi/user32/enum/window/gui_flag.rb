@@ -12,7 +12,7 @@ module WinFFI
     ]
 
     if WINDOWS_VERSION >= :xp
-      buffer += if Architecture == "x64-mingw32"
+      buffer += if ARCHITECTURE == 'x86_64'
         [:'16BITTASK', 0x00000000]
       else
         [:'16BITTASK', 0x00000020]

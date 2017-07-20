@@ -5,6 +5,7 @@ require 'win-ffi/user32/typedef/hmenu'
 require 'win-ffi/user32/enum/resource/menu/menu_flag'
 require 'win-ffi/user32/enum/resource/menu/track_popup_menu_flag'
 require 'win-ffi/user32/enum/resource/menu/get_menu_default_item_flag'
+require 'win-ffi/user32/enum/window/control/system_object_id'
 
 require 'win-ffi/core/struct/point'
 require 'win-ffi/user32/struct/resource/menu/menubar_info'
@@ -31,7 +32,7 @@ module WinFFI
     #   _In_opt_ LPCSTR lpszNewItem,
     #   _In_ UINT cmdInsert,
     #   _In_ UINT flags)
-    encoded_function 'ChangeMenu', [:hmenu, :uint, :string, :uint, :uint], :bool
+    # encoded_function 'ChangeMenu', [:hmenu, :uint, :string, :uint, :uint], :bool
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms647619(v=vs.85).aspx
     # DWORD WINAPI CheckMenuItem(
@@ -77,7 +78,7 @@ module WinFFI
     #   _In_  HMENU hMenu,
     #   _In_  UINT uIDEnableItem,
     #   _In_  UINT uEnable )
-    attach_function 'EnableMenuItem', [:hmenu, :uint, :uint], :bool
+    attach_function 'EnableMenuItem', [:hmenu, :uint, MenuFlag], :bool
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms647637(v=vs.85).aspx
     # BOOL WINAPI EndMenu(void)
@@ -93,7 +94,7 @@ module WinFFI
     #   _In_     LONG idObject,
     #   _In_     LONG idItem,
     #   _Inout_  PMENUBARINFO pmbi )
-    attach_function 'GetMenuBarInfo', [:hwnd, :long, :long, MENUBARINFO.ptr], :bool
+    attach_function 'GetMenuBarInfo', [:hwnd, SystemObjectId, :long, MENUBARINFO.ptr], :bool
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms647975(v=vs.85).aspx
     # LONG WINAPI GetMenuCheckMarkDimensions(void)
@@ -152,7 +153,7 @@ module WinFFI
     #   _Out_opt_  LPTSTR lpString,
     #   _In_       int nMaxCount,
     #   _In_       UINT uFlag )
-    encoded_function 'GetMenuString', [:hmenu, :uint, :string, :int, :uint], :int
+    encoded_function 'GetMenuString', [:hmenu, :uint, :pointer, :int, :uint], :int
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms647984(v=vs.85).aspx
     # HMENU WINAPI GetSubMenu(
@@ -172,7 +173,7 @@ module WinFFI
     #   _In_  HMENU hmenu,
     #   _In_  UINT uItemHilite,
     #   _In_  UINT uHilite )
-    attach_function 'HiliteMenuItem', [:hwnd, :hmenu, :uint, :uint], :bool
+    attach_function 'HiliteMenuItem', [:hwnd, :hmenu, :uint, MenuFlag], :bool
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms647987(v=vs.85).aspx
     # The InsertMenu function has been superseded by the InsertMenuItem function.
@@ -182,7 +183,7 @@ module WinFFI
     #   _In_      UINT uFlags,
     #   _In_      UINT_PTR uIDNewItem,
     #   _In_opt_  LPCTSTR lpNewItem )
-    encoded_function 'InsertMenu', [:hmenu, :uint, MenuFlag, :ulong, MenuFlag], :bool
+    encoded_function 'InsertMenu', [:hmenu, :uint, MenuFlag, :ulong, :string], :bool
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms647988(v=vs.85).aspx
     # BOOL WINAPI InsertMenuItem(

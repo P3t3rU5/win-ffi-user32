@@ -151,7 +151,7 @@ RSpec.describe 'Keyboard' do
   end
 
   describe '::OemKeyScan' do
-    it '' do
+    it 'Maps OEMASCII codes 0 through 0x0FF into the OEM scan codes and shift states' do
       expect(User32.OemKeyScan(32)).to be_a Numeric
     end
   end

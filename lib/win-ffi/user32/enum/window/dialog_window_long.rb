@@ -3,7 +3,7 @@ require 'win-ffi/user32'
 module WinFFI
   module User32
     # Get/SetWindowWord/Long offsets for use with WC_DIALOG windows
-    buffer = if Architecture == "x64-mingw32"
+    buffer = if ARCHITECTURE == 'x86_64'
       [
           :MSGRESULT, 0,
           # :DLGPROC, 0 + sizeof(:lresult),

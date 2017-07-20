@@ -6,19 +6,19 @@ module WinFFI
     # https://msdn.microsoft.com/en-us/library/windows/desktop/dd373606(v=vs.85).aspx
     SystemObjectId = enum :system_object_id, [
         :WINDOW,            (0x00000000),
-        :SYSMENU,           (0xFFFFFFFF),
-        :TITLEBAR,          (0xFFFFFFFE),
-        :MENU,              (0xFFFFFFFD),
-        :CLIENT,            (0xFFFFFFFC),
-        :VSCROLL,           (0xFFFFFFFB),
-        :HSCROLL,           (0xFFFFFFFA),
-        :SIZEGRIP,          (0xFFFFFFF9),
-        :CARET,             (0xFFFFFFF8),
-        :CURSOR,            (0xFFFFFFF7),
-        :ALERT,             (0xFFFFFFF6),
-        :SOUND,             (0xFFFFFFF5),
-        :QUERYCLASSNAMEIDX, (0xFFFFFFF4),
-        :NATIVEOM,          (0xFFFFFFF0),
+        :SYSMENU,           (-1),
+        :TITLEBAR,          (-2),
+        :MENU,              (-3),
+        :CLIENT,            (-4),
+        :VSCROLL,           (-5),
+        :HSCROLL,           (-6),
+        :SIZEGRIP,          (-7),
+        :CARET,             (-8),
+        :CURSOR,            (-9),
+        :ALERT,             (-10),
+        :SOUND,             (-11),
+        :QUERYCLASSNAMEIDX, (-12),
+        :NATIVEOM,          (-16),
     ]
 
     define_prefix(:OBJID, SystemObjectId)

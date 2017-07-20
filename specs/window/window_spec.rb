@@ -38,7 +38,6 @@ def enum_thread_window_proc(hwnd, lparam)
 end
 
 def enum_window_proc(hwnd, lparam)
-  # puts hwnd
   text_size = User32.GetWindowTextLength(hwnd) + 1
   FFI::MemoryPointer.new(:ushort, text_size) do |value|
     User32.GetWindowText(hwnd, value, text_size)
@@ -72,7 +71,7 @@ RSpec.describe 'Window' do
   subject {
     extended_style = User32::WindowStyleExtended[:APPWINDOW]
     class_name = FFI::Pointer.new(wc.atom)
-    window_name = 'title'.to_w
+    window_name = 'test'.to_w
     style = 0
     x = 0
     y = 0
@@ -195,12 +194,15 @@ RSpec.describe 'Window' do
 
       expected_rect = RECT.new
       expected_rect.left   = 750
-      expected_rect.top    = 770
+      expected_rect.top    = 800
       expected_rect.width  = 100
       expected_rect.height = 100
 
       User32.CalculatePopupWindowPosition(anchor_point, window_size, flags, exclude_rect, popup_window_position)
-      expect(popup_window_position).to eq expected_rect
+      expect(popup_window_position.left).to   eq expected_rect.left
+      expect(popup_window_position.top).to    eq expected_rect.top
+      expect(popup_window_position.width).to  eq expected_rect.width
+      expect(popup_window_position.height).to eq expected_rect.height
     end
   end
 

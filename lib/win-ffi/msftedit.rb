@@ -5,6 +5,6 @@ module WinFFI
   module Msftedit
     extend LibBase
 
-    ffi_lib 'msftedit'
+    ffi_lib "#{ENV['windir']}\\System32\\msftedit"
   end
 end

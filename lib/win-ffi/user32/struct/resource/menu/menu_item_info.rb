@@ -10,7 +10,7 @@ module WinFFI
     class MENUITEMINFO < FFIAdditions::Struct
       layout cbSize:             :uint,
              fMask: MenuItemInfoMember,
-             ftype:       MenuFlagType, # used if MIIM_TYPE (4.0) or MIIM_FTYPE (>4.0)
+             fType:       MenuFlagType, # used if MIIM_TYPE (4.0) or MIIM_FTYPE (>4.0)
              fState:     MenuFlagState, # used if MIIM_STATE
              wID:                :uint, # used if MIIM_ID
              hSubMenu:          :hmenu, # used if MIIM_SUBMENU

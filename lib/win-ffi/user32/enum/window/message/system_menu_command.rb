@@ -4,6 +4,9 @@ module WinFFI
   module User32
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms646360(v=vs.85).aspx
     buffer = [
+        :ICON,         0xF020,
+        :ZOOM,         0xF030,
+
         :SIZE,         0xF000,
         :MOVE,         0xF010,
         :MINIMIZE,     0xF020,
@@ -25,8 +28,6 @@ module WinFFI
         :CONTEXTHELP,  0xF180,
         :SEPARATOR,    0xF00F,
 
-        :ICON,         0xF020,
-        :ZOOM,         0xF030,
     ]
 
     if WINDOWS_VERSION >= :vista

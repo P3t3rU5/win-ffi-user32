@@ -96,7 +96,7 @@ module WinFFI
     #   __in_opt  HINSTANCE hInstance)
     encoded_function 'UnregisterClass', [:pointer, :hinstance], :bool
 
-    if Architecture == 'x64-mingw32'
+    if ARCHITECTURE == 'x86_64'
       # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633581(v=vs.85).aspx
       # LONG_PTR WINAPI GetWindowLongPtr(
       #   __in  HWND hWnd,
