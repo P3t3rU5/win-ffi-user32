@@ -1,10 +1,8 @@
-require 'win-ffi/user32'
-
 module WinFFI
   if WINDOWS_VERSION >= 8
     module User32
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/hh969210(v=vs.85).aspx
       # wParam values for WM_POINTERDEVICECHANGE
+      # https://docs.microsoft.com/en-us/previous-versions/windows/desktop/inputmsg/pointer-device-change-constants
       PointerDeviceChange = enum :pointer_device_change, [
           :ARRIVAL,                   0x001,
           :REMOVAL,                   0x002,

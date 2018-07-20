@@ -1,4 +1,4 @@
-require 'win-ffi/user32/enum/window/control/edit/edit_message'
+require_relative '../../../enum/window/control/edit/message'
 
 module WinFFI
   module User32

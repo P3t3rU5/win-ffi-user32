@@ -1,4 +1,4 @@
-require 'win-ffi/user32'
+require_relative '../../../../../win-ffi/user32'
 require 'win-ffi/user32/enum/data_exchange/dde/transaction_class'
 
 module WinFFI

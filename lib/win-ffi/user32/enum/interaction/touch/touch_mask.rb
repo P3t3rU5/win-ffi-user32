@@ -1,9 +1,7 @@
-require 'win-ffi/user32'
-
 module WinFFI
   if WINDOWS_VERSION >= 8
     module User32
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/hh969217(v=vs.85).aspx
+      # https://docs.microsoft.com/en-us/previous-versions/windows/desktop/inputmsg/touch-mask-constants
       TouchMask = enum :touch_mask, [
           :NONE,        0x00000000,
           :CONTACTAREA, 0x00000001,

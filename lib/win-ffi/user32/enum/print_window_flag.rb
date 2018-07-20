@@ -1,9 +1,7 @@
-require 'win-ffi/user32'
-
 module WinFFI
   if WINDOWS_VERSION >= :xp
     module User32
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/dd162869(v=vs.85).aspx
+      # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-printwindow
       buffer = [:CLIENTONLY, 0x00000001]
 
       buffer += [:RENDERFULLCONTENT, 0x00000002] if WINDOWS_VERSION >= 8.1

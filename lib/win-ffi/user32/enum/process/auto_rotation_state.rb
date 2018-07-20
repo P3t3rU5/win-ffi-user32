@@ -1,10 +1,8 @@
-require 'win-ffi/user32'
-
 module WinFFI
   if WINDOWS_VERSION >= 7
     module User32
       # AutoRotation state structure
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/dn629263(v=vs.85).aspx
+      # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ne-winuser-tagar_state
       AutoRotationState = enum :auto_rotation_state, [
           :ENABLED,        0x0,
           :DISABLED,       0x1,

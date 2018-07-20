@@ -1,5 +1,3 @@
-require 'win-ffi/user32'
-
 module WinFFI
   if WINDOWS_VERSION >= 8
     module User32

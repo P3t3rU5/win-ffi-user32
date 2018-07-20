@@ -1,35 +1,31 @@
-require 'win-ffi/user32'
-
 require 'win-ffi/user32/typedef/hmenu'
 
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/bb776428(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getmenucontexthelpid
     # DWORD GetMenuContextHelpId( HMENU hmenu )
+    def self.GetMenuContextHelpId(hmenu); end
     attach_function 'GetMenuContextHelpId', [:hmenu], :dword
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/bb776429(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getwindowcontexthelpid
     # DWORD GetWindowContextHelpId( HWND hwnd )
+    def self.GetWindowContextHelpId(hwnd); end
     attach_function 'GetWindowContextHelpId', [:hwnd], :dword
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/bb762099(v=vs.85).aspx
-    # BOOL SetMenuContextHelpId(
-    #   HMENU hmenu,
-    #   DWORD dwContextHelpId )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-setmenucontexthelpid
+    # BOOL SetMenuContextHelpId(HMENU hmenu, DWORD dwContextHelpId )
+    def self.SetMenuContextHelpId(hmenu, dwContextHelpId); end
     attach_function 'SetMenuContextHelpId', [:hmenu, :dword], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/bb762101(v=vs.85).aspx
-    # BOOL SetWindowContextHelpId(
-    #   HWND hwnd,
-    #   DWORD dwContextHelpId )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-setwindowcontexthelpid
+    # BOOL SetWindowContextHelpId(HWND hwnd, DWORD dwContextHelpId )
+    def self.SetWindowContextHelpId(hwnd, dwContextHelpId); end
     attach_function 'SetWindowContextHelpId', [:hwnd, :dword], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/bb762267(v=vs.85).aspx
-    # BOOL WinHelp(
-    #   HWND hWndMain,
-    #   LPCTSTR lpszHelp,
-    #   UINT uCommand,
-    #   ULONG_PTR dwData )
-    encoded_function 'WinHelp', [:hwnd, :string, :uint, :ulong], :bool
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-winhelpa
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-winhelpw
+    # BOOL WinHelp(HWND hWndMain, LPCTSTR lpszHelp, UINT uCommand, ULONG_PTR dwData)
+    def self.WinHelp(hWndMain, lpszHelp, uCommand, dwData); end
+    encoded_function 'WinHelp', [:hwnd, :string, :uint, :ulong_ptr], :bool
   end
 end

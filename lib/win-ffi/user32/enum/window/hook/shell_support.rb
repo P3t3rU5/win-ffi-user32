@@ -1,9 +1,7 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
     # Shell support
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644991(v=vs.85).aspx
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644991
     buffer = [
         :WINDOWCREATED,            1,
         :WINDOWDESTROYED,          2,
@@ -23,13 +21,8 @@ module WinFFI
     ]
 
     if WINDOWS_VERSION >= :xp
-      buffer += [
-          :WINDOWREPLACED,  13,
-          :WINDOWREPLACING, 14
-      ]
-      if WINDOWS_VERSION >= 8
-        buffer += [:MONITORCHANGED, 16]
-      end
+      buffer += [:WINDOWREPLACED, 13, :WINDOWREPLACING, 14]
+      buffer += [:MONITORCHANGED, 16] if WINDOWS_VERSION >= 8
     end
 
     ShellSupport = enum :shell_support, buffer

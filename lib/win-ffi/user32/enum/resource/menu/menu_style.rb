@@ -1,8 +1,6 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms647575(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagmenuinfo
     MenuStyle = enum :menu_style, [
         :NOCHECK,     0x80000000,
         :MODELESS,    0x40000000,

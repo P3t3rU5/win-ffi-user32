@@ -1,10 +1,9 @@
-require 'win-ffi/user32'
-
 module WinFFI
-  module User32
-    if WINDOWS_VERSION >= :xp
-      # https://msdn.microsoft.com/en-us/library/ms648415(v=vs.85).aspx
-      # VOID WINAPI DisableProcessWindowsGhosting(void)
+  if WINDOWS_VERSION >= :xp
+    module User32
+      # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-disableprocesswindowsghosting
+      # VOID DisableProcessWindowsGhosting(void)
+      def self.DisableProcessWindowsGhosting; end
       attach_function 'DisableProcessWindowsGhosting', [], :void
     end
   end

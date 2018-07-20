@@ -1,9 +1,7 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
     # Virtual Keys, Standard Set
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/inputdev/virtual-key-codes
     buffer = [
         :LBUTTON,             0x01, # Left mouse button
         :RBUTTON,             0x02, # Right mouse button

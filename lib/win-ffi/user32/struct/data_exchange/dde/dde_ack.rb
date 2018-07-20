@@ -1,6 +1,6 @@
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648776(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/dde/ns-dde-ddeack
     # DDEACK structure
     #
     # Structure of wStatus (LOWORD(lParam)) in WM_DDE_ACK message sent in response to a WM_DDE_DATA, WM_DDE_REQUEST,

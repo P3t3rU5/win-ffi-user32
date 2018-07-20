@@ -1,19 +1,9 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
-    buffer = [
-        :GDIOBJECTS,  0, # Count of GDI objects
-        :USEROBJECTS, 1  # Count of USER objects
-    ]
+    buffer = [:GDIOBJECTS,  0, :USEROBJECTS, 1]
 
-    if WINDOWS_VERSION >= 7
-      buffer += [
-          :GDIOBJECTS_PEAK,  2, # Peak count of GDI objects
-          :USEROBJECTS_PEAK, 4, # Peak count of USER objects
-          # :GLOBAL,         ((HANDLE)-2)
-      ]
-    end
+    buffer += [:GDIOBJECTS_PEAK, 2, :USEROBJECTS_PEAK, 4,] if WINDOWS_VERSION >= 7
+    # TODO define GR_GLOBAL           ((HANDLE)-2)
 
     # The GUI object type
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms683192(v=vs.85).aspx

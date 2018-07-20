@@ -1,9 +1,7 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ff468922(v=vs.85).aspx2
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ff468921(v=vs.85).aspx
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ff468922
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ff468921
     buffer = [
         :NULL,                   0x0000,
         :CREATE,                 0x0001,
@@ -26,7 +24,6 @@ module WinFFI
         :QUIT,                   0x0012,
         :ERASEBKGND,             0x0014,
         :SYSCOLORCHANGE,         0x0015,
-
         :SHOWWINDOW,             0x0018,
         :CTLCOLOR,               0x0019,
         :WININICHANGE,           0x001A,
@@ -258,7 +255,7 @@ module WinFFI
     ]
     buffer += WINDOWS_VERSION >= :xp ? [:UNICHAR, 0x0109, :KEYLAST, 0x0109] : [:KEYLAST, 0x0108]
 
-    buffer += (WINDOWS_VERSION >= :vista) ? [:MOUSELAST, 0x020E] : [:MOUSELAST, 0x020D]
+    buffer += (WINDOWS_VERSION >= :vista) ? [:MOUSELAST, 0x020E, :MOUSEHWHEEL, 0x020E] : [:MOUSELAST, 0x020D]
 
     if WINDOWS_VERSION >= :xp
       buffer += [
@@ -312,6 +309,14 @@ module WinFFI
                 :POINTERROUTEDAWAY,       0x0252,
                 :POINTERROUTEDRELEASED,   0x0253,
             ]
+            # WINVER >= 0x0605
+            if WINDOWS_VERSION >= 10
+              buffer += [
+                  :DPICHANGED_BEFOREPARENT,0x02E2,
+                  :DPICHANGED_AFTERPARENT, 0x02E3,
+                  :GETDPISCALEDSIZE,       0x02E4
+              ]
+            end
           end
         end
       end
@@ -321,9 +326,7 @@ module WinFFI
 
     define_prefix(:WM, WindowMessage)
 
-    MN_GETHMENU = 0x01E1
-    if WINDOWS_VERSION >= 8
-      DM_POINTERHITTEST = 0x0250
-    end
+    MN_GETHMENU       = 0x01E1
+    DM_POINTERHITTEST = 0x0250 if WINDOWS_VERSION >= 8
   end
 end

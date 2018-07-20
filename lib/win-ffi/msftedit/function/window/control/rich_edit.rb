@@ -3,30 +3,19 @@ require 'win-ffi/msftedit'
 module WinFFI
   module Msftedit
 
-    # GetMathAlphanumeric(
-    #   _In_ LONG  ch,
-    #   _In_ DWORD MathStyle)
+    # GetMathAlphanumeric( _In_ LONG  ch, _In_ DWORD MathStyle)
     attach_function 'GetMathAlphanumeric', [:long, :dword], :char
 
-    # GetMathAlphanumericCode(
-    #   _In_  DWORD chTrail,
-    #   _Out_ WCHAR *pch)
+    # GetMathAlphanumericCode( _In_  DWORD chTrail, _Out_ WCHAR *pch)
     attach_function 'GetMathAlphanumeric', [:dword, :string], :char
 
     if WINDOWS_VERSION >= :vista
 
-      # DWORD CALLBACK EditStreamCallback(
-      #   _In_ DWORD_PTR dwCookie,
-      #   _In_ LPBYTE    pbBuff,
-      #   _In_ LONG      cb,
-      #   _In_ LONG      *pcb)
-      EditStreamCallback = callback 'EditStreamCallback', [:dword, :byte, :long, :long], :dword
+      # DWORD CALLBACK EditStreamCallback( _In_ DWORD_PTR dwCookie, _In_ LPBYTE pbBuff, _In_ LONG cb, _In_ LONG *pcb)
+      EditStreamCallback = callback 'EditStreamCallback', [:dword_ptr, :byte, :long, :long], :dword
 
-      # LONG CALLBACK EditWordBreakProcEx(
-      #   _In_ char *pchText,
-      #   _In_ LONG cchText,
-      #   _In_ BYTE bCharSet,
-      #   _In_ INT  code)
+      # https://docs.microsoft.com/en-us/windows/desktop/api/richedit/nc-richedit-editwordbreakprocex
+      # LONG CALLBACK EditWordBreakProcEx( _In_ char *pchText, _In_ LONG cchText, _In_ BYTE bCharSet, _In_ INT  code)
       EditWordBreakProcEx = callback 'EditWordBreakProcEx', [:string, :long, :byte, :int], :long
 
       if WINDOWS_VERSION >= 8

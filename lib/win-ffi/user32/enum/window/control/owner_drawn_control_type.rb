@@ -1,9 +1,7 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
     # Owner draw control types
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/bb775802(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagdrawitemstruct
     OwnerDrawnControlType = enum :owner_drawn_control_type, [
         :MENU,     1,
         :LISTBOX,  2,

@@ -1,9 +1,7 @@
-require 'win-ffi/user32'
-
 module WinFFI
-  module User32
-    if WINDOWS_VERSION >= 8
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/hh969209(v=vs.85).aspx
+  if WINDOWS_VERSION >= 8
+    module User32
+      # https://docs.microsoft.com/en-us/previous-versions/windows/desktop/inputmsg/pen-mask-constants
       PenMask = enum :pen_mask, [
           :NONE,     0x00000000,
           :PRESSURE, 0x00000001,

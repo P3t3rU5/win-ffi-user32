@@ -1,8 +1,6 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms647578%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagmenuiteminfoa#members
     MenuFlagType = enum :menu_flag_type, [
         :STRING,       0x00000000,
         :BITMAP,       0x00000004,

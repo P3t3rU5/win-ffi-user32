@@ -1,9 +1,7 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
     # Standard Icon IDs
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648072%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-loadicona#parameters
     buffer = [
         :APPLICATION,     32512,
         :HAND,            32513,

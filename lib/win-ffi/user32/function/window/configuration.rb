@@ -1,20 +1,16 @@
-require 'win-ffi/user32'
-
-require 'win-ffi/user32/enum/window/function/system_parameters_info_action'
-require 'win-ffi/user32/enum/window/function/system_metrics_flag'
+require_relative '../../enum/window/function/system_parameters_info_action'
+require_relative '../../enum/window/function/system_metrics_flag'
 
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms724385(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getsystemmetricsfordpi
     # int WINAPI GetSystemMetrics( _In_  int nIndex )
+    def self.GetSystemMetrics(nIndex) end
     attach_function 'GetSystemMetrics', [SystemMetricsFlag], :int
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms724947(v=vs.85).aspx
-    # BOOL WINAPI SystemParametersInfo(
-      #   _In_     UINT uiAction,
-      #   _In_     UINT uiParam,
-      #   _Inout_  PVOID pvParam,
-      #   _In_     UINT fWinIni )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-systemparametersinfofordpi
+    # BOOL WINAPI SystemParametersInfo(_In_ UINT uiAction, _In_ UINT uiParam, _Inout_ PVOID pvParam, _In_ UINT fWinIni )
+    def self.SystemParametersInfo(uiAction, uiParam, pvParam, fWinIni) end
     encoded_function 'SystemParametersInfo', [SystemParametersInfoAction, :uint, :pointer, :uint], :bool
   end
 end

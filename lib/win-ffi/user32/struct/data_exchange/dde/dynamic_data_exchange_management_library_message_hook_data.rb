@@ -1,11 +1,20 @@
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648732(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/ddeml/ns-ddeml-tagddeml_msg_hook_data
     class DDEML_MSG_HOOK_DATA < FFIAdditions::Struct
-      layout uiLo:      :uint, # unpacked lo and hi parts of lParam,
-             uiHi:      :uint,
-             cbData:   :dword, # amount of data in message, if any. May be > than 32 bytes.,
-             Data: [:dword, 8] # data peeking by DDESPY is limited to 32 bytes.
+      def uiLo; end
+      def uiLo=(v) end
+      def uiHi; end
+      def uiHi=(v) end
+      def cbData; end
+      def cbData=(v) end
+      def Data; end
+      def Data=(v) end
+
+      layout uiLo:   :uint,      # unpacked lo and hi parts of lParam,
+             uiHi:   :uint,
+             cbData: :dword,     # amount of data in message, if any. May be > than 32 bytes.
+             Data:   [:dword, 8] # data peeking by DDESPY is limited to 32 bytes.
     end
   end
 end

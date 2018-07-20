@@ -1,9 +1,7 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
     # WM_PRINT flags
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/dd145216(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/gdi/wm-print#parameters
     PrintFlag = enum :print_flag, [
         :CHECKVISIBLE, 0x00000001,
         :NONCLIENT,    0x00000002,

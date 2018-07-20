@@ -1,5 +1,3 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
     buffer = [
@@ -11,9 +9,7 @@ module WinFFI
         :GRADIENT, 0x0020,
     ]
 
-    if WINDOWS_VERSION >= :xp
-      buffer += [:BUTTONS,  0x1000]
-    end
+    buffer += [:BUTTONS, 0x1000] if WINDOWS_VERSION >= :xp
 
     DrawCaptionFlag = enum :draw_caption_flag, buffer
 

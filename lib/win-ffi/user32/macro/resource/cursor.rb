@@ -1,4 +1,4 @@
-require 'win-ffi/user32/function/resource/cursor'
+require_relative '../../function/resource/cursor'
 
 module WinFFI
   module User32

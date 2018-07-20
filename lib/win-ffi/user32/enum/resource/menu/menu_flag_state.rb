@@ -1,8 +1,6 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms647578(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagmenuiteminfoa#members
     MenuFlagState = enum :menu_flag_state, [
         :GRAYED,    0x00000003,
         :DISABLED,  0x00000003,

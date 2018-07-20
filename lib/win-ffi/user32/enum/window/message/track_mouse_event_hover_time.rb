@@ -1,10 +1,6 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
-    TrackMouseEventHoverTime = enum :track_mouse_event_hover_time, [
-        :DEFAULT, 0xFFFFFFFF
-    ]
+    TrackMouseEventHoverTime = enum :track_mouse_event_hover_time, [:DEFAULT, 0xFFFFFFFF]
 
     define_prefix(:HOVER, TrackMouseEventHoverTime)
   end

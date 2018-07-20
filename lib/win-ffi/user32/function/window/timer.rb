@@ -1,40 +1,32 @@
-require 'win-ffi/user32'
-
-require 'win-ffi/user32/enum/window/function/timer_value_coalescing'
+require_relative '../../enum/window/function/timer_value_coalescing'
 
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644903(v=vs.85).aspx
-    # BOOL WINAPI KillTimer(
-    #   _In_opt_  HWND hWnd,
-    #   _In_      UINT_PTR uIDEvent )
-    attach_function 'KillTimer', [:hwnd, :uint], :bool
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644907
+    # VOID CALLBACK TimerProc( _In_  HWND hwnd, _In_  UINT uMsg, _In_  UINT_PTR idEvent, _In_  DWORD dwTime )
+    TimerProc = callback 'TimerProc', [:hwnd, :uint, :uint_ptr, :dword], :void
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644906(v=vs.85).aspx
-    # UINT_PTR WINAPI SetTimer(
-    #   _In_opt_  HWND hWnd,
-    #   _In_      UINT_PTR nIDEvent,
-    #   _In_      UINT uElapse,
-    #   _In_opt_  TIMERPROC lpTimerFunc )
-    attach_function 'SetTimer', [:hwnd, :ulong, :uint, :pointer], :ulong
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644903
+    # BOOL KillTimer( _In_opt_  HWND hWnd, _In_      UINT_PTR uIDEvent )
+    def self.KillTimer(hWnd, uIDEvent); end
+    attach_function 'KillTimer', [:hwnd, :uint_ptr], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644907(v=vs.85).aspx
-    # VOID CALLBACK TimerProc(
-    #   _In_  HWND hwnd,
-    #   _In_  UINT uMsg,
-    #   _In_  UINT_PTR idEvent,
-    #   _In_  DWORD dwTime )
-    TimerProc = callback 'TimerProc', [:hwnd, :uint, :ulong, :dword], :void
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644906
+    # UINT_PTR SetTimer(_In_opt_ HWND hWnd, _In_ UINT_PTR nIDEvent, _In_ UINT uElapse, _In_opt_  IMERPROC lpTimerFunc)
+    def self.SetTimer(hWnd, nIDEvent, uElapse, lpTimerFunc); end
+    attach_function 'SetTimer', [:hwnd, :uint_ptr, :uint, TimerProc], :uint_ptr
 
     if WINDOWS_VERSION >= 7
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/hh405404(v=vs.85).aspx
-      # UINT_PTR WINAPI SetCoalescableTimer(
+      # https://msdn.microsoft.com/en-us/library/windows/desktop/hh405404
+      # UINT_PTR SetCoalescableTimer(
       #   _In_opt_  HWND hwnd,
       #   _In_      UINT_PTR nIDEvent,
       #   _In_      UINT uElapse,
       #   _In_opt_  TIMERPROC lpTimerFunc,
       #   _In_      ULONG uToleranceDelay )
-      attach_function 'SetCoalescableTimer', [:hwnd, :ulong, :uint, :pointer, TimerValueCoalescing], :ulong
+      def self.SetCoalescableTimer(hwnd, nIDEvent, uElapse, lpTimerFunc, uToleranceDelay); end
+      attach_function 'SetCoalescableTimer',
+                      [:hwnd, :uint_ptr, :uint, TimerProc, TimerValueCoalescing], :uint_ptr
     end
   end
 end

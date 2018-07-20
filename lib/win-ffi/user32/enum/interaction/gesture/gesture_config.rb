@@ -1,10 +1,8 @@
-require 'win-ffi/user32'
-
 module WinFFI
   if WINDOWS_VERSION >= 7
     module User32
       # Gesture configuration flags - GESTURECONFIG.dwWant or GESTURECONFIG.dwBlock
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/dd353241(v=vs.85).aspx
+      # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-setgestureconfig#remarks
       GestureConfig = enum :gesture_config, [
           :ALLGESTURES,                         0x00000001,
           :ZOOM,                                0x00000001,
@@ -16,7 +14,7 @@ module WinFFI
           :ROTATE,                              0x00000001,
           :TWOFINGERTAP,                        0x00000001,
           :PRESSANDTAP,                         0x00000001,
-          :ROLLOVER,                            0x00000001,
+          :ROLLOVER,                            0x00000001
       ]
 
       define_prefix(:GC, GestureConfig)

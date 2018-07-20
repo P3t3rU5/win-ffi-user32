@@ -1,5 +1,3 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
     # Border flags
@@ -22,7 +20,7 @@ module WinFFI
         :SOFT,                    0x1000, # For softer buttons
         :ADJUST,                  0x2000, # Calculate the space left over
         :FLAT,                    0x4000, # For flat rather than 3D borders
-        :MONO,                    0x8000 # For monochrome borders
+        :MONO,                    0x8000  # For monochrome borders
     ]
 
     define_prefix(:BF, BorderFlag)

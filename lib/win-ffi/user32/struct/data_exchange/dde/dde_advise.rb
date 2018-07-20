@@ -1,6 +1,6 @@
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648778(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/dde/ns-dde-ddeadvise
     # DDEADVISE structure
     # WM_DDE_ADVISE parameter structure for hOptions (LOWORD(lParam))
     # TODO

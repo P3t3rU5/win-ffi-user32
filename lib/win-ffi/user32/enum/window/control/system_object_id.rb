@@ -1,9 +1,7 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
     # Reserved IDs for system objects
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/dd373606(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/WinAuto/object-identifiers
     SystemObjectId = enum :system_object_id, [
         :WINDOW,            (0x00000000),
         :SYSMENU,           (-1),

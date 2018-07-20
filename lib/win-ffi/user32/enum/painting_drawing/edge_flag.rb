@@ -1,7 +1,5 @@
-require 'win-ffi/gdi32'
-
 module WinFFI
-  module Gdi32
+  module User32
     # 3D border styles
     EdgeFlag = enum :border_flag, [
         :RAISEDOUTER, 0x0001,

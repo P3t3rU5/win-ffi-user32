@@ -1,9 +1,7 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
     # Extended Window Styles
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ff700543(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/winmsg/extended-window-styles
     buffer = [
         :DLGMODALFRAME,    0x00000001,
         :NOPARENTNOTIFY,   0x00000004,
@@ -39,7 +37,7 @@ module WinFFI
     ]
 
     if WINDOWS_VERSION >= :xp
-      buffer += [:COMPOSITED,       0x02000000,]
+      buffer += [:COMPOSITED,          0x02000000]
       buffer += [:NOREDIRECTIONBITMAP, 0x00200000] if WINDOWS_VERSION >= 8
     end
 

@@ -1,12 +1,19 @@
-require 'win-ffi/user32/enum/resource/accelerator_flag'
+require_relative '../../enum/resource/accelerator_flag'
 
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms646340(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagaccel
     class ACCEL < FFIAdditions::Struct
+      def fvirt; end
+      def fvirt=(v); end
+      def key; end
+      def key=(v); end
+      def cmd; end
+      def cmd=(v); end
+
       layout fvirt: AcceleratorFlag,
-             key:             :word,
-             cmd:             :word
+             key:   :word,
+             cmd:   :word
     end
   end
 end

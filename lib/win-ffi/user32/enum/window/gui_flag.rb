@@ -1,8 +1,6 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632604(v=vs.85).aspx
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632604
     buffer = [
         :CARETBLINKING,  0x00000001,
         :INMOVESIZE,     0x00000002,
@@ -11,13 +9,7 @@ module WinFFI
         :POPUPMENUMODE,  0x00000010,
     ]
 
-    if WINDOWS_VERSION >= :xp
-      buffer += if ARCHITECTURE == 'x86_64'
-        [:'16BITTASK', 0x00000000]
-      else
-        [:'16BITTASK', 0x00000020]
-      end
-    end
+    buffer += [:'16BITTASK', WinFFI.x64? ? 0x00000000 : 0x00000020] if WINDOWS_VERSION >= :xp
 
     GUIFlag = enum :gui_flag, buffer
 

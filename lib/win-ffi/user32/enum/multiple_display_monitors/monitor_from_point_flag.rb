@@ -1,8 +1,6 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/dd145062(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-monitorfrompoint
     MonitorFromPointFlag = enum :monitor_from_point_flag, [
         :DEFAULTTONULL,    0x00000000,
         :DEFAULTTOPRIMARY, 0x00000001,

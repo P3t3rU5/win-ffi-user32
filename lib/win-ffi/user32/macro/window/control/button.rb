@@ -1,5 +1,5 @@
-require 'win-ffi/user32/enum/window/control/button/button_message'
-require 'win-ffi/user32/enum/window/control/button/button_state'
+require_relative '../../../enum/window/control/button/message'
+require_relative '../../../enum/window/control/button/state'
 
 module WinFFI
   module User32

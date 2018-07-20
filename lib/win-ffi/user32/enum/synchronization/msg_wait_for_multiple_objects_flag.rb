@@ -1,8 +1,6 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms684245(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-msgwaitformultipleobjectsex
     MsgWaitForMultipleObjectsFlag = enum :msg_wait_for_multiple_objects_flag, [
         :WAITANY,        0x0000,
         :WAITALL,        0x0001,

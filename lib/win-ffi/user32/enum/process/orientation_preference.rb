@@ -1,11 +1,9 @@
-require 'win-ffi/user32'
-
 module WinFFI
   if WINDOWS_VERSION >= 7
     module User32
       # Orientation preference structure. This is used by applications to specify their orientation preferences to
       # windows.
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/dn629267(v=vs.85).aspx
+      # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ne-winuser-orientation_preference
       OrientationPreference = enum :orientation_preference, [
           :NONE,              0x0,
           :LANDSCAPE,         0x1,

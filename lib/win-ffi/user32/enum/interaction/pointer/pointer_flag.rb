@@ -1,9 +1,7 @@
-require 'win-ffi/user32'
-
 module WinFFI
   if WINDOWS_VERSION >= 8
     module User32
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/hh969211(v=vs.85).aspx
+      # https://docs.microsoft.com/en-us/previous-versions/windows/desktop/inputmsg/pointer-flags-contants
       PointerFlag = enum :pointer_flag, [
           :NONE,           0x00000000,
           :NEW,            0x00000001,

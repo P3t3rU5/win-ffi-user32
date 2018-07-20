@@ -1,8 +1,6 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ff485971(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/Controls/bumper-list-box-list-box-control-reference
     # Listbox messages
     buffer = [
         # Listbox Return Values
@@ -54,12 +52,6 @@ module WinFFI
         :ITEMFROMPOINT,       0x01A9,
         :MULTIPLEADDSTRING,   0x01B1
     ]
-
-#if defined(_WIN32_WCE) && (_WIN32_WCE >= 0x0400)
-        # :MULTIPLEADDSTRING,   0x01B1,
-#endif
-#elif defined(_WIN32_WCE) && (_WIN32_WCE >= 0x0400)
-# :MSGMAX,              0x01B1,
 
     buffer += WINDOWS_VERSION >= :xp ? [:GETLISTBOXINFO, 0x01B2, :MSGMAX, 0x01B3] : [:MSGMAX, 0x01B0]
 

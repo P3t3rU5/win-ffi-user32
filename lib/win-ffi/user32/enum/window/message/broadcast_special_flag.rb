@@ -1,9 +1,7 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
     # Broadcast Special Message Flags
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644932(v=vs.85).aspx
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644932
     buffer = [
         :QUERY,              0x00000001,
         :IGNORECURRENTTASK,  0x00000002,
@@ -16,12 +14,9 @@ module WinFFI
         :SENDNOTIFYMESSAGE,  0x00000100,
     ]
 
-    if WINDOWS_VERSION >= :xp
-      buffer += [
-          :RETURNHDESK, 0x00000200,
-          :LUID,        0x00000400
-      ]
-    end
+    buffer += [:RETURNHDESK, 0x00000200, :LUID, 0x00000400] if WINDOWS_VERSION >= :xp
+
+    BROADCAST_QUERY_DENY = 0x424D5144
 
     BroadcastSpecialFlag = enum :broadcast_special_flag, buffer
 

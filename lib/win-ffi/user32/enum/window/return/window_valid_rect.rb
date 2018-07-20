@@ -1,9 +1,7 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
     # WM_NCCALCSIZE "window valid rect" return values
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632634(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/winmsg/wm-nccalcsize#return-value
     WindowValidRect = enum :window_valid_rect, [
         :ALIGNTOP,     0x0010,
         :ALIGNLEFT,    0x0020,

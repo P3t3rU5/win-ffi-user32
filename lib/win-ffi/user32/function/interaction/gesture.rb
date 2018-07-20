@@ -1,46 +1,45 @@
-require 'win-ffi/user32'
-
 module WinFFI
-  module User32
-    if WINDOWS_VERSION >= 7
+  if WINDOWS_VERSION >= 7
+    module User32
+      require_relative '../../struct/interaction/gesture/config'
+      require_relative '../../struct/interaction/gesture/info'
 
-      require 'win-ffi/user32/struct/interaction/gesture/gesture_config'
-      require 'win-ffi/user32/struct/interaction/gesture/gesture_info'
+      typedef :pointer, :hgestureinfo
 
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/dd353228(v=vs.85).aspx
-      # BOOL WINAPI CloseGestureInfoHandle( HGESTUREINFO hGestureInfo )
+      # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-closegestureinfohandle
+      # BOOL CloseGestureInfoHandle( HGESTUREINFO hGestureInfo )
+      def self.CloseGestureInfoHandle(hGestureInfo); end
       attach_function 'CloseGestureInfoHandle', [:pointer], :bool
 
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/dd353234(v=vs.85).aspx
-      # BOOL WINAPI GetGestureConfig(
+      # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getgestureconfig
+      # BOOL GetGestureConfig(
       #   _In_     HWND hwnd,
       #   _In_     DWORD dwReserved,
       #   _In_     DWORD dwFlags,
       #   _In_     PUINT pcIDs,
       #   _Inout_  PGESTURECONFIG pGestureConfig,
       #   _In_     UINT cbSize )
+      def self.GetGestureConfig(hwnd, dwReserved, dwFlags, pcIDs, pGestureConfig, cbSize); end
       attach_function 'GetGestureConfig', [:hwnd, :dword, :dword, :uint, GESTURECONFIG.ptr, :uint], :bool
 
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/dd744776(v=vs.85).aspx
-      # BOOL WINAPI GetGestureExtraArgs(
-      #   _In_   HGESTUREINFO hGestureInfo,
-      #   _In_   UINT cbExtraArgs,
-      #   _Out_  PBYTE pExtraArgs )
+      # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getgestureextraargs
+      # BOOL GetGestureExtraArgs( _In_   HGESTUREINFO hGestureInfo, _In_   UINT cbExtraArgs, _Out_  PBYTE pExtraArgs )
+      def self.GetGestureExtraArgs(hGestureInfo, cbExtraArgs, pExtraArgs); end
       attach_function 'GetGestureExtraArgs', [:pointer, :uint, :pointer], :bool
 
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/dd353235(v=vs.85).aspx
-      # BOOL WINAPI GetGestureInfo(
-      #   _In_   HGESTUREINFO hGestureInfo,
-      #   _Out_  PGESTUREINFO pGestureInfo )
+      # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getgestureinfo
+      # BOOL GetGestureInfo(_In_   HGESTUREINFO hGestureInfo,  _Out_  PGESTUREINFO pGestureInfo )
+      def self.GetGestureInfo(hGestureInfo, pGestureInfo); end
       attach_function 'GetGestureInfo', [GESTUREINFO.ptr, GESTUREINFO.ptr], :bool
 
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/dd353241(v=vs.85).aspx
-      # BOOL WINAPI SetGestureConfig(
+      # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-setgestureconfig
+      # BOOL SetGestureConfig(
       #   _In_  HWND hwnd,
       #   _In_  DWORD dwReserved,
       #   _In_  UINT cIDs,
       #   _In_  PGESTURECONFIG pGestureConfig,
       #   _In_  UINT cbSize )
+      def self.SetGestureConfig(hwnd, dwReserved, cIDs, pGestureConfig, cbSize); end
       attach_function 'SetGestureConfig', [:hwnd, :dword, :uint, GESTURECONFIG.ptr, :uint], :bool
     end
   end

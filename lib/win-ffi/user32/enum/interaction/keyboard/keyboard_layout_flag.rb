@@ -1,9 +1,7 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms646289(v=vs.85).aspx
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms646305(v=vs.85).aspx
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms646289
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms646305
     KeyboardLayoutFlag = enum :keyboard_layout_flag, [
         :ACTIVATE,      0x00000001,
         :SUBSTITUTE_OK, 0x00000002,

@@ -1,9 +1,7 @@
-require 'win-ffi/user32'
-
 module WinFFI
   if WINDOWS_VERSION >= 8
     module User32
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/jj653868(v=vs.85).aspx
+      # https://msdn.microsoft.com/en-us/library/windows/desktop/jj653868
       PointerButtonChangeType = enum :pointer_button_change_type, [
           :NONE,
           :FIRSTBUTTON_DOWN,

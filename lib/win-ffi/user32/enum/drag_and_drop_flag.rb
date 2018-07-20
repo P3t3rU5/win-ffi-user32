@@ -1,5 +1,3 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
     # Drag-and-drop support
@@ -11,7 +9,7 @@ module WinFFI
         :DIRECTORY,  0x8003,
         :MULTIPLE,   0x8004,
         :PROGMAN,    0x0001,
-        :SHELLDATA,  0x0002,
+        :SHELLDATA,  0x0002
     ]
 
     define_prefix(:DOF, DragAndDropFlag)

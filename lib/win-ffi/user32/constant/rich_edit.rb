@@ -1,11 +1,9 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
 
     MSFTEDIT_CLASS    = "RICHEDIT50W"
-    CERICHEDIT_CLASS  = "RichEditCE#{WinFFI.encoding}"
-    RICHEDIT_CLASS    = "RichEdit20#{WinFFI.encoding}"
+    CERICHEDIT_CLASS  = "RichEditCE#{WinFFI::ENCODING_SUFFIX}"
+    RICHEDIT_CLASS    = "RichEdit20#{WinFFI::ENCODING_SUFFIX}"
     RICHEDIT_CLASS10A = "RICHEDIT"
     RICHEDIT60_CLASS  = "RICHEDIT60W"
 

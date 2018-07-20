@@ -1,8 +1,6 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms646360(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/menurc/wm-syscommand#parameters
     buffer = [
         :ICON,         0xF020,
         :ZOOM,         0xF030,
@@ -26,13 +24,11 @@ module WinFFI
         :DEFAULT,      0xF160,
         :MONITORPOWER, 0xF170,
         :CONTEXTHELP,  0xF180,
-        :SEPARATOR,    0xF00F,
-
+        :SEPARATOR,    0xF00F
     ]
 
-    if WINDOWS_VERSION >= :vista
-      buffer += [:ISSECURE, 0x00000001]
-    end
+    # buffer += [:ISSECURE, 0x00000001] if WINDOWS_VERSION >= :vista
+    SCF_ISSECURE = 0x00000001 if WINDOWS_VERSION >= :vista
 
     SystemMenuComand = enum :system_menu_command, buffer
 

@@ -1,9 +1,7 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
     # Flags for DrawFrameControl
-    # https://msdn.microsoft.com/en-us/library/dd162480(v=vs.85).aspx
+    # https://msdn.microsoft.com/en-us/library/dd162480
     DrawFrameControlFlag = enum :draw_frame_control_flag, [
         :CAPTION,    1,
         :MENU,       2,

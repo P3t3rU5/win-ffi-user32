@@ -1,9 +1,7 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
     # GetWindow() Constants
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633515(v=vs.85).aspx
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633515
     GetWindowFlag = enum :get_window_flag, [
         :HWNDFIRST,    0,
         :HWNDLAST,     1,

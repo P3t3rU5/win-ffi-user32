@@ -1,4 +1,4 @@
-require 'win-ffi/user32'
+require_relative '../../../../win-ffi/user32'
 
 module WinFFI
   module User32

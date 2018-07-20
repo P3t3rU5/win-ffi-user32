@@ -1,26 +1,25 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648395(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-setsystemcursor#parameters
     OemCursor = enum :oem_cursor, [
         :NORMAL,       32512,
         :ARROW,        32512,
         :IBEAM,        32513,
         :WAIT,         32514,
         :CROSS,        32515,
-        :UPARROW,      32516,
-        :SIZE,         32640, # OBSOLETE: use IDC_SIZEALL
-        :ICON,         32641, # OBSOLETE: use IDC_ARROW
+        :UP,           32516,
+        :SIZE,         32640,
+        :ICON,         32641,
         :SIZENWSE,     32642,
         :SIZENESW,     32643,
         :SIZEWE,       32644,
         :SIZENS,       32645,
         :SIZEALL,      32646,
-        :NO,           32648, # not in win3.1
+        :ICOCUR,       32647,
+        :NO,           32648,
         :HAND,         32649,
-        :APPSTARTING,  32650, # not in win3.1
-        :HELP,         32651,
+        :APPSTARTING,  32650,
+        :HELP,         32651
     ]
 
     define_prefix(:OCR, OemCursor)

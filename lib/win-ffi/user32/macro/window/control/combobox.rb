@@ -1,4 +1,4 @@
-require 'win-ffi/user32/enum/window/control/combobox'
+require_relative '../../../enum/window/control/combobox'
 
 module WinFFI
   module User32

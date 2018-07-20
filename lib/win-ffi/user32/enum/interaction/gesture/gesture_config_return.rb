@@ -1,11 +1,9 @@
-require 'win-ffi/user32'
-
 module WinFFI
-  module User32
-    GestureConfigReturn = enum :gesture_config_return, [
-        :INCLUDE_ANCESTORS, 0x00000001,
-    ]
+  if WINDOWS_VERSION >= 7
+    module User32
+      GestureConfigReturn = enum :gesture_config_return, [:INCLUDE_ANCESTORS, 0x00000001]
 
-    define_prefix(:GCF, GestureConfigReturn)
+      define_prefix(:GCF, GestureConfigReturn)
+    end
   end
 end

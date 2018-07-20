@@ -1,15 +1,13 @@
-require 'win-ffi/user32'
-
 module WinFFI
   if WINDOWS_VERSION >= :xp
     module User32
       class << self
-        def RIDEV_EXMODE(mode)
-          mode & RIDEV_EXMODEMASK
-        end
+        def RIDEV_EXMODE(mode) mode & RIDEV_EXMODEMASK; end
 
         #define RAWINPUT_ALIGN(x)   (((x) + sizeof(QWORD) - 1) & ~(sizeof(QWORD) - 1))
-        def RAWINPUT_ALIGN(x)   (((x) + FFI.type_size(:dword) - 1) & ~(FFI.type_size(:dword) - 1)); end
+        def RAWINPUT_ALIGN(x)
+          (((x) + FFI.type_size(:dword) - 1) & ~(FFI.type_size(:dword) - 1))
+        end
 
         #ifdef _WIN64
         #define RAWINPUT_ALIGN(x)   (((x) + sizeof(QWORD) - 1) & ~(sizeof(QWORD) - 1))
@@ -28,7 +26,6 @@ module WinFFI
         # https://msdn.microsoft.com/en-us/library/windows/desktop/ms645592(v=vs.85).aspx
         #define GET_RAWINPUT_CODE_WPARAM(wParam)    ((wParam) & 0xff)
         def GET_RAWINPUT_CODE_WPARAM(wParam) wParam & 0xff; end
-
       end
     end
   end

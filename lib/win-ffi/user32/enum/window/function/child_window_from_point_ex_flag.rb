@@ -1,8 +1,6 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632677(v=vs.85).aspx
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632677
     ChildWindowFromPointExFlag = enum :child_window_from_point_ex_flag, [
         :ALL,             0x0000,
         :SKIPINVISIBLE,   0x0001,

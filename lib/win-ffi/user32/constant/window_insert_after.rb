@@ -1,5 +1,3 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
     HWND_TOP       = FFI::MemoryPointer.new(User32.find_type(:hwnd)).write_int(0)

@@ -1,15 +1,26 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/bb775804(v=vs.85).aspx
     # MEASUREITEMSTRUCT for ownerdraw
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagmeasureitemstruct
     class MEASUREITEMSTRUCT < FFIAdditions::Struct
-      layout CtlType:     :uint,
-             CtlID:       :uint,
-             itemID:      :uint,
-             itemWidth:   :uint,
-             itemHeight:  :uint,
+      def CtlType; end
+      def CtlType=(v) end
+      def CtlID; end
+      def CtlID=(v) end
+      def itemID; end
+      def itemID=(v) end
+      def itemWidth; end
+      def itemWidth=(v) end
+      def itemHeight; end
+      def itemHeight=(v) end
+      def itemData; end
+      def itemData=(v) end
+
+      layout CtlType:    :uint,
+             CtlID:      :uint,
+             itemID:     :uint,
+             itemWidth:  :uint,
+             itemHeight: :uint,
              itemData:   :ulong
     end
   end

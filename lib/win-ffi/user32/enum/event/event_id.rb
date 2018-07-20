@@ -1,14 +1,12 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
     # EVENT DEFINITION
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/dd318066(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/WinAuto/event-constants
     buffer = [
         :MIN,           0x00000001,
         :MAX,           0x7FFFFFFF,
 
-        :SYSTEM_SOUND,                 0x0001,
+        :SYSTEM_SOUND,                  0x0001,
         :SYSTEM_ALERT,                  0x0002,
         :SYSTEM_FOREGROUND,             0x0003,
         :SYSTEM_MENUSTART,              0x0004,
@@ -50,7 +48,7 @@ module WinFFI
         :OBJECT_PARENTCHANGE,                     0x800F,
         :OBJECT_HELPCHANGE,                       0x8010,
         :OBJECT_DEFACTIONCHANGE,                  0x8011,
-        :OBJECT_ACCELERATORCHANGE,                0x8012,
+        :OBJECT_ACCELERATORCHANGE,                0x8012
     ]
 
     if WINDOWS_VERSION >= :xp
@@ -61,14 +59,15 @@ module WinFFI
           :CONSOLE_UPDATE_SCROLL,     0x4004,
           :CONSOLE_LAYOUT,            0x4005,
           :CONSOLE_START_APPLICATION, 0x4006,
-          :CONSOLE_END_APPLICATION,   0x4007,
+          :CONSOLE_END_APPLICATION,   0x4007
       ]
     if WINDOWS_VERSION >= :vista
       buffer += [
           :SYSTEM_DESKTOPSWITCH,        0x0020,
+
           :OBJECT_INVOKED,              0x8013,
           :OBJECT_TEXTSELECTIONCHANGED, 0x8014,
-          :OBJECT_CONTENTSCROLLED,      0x8015,
+          :OBJECT_CONTENTSCROLLED,      0x8015
       ]
       if WINDOWS_VERSION >= 7
         buffer += [
@@ -89,15 +88,15 @@ module WinFFI
             :OBJECT_END,               0x80FF,
 
             :AIA_START,                0xA000,
-            :AIA_END,                  0xAFFF,
+            :AIA_END,                  0xAFFF
         ]
         if WINDOWS_VERSION >= 8
           buffer += [
-              :SYSTEM_SWITCHER_APPGRABBED,    0x0024,
-              :SYSTEM_SWITCHER_APPOVERTARGET, 0x0025,
-              :SYSTEM_SWITCHER_APPDROPPED,    0x0026,
-              :SYSTEM_SWITCHER_CANCELLED,     0x0027,
-              :SYSTEM_IME_KEY_NOTIFICATION,   0x0029,
+              :SYSTEM_SWITCHER_APPGRABBED,              0x0024,
+              :SYSTEM_SWITCHER_APPOVERTARGET,           0x0025,
+              :SYSTEM_SWITCHER_APPDROPPED,              0x0026,
+              :SYSTEM_SWITCHER_CANCELLED,               0x0027,
+              :SYSTEM_IME_KEY_NOTIFICATION,             0x0029,
 
               :OBJECT_CLOAKED,                          0x8017,
               :OBJECT_UNCLOAKED,                        0x8018,
@@ -112,7 +111,7 @@ module WinFFI
               :OBJECT_IME_SHOW,                         0x8027,
               :OBJECT_IME_HIDE,                         0x8028,
               :OBJECT_IME_CHANGE,                       0x8029,
-              :OBJECT_TEXTEDIT_CONVERSIONTARGETCHANGED, 0x8030,
+              :OBJECT_TEXTEDIT_CONVERSIONTARGETCHANGED, 0x8030
           ]
         end
       end

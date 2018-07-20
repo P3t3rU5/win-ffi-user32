@@ -1,9 +1,7 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
     # Windowstation-specific access flags
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms687391(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/winstation/window-station-security-and-access-rights
     WindowStationAccessRights = enum :window_station_access_rights, [
         :ENUMDESKTOPS,      0x0001,
         :READATTRIBUTES,    0x0002,

@@ -36,7 +36,7 @@
 #define ListBox_SetTopIndex(hwndCtl,indexTop) ((int)(DWORD)SNDMSG((hwndCtl),LB_SETTOPINDEX,(WPARAM)(int)(indexTop),0))
 
 
-require 'win-ffi/user32/enum/window/control/listbox'
+require_relative '../../../enum/window/control/listbox'
 
 module WinFFI
   module User32

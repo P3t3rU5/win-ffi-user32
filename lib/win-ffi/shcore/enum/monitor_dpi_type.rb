@@ -1,5 +1,3 @@
-require 'win-ffi/shcore'
-
 module WinFFI
   module Shcore
     MonitorDpiType = enum :monitor_dpi_type, [

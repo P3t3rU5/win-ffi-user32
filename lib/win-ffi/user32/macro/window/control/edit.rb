@@ -32,8 +32,7 @@
 #define Edit_SetWordBreakProc(hwndCtl,lpfnWordBreak) ((void)SNDMSG((hwndCtl),EM_SETWORDBREAKPROC,0,(LPARAM)(EDITWORDBREAKPROC)(lpfnWordBreak)))
 #define Edit_Undo(hwndCtl) ((BOOL)(DWORD)SNDMSG((hwndCtl),EM_UNDO,0,0))
 
-
-require 'win-ffi/user32/enum/window/control/edit/edit_message'
+require_relative '../../../enum/window/control/edit/message'
 
 module WinFFI
   module User32

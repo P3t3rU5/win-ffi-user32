@@ -1,16 +1,9 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648381%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396
-    buffer = [
-        :HIDDEN,  0x00000000,
-        :SHOWING, 0x00000001
-    ]
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagcursorinfo
+    buffer = [:HIDDEN,  0x00000000, :SHOWING, 0x00000001]
 
-    if WINDOWS_VERSION >= 8
-      buffer += [:SUPPRESSED, 0x00000002]
-    end
+    buffer += [:SUPPRESSED, 0x00000002] if WINDOWS_VERSION >= 8
 
     CursorInfoFlag = enum :cursor_info_flag, buffer
 

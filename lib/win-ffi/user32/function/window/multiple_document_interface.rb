@@ -1,8 +1,6 @@
-require 'win-ffi/user32'
+require_relative '../../enum/window/style/window_style'
 
-require 'win-ffi/user32/enum/window/style/window_style'
-
-require 'win-ffi/user32/struct/window/message/msg'
+require_relative '../../struct/window/message/msg'
 
 module WinFFI
   module User32
@@ -18,7 +16,10 @@ module WinFFI
     #   _In_opt_  HWND hWndParent,
     #   _In_opt_  HINSTANCE hInstance,
     #   _In_      LPARAM lParam )
-    encoded_function 'CreateMDIWindow', [:string, :string, WindowStyle, :int, :int, :int, :int, :hwnd, :hinstance, :lparam], :hwnd
+    def self.CreateMDIWindow(lpClassName, lpWindowName, dwStyle, x, y, nWidth, nHeight, hWndParent, hInstance, lParam)
+    end
+    encoded_function 'CreateMDIWindow',
+                     [:string, :string, WindowStyle, :int, :int, :int, :int, :hwnd, :hinstance, :lparam], :hwnd
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644924(v=vs.85).aspx
     # LRESULT WINAPI DefFrameProc(
@@ -27,21 +28,17 @@ module WinFFI
     #   _In_  UINT uMsg,
     #   _In_  WPARAM wParam,
     #   _In_  LPARAM lParam )
+    def self.DefFrameProc(hWnd, hWndMDIClient, uMsg, wParam, lParam); end
     encoded_function 'DefFrameProc', [:hwnd, :hwnd, :uint, :wparam, :lparam], :lresult
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644925(v=vs.85).aspx
-    # LRESULT WINAPI DefMDIChildProc(
-    #   _In_  HWND hWnd,
-    #   _In_  UINT uMsg,
-    #   _In_  WPARAM wParam,
-    #   _In_  LPARAM lParam )
+    # LRESULT WINAPI DefMDIChildProc( _In_  HWND hWnd, _In_  UINT uMsg, _In_  WPARAM wParam, _In_  LPARAM lParam )
+    def self.TranslateMDISysAccel(hWnd, uMsg, wParam, lParam); end
     encoded_function 'DefMDIChildProc', [:hwnd, :uint, :wparam, :lparam], :lresult
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644926(v=vs.85).aspx
-    # BOOL WINAPI TranslateMDISysAccel(
-    #   _In_  HWND hWndClient,
-    #   _In_  LPMSG lpMsg )
+    # BOOL WINAPI TranslateMDISysAccel( _In_  HWND hWndClient, _In_  LPMSG lpMsg )
+    def self.DefMDIChildProc(hWndClient, lpMsg); end
     attach_function 'TranslateMDISysAccel', [:hwnd, MSG.ptr], :bool
-
   end
 end

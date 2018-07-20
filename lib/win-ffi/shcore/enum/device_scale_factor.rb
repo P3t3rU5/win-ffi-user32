@@ -1,5 +1,3 @@
-require 'win-ffi/shcore'
-
 module WinFFI
   if WINDOWS_VERSION >= :vista
     module Shcore

@@ -1,9 +1,7 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
     # STICKYKEYS dwFlags field
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/dd373652(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagstickykeys
     StickyKeysFlag = enum :sticky_keys_flag, [
         :STICKYKEYSON,    0x00000001,
         :AVAILABLE,       0x00000002,
@@ -29,7 +27,7 @@ module WinFFI
         :RCTLLOCKED,      0x00080000,
         :RSHIFTLOCKED,    0x00020000,
         :LWINLOCKED,      0x00400000,
-        :RWINLOCKED,      0x00800000,
+        :RWINLOCKED,      0x00800000
     ]
 
     define_prefix(:SKF, StickyKeysFlag)

@@ -1,9 +1,7 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
     # Parameter for SystemParametersInfo.
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms724947%28v=vs.85%29.aspx
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms724947
     buffer = [
         :GETBEEP,                      0x0001,
         :SETBEEP,                      0x0002,
@@ -49,6 +47,7 @@ module WinFFI
         :SETWORKAREA,                  0x002F,
         :GETWORKAREA,                  0x0030,
         :SETPENWINDOWS,                0x0031,
+
         :GETHIGHCONTRAST,              0x0042,
         :SETHIGHCONTRAST,              0x0043,
         :GETKEYBOARDPREF,              0x0044,
@@ -97,8 +96,10 @@ module WinFFI
         :SETSERIALKEYS,                0x003F,
         :GETSOUNDSENTRY,               0x0040,
         :SETSOUNDSENTRY,               0x0041,
+
         :GETSNAPTODEFBUTTON,           0x005F,
         :SETSNAPTODEFBUTTON,           0x0060,
+
         :GETMOUSEHOVERWIDTH,           0x0062,
         :SETMOUSEHOVERWIDTH,           0x0063,
         :GETMOUSEHOVERHEIGHT,          0x0064,
@@ -185,7 +186,7 @@ module WinFFI
           :GETFOCUSBORDERHEIGHT,        0x2010,
           :SETFOCUSBORDERHEIGHT,        0x2011,
           :GETFONTSMOOTHINGORIENTATION, 0x2012,
-          :SETFONTSMOOTHINGORIENTATION, 0x2013,
+          :SETFONTSMOOTHINGORIENTATION, 0x2013
       ]
 
       if WINDOWS_VERSION >= :vista
@@ -210,7 +211,7 @@ module WinFFI
             :GETMINIMUMHITRADIUS,         0x2014,
             :SETMINIMUMHITRADIUS,         0x2015,
             :GETMESSAGEDURATION,          0x2016,
-            :SETMESSAGEDURATION,          0x2017,
+            :SETMESSAGEDURATION,          0x2017
         ]
 
         if WINDOWS_VERSION >= 7
@@ -247,7 +248,7 @@ module WinFFI
               :GETTHREADLOCALINPUTSETTINGS, 0x104E,
               :SETTHREADLOCALINPUTSETTINGS, 0x104F,
               :GETSYSTEMLANGUAGEBAR,        0x1050,
-              :SETSYSTEMLANGUAGEBAR,        0x1051,
+              :SETSYSTEMLANGUAGEBAR,        0x1051
           ]
 
           if WINDOWS_VERSION >= 8
@@ -264,7 +265,7 @@ module WinFFI
                 :GETGESTUREVISUALIZATION,      0x201A,
                 :SETGESTUREVISUALIZATION,      0x201B,
                 :GETMOUSEWHEELROUTING,         0x201C,
-                :SETMOUSEWHEELROUTING,         0x201D,
+                :SETMOUSEWHEELROUTING,         0x201D
             ]
 
             if WINDOWS_VERSION > 8.1
@@ -273,13 +274,25 @@ module WinFFI
                   :SETPENVISUALIZATION,   0x201F,
 
                   :GETPENARBITRATIONTYPE, 0x2020,
-                  :SETPENARBITRATIONTYPE, 0x2021,
+                  :SETPENARBITRATIONTYPE, 0x2021
               ]
+              if WINDOWS_VERSION >= 10
+                buffer +=[
+                  #if (NTDDI_VERSION >= NTDDI_WIN10_RS3)
+                  :GETCARETTIMEOUT, 0x2022,
+                  :SETCARETTIMEOUT, 0x2023,
+                  #if (NTDDI_VERSION >= NTDDI_WIN10_RS4)
+                  :GETHANDEDNESS,   0x2024,
+                  :SETHANDEDNESS,   0x2025,
+                ]
+              end
             end
           end
         end
       end
     end
+
+    SETWALLPAPER_DEFAULT = -1
 
     SystemParametersInfoAction = enum :system_parameters_info_action, buffer
 

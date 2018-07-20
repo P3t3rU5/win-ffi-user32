@@ -1,9 +1,7 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
     # WM_KEYUP/DOWN/CHAR HIWORD(lParam) flags
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms646267(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/inputdev/about-keyboard-input#keystroke-message-flags
     KeyboardMessageFlag = enum :keyboard_message_flag, [
         :EXTENDED, 0x0100,
         :DLGMODE,  0x0800,

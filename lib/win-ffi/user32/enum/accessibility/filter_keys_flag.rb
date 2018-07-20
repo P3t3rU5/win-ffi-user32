@@ -1,9 +1,7 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
     # FILTERKEYS dwFlags field
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/dd318079(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagfilterkeys
     FilterKeysFlag = enum :filter_keys_flag, [
         :FILTERKEYSON,  0x00000001,
         :AVAILABLE,     0x00000002,

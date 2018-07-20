@@ -1,18 +1,17 @@
-require 'win-ffi/user32'
+require_relative '../../enum/resource/load_resource_flag'
+require_relative '../../enum/resource/icon/draw_icon_ex_flag'
 
-require 'win-ffi/user32/enum/resource/load_resource_flag'
-require 'win-ffi/user32/enum/resource/icon/draw_icon_ex_flag'
-
-require 'win-ffi/user32/struct/resource/icon/icon_info'
+require_relative '../../struct/resource/icon/info'
 
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648058(v=vs.85).aspx
-    # HICON WINAPI CopyIcon( _In_  HICON hIcon )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-copyicon
+    # HICON CopyIcon( _In_  HICON hIcon )
+    def self.CopyIcon(hIcon); end
     attach_function 'CopyIcon', [:hicon], :hicon
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648059(v=vs.85).aspx
-    # HICON WINAPI CreateIcon(
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-createicon
+    # HICON CreateIcon(
     #   _In_opt_  HINSTANCE hInstance,
     #   _In_      int nWidth,
     #   _In_      int nHeight,
@@ -20,18 +19,20 @@ module WinFFI
     #   _In_      BYTE cBitsPixel,
     #   _In_      const BYTE *lpbANDbits,
     #   _In_      const BYTE *lpbXORbits )
+    def self.CreateIcon(hInstance, nWidth, nHeight, cPlanes, cBitsPixel, lpbANDbits, lpbXORbits); end
     attach_function 'CreateIcon' , [:hinstance, :int, :int, :byte, :byte, :pointer, :pointer], :hicon
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648060(v=vs.85).aspx
-    # HICON WINAPI CreateIconFromResource(
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-createiconfromresource
+    # HICON CreateIconFromResource(
     #   _In_  PBYTE presbits,
     #   _In_  DWORD dwResSize,
     #   _In_  BOOL fIcon,
     #   _In_  DWORD dwVer )
+    def self.CreateIconFromResource(presbits, dwResSize, fIcon, dwVer); end
     attach_function 'CreateIconFromResource', [:pointer, :dword, :bool, :dword], :hicon
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648061(v=vs.85).aspx
-    # HICON WINAPI CreateIconFromResourceEx(
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-createiconfromresourceex
+    # HICON CreateIconFromResourceEx(
     #   _In_  PBYTE pbIconBits,
     #   _In_  DWORD cbIconBits,
     #   _In_  BOOL fIcon,
@@ -39,26 +40,26 @@ module WinFFI
     #   _In_  int cxDesired,
     #   _In_  int cyDesired,
     #   _In_  UINT uFlags )
+    def self.CreateIconFromResourceEx(pbIconBits, cbIconBits, fIcon, dwVersion, cxDesired, cyDesired, uFlags); end
     attach_function 'CreateIconFromResourceEx', [:pointer, :dword, :bool, :dword, :int, :int, LoadResourceFlag], :hicon
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648062(v=vs.85).aspx
-    # HICON WINAPI CreateIconIndirect( _In_  PICONINFO piconinfo )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-createiconindirect
+    # HICON CreateIconIndirect( _In_  PICONINFO piconinfo )
+    def self.CreateIconIndirect(piconinfo); end
     attach_function 'CreateIconIndirect',  [ICONINFO.ptr], :hicon
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648063(v=vs.85).aspx
-    # BOOL WINAPI DestroyIcon( _In_  HICON hIcon )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-destroyicon
+    # BOOL DestroyIcon( _In_  HICON hIcon )
+    def self.DestroyIcon(hIcon); end
     attach_function 'DestroyIcon', [:hicon], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648064(v=vs.85).aspx
-    # BOOL WINAPI DrawIcon(
-    #   _In_  HDC hDC,
-    #   _In_  int X,
-    #   _In_  int Y,
-    #   _In_  HICON hIcon )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-drawicon
+    # BOOL DrawIcon( _In_  HDC hDC, _In_  int X, _In_  int Y, _In_  HICON hIcon )
+    def self.DrawIcon(hDC, x, y, hIcon); end
     attach_function 'DrawIcon', [:hdc, :int, :int, :hicon], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648065(v=vs.85).aspx
-    # BOOL WINAPI DrawIconEx(
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-drawiconex
+    # BOOL DrawIconEx(
     #   _In_      HDC hdc,
     #   _In_      int xLeft,
     #   _In_      int yTop,
@@ -68,38 +69,39 @@ module WinFFI
     #   _In_      UINT istepIfAniCur,
     #   _In_opt_  HBRUSH hbrFlickerFreeDraw,
     #   _In_      UINT diFlags )
+    def self.DrawIconEx(hdc, xLeft, yTop, hIcon, cxWidth, cyWidth, istepIfAniCur, hbrFlickerFreeDraw, diFlags); end
     attach_function 'DrawIconEx', [:hdc, :int, :int, :hicon, :int, :int, :uint, :hbrush, DrawIconExFlag], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648070(v=vs.85).aspx
-    # BOOL WINAPI GetIconInfo(
-    #   _In_   HICON hIcon,
-    #   _Out_  PICONINFO piconinfo )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-geticoninfo
+    # BOOL GetIconInfo( _In_   HICON hIcon, _Out_  PICONINFO piconinfo )
+    def self.GetIconInfo(hIcon, piconinfo); end
     attach_function 'GetIconInfo', [:hicon, ICONINFO.ptr], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648072(v=vs.85).aspx
-    # HICON LoadIcon(
-    #   __in_opt  HINSTANCE hInstance,
-    #   __in      LPCTSTR   lpIconName)
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-loadicona
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-loadiconw
+    # HICON LoadIcon( __in_opt  HINSTANCE hInstance, __in LPCTSTR lpIconName)
+    def self.LoadIcon(hInstance, lpIconName); end
     encoded_function 'LoadIcon', [:hinstance, :pointer], :hicon
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648073(v=vs.85).aspx
-    # int WINAPI LookupIconIdFromDirectory(
-    #   _In_  PBYTE presbits,
-    #   _In_  BOOL fIcon )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-lookupiconidfromdirectory
+    # int LookupIconIdFromDirectory( _In_  PBYTE presbits, _In_  BOOL fIcon )
+    def self.LookupIconIdFromDirectory(presbits, fIcon); end
     attach_function 'LookupIconIdFromDirectory', [:pointer, :bool], :int
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648074(v=vs.85).aspx
-    # int WINAPI LookupIconIdFromDirectoryEx(
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-lookupiconidfromdirectoryex
+    # int LookupIconIdFromDirectoryEx(
     #   _In_  PBYTE presbits,
     #   _In_  BOOL fIcon,
     #   _In_  int cxDesired,
     #   _In_  int cyDesired,
     #   _In_  UINT Flags )
+    def self.LookupIconIdFromDirectoryEx(presbits, fIcon, cxDesired, cyDesired, flags); end
     attach_function 'LookupIconIdFromDirectoryEx', [:pointer, :bool, :int, :int, LoadResourceFlag], :int
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648075(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-privateextracticonsa
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-privateextracticonsw
     # This function is not intended for general use. It may be altered or unavailable in subsequent versions of Windows.
-    # UINT WINAPI PrivateExtractIcons(
+    # UINT PrivateExtractIcons(
     #   _In_       LPCTSTR lpszFile,
     #   _In_       int nIconIndex,
     #   _In_       int cxIcon,
@@ -108,16 +110,16 @@ module WinFFI
     #   _Out_opt_  UINT *piconid,
     #   _In_       UINT nIcons,
     #   _In_       UINT flags )
+    def self.PrivateExtractIcons(lpszFile, nIconIndex, cxIcon, cyIcon, phicon, piconid, nIcons, flags); end
     encoded_function 'PrivateExtractIcons', [:string, :int, :int, :int, :hicon, :pointer, :uint, LoadResourceFlag], :uint
 
     if WINDOWS_VERSION >= :vista
+      require_relative '../../struct/resource/icon/info_ex'
 
-      require 'win-ffi/user32/struct/resource/icon/icon_info_ex'
-
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648071(v=vs.85).aspx
-      # BOOL WINAPI GetIconInfoEx(
-      #   _In_     HICON hIcon,
-      #   _Inout_  PICONINFOEX piconinfoex )
+      # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-geticoninfoexa
+      # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-geticoninfoexw
+      # BOOL GetIconInfoEx( _In_     HICON hIcon, _Inout_  PICONINFOEX piconinfoex )
+      def self.GetIconInfoEx(hIcon, piconinfoex); end
       encoded_function 'GetIconInfoEx', [:hicon, ICONINFOEX.ptr], :bool
     end
   end

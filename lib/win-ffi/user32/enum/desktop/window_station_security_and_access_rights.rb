@@ -1,3 +1,5 @@
+require_relative '../../../../win-ffi/user32'
+
 module WinFFI
   module User32
     # Standard Access Rights

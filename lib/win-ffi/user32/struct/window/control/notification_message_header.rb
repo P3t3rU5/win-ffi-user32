@@ -1,12 +1,17 @@
-require 'win-ffi/user32'
-
 module WinFFI
   if WINDOWS_VERSION >= :vista
     module User32
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/bb775514(v=vs.85).aspx
+      # https://docs.microsoft.com/en-us/windows/desktop/api/richedit/ns-richedit-_nmhdr
       class NMHDR < FFIAdditions::Struct
+        def hwnd; end
+        def hwnd=(v) end
+        def idFrom; end
+        def idFrom=(v) end
+        def code; end
+        def code=(v) end
+
         layout hwnd:   :hwnd,
-               idFrom: :uint,
+               idFrom: :uint_ptr,
                code:   :uint
       end
     end

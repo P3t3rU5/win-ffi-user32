@@ -1,8 +1,6 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ff485901(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/Controls/bumper-combobox-control-reference-messages
     buffer =  [
         # Combo Box return Values
         :OKAY,                       0,

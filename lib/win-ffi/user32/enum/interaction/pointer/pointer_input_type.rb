@@ -1,9 +1,7 @@
-require 'win-ffi/user32'
-
 module WinFFI
   if WINDOWS_VERSION >= 8
     module User32
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/hh454908(v=vs.85).aspx
+      # https://msdn.microsoft.com/en-us/library/windows/desktop/hh454908
       buffer = [
           :POINTER, 0x00000001,
           :TOUCH,   0x00000002,
@@ -11,11 +9,7 @@ module WinFFI
           :MOUSE,   0x00000004
       ]
 
-      if WINDOWS_VERSION >= 8.1
-        buffer += [
-            :TOUCHPAD, 0x00000005
-        ]
-      end
+      buffer += [:TOUCHPAD, 0x00000005] if WINDOWS_VERSION >= 8.1
 
       POINTER_INPUT_TYPE = enum :pointer_input_type, buffer
 

@@ -1,9 +1,8 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
     # Flags for ChangeDisplaySettings
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/dd183413(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-changedisplaysettingsexa
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-changedisplaysettingsexw
     buffer = [
         :UPDATEREGISTRY,  0x00000001,
         :TEST,            0x00000002,
@@ -16,12 +15,7 @@ module WinFFI
         :NORESET,         0x10000000,
     ]
 
-    if WINDOWS_VERSION >= :vista
-      buffer += [
-          :ENABLE_UNSAFE_MODES,  0x00000100,
-          :DISABLE_UNSAFE_MODES, 0x00000200
-      ]
-    end
+    buffer += [:ENABLE_UNSAFE_MODES, 0x00000100, :DISABLE_UNSAFE_MODES, 0x00000200] if WINDOWS_VERSION >= :vista
 
     ChangeDisplaySettingsFlag = enum :change_display_settings_flag, buffer
 

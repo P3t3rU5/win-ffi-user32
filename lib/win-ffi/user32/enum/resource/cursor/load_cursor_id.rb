@@ -1,10 +1,8 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
     # Standard Cursor
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648391(v=vs.85).aspx
-    LoadCursorId = enum :load_cursor_id, [
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-loadcursora#parameters
+    buffer = [
         :ARROW,       32512,
         :IBEAM,       32513,
         :WAIT,        32514,
@@ -20,8 +18,12 @@ module WinFFI
         :NO,          32648,
         :HAND,        32649,
         :APPSTARTING, 32650,
-        :HELP,        32651,
+        :HELP,        32651
     ]
+
+    buffer += [:PIN, 32671, :PERSON, 32672] if WINDOWS_VERSION >= 10
+
+    LoadCursorId = enum :load_cursor_id, buffer
 
     define_prefix(:IDC, LoadCursorId)
   end

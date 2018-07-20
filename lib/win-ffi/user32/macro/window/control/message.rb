@@ -1,4 +1,4 @@
-require 'win-ffi/user32/function/window/message'
+require_relative '../../../function/window/message'
 
 module WinFFI
   module User32

@@ -1,5 +1,3 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648009(v=vs.85).aspx

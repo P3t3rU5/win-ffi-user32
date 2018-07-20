@@ -1,5 +1,3 @@
-require 'win-ffi/shcore'
-
 module WinFFI
   module Shcore
     ScaleChangeFlag = enum :scale_change_flag, [

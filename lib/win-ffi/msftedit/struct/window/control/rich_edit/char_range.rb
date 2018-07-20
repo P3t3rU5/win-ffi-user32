@@ -1,9 +1,12 @@
-require 'win-ffi/msftedit'
-
 module WinFFI
   module Msftedit
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/bb787885(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/richedit/ns-richedit-_charrange
     class CHARRANGE < FFIAdditions::Struct
+      def cpMin; end
+      def cpMin=(v) end
+      def cpMax; end
+      def cpMax=(v) end
+
       layout cpMin: :long,
              cpMax: :long
     end

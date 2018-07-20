@@ -1,5 +1,3 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms724385(v=vs.85).aspx
@@ -106,22 +104,10 @@ module WinFFI
           :CARETBLINKINGENABLED, 0x2002
       ]
       if WINDOWS_VERSION >= :vista
-        buffer += [
-            :MOUSEHORIZONTALWHEELPRESENT, 91,
-            :CXPADDEDBORDER,              92,
-        ]
+        buffer += [:MOUSEHORIZONTALWHEELPRESENT, 91, :CXPADDEDBORDER, 92]
         if WINDOWS_VERSION >= 7
-          buffer += [
-              :DIGITIZER,      94,
-              :MAXIMUMTOUCHES, 95,
-              :CMETRICS,       97
-          ]
-          if WINDOWS_VERSION >= 8
-            buffer += [
-                :CONVERTIBLESLATEMODE, 0x2003,
-                :SYSTEMDOCKED,         0x2004,
-            ]
-          end
+          buffer += [:DIGITIZER, 94, :MAXIMUMTOUCHES, 95, :CMETRICS, 97]
+          buffer += [:CONVERTIBLESLATEMODE, 0x2003, :SYSTEMDOCKED, 0x2004] if WINDOWS_VERSION >= 8
         else
           buffer += [:CMETRICS, 93]
         end

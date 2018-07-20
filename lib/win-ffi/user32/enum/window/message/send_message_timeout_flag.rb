@@ -1,9 +1,7 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
     # SendMessageTimeout values
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644952(v=vs.85).aspx
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644952
     buffer =  [
         :ABORTIFHUNG,        0x0002,
         :BLOCK,              0x0001,

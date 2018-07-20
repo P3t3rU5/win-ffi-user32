@@ -1,5 +1,3 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx
@@ -41,12 +39,7 @@ module WinFFI
         :BTNHIGHLIGHT,            20,
     ]
 
-    if WINDOWS_VERSION >= :xp
-      buffer += [
-          :MENUHILIGHT, 29,
-          :MENUBAR,     30
-      ]
-    end
+    buffer += [:MENUHILIGHT, 29, :MENUBAR, 30] if WINDOWS_VERSION >= :xp
 
     ColorType = enum :color_type, buffer
     define_prefix(:COLOR, ColorType)

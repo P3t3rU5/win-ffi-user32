@@ -1,9 +1,7 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
     # cmd for HSHELL_APPCOMMAND and WM_APPCOMMAND
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/inputdev/wm-appcommand#parameters
     buffer = [
         :BROWSER_BACKWARD,     1,
         :BROWSER_FORWARD,      2,

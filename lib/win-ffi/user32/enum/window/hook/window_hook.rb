@@ -1,8 +1,6 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644959(v=vs.85).aspx#types
+    # https://docs.microsoft.com/en-us/windows/desktop/winmsg/about-hooks#hook-types
     WindowHook = enum :window_hook, [
         :MIN,            -1,
         :MSGFILTER,      -1,

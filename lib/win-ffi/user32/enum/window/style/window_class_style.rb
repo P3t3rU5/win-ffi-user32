@@ -1,8 +1,6 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ff729176(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/winmsg/window-class-styles
     buffer = [
         :VREDRAW,         0x0001,
         :HREDRAW,         0x0002,
@@ -15,7 +13,7 @@ module WinFFI
         :BYTEALIGNCLIENT, 0x1000,
         :BYTEALIGNWINDOW, 0x2000,
         :GLOBALCLASS,     0x4000,
-        :IME,         0x00010000
+        :IME,             0x00010000
     ]
 
     buffer += [:DROPSHADOW, 0x00020000] if WINDOWS_VERSION >= :xp

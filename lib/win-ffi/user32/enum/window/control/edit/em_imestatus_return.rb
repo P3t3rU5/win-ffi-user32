@@ -1,10 +1,8 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
     # return for EMSIS_COMPOSITIONSTRING
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/bb761580%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/bb761645(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/Controls/em-getimestatus#return-value
+    # https://docs.microsoft.com/en-us/windows/desktop/Controls/em-setimestatus#parameters
     EmIMEStatusReturn = enum :em_imestatus_return, [
         :GETCOMPSTRATONCE,         0x0001,
         :CANCELCOMPSTRINFOCUS,     0x0002,

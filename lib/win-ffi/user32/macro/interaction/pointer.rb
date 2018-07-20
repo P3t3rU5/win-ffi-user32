@@ -1,28 +1,75 @@
-require 'win-ffi/user32/enum/interaction/pointer/pointer_flag'
 require 'win-ffi/core/macro/util'
+require_relative '../../enum/interaction/pointer/pointer_flag'
 
 module WinFFI
   module User32
     class << self
-      include WinFFI
-
       # Macros to retrieve information from pointer input message parameters
 
-      #define GET_POINTERID_WPARAM(wParam)                (LOWORD(wParam))
+      # define GET_POINTERID_WPARAM(wParam)                (LOWORD(wParam))
       def GET_POINTERID_WPARAM(wParam)
         loword(wParam)
       end
 
       # Macros to retrieve information from pointer input message parameters
-      #define IS_POINTER_FLAG_SET_WPARAM(wParam, flag)    (((DWORD)HIWORD(wParam) & (flag)) == (flag))
+      # define IS_POINTER_FLAG_SET_WPARAM(wParam, flag)    (((DWORD)HIWORD(wParam) & (flag)) == (flag))
       def IS_POINTER_FLAG_SET_WPARAM(wParam, flag)
         hiword(wParam) & PointerMessageFlag[flag] == PointerFlag[flag]
       end
 
-      PointerFlag.symbols.each do |flag|
-        define_method("IS_POINTER_#{flag}_WPARAM", ->(wParam) do
-          hiword(wParam) & PointerFlag[flag] == PointerFlag[flag]
-        end)
+      # define IS_POINTER_NEW_WPARAM(wParam)               IS_POINTER_FLAG_SET_WPARAM(wParam, POINTER_MESSAGE_FLAG_NEW)
+      def IS_POINTER_NEW_WPARAM(wParam)
+        IS_POINTER_FLAG_SET_WPARAM(wParam, POINTER_MESSAGE_FLAG_NEW)
+      end
+
+      # define IS_POINTER_INRANGE_WPARAM(wParam)           IS_POINTER_FLAG_SET_WPARAM(wParam, POINTER_MESSAGE_FLAG_INRANGE)
+      def IS_POINTER_INRANGE_WPARAM(wParam)
+        IS_POINTER_FLAG_SET_WPARAM(wParam, POINTER_MESSAGE_FLAG_INRANGE)
+      end
+
+      # define IS_POINTER_INCONTACT_WPARAM(wParam)         IS_POINTER_FLAG_SET_WPARAM(wParam, POINTER_MESSAGE_FLAG_INCONTACT)
+      def IS_POINTER_INCONTACT_WPARAM(wParam)
+        IS_POINTER_FLAG_SET_WPARAM(wParam, POINTER_MESSAGE_FLAG_INCONTACT)
+      end
+
+      # define IS_POINTER_FIRSTBUTTON_WPARAM(wParam)       IS_POINTER_FLAG_SET_WPARAM(wParam, POINTER_MESSAGE_FLAG_FIRSTBUTTON)
+      def IS_POINTER_FIRSTBUTTON_WPARAM(wParam)
+        IS_POINTER_FLAG_SET_WPARAM(wParam, POINTER_MESSAGE_FLAG_FIRSTBUTTON)
+      end
+
+      # define IS_POINTER_SECONDBUTTON_WPARAM(wParam)      IS_POINTER_FLAG_SET_WPARAM(wParam, POINTER_MESSAGE_FLAG_SECONDBUTTON)
+      def IS_POINTER_SECONDBUTTON_WPARAM(wParam)
+        IS_POINTER_FLAG_SET_WPARAM(wParam, POINTER_MESSAGE_FLAG_SECONDBUTTON)
+      end
+
+      # define IS_POINTER_THIRDBUTTON_WPARAM(wParam)       IS_POINTER_FLAG_SET_WPARAM(wParam, POINTER_MESSAGE_FLAG_THIRDBUTTON)
+      def IS_POINTER_THIRDBUTTON_WPARAM(wParam)
+        IS_POINTER_FLAG_SET_WPARAM(wParam, POINTER_MESSAGE_FLAG_THIRDBUTTON)
+      end
+
+      # define IS_POINTER_FOURTHBUTTON_WPARAM(wParam)      IS_POINTER_FLAG_SET_WPARAM(wParam, POINTER_MESSAGE_FLAG_FOURTHBUTTON)
+      def IS_POINTER_FOURTHBUTTON_WPARAM(wParam)
+        IS_POINTER_FLAG_SET_WPARAM(wParam, POINTER_MESSAGE_FLAG_FOURTHBUTTON)
+      end
+
+      # define IS_POINTER_FIFTHBUTTON_WPARAM(wParam)       IS_POINTER_FLAG_SET_WPARAM(wParam, POINTER_MESSAGE_FLAG_FIFTHBUTTON)
+      def IS_POINTER_FIFTHBUTTON_WPARAM(wParam)
+        IS_POINTER_FLAG_SET_WPARAM(wParam, POINTER_MESSAGE_FLAG_FIFTHBUTTON)
+      end
+
+      # define IS_POINTER_PRIMARY_WPARAM(wParam)           IS_POINTER_FLAG_SET_WPARAM(wParam, POINTER_MESSAGE_FLAG_PRIMARY)
+      def IS_POINTER_PRIMARY_WPARAM(wParam)
+        IS_POINTER_FLAG_SET_WPARAM(wParam, POINTER_MESSAGE_FLAG_PRIMARY)
+      end
+
+      # define HAS_POINTER_CONFIDENCE_WPARAM(wParam)       IS_POINTER_FLAG_SET_WPARAM(wParam, POINTER_MESSAGE_FLAG_CONFIDENCE)
+      def HAS_POINTER_CONFIDENCE_WPARAM(wParam)
+        IS_POINTER_FLAG_SET_WPARAM(wParam, POINTER_MESSAGE_FLAG_CONFIDENCE)
+      end
+
+      # define IS_POINTER_CANCELED_WPARAM(wParam)          IS_POINTER_FLAG_SET_WPARAM(wParam, POINTER_MESSAGE_FLAG_CANCELED)
+      def IS_POINTER_CANCELED_WPARAM(wParam)
+        IS_POINTER_FLAG_SET_WPARAM(wParam, POINTER_MESSAGE_FLAG_CANCELED)
       end
     end
   end

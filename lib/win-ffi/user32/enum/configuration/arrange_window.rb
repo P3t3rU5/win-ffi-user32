@@ -1,8 +1,6 @@
-require 'win-ffi/user32'
-
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms724500(v=vs.85).aspx
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms724500
     ArrangeWindow = enum :arrange_window, [
         :BOTTOMLEFT,  0x0000,
         :BOTTOMRIGHT, 0x0001,

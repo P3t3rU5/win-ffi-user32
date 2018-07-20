@@ -1,16 +1,31 @@
-require 'win-ffi/user32/enum/window/style/window_style_ex'
+require_relative '../../../enum/window/style/window_style_ex'
 
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644997(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-dlgitemtemplate
     class DLGITEMTEMPLATE < FFIAdditions::Struct
-      layout style:                        :dword,
+      def style; end
+      def style=(v); end
+      def dwExtendedStyle; end
+      def dwExtendedStyle=(v); end
+      def x; end
+      def x=(v); end
+      def y; end
+      def y=(v); end
+      def cx; end
+      def cx=(v); end
+      def cy; end
+      def cy=(v); end
+      def id; end
+      def id=(v); end
+
+      layout style:           :dword,
              dwExtendedStyle: WindowStyleExtended,
-             x:                            :short,
-             y:                            :short,
-             cx:                           :short,
-             cy:                           :short,
-             id:                            :word
+             x:               :short,
+             y:               :short,
+             cx:              :short,
+             cy:              :short,
+             id:              :word
     end
   end
 end

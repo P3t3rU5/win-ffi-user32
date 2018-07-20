@@ -1,6 +1,6 @@
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms648779(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/dde/ns-dde-ddedata
     # DDEDATA structure
     # WM_DDE_DATA parameter structure for hData (LOWORD(lParam)). The actual size of this structure depends on the size
     # of the Value array.

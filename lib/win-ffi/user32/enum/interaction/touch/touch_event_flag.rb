@@ -1,9 +1,7 @@
-require 'win-ffi/user32'
-
 module WinFFI
   if WINDOWS_VERSION >= 7
     module User32
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/dd317334(v=vs.85).aspx
+      # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagtouchinput#remarks
       # Touch input flag values (TOUCHINPUT.dwFlags)
       TouchEventFlag = enum :touch_event_flag, [
           :MOVE,       0x0001,

@@ -1,11 +1,26 @@
-require 'win-ffi/user32/enum/accessibility/mouse_keys_flag'
+require_relative '../../enum/accessibility/mouse_keys_flag'
 
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/dd373593(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagmousekeys
     class MOUSEKEYS < FFIAdditions::Struct
-      layout cbSize:           :uint,
-             dwFlags:  MouseKeysFlag,
+      def cbSize; end
+      def cbSize=(v); end
+      def dwFlags; end
+      def dwFlags=(v); end
+      def iMaxSpeed; end
+      def iMaxSpeed=(v); end
+      def iTimeToMaxSpeed; end
+      def iTimeToMaxSpeed=(v); end
+      def iCtrlSpeed; end
+      def iCtrlSpeed=(v); end
+      def dwReserved1; end
+      def dwReserved1=(v); end
+      def dwReserved2; end
+      def dwReserved2=(v); end
+
+      layout cbSize:          :uint,
+             dwFlags:         MouseKeysFlag,
              iMaxSpeed:       :dword,
              iTimeToMaxSpeed: :dword,
              iCtrlSpeed:      :dword,
@@ -16,6 +31,8 @@ module WinFFI
         super
         self.cbSize = self.size
       end
+
+      private :cbSize, :cbSize=
     end
   end
 end
