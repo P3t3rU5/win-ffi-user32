@@ -2,7 +2,7 @@ require_relative '../enum/display_device_flag'
 
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/dd183569(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-_display_devicea
     class DISPLAY_DEVICE < FFIAdditions::Struct
       def cb; end
       def cb=(v) end

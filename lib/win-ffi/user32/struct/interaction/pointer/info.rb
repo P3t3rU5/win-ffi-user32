@@ -3,9 +3,9 @@ module WinFFI
 
     require 'win-ffi/core/struct/point'
 
-    require_relative '../../../enum/interaction/pointer/pointer_flag'
-    require_relative '../../../enum/interaction/pointer/pointer_input_type'
-    require_relative '../../../enum/interaction/pointer/pointer_button_change_type'
+    require_relative '../../../enum/interaction/pointer/flag'
+    require_relative '../../../enum/interaction/pointer/input_type'
+    require_relative '../../../enum/interaction/pointer/button_change_type'
 
     module User32
       # https://msdn.microsoft.com/en-us/library/windows/desktop/hh454907(v=vs.85).aspx

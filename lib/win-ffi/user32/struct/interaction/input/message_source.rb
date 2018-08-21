@@ -1,7 +1,7 @@
 module WinFFI
   if WINDOWS_VERSION >= 8
-    require_relative '../../../enum/interaction/input/input_message_device_type'
-    require_relative '../../../enum/interaction/input/input_message_origin_id'
+    require_relative '../../../enum/interaction/input/message_device_type'
+    require_relative '../../../enum/interaction/input/message_origin_id'
 
     module User32
       # Input source structure.

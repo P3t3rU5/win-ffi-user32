@@ -17,7 +17,8 @@ RSpec.describe 'DeviceContext' do
 
   describe '::ChangeDisplaySettingsEx' do
     it 'changes the settings of the specified display device to the specified graphics mod' do
-      User32.ChangeDisplaySettingsEx(nil, )
+      # User32.ChangeDisplaySettingsEx(nil, )
+      fail
     end
   end
 end

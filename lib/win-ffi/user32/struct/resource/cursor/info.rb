@@ -2,7 +2,7 @@ require 'win-ffi/core/struct/point'
 
 require_relative '../../../typedef/hcursor'
 
-require_relative '../../../enum/resource/cursor/cursor_info_flag'
+require_relative '../../../enum/resource/cursor/info_flag'
 
 module WinFFI
   module User32

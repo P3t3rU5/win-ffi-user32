@@ -1,4 +1,4 @@
-require_relative '../../../enum/window/style/window_style_ex'
+require_relative '../../../enum/window/style/ex'
 
 module WinFFI
   module User32

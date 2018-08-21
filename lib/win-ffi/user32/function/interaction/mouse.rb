@@ -1,9 +1,9 @@
 require 'win-ffi/core/struct/point'
 
-require_relative '../../enum/interaction/mouse/mouse_keys_state'
-require_relative '../../enum/interaction/mouse/mouse_event_flag'
+require_relative '../../enum/interaction/mouse/keys_state'
+require_relative '../../enum/interaction/mouse/event_flag'
 
-require_relative '../../struct/interaction/mouse/mouse_move_point'
+require_relative '../../struct/interaction/mouse/move_point'
 require_relative '../../struct/interaction/mouse/track_mouse_event'
 
 module WinFFI

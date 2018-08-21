@@ -1,5 +1,5 @@
-require_relative '../../../enum/interaction/gesture/gesture_flag'
-require_relative '../../../enum/interaction/gesture/gesture_identifier'
+require_relative '../../../enum/interaction/gesture/flag'
+require_relative '../../../enum/interaction/gesture/identifier'
 
 module WinFFI
   module User32

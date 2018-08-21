@@ -1,4 +1,4 @@
-require_relative '../../enum/window/style/window_style'
+require_relative '../../enum/window/style'
 
 require_relative '../../struct/window/message/msg'
 

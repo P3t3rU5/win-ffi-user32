@@ -1,5 +1,5 @@
 require_relative '../../../typedef/hcursor'
-require_relative '../../../enum/window/style/window_class_style'
+require_relative '../../../enum/window/class/style'
 require_relative '../../../function/window/proc'
 
 module WinFFI

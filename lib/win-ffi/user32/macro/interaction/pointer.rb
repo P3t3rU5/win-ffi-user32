@@ -1,5 +1,5 @@
 require 'win-ffi/core/macro/util'
-require_relative '../../enum/interaction/pointer/pointer_flag'
+require_relative '../../enum/interaction/pointer/flag'
 
 module WinFFI
   module User32

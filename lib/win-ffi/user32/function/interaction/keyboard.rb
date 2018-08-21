@@ -1,9 +1,9 @@
-require_relative '../../enum/interaction/keyboard/keyboard_layout_flag'
+require_relative '../../enum/interaction/keyboard/layout_flag'
 require_relative '../../enum/interaction/keyboard/virtual_key_code'
 require_relative '../../enum/interaction/keyboard/map_virtual_key'
-require_relative '../../enum/interaction/keyboard/keyboard_event_flag'
-require_relative '../../enum/interaction/keyboard/keyboard_type_argument'
-require_relative '../../enum/interaction/keyboard/keyboard_type'
+require_relative '../../enum/interaction/keyboard/event_flag'
+require_relative '../../enum/interaction/keyboard/type_argument'
+require_relative '../../enum/interaction/keyboard/type'
 
 require_relative '../../struct/interaction/keyboard/last_input_info'
 require_relative '../../struct/interaction/input'
@@ -205,7 +205,7 @@ module WinFFI
     encoded_function 'VkKeyScanEx', [:char, :hkl], :short
 
     if WINDOWS_VERSION >= :vista
-      require_relative '../../enum/interaction/keyboard/keyboard_modifier'
+      require_relative '../../enum/interaction/keyboard/modifier'
 
       # https://msdn.microsoft.com/en-us/library/windows/desktop/ms646309
       # BOOL RegisterHotKey(__in_opt HWND hWnd, __in int id, __in UINT fsModifiers, __in UINT vk)

@@ -3,7 +3,7 @@ require_relative '../spec_helper'
 
 require 'win-ffi/user32/function/resource/menu'
 require 'win-ffi/user32/function/interaction/keyboard'
-require 'win-ffi/user32/function/window/window'
+require 'win-ffi/user32/function/window'
 
 include WinFFI
 include WinFFI::User32

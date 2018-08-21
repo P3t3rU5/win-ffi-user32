@@ -1,4 +1,4 @@
-require_relative '../../../enum/interaction/pointer/pointer_input_type'
+require_relative '../../../enum/interaction/pointer/input_type'
 
 require_relative 'touch_info'
 require_relative 'pen_info'

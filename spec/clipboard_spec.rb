@@ -2,8 +2,8 @@ require 'rspec'
 
 require_relative 'spec_helper'
 
-require 'win-ffi/user32/function/window/window'
-require 'win-ffi/user32/function/data_exchange/clipboard'
+# require 'win-ffi/user32/function/window/window'
+require_relative '../lib/win-ffi/user32/function/data_exchange/clipboard'
 
 require 'win-ffi/kernel32/function/error'
 

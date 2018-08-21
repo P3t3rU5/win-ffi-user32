@@ -2,7 +2,7 @@ require 'rspec'
 
 require_relative '../spec_helper'
 
-require 'win-ffi/user32/function/desktop/window_station'
+require_relative '../../lib/win-ffi/user32/function/desktop/window_station'
 
 include WinFFI
 include WinFFI::User32

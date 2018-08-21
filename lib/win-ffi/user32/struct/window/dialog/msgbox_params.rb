@@ -1,4 +1,4 @@
-require_relative '../../../enum/window/message_box_flag'
+require_relative '../../../enum/window/control/messagebox/flag'
 require_relative '../../shell/help_info'
 
 module WinFFI

@@ -3,8 +3,8 @@ module WinFFI
     require 'win-ffi/core/struct/rect'
     require 'win-ffi/core/struct/point'
 
-    require_relative '../enum/window/style/window_style'
-    require_relative '../enum/window/style/window_style_ex'
+    require_relative '../enum/window/style'
+    require_relative '../enum/window/style/ex'
     require_relative '../enum/dpi/awareness_context'
 
     module User32

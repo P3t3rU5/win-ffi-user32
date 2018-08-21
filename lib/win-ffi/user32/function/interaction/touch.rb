@@ -2,8 +2,8 @@ module WinFFI
   if WINDOWS_VERSION >= 7
     require 'win-ffi/core/struct/rect'
 
-    require_relative '../../enum/interaction/touch/touch_injection_flag'
-    require_relative '../../enum/interaction/touch/touch_window_flag'
+    require_relative '../../enum/interaction/touch/injection_flag'
+    require_relative '../../enum/interaction/touch/window_flag'
 
     require_relative '../../struct/interaction/touch/input'
 

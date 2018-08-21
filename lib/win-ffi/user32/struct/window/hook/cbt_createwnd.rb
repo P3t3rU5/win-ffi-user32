@@ -1,4 +1,4 @@
-require_relative '../create_struct'
+require_relative '../message/create_struct'
 
 module WinFFI
   module User32

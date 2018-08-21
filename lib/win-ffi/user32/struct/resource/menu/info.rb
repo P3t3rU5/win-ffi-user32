@@ -1,5 +1,5 @@
-require_relative '../../../enum/resource/menu/menu_info_member'
-require_relative '../../../enum/resource/menu/menu_style'
+require_relative '../../../enum/resource/menu/info_member'
+require_relative '../../../enum/resource/menu/style'
 
 module WinFFI
   module User32

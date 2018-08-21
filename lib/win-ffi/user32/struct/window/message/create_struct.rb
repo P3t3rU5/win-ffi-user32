@@ -1,6 +1,6 @@
-require_relative '../../typedef/hmenu'
-require_relative '../../enum/window/style/window_style'
-require_relative '../../enum/window/style/window_style_ex'
+require_relative '../../../typedef/hmenu'
+require_relative '../../../enum/window/style'
+require_relative '../../../enum/window/style/ex'
 
 module WinFFI
   module User32

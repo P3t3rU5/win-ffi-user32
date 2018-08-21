@@ -1,5 +1,5 @@
 require_relative '../../../typedef/hmenu'
-require_relative '../../../enum/resource/menu/menu_get_object_info_flag'
+require_relative '../../../enum/resource/menu/get_object_info_flag'
 
 module WinFFI
   module User32

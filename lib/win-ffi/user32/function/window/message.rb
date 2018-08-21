@@ -4,7 +4,7 @@ require_relative '../../enum/window/message/peek_message_flag'
 require_relative '../../enum/window/message/send_message_timeout_flag'
 require_relative '../../enum/window/message/window_message'
 require_relative '../../enum/window/message/queue_status_flag'
-require_relative '../../enum/resource/icon/icon_type'
+require_relative '../../enum/resource/icon/type'
 require_relative '../../enum/window/return/in_send_message_ex_return'
 
 require_relative '../../struct/window/message/bsm_info'

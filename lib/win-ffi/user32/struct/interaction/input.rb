@@ -1,6 +1,6 @@
-require_relative '../../enum/interaction/mouse/mouse_event_flag'
-require_relative '../../enum/interaction/keyboard/keyboard_event_flag'
-require_relative '../../enum/interaction/input/input_type'
+require_relative '../../enum/interaction/mouse/event_flag'
+require_relative '../../enum/interaction/keyboard/event_flag'
+require_relative '../../enum/interaction/input/type'
 
 module WinFFI
   module User32

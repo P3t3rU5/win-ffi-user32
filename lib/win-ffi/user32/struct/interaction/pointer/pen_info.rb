@@ -1,8 +1,8 @@
 module WinFFI
   if WINDOWS_VERSION >= 8
 
-    require_relative '../../../enum/interaction/pen/pen_flag'
-    require_relative '../../../enum/interaction/pen/pen_mask'
+    require_relative '../../../enum/interaction/pen/flag'
+    require_relative '../../../enum/interaction/pen/mask'
 
     require_relative 'info'
 

@@ -1,6 +1,6 @@
 module WinFFI
   if WINDOWS_VERSION >= 8
-    require_relative '../../../enum/interaction/pointer/pointer_device_type'
+    require_relative '../../../enum/interaction/pointer/device_type'
 
     module User32
       # https://msdn.microsoft.com/en-us/library/windows/desktop/hh802891

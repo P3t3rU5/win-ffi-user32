@@ -1,6 +1,6 @@
 require 'win-ffi/core/struct/rect'
 
-require_relative '../../enum/window/message_box_flag'
+require_relative '../../enum/window/control/messagebox/flag'
 require_relative '../../enum/window/control/dialog/box_command_id'
 
 require_relative '../../struct/window/dialog/dlg_template'

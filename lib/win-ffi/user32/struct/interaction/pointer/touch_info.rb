@@ -2,7 +2,7 @@ module WinFFI
   if WINDOWS_VERSION >= 8
     require 'win-ffi/core/struct/rect'
 
-    require_relative '../../../enum/interaction/touch/touch_mask'
+    require_relative '../../../enum/interaction/touch/mask'
 
     require_relative 'info'
 

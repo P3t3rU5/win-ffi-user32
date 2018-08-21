@@ -2,7 +2,7 @@ require 'win-ffi/core/struct/point'
 
 require_relative '../../typedef/hmenu'
 
-require_relative '../../enum/resource/menu/menu_flag'
+require_relative '../../enum/resource/menu/flag'
 require_relative '../../enum/resource/menu/track_popup_menu_flag'
 require_relative '../../enum/resource/menu/get_menu_default_item_flag'
 require_relative '../../enum/window/control/system_object_id'

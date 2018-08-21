@@ -1,6 +1,6 @@
 module WinFFI
   if WINDOWS_VERSION >= 7
-    require_relative '../../../enum/interaction/touch/touch_event_flag'
+    require_relative '../../../enum/interaction/touch/event_flag'
 
     module User32
       class TOUCHINPUT < FFIAdditions::Struct

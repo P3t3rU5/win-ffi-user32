@@ -1,6 +1,6 @@
 module WinFFI
   if WINDOWS_VERSION >= 8
-    require_relative '../../enum/interaction/pointer/pointer_input_type'
+    require_relative '../../enum/interaction/pointer/input_type'
 
     require_relative '../../struct/interaction/pointer/info'
     require_relative '../../struct/interaction/pointer/pen_info'

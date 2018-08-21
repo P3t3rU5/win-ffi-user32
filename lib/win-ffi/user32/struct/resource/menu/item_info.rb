@@ -1,8 +1,8 @@
 require_relative '../../../typedef/hmenu'
 
-require_relative '../../../enum/resource/menu/menu_item_info_member'
-require_relative '../../../enum/resource/menu/menu_flag_type'
-require_relative '../../../enum/resource/menu/menu_flag_state'
+require_relative '../../../enum/resource/menu/item_info_member'
+require_relative '../../../enum/resource/menu/flag_type'
+require_relative '../../../enum/resource/menu/flag_state'
 
 module WinFFI
   module User32
