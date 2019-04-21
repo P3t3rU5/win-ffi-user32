@@ -19,33 +19,37 @@ module WinFFI
     WinEventProc = callback 'WinEventProc', [:pointer, :dword, :hwnd, SystemObjectId, :long, :dword, :dword], :void
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-notifywinevent
-    # void NotifyWinEvent( _In_  DWORD event, _In_  HWND hwnd, _In_  LONG idObject, _In_  LONG idChild )
+    # @param [Integer] event
+    # @param [FFI::Pointer] hwnd
+    # @param [Integer] idObject
+    # @param [Integer] idChild
     def self.NotifyWinEvent(event, hwnd, idObject, idChild) end
     attach_function 'NotifyWinEvent', [:dword, :hwnd, SystemObjectId, :long], :void
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-setwineventhook
-    # HWINEVENTHOOK SetWinEventHook(
-    #   _In_  UINT eventMin,
-    #   _In_  UINT eventMax,
-    #   _In_  HMODULE hmodWinEventProc,
-    #   _In_  WINEVENTPROC lpfnWinEventProc,
-    #   _In_  DWORD idProcess,
-    #   _In_  DWORD idThread,
-    #   _In_  UINT dwflags )
-    def self.SetWinEventHook(eventMin, eventMax, hmodWinEventProc, lpfnWinEventProc, idProcess, idThread, dwflags)
-    end
+    # @param [Integer] eventMin
+    # @param [Integer] eventMax
+    # @param [FFI::Pointer] hmodWinEventProc
+    # @param [WinEventProc] lpfnWinEventProc
+    # @param [Integer] idProcess
+    # @param [Integer] idThread
+    # @param [Integer] dwflags
+    # @return [FFI::Pointer]
+    def self.SetWinEventHook(eventMin, eventMax, hmodWinEventProc, lpfnWinEventProc, idProcess, idThread, dwflags) end
     attach_function 'SetWinEventHook', [:uint, :uint, :pointer, WinEventProc, :dword, :dword, SetWinEventHookFlag], :pointer
 
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-unhookwinevent
-    # BOOL UnhookWinEvent( _In_  HWINEVENTHOOK hWinEventHook )
+    # @param [FFI::Pointer] hWinEventHook
+    # @return [true, false]
     def self.UnhookWinEvent(hWinEventHook) end
     attach_function 'UnhookWinEvent', [:hwineventhook], :bool
 
     if WINDOWS_VERSION >= :xp
       # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-iswineventhookinstalled
       # Active Accessibility
-      # BOOL IsWinEventHookInstalled( _In_  DWORD event )
+      # @param [Integer] event
+      # @return [true, false]
       def self.IsWinEventHookInstalled(event) end
       attach_function 'IsWinEventHookInstalled', [:dword], :bool
     end

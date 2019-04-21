@@ -3,105 +3,126 @@ require 'win-ffi/user32/enum/data_exchange/clipboard_format'
 module WinFFI
   module User32
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-changeclipboardchain
-    # BOOL WINAPI ChangeClipboardChain( _In_  HWND hWndRemove, _In_  HWND hWndNewNext )
+    # @param [FFI::Pointer] hWndRemove
+    # @param [FFI::Pointer] hWndNewNext
+    # @return [true, false]
     def self.ChangeClipboardChain(hWndRemove, hWndNewNext); end
     attach_function 'ChangeClipboardChain', [:hwnd, :hwnd], :bool
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-closeclipboard
-    # BOOL WINAPI CloseClipboard(void)
+    # @return [true, false]
     def self.CloseClipboard; end
     attach_function 'CloseClipboard', [], :bool
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-countclipboardformats
-    # int WINAPI CountClipboardFormats(void)
+    # @return [Integer]
     def self.CountClipboardFormats; end
     attach_function 'CountClipboardFormats', [], :int
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-emptyclipboard
-    # BOOL WINAPI EmptyClipboard(void)
+    # @return [true, false]
     def self.EmptyClipboard; end
     attach_function 'EmptyClipboard', [:bool], :void
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-enumclipboardformats
-    # UINT WINAPI EnumClipboardFormats( _In_  UINT format )
+    # @param [Integer] format
+    # @return [Integer]
     def self.EnumClipboardFormats(format) end
     attach_function 'EnumClipboardFormats', [:uint], :uint
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getclipboarddata
-    # HANDLE WINAPI GetClipboardData( _In_  UINT uFormat )
+    # @param [Integer] uFormat
+    # @return [FFI::Pointer]
     def self.GetClipboardData(uFormat) end
     attach_function 'GetClipboardData', [:uint], :handle
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getclipboardformatnamea
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getclipboardformatnamew
-    # int WINAPI GetClipboardFormatName( _In_   UINT format, _Out_  LPTSTR lpszFormatName, _In_   int cchMaxCount )
+    # @param [Integer] format
+    # @param [String] lpszFormatName
+    # @param [Integer] cchMaxCount
+    # @return [Integer]
     def self.GetClipboardFormatName(format, lpszFormatName, cchMaxCount) end
     encoded_function 'GetClipboardFormatName', [:uint, :string, :int], :int
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getclipboardowner
-    # HWND WINAPI GetClipboardOwner(void)
+    # @return [FFI::Pointer]
     def self.GetClipboardOwner; end
     attach_function 'GetClipboardOwner',[], :hwnd
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getclipboardsequencenumber
-    # DWORD WINAPI GetClipboardSequenceNumber(void)
+    # @return [Integer]
     def self.GetClipboardSequenceNumber; end
     attach_function 'GetClipboardSequenceNumber', [], :dword
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getclipboardviewer
-    # HWND WINAPI GetClipboardViewer(void)
+    # @return [FFI::Pointer]
     def self.GetClipboardViewer; end
     attach_function 'GetClipboardViewer', [], :hwnd
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getopenclipboardwindow
-    # HWND WINAPI GetOpenClipboardWindow(void)
+    # @return [FFI::Pointer]
     def self.GetOpenClipboardWindow; end
     attach_function 'GetOpenClipboardWindow', [], :hwnd
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getpriorityclipboardformat
-    # int WINAPI GetPriorityClipboardFormat(_In_  UINT *paFormatPriorityList, _In_ int cFormats )
+    # @param [FFI::Pointer] paFormatPriorityList
+    # @param [Integer] cFormats
+    # @return [Integer]
     def self.GetPriorityClipboardFormat(paFormatPriorityList, cFormats) end
     attach_function 'GetPriorityClipboardFormat', [:pointer, :int], :int
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-isclipboardformatavailable
-    # BOOL WINAPI IsClipboardFormatAvailable( _In_  UINT format )
+    # @param [Integer] format
+    # @return [true, false]
     def self.IsClipboardFormatAvailable(format) end
     attach_function 'IsClipboardFormatAvailable', [:uint], :bool
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-openclipboard
-    # BOOL WINAPI OpenClipboard( _In_opt_  HWND hWndNewOwner )
+    # @param [FFI::Pointer] hWndNewOwner
+    # @return [true, false]
     def self.OpenClipboard(hWndNewOwner) end
     attach_function 'OpenClipboard', [:hwnd], :bool
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-registerclipboardformata
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-registerclipboardformatw
-    # UINT WINAPI RegisterClipboardFormat( _In_  LPCTSTR lpszFormat )
+    # @param [String] lpszFormat
+    # @return [Integer]
     def self.RegisterClipboardFormat(lpszFormat) end
     encoded_function 'RegisterClipboardFormat', [:string], :uint
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-setclipboarddata
-    # HANDLE WINAPI SetClipboardData( _In_      UINT uFormat, _In_opt_  HANDLE hMem )
+    # @param [Integer] uFormat
+    # @param [FFI::Pointer] hMem
+    # @return [FFI::Pointer]
     def self.SetClipboardData(uFormat, hMem) end
     attach_function 'SetClipboardData', [:uint, :handle], :handle
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-setclipboardviewer
-    # HWND WINAPI SetClipboardViewer( _In_  HWND hWndNewViewer )
+    # @param [FFI::Pointer] hWndNewViewer
+    # @return [FFI::Pointer]
     def self.SetClipboardViewer(hWndNewViewer) end
     attach_function 'SetClipboardViewer', [:hwnd], :hwnd
 
     if WINDOWS_VERSION >= :vista
       # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-addclipboardformatlistener
-      # BOOL WINAPI AddClipboardFormatListener( _In_  HWND hwnd )
+      # @param [FFI::Pointer] hwnd
+      # @return [true, false]
       def self.AddClipboardFormatListener(hwnd); end
       attach_function 'AddClipboardFormatListener', [:hwnd], :bool
 
       # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getupdatedclipboardformats
-      # BOOL WINAPI GetUpdatedClipboardFormats(_Out_ PUINT lpuiFormats, _In_ UINT cFormats, _Out_ PUINT pcFormatsOut)
+      # @param [FFI::Pointer] lpuiFormats
+      # @param [Integer] cFormats
+      # @param [FFI::Pointer] pcFormatsOut
+      # @return [true, false]
       def self.GetUpdatedClipboardFormats(lpuiFormats, cFormats, pcFormatsOut); end
       attach_function 'GetUpdatedClipboardFormats', [:pointer, :uint, :pointer], :bool
 
       # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-removeclipboardformatlistener
       # BOOL WINAPI RemoveClipboardFormatListener( _In_  HWND hwnd )
+      # @param [FFI::Pointer] hwnd
+      # @return [true, false]
       def self.RemoveClipboardFormatListener(hwnd); end
       attach_function 'RemoveClipboardFormatListener', [:hwnd], :bool
     end

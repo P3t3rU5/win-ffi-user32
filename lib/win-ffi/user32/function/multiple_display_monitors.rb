@@ -19,32 +19,40 @@ module WinFFI
     MonitorEnumProc = callback 'MonitorEnumProc', [:hmonitor, :hdc, RECT.ptr(:in), :lparam], :bool
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-enumdisplaymonitors
-    # BOOL EnumDisplayMonitors(
-    #   _In_  HDC hdc,
-    #   _In_  LPCRECT lprcClip,
-    #   _In_  MONITORENUMPROC lpfnEnum,
-    #   _In_  LPARAM dwData )
+    # @param [FFI::Pointer] hdc
+    # @param [FFI::Pointer] lprcClip
+    # @param [MonitorEnumProc] lpfnEnum
+    # @param [Integer] dwData
+    # @return [true, false]
     def self.EnumDisplayMonitors(hdc, lprcClip, lpfnEnum, dwData) end
     attach_function 'EnumDisplayMonitors', [:hdc, RECT.ptr(:in), MonitorEnumProc, :lparam], :bool
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getmonitorinfoa
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getmonitorinfow
-    # BOOL GetMonitorInfo( _In_   HMONITOR hMonitor, _Out_  LPMONITORINFO lpmi)
+    # @param [FFI::Pointer] hMonitor
+    # @param [FFI::Pointer] dwFlags
+    # @return [true, false]
     def self.GetMonitorInfo(hMonitor, dwFlags) end
     encoded_function 'GetMonitorInfo', [:hmonitor, MONITORINFO.ptr(:out)], :bool
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-monitorfrompoint
-    # HMONITOR MonitorFromPoint( _In_  POINT pt, _In_  DWORD dwFlags )
+    # @param [POINT] pt
+    # @param [Integer] lpmi
+    # @return [FFI::Pointer]
     def self.MonitorFromPoint(pt, lpmi) end
-    attach_function 'MonitorFromPoint', [POINT.ptr(:in), MonitorFromPointFlag], :hmonitor
+    attach_function 'MonitorFromPoint', [POINT, MonitorFromPointFlag], :hmonitor
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-monitorfromrect
-    # HMONITOR MonitorFromRect( _In_  LPCRECT lprc, _In_  DWORD dwFlags )
+    # @param [FFI::Pointer] lprc
+    # @param [Integer] dwFlags
+    # @return [FFI::Pointer]
     def self.MonitorFromRect(lprc, dwFlags) end
     attach_function 'MonitorFromRect', [RECT.ptr(:in), MonitorFromPointFlag], :hmonitor
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-monitorfromwindow
-    # HMONITOR MonitorFromWindow( _In_  HWND hwnd, _In_  DWORD dwFlags )
+    # @param [FFI::Pointer] hwnd
+    # @param [Integer] dwFlags
+    # @return [FFI::Pointer]
     def self.MonitorFromWindow(hwnd, dwFlags) end
     attach_function 'MonitorFromWindow', [:hwnd, MonitorFromPointFlag], :hmonitor
   end

@@ -2,7 +2,7 @@ require 'win-ffi/user32/enum/window/function/set_window_pos_flag'
 
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632612(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagwindowpos
     # WM_WINDOWPOSCHANGING/CHANGED struct pointed to by lParam
     class WINDOWPOS < FFIAdditions::Struct
       FLAGS_INV = SetWindowPosFlag.to_hash.reduce(Hash.new {|h,k| h[k] = [] } ){ |h,(k,v)| h[v] << k; h }.freeze

@@ -9,23 +9,15 @@ module WinFFI
     end
 
     #define POINTTOPOINTS(pt) (MAKELONG((short)((pt).x), (short)((pt).y)))
-    def self.POINTTOPOINTS(pt)
-      MAKELONG(pt.x, pt.y)
-    end
+    def self.POINTTOPOINTS(pt) MAKELONG(pt.x, pt.y) end
 
     #define MAKEWPARAM(l, h) ((WPARAM)(DWORD)MAKELONG(l, h))
-    def self.MAKEWPARAM(l, h)
-      MAKELONG(l, h)
-    end
+    def self.MAKEWPARAM(l, h) MAKELONG(l, h) end
 
     #define MAKELPARAM(l, h) ((LPARAM)(DWORD)MAKELONG(l, h))
-    def self.MAKELPARAM(l, h)
-      MAKELONG(l, h)
-    end
+    def self.MAKELPARAM(l, h) MAKELONG(l, h) end
 
     #define MAKELRESULT(l, h) ((LRESULT)(DWORD)MAKELONG(l, h))
-    def self.MAKELRESULT(l, h)
-      MAKELONG(l, h)
-    end
+    def self.MAKELRESULT(l, h) MAKELONG(l, h) end
   end
 end

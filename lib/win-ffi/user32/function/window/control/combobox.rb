@@ -7,30 +7,30 @@ module WinFFI
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-dlgdirlistcomboboxa
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-dlgdirlistcomboboxw
-    # int DlgDirListComboBox(
-    #   _In_     HWND hDlg,
-    #   _Inout_  HWND lpPathSpec,
-    #   _In_     int nIDComboBox,
-    #   _In_     int nIDStaticPath,
-    #   _In_     UINT uFiletype )
+    # @param [FFI::Pointer] hDlg
+    # @param [String] lpPathSpec
+    # @param [Integer] nIDComboBox
+    # @param [Integer] nIDStaticPath
+    # @param [Integer] uFiletype
+    # @return [Integer]
     def self.DlgDirListComboBox(hDlg, lpPathSpec, nIDComboBox, nIDStaticPath, uFiletype); end
     encoded_function 'DlgDirListComboBox', [:hwnd, :string, :int, :int, DlgDirListFlag], :int
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-dlgdirselectcomboboxexa
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-dlgdirselectcomboboxexw
-    # BOOL DlgDirSelectComboBoxEx(
-    #   _In_   HWND hDlg,
-    #   _Out_  LPTSTR lpString,
-    #   _In_   int nCount,
-    #   _In_   int nIDComboBox )
+    # @param [FFI::Pointer] hDlg
+    # @param [String] lpString
+    # @param [Integer] nCount
+    # @param [Integer] nIDComboBox
+    # @return [true, false]
     def self.DlgDirSelectComboBoxEx(hDlg, lpString, nCount, nIDComboBox); end
     encoded_function 'DlgDirSelectComboBoxEx', [:hwnd, :string, :int, :int], :bool
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getcomboboxinfo
-    # BOOL GetComboBoxInfo(
-    #   _In_   HWND hwndCombo,
-    #   _Out_  PCOMBOBOXINFO pcbi )
+    # @param [FFI::Pointer] hwndCombo
+    # @param [FFI::Pointer] pcbi
+    # @return [true, false]
     def self.GetComboBoxInfo(hwndCombo, pcbi); end
-    attach_function 'GetComboBoxInfo', [:hwnd, COMBOBOXINFO.ptr], :bool
+    attach_function 'GetComboBoxInfo', [:hwnd, COMBOBOXINFO.ptr(:out)], :bool
   end
 end

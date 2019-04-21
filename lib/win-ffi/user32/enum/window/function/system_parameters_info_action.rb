@@ -283,7 +283,7 @@ module WinFFI
                   :SETCARETTIMEOUT, 0x2023,
                   #if (NTDDI_VERSION >= NTDDI_WIN10_RS4)
                   :GETHANDEDNESS,   0x2024,
-                  :SETHANDEDNESS,   0x2025,
+                  :SETHANDEDNESS,   0x2025
                 ]
               end
             end

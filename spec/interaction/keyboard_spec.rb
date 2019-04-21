@@ -1,7 +1,7 @@
- require_relative '../spec_helper'
+  require_relative '../spec_helper'
 
 require_relative '../../lib/win-ffi/user32/function/interaction/keyboard'
-require_relative '../../lib/win-ffi/user32/macro/util'
+require 'win-ffi/core/macro/util'
 
 include WinFFI
 include WinFFI::User32
@@ -118,7 +118,7 @@ RSpec.describe 'Keyboard' do
 
   describe '::GetLastInputInfo' do
     it 'Retrieves the time of the last input event.' do
-      last_input_info = LASTINPUTINFO.new
+      last_input_info = LASTINPUT INFO.new
       expect(User32.GetLastInputInfo(last_input_info)).to be true
       expect(last_input_info.cbSize).to eq 8
       expect(last_input_info.dwTime).to be_a Numeric

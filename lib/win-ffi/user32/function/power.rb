@@ -9,27 +9,31 @@ module WinFFI
       typedef :pointer, :hpowernotify
 
       # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-registerpowersettingnotification
-      # HPOWERNOTIFY RegisterPowerSettingNotification(
-      #   _In_  HANDLE hRecipient,
-      #   _In_  LPCGUID PowerSettingGuid,
-      #   _In_  DWORD Flags )
+      # @param [FFI::Pointer] hRecipient
+      # @param [FFI::Pointer] powerSettingGuid
+      # @param [Integer] flags
+      # @return [FFI::Pointer]
       def self.RegisterPowerSettingNotification(hRecipient, powerSettingGuid, flags) end
       attach_function 'RegisterPowerSettingNotification',
                       [:handle, GUID.ptr(:in), DeviceNotifyFlag], :hpowernotify
 
       # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-unregisterpowersettingnotification
-      # BOOL UnregisterPowerSettingNotification( _In_  HPOWERNOTIFY Handle )
+      # @param [FFI::Pointer] handle
+      # @return [true, false]
       def self.UnregisterPowerSettingNotification(handle) end
       attach_function 'UnregisterPowerSettingNotification', [:hpowernotify], :bool
 
       if WINDOWS_VERSION >= 8
         # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-registersuspendresumenotification
-        # HPOWERNOTIFY RegisterSuspendResumeNotification( _In_ HANDLE hRecipient, _In_ DWORD  Flags)
+        # @param [FFI::Pointer] hRecipient
+        # @param [Integer] flags
+        # @return [FFI::Pointer]
         def self.RegisterSuspendResumeNotification(hRecipient, flags) end
         attach_function 'RegisterSuspendResumeNotification', [:pointer, DeviceNotifyFlag], :hpowernotify
 
         # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-unregistersuspendresumenotification
-        # BOOL WINUSERAPI UnregisterSuspendResumeNotification( _Inout_  HPOWERNOTIFY RegistrationHandle )
+        # @param [FFI::Pointer] registrationHandle
+        # @return [true, false]
         def self.UnregisterSuspendResumeNotification(registrationHandle) end
         attach_function 'UnregisterSuspendResumeNotification', [:hpowernotify], :bool
       end

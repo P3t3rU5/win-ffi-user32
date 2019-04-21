@@ -13,67 +13,79 @@ module WinFFI
   module User32
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-changedisplaysettingsa
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-changedisplaysettingsw
-    # LONG ChangeDisplaySettings( _In_  DEVMODE *lpDevMode, _In_  DWORD dwflags )
+    # @param [FFI::Pointer] lpDevMode
+    # @param [Integer] dwflags
+    # @return [Integer]
     def self.ChangeDisplaySettings(lpDevMode, dwflags) end
     encoded_function 'ChangeDisplaySettings',
                      [Gdi32::DEVMODE.ptr(:in), ChangeDisplaySettingsFlag], :long
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-changedisplaysettingsexa
-    # LONG ChangeDisplaySettingsEx(
-    #   _In_  LPCTSTR lpszDeviceName,
-    #   _In_  DEVMODE *lpDevMode,
-    #   HWND hwnd,
-    #   _In_  DWORD dwflags,
-    #   _In_  LPVOID lParam )
+    # @param [String] lpszDeviceName
+    # @param [FFI::Pointer] lpDevMode
+    # @param [FFI::Pointer] hwnd
+    # @param [Integer] dwflags
+    # @param [FFI::Pointer] lParam
+    # @return [Integer]
     def self.ChangeDisplaySettingsEx(lpszDeviceName, lpDevMode, hwnd, dwflags, lParam) end
     encoded_function 'ChangeDisplaySettingsEx',
                      [:string, Gdi32::DEVMODE.ptr(:in), :hwnd, ChangeDisplaySettingsFlag, :pointer], :long
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-enumdisplaydevicesa
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-enumdisplaydevicesw
-    # BOOL EnumDisplayDevices(
-    #   _In_   LPCTSTR lpDevice,
-    #   _In_   DWORD iDevNum,
-    #   _Out_  PDISPLAY_DEVICE lpDisplayDevice,
-    #   _In_   DWORD dwFlags )
+    # @param [FFI::Pointer] lpDevice
+    # @param [Integer] iDevNum
+    # @param [FFI::Pointer] lpDisplayDevice
+    # @param [Integer] dwFlags
+    # @return [true, false]
     def self.EnumDisplayDevices(lpDevice, iDevNum, lpDisplayDevice, dwFlags) end
     encoded_function 'EnumDisplayDevices',
                      [:pointer, :dword, DISPLAY_DEVICE.ptr(:out), EnumDisplayDevicesFlag], :bool
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-enumdisplaysettingsa
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-enumdisplaysettingsw
-    # BOOL EnumDisplaySettings( _In_   LPCTSTR lpszDeviceName, _In_   DWORD iModeNum, _Out_  DEVMODE *lpDevMode )
+    # @param [String] lpszDeviceName
+    # @param [Integer] iModeNum
+    # @param [FFI::Pointer] lpDevMode
+    # @return [true, false]
     def self.EnumDisplaySettings(lpszDeviceName, iModeNum, lpDevMode) end
     encoded_function 'EnumDisplaySettings', [:string, EnumMode, Gdi32::DEVMODE.ptr(:out)], :bool
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-enumdisplaysettingsexa
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-enumdisplaysettingsexw
-    # BOOL EnumDisplaySettingsEx(
-    #   _In_   LPCTSTR lpszDeviceName,
-    #   _In_   DWORD iModeNum,
-    #   _Out_  DEVMODE *lpDevMode,
-    #   _In_   DWORD dwFlags )
+    # @param [String] lpszDeviceName
+    # @param [Integer] iModeNum
+    # @param [FFI::Pointer] lpDevMode
+    # @param [Integer] dwFlags
+    # @return [true, false]
     def self.EnumDisplaySettingsEx(lpszDeviceName, iModeNum, lpDevMode, dwFlags) end
     encoded_function 'EnumDisplaySettingsEx',
                      [:string, EnumMode, Gdi32::DEVMODE.ptr(:out), EnumDisplaySettingsExFlag], :bool
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getdc
-    # HDC GetDC( _In_  HWND hWnd )
+    # @param [FFI::Pointer] hWnd
+    # @return [FFI::Pointer]
     def self.GetDC(hWnd) end # TODO hwnd = nil
     attach_function 'GetDC', [:hwnd], :hdc
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getdcex
-    # HDC GetDCEx( _In_  HWND hWnd, _In_  HRGN hrgnClip, _In_  DWORD flags )
+    # @param [FFI::Pointer] hWnd
+    # @param [FFI::Pointer] hrgnClip
+    # @param [Integer] flags
+    # @return [FFI::Pointer]
     def self.GetDCEx(hWnd, hrgnClip, flags) end
     attach_function 'GetDCEx', [:hwnd, :hrgn, GetDCExFlag], :hdc
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-releasedc
-    # int ReleaseDC( _In_  HWND hWnd, _In_  HDC hDC )
+    # @param [FFI::Pointer] hWnd
+    # @param [FFI::Pointer] hDC
+    # @return [Integer]
     def self.ReleaseDC(hWnd, hDC) end
     attach_function 'ReleaseDC', [:hwnd, :hdc], :int
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-windowfromdc
-    # HWND WindowFromDC( _In_  HDC hDC )
+    # @param [FFI::Pointer] hDC
+    # @return [FFI::Pointer]
     def self.WindowFromDC(hDC) end
     attach_function 'WindowFromDC', [:hdc], :hwnd
   end

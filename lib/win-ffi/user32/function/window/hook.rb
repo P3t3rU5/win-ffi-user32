@@ -4,12 +4,18 @@ require_relative '../../struct/window/message/msg'
 module WinFFI
   module User32
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644973(v=vs.85).aspx
-    # BOOL CallMsgFilter( _In_  LPMSG lpMsg, _In_  int nCode )
+    # @param [FFI::Pointer] lpMsg
+    # @param [Integer] nCode
+    # @return [true, false]
     def self.CallMsgFilter(lpMsg, nCode); end
-    encoded_function 'CallMsgFilter', [MSG.ptr, :int], :bool
+    encoded_function 'CallMsgFilter', [MSG.ptr(:in), :int], :bool
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644974(v=vs.85).aspx
-    # LRESULT CallNextHookEx( _In_opt_ HHOOK hhk, _In_ int nCode, _In_ WPARAM wParam, _In_ LPARAM lParam)
+    # @param [FFI::Pointer] hhk
+    # @param [Integer] nCode
+    # @param [Integer] wParam
+    # @param [Integer] lParam
+    # @return [Integer]
     def self.CallNextHookEx(hhk, nCode, wParam, lParam); end
     attach_function 'CallNextHookEx', [:pointer, :int, :wparam, :lparam], :lresult
 
@@ -66,7 +72,11 @@ module WinFFI
     MouseProc = callback 'MouseProc', [:int, :wparam, :lparam], :lresult
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644990(v=vs.85).aspx
-    # HHOOK SetWindowsHookEx(_In_ int idHook, _In_ HOOKPROC lpfn, _In_ HINSTANCE hMod, _In_ DWORD dwThreadId)
+    # @param [Integer] idHook
+    # @param [FFI::Pointer] lpfn
+    # @param [FFI::Pointer] hMod
+    # @param [Integer] dwThreadId
+    # @return [FFI::Pointer]
     def self.SetWindowsHookEx(idHook, lpfn, hMod, dwThreadId); end
     encoded_function 'SetWindowsHookEx', [WindowHook, :pointer, :pointer, :dword], :hhook
 
@@ -81,16 +91,21 @@ module WinFFI
     # LRESULT CALLBACK HookProc(int nCode, WPARAM wParam, LPARAM lParam)
     HookProc = callback 'HookProc', [:int, :wparam, :lparam], :lresult
 
-    # HOOKPROC SetWindowsHook(_In_ int nFilterType, _In_ HOOKPROC pfnFilterProc);
+    # @param [Integer] nFilterType
+    # @param [FFI::Pointer] pfnFilterProc
+    # @return [FFI::Pointer]
     def self.SetWindowsHook(nFilterType, pfnFilterProc); end
     encoded_function 'SetWindowsHook', [:int, :pointer], :pointer
 
-    # BOOL UnhookWindowsHook(_In_ int nCode, _In_ HOOKPROC pfnFilterProc);
+    # @param [Integer] nCode
+    # @param [FFI::Pointer] pfnFilterProc
+    # @return [true, false]
     def self.UnhookWindowsHook(nCode, pfnFilterProc); end
     attach_function 'UnhookWindowsHook', [:int, :pointer], :bool
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644993(v=vs.85).aspx
-    # BOOL UnhookWindowsHookEx( _In_  HHOOK hhk )
+    # @param [FFI::Pointer] hhk
+    # @return [true, false]
     def self.UnhookWindowsHookEx(hhk); end
     attach_function 'UnhookWindowsHookEx', [:pointer], :bool
   end

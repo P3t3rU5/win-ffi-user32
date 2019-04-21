@@ -4,7 +4,7 @@ require_relative '../../../enum/window/style/ex'
 
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632603(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagcreatestructa
     class CREATESTRUCT < FFIAdditions::Struct
       def lpCreateParams; end
       def lpCreateParams=(v) end

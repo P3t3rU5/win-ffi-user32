@@ -32,144 +32,171 @@ module WinFFI
 
     typedef :pointer, :hdwp
 
-    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-adjustwindowrectexfordpi
-    # BOOL AdjustWindowRect( _Inout_  LPRECT lpRect, _In_     DWORD dwStyle, _In_     BOOL bMenu )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-adjustwindowrect
+    # @param [FFI::Pointer] lpRect
+    # @param [Integer] dwStyle
+    # @param [true, false] bMenu
+    # @return [true, false]
     def self.AdjustWindowRect(lpRect, dwStyle, bMenu) end
     attach_function 'AdjustWindowRect', [RECT.ptr, WindowStyle, :bool], :bool
 
-    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-adjustwindowrectexfordpi
-    # BOOL AdjustWindowRectEx( _Inout_ LPRECT lpRect, _In_     DWORD dwStyle, _In_ BOOL bMenu, _In_ DWORD dwExStyle )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-adjustwindowrectex
+    # @param [FFI::Pointer] lpRect
+    # @param [Integer] dwStyle
+    # @param [true, false] bMenu
+    # @param [Integer] dwExStyle
+    # @return [true, false]
     def self.AdjustWindowRectEx(lpRect, dwStyle, bMenu, dwExStyle) end
     attach_function 'AdjustWindowRectEx', [RECT.ptr, WindowStyle, :bool, WindowStyleExtended], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632668
-    # BOOL AllowSetForegroundWindow( _In_  DWORD dwProcessId )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-allowsetforegroundwindow
+    # @param [Integer] dwProcessId
+    # @return [true, false]
     def self.AllowSetForegroundWindow(dwProcessId) end
     attach_function 'AllowSetForegroundWindow', [:dword], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632669
-    # BOOL AnimateWindow( _In_  HWND hwnd, _In_  DWORD dwTime, _In_  DWORD dwFlags )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-animatewindow
+    # @param [FFI::Pointer] hwnd
+    # @param [Integer] dwTime
+    # @param [Integer] dwFlags
+    # @return [true, false]
     def self.AnimateWindow(hwnd, dwTime, dwFlags) end
     attach_function 'AnimateWindow', [:hwnd, :dword, AnimateWindowFlag], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632670
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-anypopup
     # This function is provided only for compatibility with 16-bit versions of Windows. It is generally not useful.
-    # BOOL AnyPopup()
+    # @return [true, false]
     def self.AnyPopup; end
     attach_function 'AnyPopup', [], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632671
-    # UINT ArrangeIconicWindows(_In_  HWND hWnd )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-arrangeiconicwindows
+    # @param [FFI::Pointer] hWnd
+    # @return [Integer]
     def self.ArrangeIconicWindows(hWnd) end
     attach_function 'ArrangeIconicWindows', [:hwnd], :uint
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632672
-    # HDWP BeginDeferWindowPos( _In_  int nNumWindows )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-begindeferwindowpos
+    # @param [Integer] nNumWindows
+    # @return [FFI::Pointer]
     def self.BeginDeferWindowPos(nNumWindows) end
     attach_function 'BeginDeferWindowPos', [:int], :hdwp
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632673
-    # BOOL BringWindowToTop(_In_  HWND hWnd )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-bringwindowtotop
+    # @param [FFI::Pointer] hWnd
+    # @return [true, false]
     def self.BringWindowToTop(hWnd) end
     attach_function 'BringWindowToTop', [:hwnd], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632674
-    # WORD CascadeWindows(
-    #   _In_opt_  HWND hwndParent,
-    #   _In_      UINT wHow,
-    #   _In_opt_  const RECT *lpRect,
-    #   _In_      UINT cKids,
-    #   _In_opt_  const HWND *lpKids )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-cascadewindows
+    # @param [FFI::Pointer] hwndParent
+    # @param [Integer] wHow
+    # @param [FFI::Pointer] lpRect
+    # @param [Integer] cKids
+    # @param [FFI::Pointer] lpKids
     def self.CascadeWindows(hwndParent, wHow, lpRect, cKids, lpKids) end
-    attach_function 'CascadeWindows', [:hwnd, MultipleDocumentInterfaceTile, RECT.ptr, :uint, :pointer], :word
+    attach_function 'CascadeWindows', [:hwnd, MultipleDocumentInterfaceTile, RECT.ptr(:in), :uint, :pointer], :word
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632676
-    # HWND ChildWindowFromPoint( _In_  HWND hWndParent, _In_  POINT Point )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-childwindowfrompoint
+    # @param [FFI::Pointer] hWndParent
+    # @param [POINT] point
+    # @return [FFI::Pointer]
     def self.ChildWindowFromPoint(hWndParent, point) end
     attach_function 'ChildWindowFromPoint', [:hwnd, POINT], :hwnd
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632677
-    # HWND ChildWindowFromPointEx( _In_  HWND hwndParent, _In_  POINT pt, _In_  UINT uFlags )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-childwindowfrompointex
+    # @param [FFI::Pointer] hwndParent
+    # @param [POINT] pt
+    # @param [Integer] uFlags
+    # @return [FFI::Pointer]
     def self.ChildWindowFromPointEx(hwndParent, pt, uFlags) end
     attach_function 'ChildWindowFromPointEx', [:hwnd, POINT, ChildWindowFromPointExFlag], :hwnd
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632678
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-closewindow
     # Actually minimizes
-    # BOOL CloseWindow(  __in HWND hWnd )
+    # @param [FFI::Pointer] hWnd
+    # @return [true, false]
     def self.CloseWindow(hWnd) end
     attach_function 'CloseWindow', [:hwnd], :bool
 
-    # void CreateOwnedToolWindow(
-    #   _In_      IInspectable *pOwnerWindow,
-    #   _In_opt_  LPCTSTR lpWindowNTitle,
-    #   _In_      int x,
-    #   _In_      int y,
-    #   _In_      UINT32 nWidth,
-    #   _In_      UINT32 nHeight,
-    #   _Out_     IInspectable **ppWindow)
+    # @param [FFI::POinter] pOwnerWindow
+    # @param [String] lpWindowNTitle
+    # @param [Integer] x
+    # @param [Integer] y
+    # @param [Integer] nWidth
+    # @param [Integer] nHeight
+    # @param [FFI::Pointer] ppWindow
+    # def self.CreateOwnedToolWindow(pOwnerWindow, lpWindowNTitle, x, y, nWidth, nHeight, ppWindow) end
     # attach_function 'CreateOwnedToolWindow', [:pointer, :string, :int, :int, :uint32, :uint32, :pointer], :void
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632680
-    # HWND CreateWindowEx(
-    #   __in      DWORD     dwExStyle,
-    #   __in_opt  LPCTSTR   lpClassName,
-    #   __in_opt  LPCTSTR   lpWindowName,
-    #   __in      DWORD     dwStyle,
-    #   __in      int       x,
-    #   __in      int       y,
-    #   __in      int       nWidth,
-    #   __in      int       nHeight,
-    #   __in_opt  HWND      hWndParent,
-    #   __in_opt  HMENU     hMenu,
-    #   __in_opt  HINSTANCE hInstance,
-    #   __in_opt  LPVOID    lpParam )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-createwindowexa
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-createwindowexw
+    # @param [Integer] dwExStyle
+    # @param [String] lpClassName
+    # @param [String] lpWindowName
+    # @param [Integer] dwStyle
+    # @param [Integer] x
+    # @param [Integer] y
+    # @param [Integer] nWidth
+    # @param [Integer] nHeight
+    # @param [FFI::Pointer] hWndParent
+    # @param [FFI::Pointer] hMenu
+    # @param [FFI::Pointer] hInstance
+    # @param [Integer] lpParam
+    # @return [FFI::Pointer]
     def self.CreateWindowEx(
         dwExStyle, lpClassName, lpWindowName, dwStyle, x, y, nWidth, nHeight, hWndParent, hMenu, hInstance, lpParam) end
     encoded_function 'CreateWindowEx', [:dword, :pointer, :string , :dword, :int, :int, :int, :int, :hwnd, :hmenu,
                                         :hinstance, :pointer], :hwnd
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632681
-    # HDWP DeferWindowPos(
-    #   _In_      HDWP hWinPosInfo,
-    #   _In_      HWND hWnd,
-    #   _In_opt_  HWND hWndInsertAfter,
-    #   _In_      int x,
-    #   _In_      int y,
-    #   _In_      int cx,
-    #   _In_      int cy,
-    #   _In_      UINT uFlags )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-deferwindowpos
+    # @param [FFI::Pointer] hWinPosInfo
+    # @param [FFI::Pointer] hWnd
+    # @param [FFI::Pointer] hWndInsertAfter
+    # @param [Integer] x
+    # @param [Integer] y
+    # @param [Integer] cx
+    # @param [Integer] cy
+    # @param [Integer] uFlags
+    # @return [FFI::Pointer]
     def self.DeferWindowPos(hWinPosInfo, hWnd, hWndInsertAfter, x, y, cx, cy, uFlags) end
     attach_function 'DeferWindowPos', [:pointer, :hwnd, :hwnd, :int, :int, :int, :int, SetWindowPosFlag], :hdwp
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644979
-    # BOOL DeregisterShellHookWindow( _In_  HWND hWnd )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-deregistershellhookwindow
+    # @param [FFI::Pointer] hWnd
+    # @return [true, false]
     def self.DeregisterShellHookWindow(hWnd) end
     attach_function 'DeregisterShellHookWindow', [:hwnd], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632682
-    # BOOL DestroyWindow(__in  HWND hWnd)
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-destroywindow
+    # @param [FFI::Pointer] hWnd
+    # @return [true, false]
     def self.DestroyWindow(hWnd) end
     attach_function 'DestroyWindow', [:hwnd], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633440
-    # BOOL EndDeferWindowPos( _In_  HDWP hWinPosInfo )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-enddeferwindowpos
+    # @param [FFI::Pointer] hWinPosInfo
+    # @return [true, false]
     def self.EndDeferWindowPos(hWinPosInfo) end
     attach_function 'EndDeferWindowPos', [:hdwp], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633492
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-endtask
     # This function is not intended for general use. It may be altered or unavailable in subsequent versions of Windows.
-    # BOOL EndTask( _In_  HWND hWnd, _In_  BOOL fShutDown, _In_  BOOL fForce )
+    # @param [FFI::Pointer] hWnd
+    # @param [true, false] fShutDown
+    # @param [true, false] fForce
+    # @return [true, false]
     def self.EndTask(hWnd, fShutDown, fForce) end
     attach_function 'EndTask', [:hwnd, :bool, :bool], :bool
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633493
-    # BOOL CALLBACK EnumChildProc(
-    # _In_ HWND   hwnd,
-    # _In_ LPARAM lParam)
+    # BOOL CALLBACK EnumChildProc(_In_ HWND   hwnd, _In_ LPARAM lParam)
     EnumChildProc = callback 'EnumChildProc', [:hwnd, :lparam], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633494
-    # BOOL EnumChildWindows( _In_opt_ HWND hWndParent, _In_ WNDENUMPROC lpEnumFunc, _In_ LPARAM lParam )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-enumchildwindows
+    # @param [FFI::Pointer] hWndParent
+    # @param [EnumChildProc] lpEnumFunc
+    # @param [Integer] lParam
+    # @return [true, false]
     def self.EnumChildWindows(hWndParent, lpEnumFunc, lParam) end
     attach_function 'EnumChildWindows', [:hwnd, EnumChildProc, :lparam], :bool
 
@@ -177,8 +204,11 @@ module WinFFI
     # BOOL CALLBACK EnumThreadWndProc( _In_  HWND hwnd, _In_  LPARAM lParam )
     EnumThreadWndProc = callback 'EnumThreadWndProc', [:hwnd, :lparam], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633495
-    # BOOL EnumThreadWindows( _In_  DWORD dwThreadId, _In_  WNDENUMPROC lpfn, _In_  LPARAM lParam )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-enumthreadwindows
+    # @param [Integer] dwThreadId
+    # @param [EnumThreadWndProc] lpfn
+    # @param [Integer] lParam
+    # @return [true, false]
     def self.EnumThreadWindows(dwThreadId, lpfn, lParam) end
     attach_function 'EnumThreadWindows', [:dword, EnumThreadWndProc, :lparam], :bool
 
@@ -186,297 +216,378 @@ module WinFFI
     # BOOL CALLBACK EnumWindowsProc( _In_ HWND   hwnd, _In_ LPARAM lParam )
     EnumWindowsProc = callback 'EnumWindowsProc', [:hwnd, :lparam], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633497
-    # BOOL EnumWindows( _In_  WNDENUMPROC lpEnumFunc, _In_  LPARAM lParam )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-enumwindows
+    # @param [EnumWindowsProc] lpClassName
+    # @param [Integer] lpWindowName
+    # @return [true, false]
     def self.EnumWindows(lpClassName, lpWindowName) end
     attach_function 'EnumWindows', [EnumWindowsProc, :lparam], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633499
-    # HWND FindWindow( _In_opt_  LPCTSTR lpClassName, _In_opt_  LPCTSTR lpWindowName )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-findwindowa
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-findwindoww
+    # @param [String] lpClassName
+    # @param [String] lpWindowName
+    # @return [FFI::Pointer]
     def self.FindWindow(lpClassName, lpWindowName) end
     encoded_function 'FindWindow', [:buffer_in, :buffer_in], :hwnd
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633500
-    # HWND FindWindowEx(
-    #   _In_opt_  HWND hwndParent,
-    #   _In_opt_  HWND hwndChildAfter,
-    #   _In_opt_  LPCTSTR lpszClass,
-    #   _In_opt_  LPCTSTR lpszWindow )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-findwindowexa
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-findwindowexw
+    # @param [FFI::Pointer] hwndParent
+    # @param [FFI::Pointer] hwndChildAfter
+    # @param [String] lpszClass
+    # @param [String] lpszWindow
+    # @return [FFI::Pointer]
     def self.FindWindowEx(hwndParent, hwndChildAfter, lpszClass, lpszWindow) end
     encoded_function 'FindWindowEx', [:hwnd, :hwnd, :buffer_in, :buffer_in], :hwnd
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633501
-    # BOOL GetAltTabInfo(
-    #   _In_opt_   HWND hwnd,
-    #   _In_       int iItem,
-    #   _Inout_    PALTTABINFO pati,
-    #   _Out_opt_  LPTSTR pszItemText,
-    #   _In_       UINT cchItemText )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getalttabinfoa
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getalttabinfow
+    # @param [FFI::Pointer] hwnd
+    # @param [Integer] iItem
+    # @param [FFI::Pointer] pati
+    # @param [String] pszItemText
+    # @param [Integer] cchItemText
+    # @return [true, false]
     def self.GetAltTabInfo(hwnd, iItem, pati, pszItemText, cchItemText) end
     encoded_function 'GetAltTabInfo', [:hwnd, :int, ALTTABINFO.ptr, :pointer, :uint], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633502
-    # HWND GetAncestor( _In_  HWND hwnd, _In_  UINT gaFlags )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getancestor
+    # @param [FFI::Pointer] hwnd
+    # @param [Integer] gaFlags
+    # @return [FFI::Pointer]
     def self.GetAncestor(hwnd, gaFlags) end
     attach_function 'GetAncestor', [:hwnd, GetAncestorFlag], :hwnd
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633503
-    # BOOL GetClientRect( __in   HWND   hWnd, __out  LPRECT lpRect)
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getclientrect
+    # @param [FFI::Pointer] hWnd
+    # @param [FFI::Pointer] lpRect
+    # @return [true, false]
     def self.GetClientRect(hWnd, lpRect) end
     attach_function 'GetClientRect', [:hwnd, RECT.ptr], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633504
-    # HWND GetDesktopWindow(void)
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getdesktopwindow
+    # @return [FFI::Pointer]
     def self.GetDesktopWindow; end
     attach_function 'GetDesktopWindow', [], :hwnd
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633505
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getforegroundwindow
     # HWND GetForegroundWindow(void)
+    # @return [FFI::Pointer]
     def self.GetForegroundWindow; end
     attach_function 'GetForegroundWindow', [], :hwnd
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633506
-    # BOOL GetGUIThreadInfo( _In_     DWORD idThread, _Inout_  LPGUITHREADINFO lpgui )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getguithreadinfo
+    # @param [INteger] idThread
+    # @param [FFI::Pointer] lpgui
+    # @return [true, false]
     def self.GetGUIThreadInfo(idThread, lpgui) end
     attach_function 'GetGUIThreadInfo', [:dword, GUITHREADINFO.ptr], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633507
-    # HWND GetLastActivePopup( _In_  HWND hWnd )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getlastactivepopup
+    # @param [FFI::Pointer] hWnd
+    # @return [FFI::Pointer]
     def self.GetLastActivePopup(hWnd) end
     attach_function 'GetLastActivePopup', [:hwnd], :hwnd
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633510
-    # HWND GetParent( _In_  HWND hWnd )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getparent
+    # @param [FFI::Pointer] hWnd
+    # @return [FFI::Pointer]
     def self.GetParent(hWnd) end
     attach_function 'GetParent', [:hwnd], :hwnd
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633511
-    # BOOL GetProcessDefaultLayout( _Out_  DWORD *pdwDefaultLayout )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getprocessdefaultlayout
+    # @param [Integer] pdwDefaultLayout
+    # @return [true, false]
     def self.GetProcessDefaultLayout(pdwDefaultLayout) end
     attach_function 'GetProcessDefaultLayout', [:dword], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633512
-    # HWND GetShellWindow(void)
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getshellwindow
+    # @return [FFI::Pointer]
     def self.GetShellWindow; end
     attach_function 'GetShellWindow', [], :hwnd
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633513
-    # BOOL GetTitleBarInfo( _In_     HWND hwnd, _Inout_  PTITLEBARINFO pti )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-gettitlebarinfo
+    # @param [FFI::Pointer] hwnd
+    # @param [FFI::Pointer] pti
+    # @return [true, false]
     def self.GetTitleBarInfo(hwnd, pti) end
     attach_function 'GetTitleBarInfo', [:hwnd, TITLEBARINFO.ptr], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633514
-    # HWND GetTopWindow(   _In_opt_  HWND hWnd )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-gettopwindow
+    # @param [FFI::Pointer] hwnd
+    # @return [FFI::Pointer]
     def self.GetTopWindow(hwnd) end
     attach_function 'GetTopWindow', [:hwnd], :hwnd
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633515
-    # HWND GetWindow( _In_  HWND hWnd, _In_  UINT uCmd )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getwindow
+    # @param [FFI::Pointer] hWnd
+    # @param [Integer] uCmd
+    # @return [FFI::Pointer]
     def self.GetWindow(hWnd, uCmd) end
     attach_function 'GetWindow', [:hwnd, GetWindowFlag], :hwnd
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633516
-    # BOOL GetWindowInfo( __in     HWND        hwnd, __inout  PWINDOWINFO pwi)
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getwindowinfo
+    # @param [FFI::Pointer] hWnd
+    # @param [FFI::Pointer] pwi
+    # @return [true, false]
     def self.GetWindowInfo(hWnd, pwi) end
     attach_function 'GetWindowInfo', [:hwnd, WINDOWINFO.ptr], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633517
-    # UINT GetWindowModuleFileName( _In_   HWND hwnd, _Out_  LPTSTR lpszFileName, _In_   UINT cchFileNameMax )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getwindowmodulefilenamea
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getwindowmodulefilenamew
+    # @param [FFI::Pointer] hwnd
+    # @param [String] lpszFileName
+    # @param [Integer] cchFileNameMax
+    # @return [Integer]
     def self.GetWindowModuleFileName(hwnd, lpszFileName, cchFileNameMax) end
     encoded_function 'GetWindowModuleFileName', [:hwnd, :string, :uint], :uint
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633518
-    # BOOL GetWindowPlacement( __in     HWND             hWnd, __inout  WINDOWPLACEMENT *lpwndpl)
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getwindowplacement
+    # @param [FFI::Pointer] hWnd
+    # @param [FFI::Pointer] lpwndpl
+    # @return [true, false]
     def self.GetWindowPlacement(hWnd, lpwndpl) end
     attach_function 'GetWindowPlacement', [:hwnd, WINDOWPLACEMENT.ptr], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633519
-    # BOOL GetWindowRect( __in   HWND   hWnd, __out  LPRECT lpRect)
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getwindowrect
+    # @param [FFI::Pointer] hWnd
+    # @param [FFI::Pointer] lpRect
+    # @return [true, false]
     def self.GetWindowRect(hWnd, lpRect) end
-    attach_function 'GetWindowRect', [:hwnd, RECT.ptr], :bool
+    attach_function 'GetWindowRect', [:hwnd, RECT.ptr(:out)], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633520
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getwindowtexta
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getwindowtextw
     # int GetWindowText( _In_   HWND hWnd, _Out_  LPTSTR lpString, _In_   int nMaxCount )
+    # @param [FFI::Pointer] hWnd
+    # @param [String] lpString
+    # @param [Integer] nMaxCount
+    # @return [Integer]
     def self.GetWindowText(hWnd, lpString, nMaxCount) end
     encoded_function 'GetWindowText', [:hwnd, :pointer, :int], :int
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633521
-    # int GetWindowTextLength( _In_  HWND hWnd )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getwindowtextlengtha
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getwindowtextlengthw
+    # @param [FFI::Pointer] hWnd
+    # @return [Integer]
     def self.GetWindowTextLength(hWnd) end
     encoded_function 'GetWindowTextLength', [:hwnd], :int
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633522
-    # DWORD GetWindowThreadProcessId( _In_       HWND hWnd, _Out_opt_  LPDWORD lpdwProcessId )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getwindowthreadprocessid
+    # @param [FFI::Pointer] hWnd
+    # @param [FFI::Pointer] lpdwProcessId
+    # @return [Integer]
     def self.GetWindowThreadProcessId(hWnd, lpdwProcessId) end
     attach_function 'GetWindowThreadProcessId', [:hwnd, :pointer], :dword
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633523
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-internalgetwindowtext
     # This function is not intended for general use. It may be altered or unavailable in subsequent versions of Windows.
-    # int InternalGetWindowText( _In_   HWND hWnd, _Out_  LPWSTR lpString, _In_   int nMaxCount )
+    # @param [FFI::Pointer] hWnd
+    # @param [String] lpString
+    # @param [Integer] nMaxCount
+    # @return [Integer]
     def self.InternalGetWindowText(hWnd, lpString, nMaxCount) end
     attach_function 'InternalGetWindowText', [:hwnd, :string, :int], :int
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633524
-    # BOOL IsChild( _In_  HWND hWndParent, _In_  HWND hWnd )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-ischild
+    # @param [FFI::Pointer] hWndParent
+    # @param [FFI::Pointer] hWnd
+    # @return [true, false]
     def self.IsChild(hWndParent, hWnd) end
     attach_function 'IsChild', [:hwnd, :hwnd], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633526
-    # BOOL IsHungAppWindow( _In_  HWND hWnd )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-ishungappwindow
+    # @param [FFI::Pointer] hWnd
+    # @return [true, false]
     def self.IsHungAppWindow(hWnd) end
     attach_function 'IsHungAppWindow', [:hwnd], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633527
-    # BOOL IsIconic( _In_  HWND hWnd )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-isiconic
+    # @param [FFI::Pointer] hWnd
+    # @return [true, false]
     def self.IsIconic(hWnd) end
     attach_function 'IsIconic', [:hwnd], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633528
-    # BOOL IsWindow( _In_opt_  HWND hWnd )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-iswindow
+    # @param [FFI::Pointer] hWnd
+    # @return [true, false]
     def self.IsWindow(hWnd) end
     attach_function 'IsWindow', [:hwnd], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633529
-    # BOOL IsWindowUnicode( _In_  HWND hWnd )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-iswindowunicode
+    # @param [FFI::Pointer] hWnd
+    # @return [true, false]
     def self.IsWindowUnicode(hWnd) end
     attach_function 'IsWindowUnicode', [:hwnd], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633530
-    # BOOL IsWindowVisible( _In_  HWND hWnd )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-iswindowvisible
+    # @param [FFI::Pointer] hWnd
+    # @return [true, false]
     def self.IsWindowVisible(hWnd) end
     attach_function 'IsWindowVisible', [:hwnd], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633531
-    # BOOL IsZoomed( _In_  HWND hWnd )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-iszoomed
+    # @param [FFI::Pointer] hWnd
+    # @return [true, false]
     def self.IsZoomed(hWnd) end
     attach_function 'IsZoomed', [:hwnd], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633532
-    # BOOL LockSetForegroundWindow( _In_  UINT uLockCode )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-locksetforegroundwindow
+    # @param [Integer] uLockCode
+    # @return [true, false]
     def self.LockSetForegroundWindow(uLockCode) end
     attach_function 'LockSetForegroundWindow', [:uint], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633534
-    # BOOL MoveWindow(
-    #   __in  HWND hWnd,
-    #   __in  int  X,
-    #   __in  int  Y,
-    #   __in  int  nWidth,
-    #   __in  int  nHeight,
-    #   __in  BOOL bRepaint)
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-movewindow
+    # @param [FFI::Pointer] hWnd
+    # @param [Integer] x
+    # @param [Integer] y
+    # @param [Integer] nWidth
+    # @param [Integer] nHeight
+    # @param [true, false] bRepaint
+    # @return [true, false]
     def self.MoveWindow(hWnd, x, y, nWidth, nHeight, bRepaint) end
     attach_function 'MoveWindow', [:hwnd, :int, :int, :int, :int, :bool], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633535
-    # BOOL OpenIcon( _In_  HWND hWnd )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-openicon
+    # @param [FFI::Pointer] hWnd
+    # @return [true, false]
     def self.OpenIcon(hWnd) end
     attach_function 'OpenIcon', [:hwnd], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633537
-    # HWND RealChildWindowFromPoint( _In_  HWND hwndParent, _In_  POINT ptParentClientCoords )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-realchildwindowfrompoint
+    # @param [FFI::Pointer] hwndParent
+    # @param [POINT] ptParentClientCoords
+    # @return [FFI::Pointer]
     def self.RealChildWindowFromPoint(hwndParent, ptParentClientCoords) end
-    attach_function 'RealChildWindowFromPoint', [:hwnd, POINT.ptr], :hwnd
+    attach_function 'RealChildWindowFromPoint', [:hwnd, POINT], :hwnd
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633538
-    # UINT RealGetWindowClass( _In_   HWND hwnd, _Out_  LPTSTR pszType, _In_   UINT cchType )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-realgetwindowclassw
+    # @param [FFI::Pointer] hwnd
+    # @param [String] pszType
+    # @param [Integer] cchType
+    # @return [Integer]
     def self.RealGetWindowClass(hwnd, pszType, cchType) end
     encoded_function 'RealGetWindowClass', [:hwnd, :string, :uint], :uint
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644989
-    # BOOL RegisterShellHookWindow( _In_  HWND hWnd )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-registershellhookwindow
+    # @param [FFI::Pointer] hWnd
+    # @return [true, false]
     def self.RegisterShellHookWindow(hWnd) end
     attach_function 'RegisterShellHookWindow', [:hwnd], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633539
-    # BOOL SetForegroundWindow( _In_  HWND hWnd )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-setforegroundwindow
+    # @param [FFI::Pointer] hWnd
+    # @return [true, false]
     def self.SetForegroundWindow(hWnd) end
     attach_function 'SetForegroundWindow', [:hwnd], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633540
-    # BOOL SetLayeredWindowAttributes(_In_ HWND hwnd, _In_ COLORREF crKey, _In_ BYTE bAlpha, _In_ DWORD dwFlags )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-setlayeredwindowattributes
+    # @param [FFI::Pointer] hwnd
+    # @param [Integer] crKey
+    # @param [byte] bAlpha
+    # @param [Integer] dwFlags
+    # @return [true, false]
     def self.SetLayeredWindowAttributes(hwnd, crKey, bAlpha, dwFlags) end
     attach_function 'SetLayeredWindowAttributes',
                     [:hwnd, :colorref, :byte, UpdateLayeredWindowFlag], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633541
-    # HWND SetParent( _In_      HWND hWndChild, _In_opt_  HWND hWndNewParent )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-setparent
+    # @param [FFI::Pointer] hWndChild
+    # @param [FFI::Pointer] hWndNewParent
+    # @return [FFI::Pointer]
     def self.SetParent(hWndChild, hWndNewParent) end
     attach_function 'SetParent', [:hwnd, :hwnd], :hwnd
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633542
-    # BOOL SetProcessDefaultLayout( _In_  DWORD dwDefaultLayout )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-setprocessdefaultlayout
+    # @param [Integer] dwDefaultLayout
+    # @return [true, false]
     def self.SetProcessDefaultLayout(dwDefaultLayout) end
     attach_function 'SetProcessDefaultLayout', [:dword], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633544
-    # BOOL SetWindowPlacement( __in     HWND             hWnd, __inout  WINDOWPLACEMENT *lpwndpl)
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-setwindowplacement
+    # @param [FFI::Pointer] hWnd
+    # @param [FFI::Pointer] lpwndpl
+    # @return [true, false]
     def self.SetWindowPlacement(hWnd, lpwndpl) end
     attach_function 'SetWindowPlacement', [:hwnd, WINDOWPLACEMENT.ptr], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633545
-    # BOOL SetWindowPos(
-    #   _In_      HWND hWnd,
-    #   _In_opt_  HWND hWndInsertAfter,
-    #   _In_      int X,
-    #   _In_      int Y,
-    #   _In_      int cx,
-    #   _In_      int cy,
-    #   _In_      UINT uFlags )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-setwindowpos
+    # @param [FFI::Pointer] hWnd
+    # @param [FFI::Pointer] hWndInsertAfter
+    # @param [Integer] x
+    # @param [Integer] y
+    # @param [Integer] cx
+    # @param [Integer] cy
+    # @param [Integer] uFlags
+    # @return [true, false]
     def self.SetWindowPos(hWnd, hWndInsertAfter, x, y, cx, cy, uFlags) end
     attach_function 'SetWindowPos', [:hwnd, :hwnd, :int, :int, :int, :int, SetWindowPosFlag], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633546
-    # BOOL SetWindowText( __in      HWND    hWnd, __in_opt  LPCTSTR lpString)
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-setwindowtexta
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-setwindowtextw
+    # @param [FFI::Pointer] hWnd
+    # @param [String] lpString
+    # @return [true, false]
     def self.SetWindowText(hWnd, lpString) end
     encoded_function 'SetWindowText', [:hwnd, :string], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633547
-    # BOOL ShowOwnedPopups( _In_  HWND hWnd, _In_  BOOL fShow )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-showownedpopups
+    # @param [FFI::Pointer] hWnd
+    # @param [true, false] fShow
+    # @return [true, false]
     def self.ShowOwnedPopups(hWnd, fShow) end
     attach_function 'ShowOwnedPopups', [:hwnd, :bool], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633548
-    # BOOL ShowWindow( __in  HWND hWnd, __in  int  nCmdShow)
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-showwindow
+    # @param [FFI::Pointer] hWnd
+    # @param [Integer] nCmdShow
+    # @return [true, false]
     def self.ShowWindow(hWnd, nCmdShow) end
     attach_function 'ShowWindow', [:hwnd, ShowWindowFlag], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633549
-    # BOOL ShowWindowAsync( _In_  HWND hWnd, _In_  int nCmdShow )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-showwindowasync
+    # @param [FFI::Pointer] hWnd
+    # @param [Integer] nCmdShow
+    # @return [true, false]
     def self.ShowWindowAsync(hWnd, nCmdShow) end
     attach_function 'ShowWindowAsync', [:hwnd, :int], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633553
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-switchtothiswindow
     # This function is not intended for general use. It may be altered or unavailable in subsequent versions of Windows.
-    # VOID SwitchToThisWindow( _In_  HWND hWnd, _In_  BOOL fAltTab )
+    # @param [FFI::Pointer] hWnd
+    # @param [true, false] fAltTab
     def self.SwitchToThisWindow(hWnd, fAltTab) end
     attach_function 'SwitchToThisWindow', [:hwnd, :bool], :void
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633554
-    # WORD TileWindows(
-    #   _In_opt_  HWND hwndParent,
-    #   _In_      UINT wHow,
-    #   _In_opt_  const RECT *lpRect,
-    #   _In_      UINT cKids,
-    #   _In_opt_  const HWND *lpKids )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-tilewindows
+    # @param [FFI::Pointer] hwndParent
+    # @param [Integer] wHow
+    # @param [FFI::Pointer] lpRect
+    # @param [Integer] cKids
+    # @param [FFI::Pointer] lpKids
+    # @return [Integer]
     def self.TileWindows(hwndParent, wHow, lpRect, cKids, lpKids) end
     attach_function 'TileWindows', [:hwnd, :uint, RECT.ptr, :uint, :pointer], :word
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633556
-    # BOOL UpdateLayeredWindow(
-    #   _In_      HWND hwnd,
-    #   _In_opt_  HDC hdcDst,
-    #   _In_opt_  POINT *pptDst,
-    #   _In_opt_  SIZE *psize,
-    #   _In_opt_  HDC hdcSrc,
-    #   _In_opt_  POINT *pptSrc,
-    #   _In_      COLORREF crKey,
-    #   _In_opt_  BLENDFUNCTION *pblend,
-    #   _In_      DWORD dwFlags )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-updatelayeredwindow
+    # @param [FFI::Pointer] hwnd
+    # @param [FFI::Pointer] hdcDst
+    # @param [FFI::Pointer] pptDst
+    # @param [FFI::Pointer] psize
+    # @param [FFI::Pointer] hdcSrc
+    # @param [FFI::Pointer] pptSrc
+    # @param [Integer] crKey
+    # @param [FFI::Pointer] pblend
+    # @param [Integer] dwFlags
+    # @return [true, false]
     def self.UpdateLayeredWindow(hwnd, hdcDst, pptDst, psize, hdcSrc, pptSrc, crKey, pblend, dwFlags) end
-    attach_function 'UpdateLayeredWindow', [:hwnd, :hdc, POINT.ptr, WinFFI::SIZE.ptr, :hdc, POINT.ptr, :colorref, :pointer, UpdateLayeredWindowFlag], :bool
+    attach_function 'UpdateLayeredWindow', [:hwnd, :hdc, POINT.ptr, SIZE.ptr, :hdc, POINT.ptr, :colorref, :pointer, UpdateLayeredWindowFlag], :bool
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633558
-    # HWND WindowFromPoint( _In_  POINT Point )
+    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-windowfrompoint
+    # @param [FFI::Pointer] point
+    # @return [FFI::Pointer]
     def self.WindowFromPoint(point) end
     attach_function 'WindowFromPoint', [POINT.ptr], :hwnd
 
@@ -489,113 +600,132 @@ module WinFFI
 
     if WINDOWS_VERSION >= :xp
       # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-flashwindow
-      # BOOL FlashWindow( _In_  HWND hWnd, _In_  BOOL bInvert )
+      # @param [FFI::Pointer] hWnd
+      # @param [true, false] bInvert
+      # @return [true, false]
       def self.FlashWindow(hWnd, bInvert) end
       attach_function 'FlashWindow', [:hwnd, :bool], :bool
 
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/ms679347
-      # BOOL FlashWindowEx( _In_  PFLASHWINFO pfwi )
+      # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-flashwindowex
+      # @param [FFI::Pointer] pfwi
+      # @return [true, false]
       def self.FlashWindowEx(pfwi) end
       attach_function 'FlashWindowEx', [FLASHWINFO.ptr], :bool
 
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633508
-      # BOOL GetLayeredWindowAttributes(
-      #   _In_       HWND hwnd,
-      #   _Out_opt_  COLORREF *pcrKey,
-      #   _Out_opt_  BYTE *pbAlpha,
-      #   _Out_opt_  DWORD *pdwFlags )
+      # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getlayeredwindowattributes
+      # @param [FFI::Pointer] hwnd
+      # @param [FFI::Pointer] pcrKey
+      # @param [FFI::Pointer] pbAlpha
+      # @param [Integer] pdwFlags
+      # @return [true, false]
       def self.GetLayeredWindowAttributes(hwnd, pcrKey, pbAlpha, pdwFlags) end
       attach_function 'GetLayeredWindowAttributes',
                       [:hwnd, :pointer, :pointer, UpdateLayeredWindowFlag], :bool
 
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633525
-      # BOOL IsGUIThread( _In_  BOOL bConvert )
+      # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-isguithread
+      # @param [true, false] bConvert
+      # @return [true, false]
       def self.IsGUIThread(bConvert) end
       attach_function 'IsGUIThread', [:bool], :bool
 
       if WINDOWS_VERSION >= :vista
-        # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632675
-        # BOOL ChangeWindowMessageFilter( _In_  UINT message, _In_  DWORD dwFlag )
+        # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-changewindowmessagefilter
+        # @param [Integer] message
+        # @param [Integer] dwFlag
+        # @return [true, false]
         def self.ChangeWindowMessageFilter(message, dwFlag) end
         attach_function 'ChangeWindowMessageFilter', [:uint, MessageFilter], :bool
 
-        # BOOL GetWindowMinimizeRect ( HWND hwndToQuery, RECT* pRect )
+        # @param [FFI::Pointer] hwndToQuery
+        # @param [FFI::Pointer] pRect
+        # @return [true, false]
         def self.GetWindowMinimizeRect(hwndToQuery, pRect) end
         attach_function 'GetWindowMinimizeRect', [:hwnd, RECT.ptr], :bool
 
-        # https://msdn.microsoft.com/en-us/library/windows/desktop/aa969261
-        # BOOL IsProcessDPIAware(void)
+        # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-isprocessdpiaware
+        # @return [true, false]
         def self.IsProcessDPIAware; end
         attach_function 'IsProcessDPIAware', [], :bool
 
-        # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633533
-        # BOOL LogicalToPhysicalPoint( _In_     HWND hWnd, _Inout_  LPPOINT lpPoint )
+        # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-logicaltophysicalpoint
+        # @param [FFI::Pointer] hWnd
+        # @param [FFI::Pointer] lpPoint
+        # @return [true, false]
         def self.LogicalToPhysicalPoint(hWnd, lpPoint) end
         attach_function 'LogicalToPhysicalPoint', [:hwnd, POINT.ptr], :bool
 
-        # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633536
-        # BOOL PhysicalToLogicalPoint( _In_     HWND hWnd, _Inout_  LPPOINT lpPoint )
+        # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-physicaltologicalpoint
+        # @param [FFI::Pointer] hWnd
+        # @param [FFI::Pointer] lpPoint
+        # @return [true, false]
         def self.PhysicalToLogicalPoint(hWnd, lpPoint) end
         attach_function 'PhysicalToLogicalPoint', [:hwnd, POINT.ptr], :bool
 
-        # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633543
-        # BOOL SetProcessDPIAware(void)
+        # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-setprocessdpiaware
+        # @return [true, false]
         def self.SetProcessDPIAware; end
         attach_function 'SetProcessDPIAware', [], :bool
 
-        # https://msdn.microsoft.com/en-us/library/windows/desktop/aa969269
-        # BOOL SoundSentry(void)
+        # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-soundsentry
+        # @return [true, false]
         def self.SoundSentry; end
         attach_function 'SoundSentry', [], :bool
 
         # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633557
-        # BOOL UpdateLayeredWindowIndirect(_In_ HWND hwnd, _In_ const UPDATELAYEREDWINDOWINFO *pULWInfo)
+        # @param [FFI::Pointer] hwnd
+        # @param [FFI::Pointer] pULWInfo
+        # @return [true, false]
         def self.UpdateLayeredWindowIndirect(hwnd, pULWInfo) end
         attach_function 'UpdateLayeredWindowIndirect', [:hwnd, UPDATELAYEREDWINDOWINFO.ptr(:in)], :bool
 
-        # https://msdn.microsoft.com/en-us/library/windows/desktop/aa969270
-        #HWND WindowFromPhysicalPoint( _In_  POINT Point )
+        # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-windowfromphysicalpoint
+        # @param [FFI::Pointer] point
+        # @return [FFI::Pointer]
         def self.WindowFromPhysicalPoint(point) end
         attach_function 'WindowFromPhysicalPoint', [POINT.ptr(:in)], :hwnd
 
         if WINDOWS_VERSION >= 7
-          # https://msdn.microsoft.com/en-us/library/windows/desktop/dd565861
-          # BOOL CalculatePopupWindowPosition(
-          #   _In_      const POINT *anchorPoint,
-          #   _In_      const SIZE *windowSize,
-          #   _In_      UINT flags,
-          #   _In_opt_  RECT *excludeRect,
-          #   _Out_     RECT *popupWindowPosition )
+          # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-calculatepopupwindowposition
+          # @param [FFI::Pointer] anchorPoint
+          # @param [FFI::Pointer] windowSize
+          # @param [Integer] flags
+          # @param [FFI::Pointer] excludeRect
+          # @param [FFI::Pointer] popupWindowPosition
+          # @return [true, false]
           def self.CalculatePopupWindowPosition(anchorPoint, windowSize, flags, excludeRect, popupWindowPosition) end
-          attach_function 'CalculatePopupWindowPosition', [POINT.ptr(:in), SIZE.ptr(:in), TrackPopupMenuFlag, RECT.ptr, RECT.ptr(:out)], :bool
+          attach_function 'CalculatePopupWindowPosition', [POINT.ptr(:in), SIZE.ptr(:in), TrackPopupMenuFlag, RECT.ptr(:in), RECT.ptr(:out)], :bool
 
-          # https://msdn.microsoft.com/en-us/library/windows/desktop/dd388202
-          # BOOL ChangeWindowMessageFilterEx(
-          #   _In_         HWND hWnd,
-          #   _In_         UINT message,
-          #   _In_         DWORD action,
-          #   _Inout_opt_  PCHANGEFILTERSTRUCT pChangeFilterStruct )
+          # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-changewindowmessagefilterex
+          # @param [FFI::Pointer] hWnd
+          # @param [Integer] message
+          # @param [Integer] action
+          # @param [FFI::Pointer] pChangeFilterStruct
+          # @return [true, false]
           def self.ChangeWindowMessageFilterEx(hWnd, message, action, pChangeFilterStruct) end
           attach_function 'ChangeWindowMessageFilterEx', [:hwnd, :uint, MessageFilter, CHANGEFILTERSTRUCT.ptr], :bool
 
-          # https://msdn.microsoft.com/en-us/library/windows/desktop/dd375338
-          # BOOL GetWindowDisplayAffinity( _In_   HWND hWnd, _Out_  DWORD *dwAffinity )
+          # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getwindowdisplayaffinity
+          # @param [FFI::Pointer] hWnd
+          # @param [Integer] dwAffinity
+          # @return [true, false]
           def self.GetWindowDisplayAffinity(hWnd, dwAffinity) end
           attach_function 'GetWindowDisplayAffinity', [:hwnd, WindowDisplayAffinity], :bool
 
-          # https://msdn.microsoft.com/en-us/library/windows/desktop/dd375340
-          # BOOL SetWindowDisplayAffinity( _In_  HWND hWnd, _In_  DWORD dwAffinity )
+          # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-setwindowdisplayaffinity
+          # @param [FFI::Pointer] hWnd
+          # @param [Integer] dwAffinity
+          # @return [true, false]
           def self.SetWindowDisplayAffinity(hWnd, dwAffinity) end
           attach_function 'SetWindowDisplayAffinity', [:hwnd, WindowDisplayAffinity], :bool
 
           if WINDOWS_VERSION >= 8
-            # https://msdn.microsoft.com/en-us/library/windows/desktop/hh405402
-            # BOOL SetWindowFeedbackSetting(
-            #   _In_           HWND          hwnd,
-            #   _In_           FEEDBACK_TYPE feedback,
-            #   _In_           DWORD         flags,
-            #   _In_           UINT32        size,
-            #   _In_opt_ const VOID          *configuration)
+            # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-setwindowfeedbacksetting
+            # @param [FFI::Pointer] hwnd
+            # @param [Integer] feedback
+            # @param [Integer] flags
+            # @param [Integer] size
+            # @param [FFI::Pointer] configuration
+            # @return [true, false]
             def self.SetWindowFeedbackSetting(hwnd, feedback, flags, size, configuration) end
             attach_function 'SetWindowFeedbackSetting', [:hwnd, FEEDBACK_TYPE, :dword, :uint, :pointer], :bool
           end

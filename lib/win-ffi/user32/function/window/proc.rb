@@ -9,17 +9,21 @@ module WinFFI
     WindowProc = callback :WindowProc, [:hwnd, :uint, :wparam, :lparam], :lresult
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633571
-    # LRESULT CallWindowProc(
-    #   _In_  WNDPROC lpPrevWndFunc,
-    #   _In_  HWND hWnd,
-    #   _In_  UINT Msg,
-    #   _In_  WPARAM wParam,
-    #   _In_  LPARAM lParam )
+    # @param [WindowProc] lpPrevWndFunc
+    # @param [FFI::Pointer] hWnd
+    # @param [Integer] msg
+    # @param [Integer] wParam
+    # @param [Integer] lParam
+    # @return [Integer]
     def self.CallWindowProc(lpPrevWndFunc, hWnd, msg, wParam, lParam) end
     encoded_function 'CallWindowProc', [WindowProc, :hwnd, :uint, :wparam, :lparam], :lresult
 
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633572
-    # LRESULT DefWindowProc( __in  HWND   hWnd, __in  UINT   Msg, __in  WPARAM wParam, __in  LPARAM lParam)
+    # @param [FFI::Pointer] hWnd
+    # @param [Integer] msg
+    # @param [Integer] wParam
+    # @param [Integer] lParam
+    # @return [Ineger]
     def self.DefWindowProc(hWnd, msg, wParam, lParam) end
     encoded_function 'DefWindowProc', [:hwnd, :uint, :wparam, :lparam], :lresult
   end

@@ -4,58 +4,86 @@ require 'win-ffi/core/struct/point'
 module WinFFI
   module User32
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-copyrect
-    # BOOL CopyRect( _Out_  LPRECT lprcDst, _In_   const RECT *lprcSrc )
+    # @param [FFI::Pointer] lprcDst
+    # @param [FFI::Pointer] lprcSrc
+    # @return [true, false]
     def self.CopyRect(lprcDst, lprcSrc) end
-    attach_function 'CopyRect', [RECT.ptr, RECT.ptr], :bool
+    attach_function 'CopyRect', [RECT.ptr(:out), RECT.ptr(:in)], :bool
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-equalrect
-    # BOOL EqualRect( _In_  const RECT *lprc1, _In_  const RECT *lprc2 )
+    # @param [FFI::Pointer] lprc1
+    # @param [FFI::Pointer] lprc2
+    # @return [true, false]
     def self.EqualRect(lprc1, lprc2) end
-    attach_function 'EqualRect', [RECT.ptr, RECT.ptr], :bool
+    attach_function 'EqualRect', [RECT.ptr(:in), RECT.ptr(:in)], :bool
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-inflaterect
-    # BOOL InflateRect( _Inout_  LPRECT lprc, _In_     int dx, _In_     int dy )
+    # @param [FFI::Pointer] lprc
+    # @param [Integer] dx
+    # @param [Integer] dy
+    # @return [true, false]
     def self.InflateRect(lprc, dx, dy) end
     attach_function 'InflateRect', [RECT.ptr, :int, :int], :bool
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-intersectrect
-    # BOOL IntersectRect( _Out_  LPRECT lprcDst, _In_   const RECT *lprcSrc1, _In_   const RECT *lprcSrc2 )
+    # @param [FFI::Pointer] lprcDst
+    # @param [FFI::Pointer] lprcSrc1
+    # @param [FFI::Pointer] lprcSrc2
+    # @return [true, false]
     def self.IntersectRect(lprcDst, lprcSrc1, lprcSrc2) end
-    attach_function 'IntersectRect', [RECT.ptr, RECT.ptr, RECT.ptr], :bool
+    attach_function 'IntersectRect', [RECT.ptr(:out), RECT.ptr(:in), RECT.ptr(:in)], :bool
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-isrectempty
-    # BOOL IsRectEmpty( _In_  const RECT *lprc )
+    # @param [FFI::Pointer] lprc
+    # @return [true, false]
     def self.IsRectEmpty(lprc) end
-    attach_function 'IsRectEmpty', [RECT.ptr], :bool
+    attach_function 'IsRectEmpty', [RECT.ptr(:in)], :bool
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-offsetrect
-    # BOOL OffsetRect( _Inout_  LPRECT lprc, _In_     int dx, _In_     int dy )
+    # @param [FFI::Pointer] lprc
+    # @param [Integer] dx
+    # @param [Integer] dy
+    # @return [true, false]
     def self.OffsetRect(lprc, dx, dy) end
     attach_function 'OffsetRect', [RECT.ptr, :int, :int], :bool
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-ptinrect
-    # BOOL PtInRect( _In_  const RECT *lprc, _In_  POINT pt )
+    # @param [FFI::Pointer] lprc
+    # @param [WinFFI::POINT] pt
+    # @return [true, false]
     def self.PtInRect(lprc, pt) end
-    attach_function 'PtInRect', [RECT.ptr, POINT.ptr], :bool
+    attach_function 'PtInRect', [RECT.ptr(:in), POINT], :bool
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-setrect
-    # BOOL SetRect( _Out_  LPRECT lprc, _In_   int xLeft, _In_   int yTop, _In_   int xRight, _In_   int yBottom )
+    # @param [FFI::Pointer] lprc
+    # @param [Integer] xLeft
+    # @param [Integer] yTop
+    # @param [Integer] xRight
+    # @param [Integer] yBottom
+    # @return [true, false]
     def self.SetRect(lprc, xLeft, yTop, xRight, yBottom) end
-    attach_function 'SetRect', [RECT.ptr, :int, :int, :int, :int], :bool
+    attach_function 'SetRect', [RECT.ptr(:out), :int, :int, :int, :int], :bool
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-setrectempty
-    # BOOL SetRectEmpty( _Out_  LPRECT lprc )
+    # @param [FFI::Pointer] lprc
+    # @return [true, false]
     def self.SetRectEmpty(lprc) end
-    attach_function 'SetRectEmpty', [RECT.ptr], :bool
+    attach_function 'SetRectEmpty', [RECT.ptr(:out)], :bool
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-subtractrect
-    # BOOL SubtractRect( _Out_  LPRECT lprcDst, _In_   const RECT *lprcSrc1, _In_   const RECT *lprcSrc2 )
+    # @param [FFI::Pointer] lprcDst
+    # @param [FFI::Pointer] lprcSrc1
+    # @param [FFI::Pointer] lprcSrc2
+    # @return [true, false]
     def self.SubtractRect(lprcDst, lprcSrc1, lprcSrc2) end
-    attach_function 'SubtractRect', [RECT.ptr, RECT.ptr, RECT.ptr], :bool
+    attach_function 'SubtractRect', [RECT.ptr(:out), RECT.ptr(:in), RECT.ptr(:in)], :bool
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-unionrect
-    # BOOL UnionRect( _Out_  LPRECT lprcDst, _In_   const RECT *lprcSrc1, _In_   const RECT *lprcSrc2 )
+    # @param [FFI::Pointer] lprcDst
+    # @param [FFI::Pointer] lprcSrc1
+    # @param [FFI::Pointer] lprcSrc2
+    # @return [true, false]
     def self.UnionRect(lprcDst, lprcSrc1, lprcSrc2) end
-    attach_function 'UnionRect', [RECT.ptr, RECT.ptr, RECT.ptr], :bool
+    attach_function 'UnionRect', [RECT.ptr(:out), RECT.ptr(:in), RECT.ptr(:in)], :bool
   end
 end

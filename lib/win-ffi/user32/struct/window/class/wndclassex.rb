@@ -58,7 +58,7 @@ module WinFFI
         @atom
       end
 
-      private :cbSize, :cbSize=
+      private :cbSize=
     end
   end
 end

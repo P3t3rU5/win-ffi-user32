@@ -25,7 +25,7 @@ module WinFFI
         self.cbSize = self.size
       end
 
-      private :cbSize, :cbSize=
+      private :cbSize=
     end
   end
 end

@@ -46,6 +46,17 @@ module WinFFI
     ]
 
     buffer += (WINDOWS_VERSION >= :xp) ? [:GETCOMBOBOXINFO, 0x0164, :MSGMAX, 0x0165] : [:MSGMAX, 0x0162]
+
+    if WINDOWS_VERSION >= :xp
+      buffer += [
+          :FIRST,         0x1700,
+          :SETMINVISIBLE, 0x1701,
+          :GETMINVISIBLE, 0x1702,
+          :SETCUEBANNER,  0x1703,
+          :GETCUEBANNER,  0x1704,
+        ]
+    end
+
     # :MSGMAX, 0x0163 windows CE
     ComboBox = enum :combobox_message, buffer
 

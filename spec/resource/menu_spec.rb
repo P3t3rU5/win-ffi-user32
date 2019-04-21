@@ -144,13 +144,11 @@ RSpec.describe 'Menu' do
     end
 
     it 'Disables the specified menu item' do
-      User32.AppendMenu(get_system_menu, :ENABLED, 17, test)
-      expect(User32.EnableMenuItem(get_system_menu, 17, :DISABLED)).to be true
+      expect(User32.EnableMenuItem(get_system_menu, 5, :DISABLED)).to be true
     end
 
     it 'Grays the specified menu item' do
-      User32.AppendMenu(get_system_menu, 0, 18, test)
-      expect(User32.EnableMenuItem(get_system_menu, 18, :GRAYED)).to be true
+      expect(User32.EnableMenuItem(get_system_menu, 4, :GRAYED)).to be true
     end
   end
 

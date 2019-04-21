@@ -10,31 +10,37 @@ module WinFFI
     module User32
       # https://msdn.microsoft.com/en-us/library/windows/desktop/dd371423
       # DECLARE_HANDLE(HTOUCHINPUT);
-      # BOOL CloseTouchInputHandle( _In_  HTOUCHINPUT hTouchInput ) # input event handle; from touch message lParam
-      def self.CloseTouchInputHandle(hTouchInput); end
+      # @param [FFI::Pointer] hTouchInput
+      # @return [true, false]
+      def self.CloseTouchInputHandle(hTouchInput) end
       attach_function 'CloseTouchInputHandle', [:pointer], :bool
 
       # https://msdn.microsoft.com/en-us/library/windows/desktop/dd371582
-      # BOOL GetTouchInputInfo(
-      #   _In_   HTOUCHINPUT hTouchInput, # input event handle; from touch message lParam
-      #   _In_   UINT cInputs,            # number of elements in the array
-      #   _Out_  PTOUCHINPUT pInputs,     # array of touch inputs
-      #   _In_   int cbSize )             # sizeof(TOUCHINPUT)
-      def self.GetTouchInputInfo(hTouchInput, cInputs, pInputs, cbSize); end
-      attach_function 'GetTouchInputInfo', [TOUCHINPUT.ptr, :uint, :pointer, :int], :bool
+      # @param [FFI::Pointer] hTouchInput
+      # @param [Integer] cInputs
+      # @param [FFI::Pointer] pInputs
+      # @param [Integer] cbSize
+      # @return [true, false]
+      def self.GetTouchInputInfo(hTouchInput, cInputs, pInputs, cbSize) end
+      attach_function 'GetTouchInputInfo', [TOUCHINPUT.ptr(:in), :uint, :pointer, :int], :bool
 
       # https://msdn.microsoft.com/en-us/library/windows/desktop/dd372998
-      # BOOL IsTouchWindow( _In_ HWND hWnd, _Out_opt_ PULONG pulFlags )
+      # @param [FFI::Pointer] hWnd
+      # @param [Integer] pulFlags
+      # @return [true, false]
       def self.IsTouchWindow(hWnd, pulFlags); end
       attach_function 'IsTouchWindow', [:hwnd, TouchWindowFlag], :bool
 
       # https://msdn.microsoft.com/en-us/library/windows/desktop/dd317326
-      # BOOL RegisterTouchWindow( _In_  HWND hWnd, _In_  ULONG ulFlags )
+      # @param [FFI::Pointer] hWnd
+      # @param [Integer] ulFlags
+      # @return [true, false]
       def self.RegisterTouchWindow(hWnd, ulFlags); end
       attach_function 'RegisterTouchWindow', [:hwnd, TouchWindowFlag], :bool
 
       # https://msdn.microsoft.com/en-us/library/windows/desktop/dd317335
-      # BOOL UnregisterTouchWindow( _In_  HWND hWnd )
+      # @param [FFI::Pointer] hWnd
+      # @return [true, false]
       def self.UnregisterTouchWindow(hWnd); end
       attach_function 'UnregisterTouchWindow', [:hwnd], :bool
 
@@ -45,45 +51,51 @@ module WinFFI
         require_relative '../../struct/interaction/pointer/touch_info'
 
         # https://msdn.microsoft.com/en-us/library/windows/desktop/hh437245
-        # BOOL EvaluateProximityToPolygon(
-        #   UINT32 numVertices,
-        #   _In_reads_(numVertices) const POINT *controlPolygon,
-        #   _In_   const TOUCH_HIT_TESTING_INPUT *pHitTestingInput,
-        #   _Out_  TOUCH_HIT_TESTING_PROXIMITY_EVALUATION *pProximityEval )
+        # @param [Integer] numVertices
+        # @param [FFI::Pointer] controlPolygon
+        # @param [FFI::Pointer] pHitTestingInput
+        # @param [FFI::Pointer] pProximityEval
+        # @return [true, false]
         def self.EvaluateProximityToPolygon(numVertices, controlPolygon, pHitTestingInput, pProximityEval); end
         attach_function 'EvaluateProximityToPolygon',
-                        [:uint, POINT.ptr,
-                         TOUCH_HIT_TESTING_INPUT.ptr, TOUCH_HIT_TESTING_PROXIMITY_EVALUATION.ptr], :bool
+                        [:uint, POINT.ptr(:in),
+                         TOUCH_HIT_TESTING_INPUT.ptr(:in), TOUCH_HIT_TESTING_PROXIMITY_EVALUATION.ptr(:out)], :bool
 
         # https://msdn.microsoft.com/en-us/library/windows/desktop/hh437246
-        # BOOL EvaluateProximityToRect(
-        #   _In_   const RECT *controlBoundingBox,
-        #   _In_   const TOUCH_HIT_TESTING_INPUT *pHitTestingInput,
-        #   _Out_  TOUCH_HIT_TESTING_PROXIMITY_EVALUATION *pProximityEval )
+        # @param [FFI::Pointer] controlBoundingBox
+        # @param [FFI::Pointer] pHitTestingInput
+        # @param [FFI::Pointer] pProximityEval
+        # @return [true, false]
         def self.EvaluateProximityToRect(controlBoundingBox, pHitTestingInput, pProximityEval); end
         attach_function 'EvaluateProximityToRect',
-                        [RECT.ptr, TOUCH_HIT_TESTING_INPUT.ptr, TOUCH_HIT_TESTING_PROXIMITY_EVALUATION.ptr], :bool
+                        [RECT.ptr(:in), TOUCH_HIT_TESTING_INPUT.ptr(:in), TOUCH_HIT_TESTING_PROXIMITY_EVALUATION.ptr(:out)], :bool
 
         # https://msdn.microsoft.com/en-us/library/windows/desktop/hh802880
-        # BOOL InitializeTouchInjection( _In_ UINT32 maxCount, _In_ DWORD dwMode )
+        # @param [Integer] maxCount
+        # @param [Integer] dwMode
+        # @return [true, false]
         def self.InitializeTouchInjection(maxCount, dwMode); end
         attach_function 'InitializeTouchInjection', [:uint32, TouchInjectionFlag], :bool
 
         # https://msdn.microsoft.com/en-us/library/windows/desktop/hh802881
-        # BOOL InjectTouchInput( _In_  UINT32 count, _In_  const POINTER_TOUCH_INFO *contacts )
+        # @param [Integer] count
+        # @param [FFI::Pointer] contacts
+        # @return [true, false]
         def self.InjectTouchInput(count, contacts); end
-        attach_function 'InjectTouchInput', [:uint32, POINTER_TOUCH_INFO], :bool
+        attach_function 'InjectTouchInput', [:uint32, POINTER_TOUCH_INFO.ptr(:in)], :bool
 
         # https://msdn.microsoft.com/en-us/library/windows/desktop/hh437250
-        # LRESULT PackTouchHitTestingProximityEvaluation(
-        #   _In_  const TOUCH_HIT_TESTING_INPUT *pHitTestingInput,
-        #   _In_  const TOUCH_HIT_TESTING_PROXIMITY_EVALUATION *pProximityEval )
+        # @param [FFI::Pointer] pHitTestingInput
+        # @param [FFI::Pointer] pProximityEval
+        # @return [Integer]
         def self.PackTouchHitTestingProximityEvaluation(pHitTestingInput, pProximityEval); end
         attach_function 'PackTouchHitTestingProximityEvaluation',
-                        [TOUCH_HIT_TESTING_INPUT.ptr, TOUCH_HIT_TESTING_PROXIMITY_EVALUATION.ptr], :lresult
+                        [TOUCH_HIT_TESTING_INPUT.ptr(:in), TOUCH_HIT_TESTING_PROXIMITY_EVALUATION.ptr(:in)], :lresult
 
         # https://msdn.microsoft.com/en-us/library/windows/desktop/hh437252
-        # BOOL RegisterTouchHitTestingWindow( _In_  HWND hwnd, _In_  ULONG value )
+        # @param [FFI::Pointer] hwnd
+        # @param [Integer] value
+        # @return [true, false]
         def self.RegisterTouchHitTestingWindow(hwnd, value); end
         attach_function 'RegisterTouchHitTestingWindow', [:hwnd, :ulong], :bool
       end

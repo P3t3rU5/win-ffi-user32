@@ -194,11 +194,13 @@ RSpec.describe 'Window' do
 
       expected_rect = RECT.new
       expected_rect.left   = 750
-      expected_rect.top    = 800
+      expected_rect.top    = 668
       expected_rect.width  = 100
       expected_rect.height = 100
 
-      User32.CalculatePopupWindowPosition(anchor_point, window_size, flags, exclude_rect, popup_window_position)
+      expect(
+          User32.CalculatePopupWindowPosition(anchor_point, window_size, flags, exclude_rect, popup_window_position)
+      ).to be true
       expect(popup_window_position.left).to   eq expected_rect.left
       expect(popup_window_position.top).to    eq expected_rect.top
       expect(popup_window_position.width).to  eq expected_rect.width

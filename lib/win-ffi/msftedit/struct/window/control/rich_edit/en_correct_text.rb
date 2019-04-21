@@ -3,7 +3,7 @@ require 'win-ffi/msftedit'
 
 module WinFFI
   if WINDOWS_VERSION >= :vista
-    require 'win-ffi/user32/struct/window/control/notification_message_header'
+    require 'win-ffi/user32/struct/window/control/notification_message/header'
     require 'win-ffi/msftedit/struct/window/control/rich_edit/char_range'
     module Msftedit
       # PenWin specific

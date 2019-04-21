@@ -5,14 +5,10 @@ module WinFFI
   module User32
     class << self
       #define ScrollBar_Enable(hwndCtl,flags) EnableScrollBar((hwndCtl),SB_CTL,(flags))
-      def ScrollBar_Enable(hwndCtl, flags)
-        EnableScrollBar(hwndCtl, SB_CTL, flags)
-      end
+      def ScrollBar_Enable(hwndCtl, flags) EnableScrollBar(hwndCtl, SB_CTL, flags) end
 
       #define ScrollBar_GetPos(hwndCtl) GetScrollPos((hwndCtl),SB_CTL)
-      def ScrollBar_GetPos(hwndCtl)
-        GetScrollPos(hwndCtl, SB_CTL)
-      end
+      def ScrollBar_GetPos(hwndCtl) GetScrollPos(hwndCtl, SB_CTL) end
 
       #define ScrollBar_GetRange(hwndCtl,lpposMin,lpposMax) GetScrollRange((hwndCtl),SB_CTL,(lpposMin),(lpposMax))
       def ScrollBar_GetRange(hwndCtl, lpposMin, lpposMax)
