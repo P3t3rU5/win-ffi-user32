@@ -5,7 +5,13 @@ module WinFFI
     # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-serialkeysa
     # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-serialkeysw
     class SERIALKEYS < FFIAdditions::Struct
-      attr_accessor :cbSize, :dwFlags, :lpszActivePort, :lpszPort, :iBaudRate, :iPortState, :iActive
+      attr_accessor :cbSize,
+                    :dwFlags,
+                    :lpszActivePort,
+                    :lpszPort,
+                    :iBaudRate,
+                    :iPortState,
+                    :iActive
 
       layout cbSize:         :uint,
              dwFlags:        SerialKeysFlag,

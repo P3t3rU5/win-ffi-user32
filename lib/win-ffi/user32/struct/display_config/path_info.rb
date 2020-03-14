@@ -7,7 +7,7 @@ module WinFFI
     module User32
       # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-displayconfig_path_info
       class DISPLAYCONFIG_PATH_INFO < FFIAdditions::Struct
-        attr_accessor :sourceInfo, :targetInfo, :flags,
+        attr_accessor :sourceInfo, :targetInfo, :flags
 
         layout sourceInfo: DISPLAYCONFIG_PATH_SOURCE_INFO,
                targetInfo: DISPLAYCONFIG_PATH_TARGET_INFO,

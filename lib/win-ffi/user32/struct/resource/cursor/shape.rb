@@ -9,7 +9,7 @@ module WinFFI
                     :cy,
                     :cbWidth,
                     :Planes,
-                    :BitsPixel,
+                    :BitsPixel
 
       layout xHotSpot:  :int,
              yHotSpot:  :int,

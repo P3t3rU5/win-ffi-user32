@@ -9,7 +9,7 @@ module WinFFI
                     :rcPaint,
                     :fRestore,
                     :fIncUpdate,
-                    :rgbReserved,
+                    :rgbReserved
 
       layout hdc:         :hdc,
              fErase:      :bool,

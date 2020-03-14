@@ -11,7 +11,7 @@ module WinFFI
                     :mouseData,
                     :dwFlags,
                     :time,
-                    :dwExtraInfo,
+                    :dwExtraInfo
 
       layout dx:          :long,
              dy:          :long,

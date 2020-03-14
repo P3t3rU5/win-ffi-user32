@@ -9,7 +9,7 @@ module WinFFI
                     :uPos,
                     :hmenu,
                     :riid,
-                    :pvObj,
+                    :pvObj
 
       layout dwFlags: MenuGetObjectInfoFlag,
              uPos:    :uint,

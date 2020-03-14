@@ -4,11 +4,11 @@ module WinFFI
   module User32
     # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-filterkeys
     class FILTERKEYS < FFIAdditions::Struct
-      attr_accessor :cbSize
-                    :dwFlags
-                    :iWaitMSec
-                    :iDelayMSec
-                    :iRepeatMSec
+      attr_accessor :cbSize,
+                    :dwFlags,
+                    :iWaitMSec,
+                    :iDelayMSec,
+                    :iRepeatMSec,
                     :iBounceMSec
 
       layout cbSize:      :uint,

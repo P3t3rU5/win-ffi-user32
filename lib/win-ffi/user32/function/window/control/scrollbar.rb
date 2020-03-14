@@ -88,7 +88,7 @@ module WinFFI
       # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-setscrollinfo
       # @param [FFI::Pointer] hwnd
       # @param [Integer] fnBar
-      # @param [inFFI::User32::SCROLLINFO] lpsi
+      # @param [WinFFI::User32::SCROLLINFO] lpsi
       # @param [true, false] fRedraw
       # @return [Integer]
       def self.SetScrollInfo(hwnd, fnBar, lpsi, fRedraw); end

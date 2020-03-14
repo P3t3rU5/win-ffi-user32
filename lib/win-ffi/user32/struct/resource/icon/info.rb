@@ -6,7 +6,7 @@ module WinFFI
                     :xHotspot,
                     :yHotspot,
                     :hbmMask,
-                    :hbmColor,
+                    :hbmColor
 
       layout fIcon:    :bool,
              xHotspot: :dword,

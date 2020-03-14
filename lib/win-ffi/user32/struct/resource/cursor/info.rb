@@ -12,7 +12,7 @@ module WinFFI
       attr_accessor :cbSize,
                     :flags,
                     :hCursor,
-                    :ptScreenPos,
+                    :ptScreenPos
 
       layout cbSize:      :dword,
              flags:       CursorInfoFlag,

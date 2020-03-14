@@ -3,7 +3,7 @@ module WinFFI
     module User32
       # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-audiodescription
       class AUDIODESCRIPTION < FFIAdditions::Struct
-        attr_accessor :cbSize, :Enabled, :Locale,
+        attr_accessor :cbSize, :Enabled, :Locale
         layout cbSize: :uint,
                Enabled: :bool,
                Locale:  :lcid

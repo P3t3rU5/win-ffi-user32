@@ -4,7 +4,13 @@ module WinFFI
   module User32
     # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-mousekeys
     class MOUSEKEYS < FFIAdditions::Struct
-      attr_accessor :cbSize, :dwFlags, :iMaxSpeed, :iTimeToMaxSpeed, :iCtrlSpeed, :dwReserved1, :dwReserved2
+      attr_accessor :cbSize,
+                    :dwFlags,
+                    :iMaxSpeed,
+                    :iTimeToMaxSpeed,
+                    :iCtrlSpeed,
+                    :dwReserved1,
+                    :dwReserved2
 
       layout cbSize:          :uint,
              dwFlags:         MouseKeysFlag,
