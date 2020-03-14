@@ -1,14 +1,14 @@
-require 'win-ffi/msftedit'
-
 module WinFFI
   if WINDOWS_VERSION >= :vista
     module Msftedit
       # East Asia specific
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/bb787889(v=vs.85).aspx
+      # https://docs.microsoft.com/en-us/windows/win32/api/richedit/ns-richedit-compcolor
       class COMPCOLOR < FFIAdditions::Struct
+        attr_accessor :crText, :crBackground, :dwEffects
+
         layout crText:       :colorref,
                crBackground: :colorref,
-               dwEffects:       :dword
+               dwEffects:    :dword
       end
     end
   end

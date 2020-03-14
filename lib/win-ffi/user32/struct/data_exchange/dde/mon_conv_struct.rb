@@ -3,24 +3,16 @@ require 'win-ffi/user32/typedef/hconv'
 
 module WinFFI
   module User32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/ddeml/ns-ddeml-tagmonconvstruct
+    # https://docs.microsoft.com/en-us/windows/win32/api/ddeml/ns-ddeml-monconvstruct
     class MONCONVSTRUCT < FFIAdditions::Struct
-      def cb; end
-      def cb=(v); end
-      def fConnect; end
-      def fConnect=(v); end
-      def dwTime; end
-      def dwTime=(v); end
-      def hTask; end
-      def hTask=(v); end
-      def hszSvc; end
-      def hszSvc=(v); end
-      def hszTopic; end
-      def hszTopic=(v); end
-      def hConvClient; end
-      def hConvClient=(v); end
-      def hConvServer; end
-      def hConvServer=(v); end
+      attr_accessor :cb,
+                    :fConnect,
+                    :dwTime,
+                    :hTask,
+                    :hszSvc,
+                    :hszTopic,
+                    :hConvClient,
+                    :hConvServer
 
       layout cb:          :uint,
              fConnect:    :bool,

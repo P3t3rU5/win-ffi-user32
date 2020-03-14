@@ -1,12 +1,9 @@
 module WinFFI
   module User32
     # HCBT_ACTIVATE structure pointed to by lParam
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644961
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-cbtactivatestruct
     class CBTACTIVATESTRUCT < FFIAdditions::Struct
-      def fMouse; end
-      def fMouse=(v); end
-      def hWndActive; end
-      def hWndActive=(v); end
+      attr_accessor :fMouse, :hWndActive
 
       layout fMouse:     :bool,
              hWndActive: :hwnd

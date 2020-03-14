@@ -5,18 +5,12 @@ module WinFFI
     # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-_display_devicea
     # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-_display_devicew
     class DISPLAY_DEVICE < FFIAdditions::Struct
-      def cb; end
-      def cb=(v); end
-      def DeviceName; end
-      def DeviceName=(v); end
-      def DeviceString; end
-      def DeviceString=(v); end
-      def StateFlags; end
-      def StateFlags=(v); end
-      def DeviceID; end
-      def DeviceID=(v); end
-      def DeviceKey; end
-      def DeviceKey=(v); end
+      attr_accessor :cb,
+                    :DeviceName,
+                    :DeviceString,
+                    :StateFlags,
+                    :DeviceID,
+                    :DeviceKey
 
       layout cb:           :dword,
              DeviceName:   [:tchar, 32],

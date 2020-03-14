@@ -2,16 +2,10 @@ require_relative '../../enum/accessibility/high_contrast_flag'
 
 module WinFFI
   module User32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-taghighcontrasta
-    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-taghighcontrastw
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-highcontrasta
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-highcontrastw
     class HIGHCONTRAST < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v); end
-      def dwFlags; end
-      def dwFlags=(v); end
-      def lpszDefaultScheme; end
-      def lpszDefaultScheme=(v); end
-
+      attr_accessor :cbSize, :dwFlags, :lpszDefaultScheme
       layout cbSize:            :uint,
              dwFlags:           HighContrastFlag,
              lpszDefaultScheme: :string

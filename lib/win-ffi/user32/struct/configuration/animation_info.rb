@@ -1,13 +1,10 @@
 module WinFFI
   module User32
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-animationinfo
     class ANIMATIONINFO < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v); end
-      def iMinAnimate; end
-      def iMinAnimate=(v); end
-
+      attr_accessor :cbSize, :iMinAnimate
       layout cbSize:      :uint,
-             iMinAnimate:  :int
+             iMinAnimate: :int
 
       def initialize
         super

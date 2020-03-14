@@ -5,8 +5,7 @@ require_relative '../../enum/display_config/scanline_ordering'
 module WinFFI
   module User32
     class AdditionalSignalInfo < FFIAdditions::Struct
-      def flags; end
-      def flags=(v) end
+      attr_accessor :flags
       layout flags: :uint32
 
       def videoStandard
@@ -27,10 +26,7 @@ module WinFFI
     end
 
     class DVSIUNION < FFIAdditions::Union
-      def AdditionalSignalInfo; end
-      def AdditionalSignalInfo=(v) end
-      def videoStandard; end
-      def videoStandard=(v) end
+      attr_accessor :AdditionalSignalInfo, :videoStandard
 
       layout :AdditionalSignalInfo, AdditionalSignalInfo,
              :videoStandard,        :uint32
@@ -38,20 +34,13 @@ module WinFFI
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-displayconfig_video_signal_info
     class DISPLAYCONFIG_VIDEO_SIGNAL_INFO < FFIAdditions::Struct
-      def pixelRate; end
-      def pixelRate=(v) end
-      def hSyncFreq; end
-      def hSyncFreq=(v) end
-      def vSyncFreq; end
-      def vSyncFreq=(v) end
-      def activeSize; end
-      def activeSize=(v) end
-      def totalSize; end
-      def totalSize=(v) end
-      def u; end
-      def u=(v) end
-      def scanLineOrdering; end
-      def scanLineOrdering=(v) end
+      attr_accessor :pixelRate,
+                    :hSyncFreq,
+                    :vSyncFreq,
+                    :activeSize,
+                    :totalSize,
+                    :u,
+                    :scanLineOrdering
 
       layout pixelRate:        :uint64,
              hSyncFreq:        DISPLAYCONFIG_RATIONAL,

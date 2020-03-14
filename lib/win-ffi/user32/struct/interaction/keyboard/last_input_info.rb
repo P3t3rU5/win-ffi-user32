@@ -1,11 +1,8 @@
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms646272(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-lastinputinfo
     class LASTINPUTINFO < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v) end
-      def dwTime; end
-      def dwTime=(v) end
+      attr_accessor :cbSize, :dwTime
 
       layout cbSize: :uint,
              dwTime: :dword

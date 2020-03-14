@@ -5,12 +5,9 @@ require_relative 'pos'
 module WinFFI
   module User32
     # WM_NCCALCSIZE parameter structure
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632606
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-nccalcsize_params
     class NCCALCSIZE_PARAMS < FFIAdditions::Struct
-      def rgrc; end
-      def rgrc=(v); end
-      def lppos; end
-      def lppos=(v); end
+      attr_accessor :rgrc, :lppos
 
       layout rgrc:  [RECT, 3],
              lppos: WINDOWPOS

@@ -2,21 +2,15 @@ require 'win-ffi/user32/typedef/hsz'
 
 module WinFFI
   module User32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/ddeml/ns-ddeml-tagmonhszstructa
-    # https://docs.microsoft.com/en-us/windows/desktop/api/ddeml/ns-ddeml-tagmonhszstructw
+    # https://docs.microsoft.com/en-us/windows/win32/api/ddeml/ns-ddeml-monhszstructa
+    # https://docs.microsoft.com/en-us/windows/win32/api/ddeml/ns-ddeml-monhszstructw
     class MONHSZSTRUCT < FFIAdditions::Struct
-      def cb; end
-      def cb=(v); end
-      def fsAction; end
-      def fsAction=(v); end
-      def dwTime; end
-      def dwTime=(v); end
-      def hsz; end
-      def hsz=(v); end
-      def hTask; end
-      def hTask=(v); end
-      def str; end
-      def str=(v); end
+      attr_accessor :cb,
+                    :fsAction,
+                    :dwTime,
+                    :hsz,
+                    :hTask,
+                    :str
 
       layout cb:       :uint,
              fsAction: :bool, # MH_ value */,

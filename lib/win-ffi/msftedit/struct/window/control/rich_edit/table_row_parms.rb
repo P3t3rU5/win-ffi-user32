@@ -1,11 +1,21 @@
-require 'win-ffi/msftedit'
-
 module WinFFI
   if WINDOWS_VERSION >= :vista
     module Msftedit
       # Data type defining table rows for EM_INSERTTABLE
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/hh768761(v=vs.85).aspx
+      # https://docs.microsoft.com/en-us/windows/win32/api/richedit/ns-richedit-tablerowparms
       class TABLEROWPARMS < FFIAdditions::Struct
+        attr_accessor :cbRow,
+                      :cbCell,
+                      :cCell,
+                      :cRow,
+                      :dxCellMargin,
+                      :dxIndent,
+                      :dyHeight,
+                      :bitField,
+                      :cpStartRow,
+                      :bTableLevel,
+                      :iCell
+
         layout cbRow:        :byte,
                cbCell:       :byte,
                cCell:        :byte,
@@ -13,7 +23,7 @@ module WinFFI
                dxCellMargin: :long,
                dxIndent:     :long,
                dyHeight:     :long,
-               bitField:    :dword,
+               bitField:     :dword,
                cpStartRow:   :long,
                bTableLevel:  :byte,
                iCell:        :byte
@@ -41,7 +51,6 @@ module WinFFI
         def fIdentCells
           (bitfield >> 7) & 0x1
         end
-
       end
     end
   end

@@ -11,20 +11,14 @@ module WinFFI
 
     module User32
       class DPTISTRUCT < FFIAdditions::Struct
-        def desktopModeInfoIdx; end
-        def desktopModeInfoIdx=(v) end
-        def targetModeInfoIdx; end
-        def targetModeInfoIdx=(v) end
+        attr_accessor :desktopModeInfoIdx, :targetModeInfoIdx
 
         layout desktopModeInfoIdx: :uint32,
                targetModeInfoIdx:  :uint32
       end
 
       class DPTIUNION < FFIAdditions::Union
-        def modeInfoIdx; end
-        def modeInfoIdx=(v) end
-        def s; end
-        def s=(v) end
+        attr_accessor :modeInfoIdx, :s
 
         layout modeInfoIdx: :uint32,
                s:           DPTISTRUCT
@@ -32,26 +26,16 @@ module WinFFI
 
       # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-displayconfig_path_target_info
       class DISPLAYCONFIG_PATH_TARGET_INFO < FFIAdditions::Struct
-        def adapterId; end
-        def adapterId=(v) end
-        def id; end
-        def id=(v) end
-        def u; end
-        def u=(v) end
-        def outputTechnology; end
-        def outputTechnology=(v) end
-        def rotation; end
-        def rotation=(v) end
-        def scaling; end
-        def scaling=(v) end
-        def refreshRate; end
-        def refreshRate=(v) end
-        def scanLineOrdering; end
-        def scanLineOrdering=(v) end
-        def targetAvailable; end
-        def targetAvailable=(v) end
-        def statusFlags; end
-        def statusFlags=(v) end
+        attr_accessor :adapterId,
+                      :id,
+                      :u,
+                      :outputTechnology,
+                      :rotation,
+                      :scaling,
+                      :refreshRate,
+                      :scanLineOrdering,
+                      :targetAvailable,
+                      :statusFlags
 
         layout adapterId:        LUID,
                id:               :uint32,

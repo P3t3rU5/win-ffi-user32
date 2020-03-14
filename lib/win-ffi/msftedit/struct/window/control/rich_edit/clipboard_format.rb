@@ -1,14 +1,14 @@
-require 'win-ffi/msftedit'
-
 module WinFFI
   if WINDOWS_VERSION >= 8
     module Msftedit
       require 'win-ffi/user32/struct/window/control/notification_message/header'
       require 'win-ffi/user32/enum/data_exchange/clipboard_format'
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/hh768305(v=vs.85).aspx
+      # https://docs.microsoft.com/en-us/windows/win32/api/richedit/ns-richedit-clipboardformat
       class CLIPBOARDFORMAT < FFIAdditions::Struct
-        layout nmhdr:        User32::NMHDR,
-               cf: User32::ClipboardFormat
+        attr_accessor :nmhdr, :cf
+
+        layout nmhdr: User32::NMHDR,
+               cf:    User32::ClipboardFormat
       end
     end
   end

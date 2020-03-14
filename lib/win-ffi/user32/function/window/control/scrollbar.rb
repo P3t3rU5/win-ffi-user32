@@ -11,9 +11,6 @@ module WinFFI
     require_relative '../../../struct/window/control/scrollbar/scroll_info'
 
     module User32
-      # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-showscrollbar
-      def self.ShowScrollBar(hWnd, wBar, bShow); end
-
       # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-enablescrollbar
       # @param [FFI::Pointer] hWnd
       # @param [Integer] wSBflags
@@ -25,7 +22,7 @@ module WinFFI
       # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getscrollbarinfo
       # @param [FFI::Pointer] hwnd
       # @param [Integer] idObject
-      # @param [FFI::Pointer] psbi
+      # @param [WinFFI::User32::SCROLLBARINFO] psbi
       # @return [true, false]
       def self.GetScrollBarInfo(hwnd, idObject, psbi) end
       attach_function 'GetScrollBarInfo', [:hwnd, SystemObjectId, SCROLLBARINFO.ptr(:out)], :bool
@@ -33,7 +30,7 @@ module WinFFI
       # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-getscrollinfo
       # @param [FFI::Pointer] hwnd
       # @param [Integer] fnBar
-      # @param [FFI::Pointer] lpsi
+      # @param [WinFFI::User32::SCROLLINFO] lpsi
       # @return [true, false]
       def self.GetScrollInfo(hwnd, fnBar, lpsi) end
       attach_function 'GetScrollInfo', [:hwnd, Scrollbar, SCROLLINFO.ptr], :bool
@@ -58,10 +55,10 @@ module WinFFI
       # @param [FFI::Pointer] hDC
       # @param [Integer] dx
       # @param [Integer] dy
-      # @param [FFI::Pointer] lprcScroll
-      # @param [FFI::Pointer] lprcClip
+      # @param [WinFFI::RECT] lprcScroll
+      # @param [WinFFI::RECT] lprcClip
       # @param [FFI::Pointer] hrgnUpdate
-      # @param [FFI::Pointer] lprcUpdate
+      # @param [WinFFI::RECT] lprcUpdate
       # @return [true, false]
       def self.ScrollDC(hDC, dx, dy, lprcScroll, lprcClip, hrgnUpdate, lprcUpdate) end
       attach_function 'ScrollDC', [:hdc, :int, :int, RECT.ptr(:in), RECT.ptr(:in), :hrgn, RECT.ptr(:out)], :bool
@@ -70,8 +67,8 @@ module WinFFI
       # @param [FFI::Pointer] hWnd
       # @param [Integer] xAmount
       # @param [Integer] yAmount
-      # @param [FFI::Pointer] lpRect
-      # @param [FFI::Pointer] lpClipRect
+      # @param [WinFFI::RECT] lpRect
+      # @param [WinFFI::RECT] lpClipRect
       # @return [true, false]
       def self.ScrollWindow(hWnd, xAmount, yAmount, lpRect, lpClipRect) end
       attach_function 'ScrollWindow', [:hwnd, :int, :int, RECT.ptr(:in), RECT.ptr(:in)], :bool
@@ -80,10 +77,10 @@ module WinFFI
       # @param [FFI::Pointer] hWnd
       # @param [Integer] dx
       # @param [Integer] dy
-      # @param [FFI::Pointer] prcScroll
-      # @param [FFI::Pointer] prcClip
+      # @param [WinFFI::RECT] prcScroll
+      # @param [WinFFI::RECT] prcClip
       # @param [FFI::Pointer] hrgnUpdate
-      # @param [FFI::Pointer] prcUpdate
+      # @param [WinFFI::RECT] prcUpdate
       # @param [Integer] flags
       def self.ScrollWindowEx(hWnd, dx, dy, prcScroll, prcClip, hrgnUpdate, prcUpdate, flags) end
       attach_function 'ScrollWindowEx', [:hwnd, :int, :int, RECT.ptr(:in), RECT.ptr(:in), :hrgn, RECT.ptr(:out), ScrollWindowFlag], :int
@@ -91,7 +88,7 @@ module WinFFI
       # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-setscrollinfo
       # @param [FFI::Pointer] hwnd
       # @param [Integer] fnBar
-      # @param [FFI::Pointer] lpsi
+      # @param [inFFI::User32::SCROLLINFO] lpsi
       # @param [true, false] fRedraw
       # @return [Integer]
       def self.SetScrollInfo(hwnd, fnBar, lpsi, fRedraw); end

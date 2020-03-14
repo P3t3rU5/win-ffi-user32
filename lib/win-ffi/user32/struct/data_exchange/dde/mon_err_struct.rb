@@ -1,15 +1,8 @@
 module WinFFI
   module User32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/ddeml/ns-ddeml-tagmonerrstruct
+    # https://docs.microsoft.com/en-us/windows/win32/api/ddeml/ns-ddeml-monerrstruct
     class MONERRSTRUCT < FFIAdditions::Struct
-      def cb; end
-      def cb=(v); end
-      def wLastError; end
-      def wLastError=(v); end
-      def dwTime; end
-      def dwTime=(v); end
-      def hTask; end
-      def hTask=(v); end
+      attr_accessor :cb, :wLastError, :dwTime, :hTask
 
       layout cb:         :uint,
              wLastError: :uint,

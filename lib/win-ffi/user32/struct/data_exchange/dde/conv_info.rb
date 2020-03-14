@@ -7,41 +7,25 @@ require_relative 'conv_context'
 
 module WinFFI
   module User32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/ddeml/ns-ddeml-tagconvinfo
+    # https://docs.microsoft.com/en-us/windows/win32/api/ddeml/ns-ddeml-convinfo
     # The following structure is used by DdeQueryConvInfo()
     class CONVINFO < FFIAdditions::Struct
-      def cb; end
-      def cb=(v); end
-      def hUser; end
-      def hUser=(v); end
-      def hConvPartner; end
-      def hConvPartner=(v); end
-      def hszSvcPartner; end
-      def hszSvcPartner=(v); end
-      def hszServiceReq; end
-      def hszServiceReq=(v); end
-      def hszTopic; end
-      def hszTopic=(v); end
-      def hszItem; end
-      def hszItem=(v); end
-      def wFmt; end
-      def wFmt=(v); end
-      def wType; end
-      def wType=(v); end
-      def wStatus; end
-      def wStatus=(v); end
-      def wConvst; end
-      def wConvst=(v); end
-      def wLastError; end
-      def wLastError=(v); end
-      def hConvList; end
-      def hConvList=(v); end
-      def ConvCtxt; end
-      def ConvCtxt=(v); end
-      def hwnd; end
-      def hwnd=(v); end
-      def hwndPartner; end
-      def hwndPartner=(v); end
+      attr_accessor :cb,
+                    :hUser,
+                    :hConvPartner,
+                    :hszSvcPartner,
+                    :hszServiceReq,
+                    :hszTopic,
+                    :hszItem,
+                    :wFmt,
+                    :wType,
+                    :wStatus,
+                    :wConvst,
+                    :wLastError,
+                    :hConvList,
+                    :ConvCtxt,
+                    :hwnd,
+                    :hwndPartner
 
       layout cb:            :dword,             # sizeof(CONVINFO)
              hUser:         :dword,             # user specified field

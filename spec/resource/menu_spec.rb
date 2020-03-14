@@ -244,7 +244,6 @@ RSpec.describe 'Menu' do
 
   describe '::GetSystemMenu' do
     it 'Enables the application to access the window menu (also known as the system menu or the control menu) for copying and modifying' do
-      puts @hwnd
       expect(User32.GetSystemMenu(@hwnd, false)).not_to be_null
     end
   end

@@ -3,18 +3,9 @@ require_relative '../../../enum/interaction/keyboard/virtual_key_code'
 module WinFFI
   module User32
     # Structure used by WH_KEYBOARD_LL
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644967
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-kbdllhookstruct
     class KBDLLHOOKSTRUCT < FFIAdditions::Struct
-      def vkCode; end
-      def vkCode=(v); end
-      def scanCode; end
-      def scanCode=(v); end
-      def flags; end
-      def flags=(v); end
-      def time; end
-      def time=(v); end
-      def dwExtraInfo; end
-      def dwExtraInfo=(v); end
+      attr_accessor :vkCode, :scanCode, :flags, :time, :dwExtraInfo
 
       layout vkCode:      VirtualKeyCode,
              scanCode:    :dword,

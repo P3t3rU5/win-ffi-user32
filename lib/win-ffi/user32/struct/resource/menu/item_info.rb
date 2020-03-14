@@ -6,33 +6,21 @@ require_relative '../../../enum/resource/menu/flag_state'
 
 module WinFFI
   module User32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagmenuiteminfoa
-    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagmenuiteminfow
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-menuiteminfoa
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-menuiteminfow
     class MENUITEMINFO < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v) end
-      def fMask; end
-      def fMask=(v) end
-      def fType; end
-      def fType=(v) end
-      def fState; end
-      def fState=(v) end
-      def wID; end
-      def wID=(v) end
-      def hSubMenu; end
-      def hSubMenu=(v) end
-      def hbmpChecked; end
-      def hbmpChecked=(v) end
-      def hbmpUnchecked; end
-      def hbmpUnchecked=(v) end
-      def dwItemData; end
-      def dwItemData=(v) end
-      def dwTypeData; end
-      def dwTypeData=(v) end
-      def cch; end
-      def cch=(v) end
-      def hbmpItem; end
-      def hbmpItem=(v) end
+      attr_accessor :cbSize,
+                    :fMask,
+                    :fType,
+                    :fState,
+                    :wID,
+                    :hSubMenu,
+                    :hbmpChecked,
+                    :hbmpUnchecked,
+                    :dwItemData,
+                    :dwTypeData,
+                    :cch,
+                    :hbmpItem
 
       layout cbSize:        :uint,
              fMask:         MenuItemInfoMember,

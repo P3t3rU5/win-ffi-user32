@@ -6,18 +6,9 @@ require_relative '../../../enum/window/hook/low_level_mouse_hook_flag'
 module WinFFI
   module User32
     # Structure used by WH_MOUSE_LL
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644970
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-msllhookstruct
     class MSLLHOOKSTRUCT < FFIAdditions::Struct
-      def pt; end
-      def pt=(v); end
-      def mouseData; end
-      def mouseData=(v); end
-      def flags; end
-      def flags=(v); end
-      def time; end
-      def time=(v); end
-      def dwExtraInfo; end
-      def dwExtraInfo=(v); end
+      attr_accessor :pt, :mouseData, :flags, :time, :dwExtraInfo
 
       layout pt:          POINT,
              mouseData:   XButton,

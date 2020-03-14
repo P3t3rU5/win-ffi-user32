@@ -1,15 +1,11 @@
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/hh969214
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-touchpredictionparameters
     class TOUCHPREDICTIONPARAMETERS < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v) end
-      def dwLatency; end
-      def dwLatency=(v) end
-      def dwSampleTime; end
-      def dwSampleTime=(v) end
-      def bUseHWTimeStamp; end
-      def bUseHWTimeStamp=(v) end
+      attr_accessor :cbSize,
+                    :dwLatency,
+                    :dwSampleTime,
+                    :bUseHWTimeStamp
 
       layout cbSize:          :uint,
              dwLatency:       :uint, # Latency in millisecs,

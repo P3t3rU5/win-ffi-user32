@@ -2,20 +2,14 @@ require 'win-ffi/core/struct/rect'
 
 module WinFFI
   module User32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagpaintstruct
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-paintstruct
     class PAINTSTRUCT < FFIAdditions::Struct
-      def hdc; end
-      def hdc=(v); end
-      def fErase; end
-      def fErase=(v); end
-      def rcPaint; end
-      def rcPaint=(v); end
-      def fRestore; end
-      def fRestore=(v); end
-      def fIncUpdate; end
-      def fIncUpdate=(v); end
-      def rgbReserved; end
-      def rgbReserved=(v); end
+      attr_accessor :hdc,
+                    :fErase,
+                    :rcPaint,
+                    :fRestore,
+                    :fIncUpdate,
+                    :rgbReserved,
 
       layout hdc:         :hdc,
              fErase:      :bool,

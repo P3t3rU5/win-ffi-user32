@@ -2,12 +2,9 @@ require 'win-ffi/core/struct/rect'
 
 module WinFFI
   module User32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagtpmparams
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-tpmparams
     class TPMPARAMS  < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v) end
-      def rcExclude; end
-      def rcExclude=(v) end
+      attr_accessor :cbSize, :rcExclude
 
       layout cbSize:    :uint,
              rcExclude: RECT

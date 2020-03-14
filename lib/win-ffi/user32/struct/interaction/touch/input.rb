@@ -3,27 +3,18 @@ module WinFFI
     require_relative '../../../enum/interaction/touch/event_flag'
 
     module User32
+      # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-touchinput
       class TOUCHINPUT < FFIAdditions::Struct
-        def x; end
-        def x=(v); end
-        def y; end
-        def y=(v); end
-        def hSource; end
-        def hSource=(v); end
-        def dwID; end
-        def dwID=(v); end
-        def dwFlags; end
-        def dwFlags=(v); end
-        def dwMask; end
-        def dwMask=(v); end
-        def dwTime; end
-        def dwTime=(v); end
-        def dwExtraInfo; end
-        def dwExtraInfo=(v); end
-        def cxContact; end
-        def cxContact=(v); end
-        def cyContact; end
-        def cyContact=(v); end
+        attr_accessor :x,
+                      :y,
+                      :hSource,
+                      :dwID,
+                      :dwFlags,
+                      :dwMask,
+                      :dwTime,
+                      :dwExtraInfo,
+                      :cxContact,
+                      :cyContact
 
         layout x:           :long,
                y:           :long,

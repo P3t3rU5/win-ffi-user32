@@ -1,11 +1,8 @@
 module WinFFI
   module Msftedit
-    # https://docs.microsoft.com/en-us/windows/desktop/api/richedit/ns-richedit-_charrange
+    # https://docs.microsoft.com/en-us/windows/win32/api/richedit/ns-richedit-charrange
     class CHARRANGE < FFIAdditions::Struct
-      def cpMin; end
-      def cpMin=(v) end
-      def cpMax; end
-      def cpMax=(v) end
+      attr_accessor :cpMin, :cpMax
 
       layout cpMin: :long,
              cpMax: :long

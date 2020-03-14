@@ -6,26 +6,18 @@ module WinFFI
     require 'win-ffi/gdi32/constant_base'
 
     module Msftedit
+      # https://docs.microsoft.com/en-us/windows/win32/api/richedit/ns-richedit-charformata
       # All character format measurements are in twips
       class CHARFORMAT < FFIAdditions::Struct
-        def cbSize; end
-        def cbSize=(v); end
-        def dwMask; end
-        def dwMask=(v); end
-        def dwEffects; end
-        def dwEffects=(v); end
-        def yHeight; end
-        def yHeight=(v); end
-        def yOffset; end
-        def yOffset=(v); end
-        def crTextColor; end
-        def crTextColor=(v); end
-        def bCharSet; end
-        def bCharSet=(v); end
-        def bPitchAndFamily; end
-        def bPitchAndFamily=(v); end
-        def szFaceName; end
-        def szFaceName=(v); end
+        attr_accessor :cbSize,
+                      :dwMask,
+                      :dwEffects,
+                      :yHeight,
+                      :yOffset,
+                      :crTextColor,
+                      :bCharSet,
+                      :bPitchAndFamily,
+                      :szFaceName
 
         layout cbSize:          :uint,
                dwMask:          CharFormatMask,

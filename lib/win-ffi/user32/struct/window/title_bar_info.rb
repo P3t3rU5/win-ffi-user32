@@ -6,12 +6,7 @@ module WinFFI
   module User32
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632608
     class TITLEBARINFO < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v); end
-      def rcTitleBar; end
-      def rcTitleBar=(v); end
-      def rgstate; end
-      def rgstate=(v); end
+      attr_accessor :cbSize, :rcTitleBar, :rgstate
 
       layout cbSize:     :dword,
              rcTitleBar: RECT,

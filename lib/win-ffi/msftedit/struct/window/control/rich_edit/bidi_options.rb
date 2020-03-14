@@ -5,14 +5,9 @@ module WinFFI
 
     module Msftedit
       # BiDi specific features
-      # https://docs.microsoft.com/en-us/windows/desktop/api/richedit/ns-richedit-_bidioptions
+      # https://docs.microsoft.com/en-us/windows/win32/api/richedit/ns-richedit-bidioptions
       class BIDIOPTIONS < FFIAdditions::Struct
-        def cbSize; end
-        def cbSize=(v) end
-        def wMask; end
-        def wMask=(v) end
-        def wEffects; end
-        def wEffects=(v) end
+        attr_accessor :cbSize, :wMask, :wEffects
 
         layout cbSize:               :uint,
                wMask:      BidiOptionsMask,

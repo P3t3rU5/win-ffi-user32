@@ -3,15 +3,10 @@ module WinFFI
     require_relative '../../../../struct/window/control/rich_edit/char_range'
 
     module Msftedit
-      # https://docs.microsoft.com/en-us/windows/desktop/api/richedit/ns-richedit-_findtextexa
-      # https://docs.microsoft.com/en-us/windows/desktop/api/richedit/ns-richedit-_findtextexw
+      # https://docs.microsoft.com/en-us/windows/win32/api/richedit/ns-richedit-findtextexa
+      # https://docs.microsoft.com/en-us/windows/win32/api/richedit/ns-richedit-findtextexw
       class FINDTEXTEX < FFIAdditions::Struct
-        def chrg; end
-        def chrg=(v) end
-        def lpstrText; end
-        def lpstrText=(v) end
-        def chrgText; end
-        def chrgText=(v) end
+        attr_accessor :chrg, :lpstrText, :chrgText
 
         layout chrg:      CHARRANGE,
                lpstrText: :string,

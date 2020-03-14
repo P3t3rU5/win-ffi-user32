@@ -9,22 +9,15 @@ module WinFFI
     module User32
 
       TOUCH_FLAG_NONE = 0x00000000
-
+      # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-pointer_touch_info
       class POINTER_TOUCH_INFO < FFIAdditions::Struct
-        def pointerInfo; end
-        def pointerInfo=(v) end
-        def touchFlags; end
-        def touchFlags=(v) end
-        def touchMask; end
-        def touchMask=(v) end
-        def rcContact; end
-        def rcContact=(v) end
-        def rcContactRaw; end
-        def rcContactRaw=(v) end
-        def orientation; end
-        def orientation=(v) end
-        def pressure; end
-        def pressure=(v) end
+        attr_accessor :pointerInfo,
+                      :touchFlags,
+                      :touchMask,
+                      :rcContact,
+                      :rcContactRaw,
+                      :orientation,
+                      :pressure
 
         layout pointerInfo:  POINTER_INFO,
                touchFlags:   :int,

@@ -9,12 +9,7 @@ require_relative 'desktop_image_info'
 module WinFFI
   module User32
     class DMIUNION < FFIAdditions::Union
-      def targetMode; end
-      def targetMode=(v) end
-      def sourceMode; end
-      def sourceMode=(v) end
-      def desktopImageInfo; end
-      def desktopImageInfo=(v) end
+      attr_accessor :targetMode, :sourceMode, :desktopImageInfo
 
       layout targetMode:       DISPLAYCONFIG_TARGET_MODE,
              sourceMode:       DISPLAYCONFIG_SOURCE_MODE,
@@ -23,14 +18,7 @@ module WinFFI
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-displayconfig_mode_info
     class DISPLAYCONFIG_MODE_INFO < FFIAdditions::Struct
-      def infoType; end
-      def infoType=(v) end
-      def id; end
-      def id=(v) end
-      def adapterId; end
-      def adapterId=(v) end
-      def u; end
-      def u=(v) end
+      attr_accessor :infoType, :id, :adapterId, :u
 
       layout infoType:  DisplayConfigModeInfoType,
              id:        :uint32,

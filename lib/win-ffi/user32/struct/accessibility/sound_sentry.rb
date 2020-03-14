@@ -5,32 +5,21 @@ require_relative '../../enum/accessibility/sound_sentry_window_flag'
 
 module WinFFI
   module User32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagsoundsentrya
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-soundsentrya
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-soundsentryw
     class SOUNDSENTRY < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v); end
-      def dwFlags; end
-      def dwFlags=(v); end
-      def iFSTextEffect; end
-      def iFSTextEffect=(v); end
-      def iFSTextEffectMSec; end
-      def iFSTextEffectMSec=(v); end
-      def iFSTextEffectColorBits; end
-      def iFSTextEffectColorBits=(v); end
-      def iFSGrafEffect; end
-      def iFSGrafEffect=(v); end
-      def iFSGrafEffectMSec; end
-      def iFSGrafEffectMSec=(v); end
-      def iFSGrafEffectColor; end
-      def iFSGrafEffectColor=(v); end
-      def iWindowsEffect; end
-      def iWindowsEffect=(v); end
-      def iWindowsEffectMSec; end
-      def iWindowsEffectMSec=(v); end
-      def lpszWindowsEffectDLL; end
-      def lpszWindowsEffectDLL=(v); end
-      def iWindowsEffectOrdinal; end
-      def iWindowsEffectOrdinal=(v); end
+      attr_accessor :cbSize,
+                    :dwFlags,
+                    :iFSTextEffect,
+                    :iFSTextEffectMSec,
+                    :iFSTextEffectColorBits,
+                    :iFSGrafEffect,
+                    :iFSGrafEffectMSec,
+                    :iFSGrafEffectColor,
+                    :iWindowsEffect,
+                    :iWindowsEffectMSec,
+                    :lpszWindowsEffectDLL,
+                    :iWindowsEffectOrdinal
 
       layout cbSize:                 :uint,
              dwFlags:                SoundSentryFlag,

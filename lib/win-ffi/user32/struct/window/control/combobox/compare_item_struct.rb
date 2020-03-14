@@ -4,24 +4,16 @@ module WinFFI
 
     module User32
       # COMPAREITEMSTUCT for ownerdraw sorting
-      # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagcompareitemstruct
+      # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-compareitemstruct
       class COMPAREITEMSTRUCT < FFIAdditions::Struct
-        def CtlType; end
-        def CtlType=(v); end
-        def CtlID; end
-        def CtlID=(v); end
-        def hwndItem; end
-        def hwndItem=(v); end
-        def itemID1; end
-        def itemID1=(v); end
-        def itemData1; end
-        def itemData1=(v); end
-        def itemID2; end
-        def itemID2=(v); end
-        def itemData2; end
-        def itemData2=(v); end
-        def dwLocaleId; end
-        def dwLocaleId=(v); end
+        attr_accessor :CtlType,
+                      :CtlID,
+                      :hwndItem,
+                      :itemID1,
+                      :itemData1,
+                      :itemID2,
+                      :itemData2,
+                      :dwLocaleId
 
         layout CtlType:    OwnerDrawnControlType,
                CtlID:      :uint,

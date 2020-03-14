@@ -7,20 +7,15 @@ module WinFFI
   module User32
 
     class PTI_UNION < FFIAdditions::Union
-      def touchInfo; end
-      def touchInfo=(v) end
-      def penInfo; end
-      def penInfo=(v) end
+      attr_accessor :touchInfo, :penInfo
 
       layout touchInfo: POINTER_TOUCH_INFO,
              penInfo:   POINTER_PEN_INFO
     end
 
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-pointer_type_info
     class POINTER_TYPE_INFO < FFIAdditions::Struct
-      def type; end
-      def type=(v) end
-      def u; end
-      def u=(v) end
+      attr_accessor :type, :u
 
       layout type: POINTER_INPUT_TYPE,
              u:    PTI_UNION

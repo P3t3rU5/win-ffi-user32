@@ -5,16 +5,7 @@ module WinFFI
     module User32
       # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-taggesturenotifystruct
       class GESTURENOTIFYSTRUCT < FFIAdditions::Struct
-        def cbSize; end
-        def cbSize=(v); end
-        def dwFlags; end
-        def dwFlags=(v); end
-        def hwndTarget; end
-        def hwndTarget=(v); end
-        def ptsLocation; end
-        def ptsLocation=(v); end
-        def dwInstanceID; end
-        def dwInstanceID=(v); end
+        attr_accessor :cbSize, :dwFlags, :hwndTarget, :ptsLocation, :dwInstanceID
 
         layout cbSize:       :uint,
                dwFlags:      :dword,

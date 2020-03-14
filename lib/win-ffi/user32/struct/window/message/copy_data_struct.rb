@@ -1,14 +1,9 @@
 module WinFFI
   module User32
     # lParam of WM_COPYDATA message points to...
-    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagcopydatastruct
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-copydatastruct
     class COPYDATASTRUCT < FFIAdditions::Struct
-      def dwData; end
-      def dwData=(v); end
-      def cbData; end
-      def cbData=(v); end
-      def lpData; end
-      def lpData=(v); end
+      attr_accessor :dwData, :cbData, :lpData
 
       layout dwData: :ulong,
              cbData: :dword,

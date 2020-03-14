@@ -5,12 +5,9 @@ module WinFFI
 
     module User32
       # Input source structure.
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/hh448799
+      # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-input_message_source
       class INPUT_MESSAGE_SOURCE < FFIAdditions::Struct
-        def deviceType; end
-        def deviceType=(v); end
-        def originId; end
-        def originId=(v); end
+        attr_accessor :deviceType, :originId
 
         layout deviceType: INPUT_MESSAGE_DEVICE_TYPE,
                originId:   INPUT_MESSAGE_ORIGIN_ID

@@ -1,14 +1,9 @@
 module WinFFI
   if WINDOWS_VERSION >= :vista
     module User32
-      # https://docs.microsoft.com/en-us/windows/desktop/api/richedit/ns-richedit-_nmhdr
+      # https://docs.microsoft.com/en-us/windows/win32/api/richedit/ns-richedit-nmhdr
       class NMHDR < FFIAdditions::Struct
-        def hwnd; end
-        def hwnd=(v) end
-        def idFrom; end
-        def idFrom=(v) end
-        def code; end
-        def code=(v) end
+        attr_accessor :hwnd, :idFrom, :code
 
         layout hwnd:   :hwnd,
                idFrom: :uint_ptr,

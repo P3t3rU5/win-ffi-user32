@@ -7,21 +7,15 @@ module WinFFI
     require_relative 'info'
 
     module User32
+      # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-pointer_pen_info
       class POINTER_PEN_INFO < FFIAdditions::Struct
-        def pointerInfo; end
-        def pointerInfo=(v) end
-        def penFlags; end
-        def penFlags=(v) end
-        def penMask; end
-        def penMask=(v) end
-        def pressure; end
-        def pressure=(v) end
-        def rotation; end
-        def rotation=(v) end
-        def tiltX; end
-        def tiltX=(v) end
-        def tiltY; end
-        def tiltY=(v) end
+        attr_accessor :pointerInfo,
+                      :penFlags,
+                      :penMask,
+                      :pressure,
+                      :rotation,
+                      :tiltX,
+                      :tiltY
 
         layout pointerInfo: POINTER_INFO,
                penFlags:    PenFlag,

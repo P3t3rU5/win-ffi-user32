@@ -8,26 +8,17 @@ module WinFFI
 
     module User32
       # DRAWITEMSTRUCT for ownerdraw
-      # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagdrawitemstruct
+      # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-drawitemstruct
       class DRAWITEMSTRUCT < FFIAdditions::Struct
-        def CtlType; end
-        def CtlType=(v); end
-        def CtlID; end
-        def CtlID=(v); end
-        def itemID; end
-        def itemID=(v); end
-        def itemAction; end
-        def itemAction=(v); end
-        def itemState; end
-        def itemState=(v); end
-        def hwndItem; end
-        def hwndItem=(v); end
-        def hDC; end
-        def hDC=(v); end
-        def rcItem; end
-        def rcItem=(v); end
-        def itemData; end
-        def itemData=(v); end
+        attr_accessor :CtlType,
+                      :CtlID,
+                      :itemID,
+                      :itemAction,
+                      :itemState,
+                      :hwndItem,
+                      :hDC,
+                      :rcItem,
+                      :itemData
 
         layout CtlType:    OwnerDrawnControlType,
                CtlID:      :uint,

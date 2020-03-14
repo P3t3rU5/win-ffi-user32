@@ -7,14 +7,7 @@ module WinFFI
     module User32
       # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-displayconfig_device_info_header
       class DISPLAYCONFIG_DEVICE_INFO_HEADER < FFIAdditions::Struct
-        def type; end
-        def type=(v) end
-        def size; end
-        def size=(v) end
-        def adapterId; end
-        def adapterId=(v) end
-        def id; end
-        def id=(v) end
+        attr_accessor :type, :size, :adapterId, :id
 
         layout type:      DisplayConfigDeviceInfoType,
                size:      :uint32,

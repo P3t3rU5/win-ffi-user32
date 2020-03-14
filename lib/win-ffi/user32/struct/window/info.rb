@@ -3,28 +3,18 @@ require 'win-ffi/core/struct/rect'
 module WinFFI
   module User32
     # Window information snapshot
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632610
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-windowinfo
     class WINDOWINFO < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v); end
-      def rcWindow; end
-      def rcWindow=(v); end
-      def rcClient; end
-      def rcClient=(v); end
-      def dwStyle; end
-      def dwStyle=(v); end
-      def dwExStyle; end
-      def dwExStyle=(v); end
-      def dwWindowStatus; end
-      def dwWindowStatus=(v); end
-      def cxWindowBorders; end
-      def cxWindowBorders=(v); end
-      def cyWindowBorders; end
-      def cyWindowBorders=(v); end
-      def atomWindowType; end
-      def atomWindowType=(v); end
-      def wCreatorVersion; end
-      def wCreatorVersion=(v); end
+      attr_accessor :cbSize,
+                    :rcWindow,
+                    :rcClient,
+                    :dwStyle,
+                    :dwExStyle,
+                    :dwWindowStatus,
+                    :cxWindowBorders,
+                    :cyWindowBorders,
+                    :atomWindowType,
+                    :wCreatorVersion
 
       layout cbSize:          :dword,
              rcWindow:        RECT,

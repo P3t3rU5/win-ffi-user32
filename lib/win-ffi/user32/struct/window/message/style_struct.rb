@@ -1,11 +1,8 @@
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632607
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-stylestruct
     class STYLESTRUCT < FFIAdditions::Struct
-      def styleOld; end
-      def styleOld=(v); end
-      def styleNew; end
-      def styleNew=(v); end
+      attr_accessor :styleOld, :styleNew
 
       layout styleOld: :dword,
              styleNew: :dword

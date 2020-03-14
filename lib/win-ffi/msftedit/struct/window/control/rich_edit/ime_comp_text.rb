@@ -1,14 +1,14 @@
-require 'win-ffi/msftedit'
-
-
 module WinFFI
   if WINDOWS_VERSION >= :vista
     require 'win-ffi/msftedit/enum/window/control/rich_edit/em_getimecomptext_parameter'
+
     module Msftedit
       # EM_GETIMECOMPTEXT wparam structure
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/bb787934(v=vs.85).aspx
+      # https://docs.microsoft.com/en-us/windows/win32/api/richedit/ns-richedit-imecomptext
       class IMECOMPTEXT < FFIAdditions::Struct
-        layout cb:                        :long,
+        attr_accessor :cb, :flags
+
+        layout cb:    :long,
                flags: EmGetimecomptextParameter
       end
     end

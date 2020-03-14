@@ -2,23 +2,12 @@ require 'win-ffi/user32/enum/window/function/set_window_pos_flag'
 
 module WinFFI
   module User32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagwindowpos
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-windowpos
     # WM_WINDOWPOSCHANGING/CHANGED struct pointed to by lParam
     class WINDOWPOS < FFIAdditions::Struct
       FLAGS_INV = SetWindowPosFlag.to_hash.reduce(Hash.new {|h,k| h[k] = [] } ){ |h,(k,v)| h[v] << k; h }.freeze
 
-      def hwnd; end
-      def hwnd=(v); end
-      def hwndInsertAfter; end
-      def hwndInsertAfter=(v); end
-      def x; end
-      def x=(v); end
-      def y; end
-      def y=(v); end
-      def cx; end
-      def cx=(v); end
-      def cy; end
-      def cy=(v); end
+      attr_accessor :hwnd, :hwndInsertAfter, :x, :y, :cx, :cy
 
       layout hwnd:            :hwnd, #HWND
              hwndInsertAfter: :hwnd, #HWND

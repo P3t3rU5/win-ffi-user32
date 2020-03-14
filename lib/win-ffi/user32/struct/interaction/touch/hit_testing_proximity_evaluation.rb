@@ -3,11 +3,9 @@ module WinFFI
     require 'win-ffi/core/struct/point'
 
     module User32
+      # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-touch_hit_testing_proximity_evaluation
       class TOUCH_HIT_TESTING_PROXIMITY_EVALUATION < FFIAdditions::Struct
-        def score; end
-        def score=(v); end
-        def adjustedPoint; end
-        def adjustedPoint=(v); end
+        attr_accessor :score, :adjustedPoint
 
         layout score:         :uint16,
                adjustedPoint: POINT

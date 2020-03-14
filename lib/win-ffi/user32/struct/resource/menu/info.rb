@@ -3,22 +3,15 @@ require_relative '../../../enum/resource/menu/style'
 
 module WinFFI
   module User32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagmenuinfo
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-menuinfo
     class MENUINFO < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v) end
-      def fMask; end
-      def fMask=(v) end
-      def dwStyle; end
-      def dwStyle=(v) end
-      def cyMax; end
-      def cyMax=(v) end
-      def hbrBack; end
-      def hbrBack=(v) end
-      def dwContextHelpID; end
-      def dwContextHelpID=(v) end
-      def dwMenuData; end
-      def dwMenuData=(v) end
+      attr_accessor :cbSize,
+                    :fMask,
+                    :dwStyle,
+                    :cyMax,
+                    :hbrBack,
+                    :dwContextHelpID,
+                    :dwMenuData
 
       layout cbSize:          :dword,
              fMask:           MenuInfoMember,

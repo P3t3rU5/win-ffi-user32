@@ -4,16 +4,12 @@ require_relative '../../enum/multiple_display_monitors/monitor_info_flag'
 
 module WinFFI
   module User32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagmonitorinfo
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-monitorinfo
     class MONITORINFO < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v); end
-      def rcMonitor; end
-      def rcMonitor=(v); end
-      def rcWork; end
-      def rcWork=(v); end
-      def dwFlags; end
-      def dwFlags=(v); end
+      attr_accessor :cbSize,
+                    :rcMonitor,
+                    :rcWork,
+                    :dwFlags
 
       layout cbSize:    :dword,
              rcMonitor: RECT,

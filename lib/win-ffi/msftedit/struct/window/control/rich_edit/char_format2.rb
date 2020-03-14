@@ -7,57 +7,36 @@ require 'win-ffi/gdi32/constant_base'
 module WinFFI
   if WINDOWS_VERSION >= :vista
     module Msftedit
-
       class CHARFORMAT2UNION < FFIAdditions::Union
-        def dwReserved; end
-        def dwReserved=(v); end
-        def dwCookie; end
-        def dwCookie=(v); end
+        attr_accessor :dwReserved, :dwCookie
 
         layout dwReserved: :dword,
                dwCookie:   :dword
       end
 
+      # https://docs.microsoft.com/en-us/windows/win32/api/richedit/ns-richedit-charformat2a_1
+      # https://docs.microsoft.com/en-us/windows/win32/api/richedit/ns-richedit-charformat2w_1
       # All character format measurements are in twips
       class CHARFORMAT2 < FFIAdditions::Struct
-        def cbSize; end
-        def cbSize=(v); end
-        def dwMask; end
-        def dwMask=(v); end
-        def dwEffects; end
-        def dwEffects=(v); end
-        def yHeight; end
-        def yHeight=(v); end
-        def yOffset; end
-        def yOffset=(v); end
-        def crTextColor; end
-        def crTextColor=(v); end
-        def bCharSet; end
-        def bCharSet=(v); end
-        def bPitchAndFamily; end
-        def bPitchAndFamily=(v); end
-        def szFaceName; end
-        def szFaceName=(v); end
-        def wWeight; end
-        def wWeight=(v); end
-        def sSpacing; end
-        def sSpacing=(v); end
-        def crBackColor; end
-        def crBackColor=(v); end
-        def union; end
-        def union=(v); end
-        def sStyle; end
-        def sStyle=(v); end
-        def wKerning; end
-        def wKerning=(v); end
-        def bUnderlineType; end
-        def bUnderlineType=(v); end
-        def bAnimation; end
-        def bAnimation=(v); end
-        def bRevAuthor; end
-        def bRevAuthor=(v); end
-        def bUnderlineColor; end
-        def bUnderlineColor=(v); end
+        attr_accessor :cbSize,
+                      :dwMask,
+                      :dwEffects,
+                      :yHeight,
+                      :yOffset,
+                      :crTextColor,
+                      :bCharSet,
+                      :bPitchAndFamily,
+                      :szFaceName,
+                      :wWeight,
+                      :sSpacing,
+                      :crBackColor,
+                      :union,
+                      :sStyle,
+                      :wKerning,
+                      :bUnderlineType,
+                      :bAnimation,
+                      :bRevAuthor,
+                      :bUnderlineColor
 
         layout cbSize:          :uint,
                dwMask:          CharFormatMask,

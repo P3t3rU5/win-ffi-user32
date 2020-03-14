@@ -4,32 +4,21 @@ require_relative '../../../function/window/proc'
 
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms633577
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-wndclassexa
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-wndclassexw
     class WNDCLASSEX < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v); end
-      def style; end
-      def style=(v); end
-      def lpfnWndProc; end
-      def lpfnWndProc=(v); end
-      def cbClsExtra; end
-      def cbClsExtra=(v); end
-      def cbWndExtra; end
-      def cbWndExtra=(v); end
-      def hInstance; end
-      def hInstance=(v); end
-      def hIcon; end
-      def hIcon=(v); end
-      def hCursor; end
-      def hCursor=(v); end
-      def hbrBackground; end
-      def hbrBackground=(v); end
-      def lpszMenuName; end
-      def lpszMenuName=(v); end
-      def lpszClassName; end
-      def lpszClassName=(v); end
-      def hIconSm; end
-      def hIconSm=(v); end
+      attr_accessor :cbSize,
+                    :style,
+                    :lpfnWndProc,
+                    :cbClsExtra,
+                    :cbWndExtra,
+                    :hInstance,
+                    :hIcon,
+                    :hCursor,
+                    :hbrBackground,
+                    :lpszMenuName,
+                    :lpszClassName,
+                    :hIconSm
 
       layout cbSize:        :uint,
              style:         WindowClassStyle,

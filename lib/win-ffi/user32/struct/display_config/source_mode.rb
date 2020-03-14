@@ -6,14 +6,7 @@ module WinFFI
   module User32
     # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-displayconfig_source_mode
     class DISPLAYCONFIG_SOURCE_MODE < FFIAdditions::Struct
-      def width; end
-      def width=(v) end
-      def height; end
-      def height=(v) end
-      def pixelFormat; end
-      def pixelFormat=(v) end
-      def position; end
-      def position=(v) end
+      attr_accessor :width, :height, :pixelFormat, :position,
 
       layout width:       :uint32,
              height:      :uint32,

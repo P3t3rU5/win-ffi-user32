@@ -2,14 +2,9 @@ require 'win-ffi/core/struct/guid'
 
 module WinFFI
   module User32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-powerbroadcast_setting
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-powerbroadcast_setting
     class POWERBROADCAST_SETTING < FFIAdditions::Struct
-      def PowerSetting; end
-      def PowerSetting=(v) end
-      def DataLength; end
-      def DataLength=(v) end
-      def Data; end
-      def Data=(v) end
+      attr_accessor :PowerSetting, :DataLength, :Data
 
       layout PowerSetting: GUID,
              DataLength:   :dword,

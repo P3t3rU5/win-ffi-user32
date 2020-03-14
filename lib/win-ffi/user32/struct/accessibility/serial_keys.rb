@@ -2,23 +2,10 @@ require 'win-ffi/user32/enum/accessibility/serial_keys_flag'
 
 module WinFFI
   module User32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagserialkeysa
-    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagserialkeysw
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-serialkeysa
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-serialkeysw
     class SERIALKEYS < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v); end
-      def dwFlags; end
-      def dwFlags=(v); end
-      def lpszActivePort; end
-      def lpszActivePort=(v); end
-      def lpszPort; end
-      def lpszPort=(v); end
-      def iBaudRate; end
-      def iBaudRate=(v); end
-      def iPortState; end
-      def iPortState=(v); end
-      def iActive; end
-      def iActive=(v); end
+      attr_accessor :cbSize, :dwFlags, :lpszActivePort, :lpszPort, :iBaudRate, :iPortState, :iActive
 
       layout cbSize:         :uint,
              dwFlags:        SerialKeysFlag,

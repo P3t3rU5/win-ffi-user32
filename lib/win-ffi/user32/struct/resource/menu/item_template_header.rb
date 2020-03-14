@@ -1,12 +1,9 @@
 module WinFFI
   module User32
     # Menu item resource format
-    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-menuitemtemplateheader
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-menuitemtemplateheader
     class MENUITEMTEMPLATEHEADER < FFIAdditions::Struct
-      def versionNumber; end
-      def versionNumber=(v) end
-      def offset; end
-      def offset=(v) end
+      attr_accessor :versionNumber, :offset
 
       layout versionNumber: :word,
              offset:        :word

@@ -3,18 +3,13 @@ require_relative '../../../enum/resource/menu/get_object_info_flag'
 
 module WinFFI
   module User32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagmenugetobjectinfo
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-menugetobjectinfo
     class MENUGETOBJECTINFO < FFIAdditions::Struct
-      def dwFlags; end
-      def dwFlags=(v) end
-      def uPos; end
-      def uPos=(v) end
-      def hmenu; end
-      def hmenu=(v) end
-      def riid; end
-      def riid=(v) end
-      def pvObj; end
-      def pvObj=(v) end
+      attr_accessor :dwFlags,
+                    :uPos,
+                    :hmenu,
+                    :riid,
+                    :pvObj,
 
       layout dwFlags: MenuGetObjectInfoFlag,
              uPos:    :uint,

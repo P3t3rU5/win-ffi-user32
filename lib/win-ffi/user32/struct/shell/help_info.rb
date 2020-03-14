@@ -6,20 +6,14 @@ module WinFFI
 
     module User32
       # Structure pointed to by lParam of WM_HELP
-      # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-taghelpinfo
+      # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-helpinfo
       class HELPINFO < FFIAdditions::Struct
-        def cbSize; end
-        def cbSize=(v) end
-        def iContextType; end
-        def iContextType=(v) end
-        def iCtrlId; end
-        def iCtrlId=(v) end
-        def hItemHandle; end
-        def hItemHandle=(v) end
-        def dwContextId; end
-        def dwContextId=(v) end
-        def MousePos; end
-        def MousePos=(v) end
+        attr_accessor :cbSize,
+                      :iContextType,
+                      :iCtrlId,
+                      :hItemHandle,
+                      :dwContextId,
+                      :MousePos
 
         layout cbSize:       :uint,
                iContextType: HelpInfoContext,

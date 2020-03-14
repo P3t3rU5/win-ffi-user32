@@ -22,17 +22,14 @@ def enum_child_proc(hwnd, lparam)
   text_size = User32.GetWindowTextLength(hwnd) + 1
   FFI::MemoryPointer.new(:ushort, text_size) do |value|
     User32.GetWindowText(hwnd, value, text_size)
-    puts value.read_array_of_uint16(text_size - 1).pack('U*')
   end
   true
 end
 
 def enum_thread_window_proc(hwnd, lparam)
-  # puts hwnd
   text_size = User32.GetWindowTextLength(hwnd) + 1
   FFI::MemoryPointer.new(:ushort, text_size) do |value|
     User32.GetWindowText(hwnd, value, text_size)
-    puts value.read_array_of_uint16(text_size - 1).pack('U*')
   end
   true
 end
@@ -41,7 +38,6 @@ def enum_window_proc(hwnd, lparam)
   text_size = User32.GetWindowTextLength(hwnd) + 1
   FFI::MemoryPointer.new(:ushort, text_size) do |value|
     User32.GetWindowText(hwnd, value, text_size)
-    puts value.read_array_of_uint16(text_size - 1).pack('U*')
   end
   true
 end

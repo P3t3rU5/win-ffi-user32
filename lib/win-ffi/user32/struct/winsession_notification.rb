@@ -2,12 +2,9 @@ module WinFFI
   if WINDOWS_VERSION >= :xp
     module User32
       # WTSSESSION_NOTIFICATION struct pointed by lParam, for WM_WTSSESSION_CHANGE
-      # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagwtssession_notification
+      # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-wtssession_notification
       class WTSSESSION_NOTIFICATION < FFIAdditions::Struct
-        def cbSize; end
-        def cbSize=(v) end
-        def dwSessionId; end
-        def dwSessionId=(v) end
+        attr_accessor :cbSize, :dwSessionId
 
         layout cbSize:      :dword,
                dwSessionId: :dword

@@ -2,40 +2,26 @@ require 'win-ffi/gdi32/struct/font/log_font'
 
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ff729175
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-nonclientmetricsa
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-nonclientmetricsw
     class NONCLIENTMETRICS < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v); end
-      def iBorderWidth; end
-      def iBorderWidth=(v); end
-      def iScrollWidth; end
-      def iScrollWidth=(v); end
-      def iScrollHeight; end
-      def iScrollHeight=(v); end
-      def iCaptionWidth; end
-      def iCaptionWidth=(v); end
-      def iCaptionHeight; end
-      def iCaptionHeight=(v); end
-      def lfCaptionFont; end
-      def lfCaptionFont=(v); end
-      def iSmCaptionWidth; end
-      def iSmCaptionWidth=(v); end
-      def iSmCaptionHeight; end
-      def iSmCaptionHeight=(v); end
-      def lfSmCaptionFont; end
-      def lfSmCaptionFont=(v); end
-      def iMenuWidth; end
-      def iMenuWidth=(v); end
-      def iMenuHeight; end
-      def iMenuHeight=(v); end
-      def lfMenuFont; end
-      def lfMenuFont=(v); end
-      def lfStatusFont; end
-      def lfStatusFont=(v); end
-      def lfMessageFont; end
-      def lfMessageFont=(v); end
+      attr_accessor :cbSize,
+                    :iBorderWidth,
+                    :iScrollWidth,
+                    :iScrollHeight,
+                    :iCaptionWidth,
+                    :iCaptionHeight,
+                    :lfCaptionFont,
+                    :iSmCaptionWidth,
+                    :iSmCaptionHeight,
+                    :lfSmCaptionFont,
+                    :iMenuWidth,
+                    :iMenuHeight,
+                    :lfMenuFont,
+                    :lfStatusFont,
+                    :lfMessageFont
 
-          buffer = {
+      buffer = {
           cbSize:           :uint,
           iBorderWidth:     :int,
           iScrollWidth:     :int,
@@ -54,9 +40,7 @@ module WinFFI
       }
 
       if WINDOWS_VERSION >= :vista
-        def self.iPaddedBorderWidth; end
-        def self.iPaddedBorderWidth=(v); end
-
+        attr_accessor :iPaddedBorderWidth
         buffer.merge( { iPaddedBorderWidth: :int } )
       end
 

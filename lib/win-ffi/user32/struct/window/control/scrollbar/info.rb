@@ -4,23 +4,16 @@ require_relative '../../../../constant/window'
 
 module WinFFI
   module User32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagscrollbarinfo
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-scrollbarinfo
     # Scrollbar information
     class SCROLLBARINFO < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v); end
-      def rcScrollBar; end
-      def rcScrollBar=(v); end
-      def dxyLineButton; end
-      def dxyLineButton=(v); end
-      def xyThumbTop; end
-      def xyThumbTop=(v); end
-      def xyThumbBottom; end
-      def xyThumbBottom=(v); end
-      def reserved; end
-      def reserved=(v); end
-      def rgstate; end
-      def rgstate=(v); end
+      attr_accessor :cbSize,
+                    :rcScrollBar,
+                    :dxyLineButton,
+                    :xyThumbTop,
+                    :xyThumbBottom,
+                    :reserved,
+                    :rgstate
 
           layout cbSize:        :dword,
              rcScrollBar:   RECT,

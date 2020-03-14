@@ -2,12 +2,9 @@ require_relative '../../../struct/window/hook/mouse_hook_struct'
 
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644969
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-mousehookstructex
     class MOUSEHOOKSTRUCTEX < FFIAdditions::Struct
-      def DUMMYSTRUCTNAME; end
-      def DUMMYSTRUCTNAME=(v); end
-      def mouseData; end
-      def mouseData=(v); end
+      attr_accessor :DUMMYSTRUCTNAME, :mouseData
 
       layout DUMMYSTRUCTNAME: MOUSEHOOKSTRUCT,
              mouseData:       :dword

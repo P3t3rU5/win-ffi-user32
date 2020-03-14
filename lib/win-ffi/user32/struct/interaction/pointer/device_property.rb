@@ -1,24 +1,16 @@
 module WinFFI
   if WINDOWS_VERSION >= 8
     module User32
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/hh802892
+      # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-pointer_device_property
       class POINTER_DEVICE_PROPERTY < FFIAdditions::Struct
-        def logicalMin; end
-        def logicalMin=(v) end
-        def logicalMax; end
-        def logicalMax=(v) end
-        def physicalMin; end
-        def physicalMin=(v) end
-        def physicalMax; end
-        def physicalMax=(v) end
-        def unit; end
-        def unit=(v) end
-        def unitExponent; end
-        def unitExponent=(v) end
-        def usagePageId; end
-        def usagePageId=(v) end
-        def usageId; end
-        def usageId=(v) end
+        attr_accessor :logicalMin,
+                      :logicalMax,
+                      :physicalMin,
+                      :physicalMax,
+                      :unit,
+                      :unitExponent,
+                      :usagePageId,
+                      :usageId
 
         layout logicalMin:   :int32,
                logicalMax:   :int32,

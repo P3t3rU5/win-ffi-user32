@@ -2,18 +2,9 @@ require_relative '../../enum/configuration/arrange_window'
 
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms724500
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-minimizedmetrics
     class MINIMIZEDMETRICS < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v); end
-      def iWidth; end
-      def iWidth=(v); end
-      def iHorzGap; end
-      def iHorzGap=(v); end
-      def iVertGap; end
-      def iVertGap=(v); end
-      def iArrange; end
-      def iArrange=(v); end
+      attr_accessor :cbSize, :iWidth, :iHorzGap, :iVertGap, :iArrange
 
       layout cbSize:   :uint,
              iWidth:   :int,

@@ -2,12 +2,9 @@ require_relative '../../enum/window/message_filter_info'
 
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/dd388197
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-changefilterstruct
     class CHANGEFILTERSTRUCT < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v); end
-      def ExtStatus; end
-      def ExtStatus=(v); end
+      attr_accessor :cbSize, :ExtStatus
 
       layout cbSize:    :dword,
              ExtStatus: MessageFilterInfo

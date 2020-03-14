@@ -3,32 +3,20 @@ require 'win-ffi/user32/typedef/hsz'
 
 module WinFFI
   module User32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/ddeml/ns-ddeml-tagmonlinkstruct
+    # https://docs.microsoft.com/en-us/windows/win32/api/ddeml/ns-ddeml-monlinkstruct
     class MONLINKSTRUCT < FFIAdditions::Struct
-      def cb; end
-      def cb=(v); end
-      def dwTime; end
-      def dwTime=(v); end
-      def hTask; end
-      def hTask=(v); end
-      def fEstablished; end
-      def fEstablished=(v); end
-      def fNoData; end
-      def fNoData=(v); end
-      def hszSvc; end
-      def hszSvc=(v); end
-      def hszTopic; end
-      def hszTopic=(v); end
-      def hszItem; end
-      def hszItem=(v); end
-      def wFmt; end
-      def wFmt=(v); end
-      def fServer; end
-      def fServer=(v); end
-      def hConvServer; end
-      def hConvServer=(v); end
-      def hConvClient; end
-      def hConvClient=(v); end
+      attr_accessor :cb,
+                    :dwTime,
+                    :hTask,
+                    :fEstablished,
+                    :fNoData,
+                    :hszSvc,
+                    :hszTopic,
+                    :hszItem,
+                    :wFmt,
+                    :fServer,
+                    :hConvServer,
+                    :hConvClient
 
       layout cb:           :uint,
              dwTime:       :dword,

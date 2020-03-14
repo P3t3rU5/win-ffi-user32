@@ -1,15 +1,27 @@
-require 'win-ffi/msftedit'
-
 module WinFFI
   module Msftedit
+    # https://docs.microsoft.com/en-us/windows/win32/api/richedit/ns-richedit-tablecellparms
     # Data type defining table cells for EM_INSERTTABLE
     class TABLECELLPARMS < FFIAdditions::Struct
-      layout dxWidth:          :long,
-             bitField:         :word,
-             wShading:         :word,
-             dxBrdrLeft:      :short,
-             dyBrdrTop:       :short,
-             dyBrdrBottom:    :short,
+      attr_accessor :dxWidth,
+                    :bitField,
+                    :wShading,
+                    :dxBrdrLeft,
+                    :dyBrdrTop,
+                    :dyBrdrBottom,
+                    :crBrdrLeft,
+                    :crBrdrTop,
+                    :crBrdrRight,
+                    :crBrdrBottom,
+                    :crBackPat,
+                    :crForePat
+
+      layout dxWidth:      :long,
+             bitField:     :word,
+             wShading:     :word,
+             dxBrdrLeft:   :short,
+             dyBrdrTop:    :short,
+             dyBrdrBottom: :short,
              crBrdrLeft:   :colorref,
              crBrdrTop:    :colorref,
              crBrdrRight:  :colorref,

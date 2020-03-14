@@ -542,7 +542,7 @@ module WinFFI
 
     # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-showwindow
     # @param [FFI::Pointer] hWnd
-    # @param [Integer] nCmdShow
+    # @param [Integer, Symbol] nCmdShow
     # @return [true, false]
     def self.ShowWindow(hWnd, nCmdShow) end
     attach_function 'ShowWindow', [:hwnd, ShowWindowFlag], :bool

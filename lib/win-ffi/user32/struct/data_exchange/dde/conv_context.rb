@@ -1,24 +1,17 @@
 module WinFFI
   module User32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/ddeml/ns-ddeml-tagconvcontext
+    # https://docs.microsoft.com/en-us/windows/win32/api/ddeml/ns-ddeml-convcontext
     # The following structure is used by DdeConnect() and DdeConnectList() and by XTYP_CONNECT and XTYP_WILDCONNECT
     # callbacks.
     # TODO SECURITY_QUALITY_OF_SERVICE struct
     class CONVCONTEXT < FFIAdditions::Struct
-      def cb; end
-      def cb=(v); end
-      def wFlags; end
-      def wFlags=(v); end
-      def wCountryID; end
-      def wCountryID=(v); end
-      def iCodePage; end
-      def iCodePage=(v); end
-      def dwLangID; end
-      def dwLangID=(v); end
-      def dwSecurity; end
-      def dwSecurity=(v); end
-      def qos; end
-      def qos=(v); end
+      attr_accessor :cb,
+                    :wFlags,
+                    :wCountryID,
+                    :iCodePage,
+                    :dwLangID,
+                    :dwSecurity,
+                    :qos
 
       layout cb:         :uint,   # set to sizeof(CONVCONTEXT) */,
              wFlags:     :uint,   # none currently defined. */,

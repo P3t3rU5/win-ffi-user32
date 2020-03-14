@@ -1,3 +1,5 @@
+require 'win-ffi/core/macro/util'
+
 module WinFFI
   module User32
     class << self
@@ -8,10 +10,10 @@ module WinFFI
       def GET_WPARAM(wp, _) wp end
 
       # define GET_X_LPARAM(lp) ((int)(short)LOWORD(lp))
-      def GET_X_LPARAM(lp) LOWORD(lp) end
+      def GET_X_LPARAM(lp) WinFFI.LOWORD(lp) end
 
       # define GET_Y_LPARAM(lp) ((int)(short)HIWORD(lp))
-      def GET_Y_LPARAM(lp) HIWORD(lp) end
+      def GET_Y_LPARAM(lp) WinFFI.HIWORD(lp) end
 
       # System Menu Command Values
       # define GET_SC_WPARAM(wParam) ((int)wParam & 0xFFF0)

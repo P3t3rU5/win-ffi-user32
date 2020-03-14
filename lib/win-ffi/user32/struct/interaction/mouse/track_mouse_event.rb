@@ -4,16 +4,12 @@ module WinFFI
   module User32
     HOVER_DEFAULT = 0xFFFFFFFF
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms645604
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-trackmouseevent
     class TRACKMOUSEEVENT < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v); end
-      def dwFlags; end
-      def dwFlags=(v); end
-      def hwndTrack; end
-      def hwndTrack=(v); end
-      def dwHoverTime; end
-      def dwHoverTime=(v); end
+      attr_accessor :cbSize,
+                    :dwFlags,
+                    :hwndTrack,
+                    :dwHoverTime
 
       layout cbSize:      :dword,
              dwFlags:     TrackMouseEventFlag,

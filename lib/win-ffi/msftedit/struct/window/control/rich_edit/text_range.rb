@@ -1,12 +1,14 @@
-require 'win-ffi/msftedit'
-
 module WinFFI
   if WINDOWS_VERSION >= :vista
     require 'win-ffi/msftedit/struct/window/control/rich_edit/char_range'
+
     module Msftedit
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/bb787956(v=vs.85).aspx
+      # https://docs.microsoft.com/en-us/windows/win32/api/richedit/ns-richedit-textrangea
+      # https://docs.microsoft.com/en-us/windows/win32/api/richedit/ns-richedit-textrangew
       class TEXTRANGE < FFIAdditions::Struct
-        layout chrg:     CHARRANGE,
+        attr_accessor :chrg, :lpstrText
+
+        layout chrg:      CHARRANGE,
                lpstrText: :pointer
       end
     end

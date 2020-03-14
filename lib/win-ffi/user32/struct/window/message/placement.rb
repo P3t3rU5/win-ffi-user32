@@ -6,20 +6,14 @@ require_relative '../../../enum/window/function/show_window_flag'
 
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632611
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-windowplacement
     class WINDOWPLACEMENT < FFIAdditions::Struct
-      def length; end
-      def length=(v) end
-      def flags; end
-      def flags=(v) end
-      def showCmd; end
-      def showCmd=(v) end
-      def ptMinPosition; end
-      def ptMinPosition=(v) end
-      def ptMaxPosition; end
-      def ptMaxPosition=(v) end
-      def rcNormalPosition; end
-      def rcNormalPosition=(v) end
+      attr_accessor :length,
+                    :flags,
+                    :showCmd,
+                    :ptMinPosition,
+                    :ptMaxPosition,
+                    :rcNormalPosition
 
       layout length:           :uint,
              flags:            WindowPlacementFlag,

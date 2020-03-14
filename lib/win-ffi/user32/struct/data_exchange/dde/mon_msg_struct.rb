@@ -2,24 +2,16 @@ require 'win-ffi/user32/struct/data_exchange/dde/dynamic_data_exchange_managemen
 
 module WinFFI
   module User32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/ddeml/ns-ddeml-tagmonmsgstruct
+    # https://docs.microsoft.com/en-us/windows/win32/api/ddeml/ns-ddeml-monmsgstruct
     class MONMSGSTRUCT < FFIAdditions::Struct
-      def cb; end
-      def cb=(v); end
-      def hwndTo; end
-      def hwndTo=(v); end
-      def dwTime; end
-      def dwTime=(v); end
-      def hTask; end
-      def hTask=(v); end
-      def wMsg; end
-      def wMsg=(v); end
-      def wParam; end
-      def wParam=(v); end
-      def lParam; end
-      def lParam=(v); end
-      def dmhd; end
-      def dmhd=(v); end
+      attr_accessor :cb,
+                    :hwndTo,
+                    :dwTime,
+                    :hTask,
+                    :wMsg,
+                    :wParam,
+                    :lParam,
+                    :dmhd
 
       layout cb:     :uint,
              hwndTo: :hwnd,

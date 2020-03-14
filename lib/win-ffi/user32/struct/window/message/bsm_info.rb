@@ -5,16 +5,9 @@ module WinFFI
     require_relative '../../../function/desktop/desktop'
 
     module User32
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644957
+      # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-bsminfo
       class BSMINFO < FFIAdditions::Struct
-        def cItems; end
-        def cItems=(v); end
-        def hdesk; end
-        def hdesk=(v); end
-        def hwnd; end
-        def hwnd=(v); end
-        def luid; end
-        def luid=(v); end
+        attr_accessor :cItems, :hdesk, :hwnd, :luid
 
         layout cItems: :int,
                hdesk:  :hdesk,

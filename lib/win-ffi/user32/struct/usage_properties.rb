@@ -1,26 +1,17 @@
 module WinFFI
   module User32
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-usage_properties
     class USAGE_PROPERTIES < FFIAdditions::Struct
-      def level; end
-      def level=(v) end
-      def page; end
-      def page=(v) end
-      def usage; end
-      def usage=(v) end
-      def logicalMinimum; end
-      def logicalMinimum=(v) end
-      def logicalMaximum; end
-      def logicalMaximum=(v) end
-      def unit; end
-      def unit=(v) end
-      def exponent; end
-      def exponent=(v) end
-      def count; end
-      def count=(v) end
-      def physicalMinimum; end
-      def physicalMinimum=(v) end
-      def physicalMaximum; end
-      def physicalMaximum=(v) end
+      attr_accessor :level,
+                    :page,
+                    :usage,
+                    :logicalMinimum,
+                    :logicalMaximum,
+                    :unit,
+                    :exponent,
+                    :count,
+                    :physicalMinimum,
+                    :physicalMaximum
 
       layout level:           :ushort,
              page:            :ushort,

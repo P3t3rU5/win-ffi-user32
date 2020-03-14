@@ -2,15 +2,9 @@ require_relative '../../enum/accessibility/access_timeout_flag'
 
 module WinFFI
   module User32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagaccesstimeout
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-accesstimeout
     class ACCESSTIMEOUT < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v); end
-      def dwFlags; end
-      def dwFlags=(v); end
-      def iTimeOutMSec; end
-      def iTimeOutMSec=(v); end
-
+      attr_accessor :cbSize, :dwFlags, :iTimeOutMSec
       layout cbSize:       :uint,
              dwFlags:      AccessTimeoutFlag,
              iTimeOutMSec: :dword

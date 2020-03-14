@@ -3,16 +3,9 @@ require 'win-ffi/core/struct/point'
 module WinFFI
   module User32
     # Structure used by WH_MOUSE
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644968
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-mousehookstruct
     class MOUSEHOOKSTRUCT < FFIAdditions::Struct
-      def pt; end
-      def pt=(v); end
-      def hwnd; end
-      def hwnd=(v); end
-      def wHitTestCode; end
-      def wHitTestCode=(v); end
-      def dwExtraInfo; end
-      def dwExtraInfo=(v); end
+      attr_accessor :pt, :hwnd, :wHitTestCode, :dwExtraInfo,
 
       layout pt:           POINT,
              hwnd:         :hwnd,

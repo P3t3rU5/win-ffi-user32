@@ -1,17 +1,12 @@
 module WinFFI
   module User32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagdrawtextparams
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-drawtextparams
     class DRAWTEXTPARAMS < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v); end
-      def iTabLength; end
-      def iTabLength=(v); end
-      def iLeftMargin; end
-      def iLeftMargin=(v); end
-      def iRightMargin; end
-      def iRightMargin=(v); end
-      def uiLengthDrawn; end
-      def uiLengthDrawn=(v); end
+      attr_accessor :cbSize,
+                    :iTabLength,
+                    :iLeftMargin,
+                    :iRightMargin,
+                    :uiLengthDrawn
 
       layout cbSize:        :uint,
              iTabLength:    :int,

@@ -5,12 +5,7 @@ module WinFFI
   module User32
     # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-displayconfig_desktop_image_info
     class DISPLAYCONFIG_DESKTOP_IMAGE_INFO < FFIAdditions::Struct
-      def PathSourceSize; end
-      def PathSourceSize=(v) end
-      def DesktopImageRegion; end
-      def DesktopImageRegion=(v) end
-      def DesktopImageClip; end
-      def DesktopImageClip=(v) end
+      attr_accessor :PathSourceSize, :DesktopImageRegion, :DesktopImageClip,
 
       layout PathSourceSize:     POINT,
              DesktopImageRegion: RECT,

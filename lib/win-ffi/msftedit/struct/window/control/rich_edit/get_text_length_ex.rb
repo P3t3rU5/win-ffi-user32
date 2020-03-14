@@ -1,14 +1,15 @@
-require 'win-ffi/msftedit'
-
 module WinFFI
   if WINDOWS_VERSION >= :vista
     require 'win-ffi/msftedit/enum/window/control/rich_edit/get_text_length_ex_flag'
+
     module Msftedit
       # EM_GETTEXTLENGTHEX info; this struct is passed in the wparam of the msg
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/bb787915(v=vs.85).aspx
+      # https://docs.microsoft.com/en-us/windows/win32/api/richedit/ns-richedit-gettextlengthex
       class GETTEXTLENGTHEX < FFIAdditions::Struct
-        layout flags:   GetTextLengthExFlag,
-               codepage:              :uint
+        attr_accessor :flags, :codepage
+
+        layout flags:    GetTextLengthExFlag,
+               codepage: :uint
       end
     end
   end

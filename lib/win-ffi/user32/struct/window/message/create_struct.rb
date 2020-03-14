@@ -4,32 +4,21 @@ require_relative '../../../enum/window/style/ex'
 
 module WinFFI
   module User32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagcreatestructa
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-createstructa
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-createstructw
     class CREATESTRUCT < FFIAdditions::Struct
-      def lpCreateParams; end
-      def lpCreateParams=(v) end
-      def hInstance; end
-      def hInstance=(v) end
-      def hMenu; end
-      def hMenu=(v) end
-      def hwndParent; end
-      def hwndParent=(v) end
-      def cy; end
-      def cy=(v) end
-      def cx; end
-      def cx=(v) end
-      def y; end
-      def y=(v) end
-      def x; end
-      def x=(v) end
-      def style; end
-      def style=(v) end
-      def lpszName; end
-      def lpszName=(v) end
-      def lpszClass; end
-      def lpszClass=(v) end
-      def dwExStyle; end
-      def dwExStyle=(v) end
+      attr_accessor :lpCreateParams,
+                    :hInstance,
+                    :hMenu,
+                    :hwndParent,
+                    :cy,
+                    :cx,
+                    :y,
+                    :x,
+                    :style,
+                    :lpszName,
+                    :lpszClass,
+                    :dwExStyle
 
       layout lpCreateParams: :pointer,
              hInstance:      :hinstance,

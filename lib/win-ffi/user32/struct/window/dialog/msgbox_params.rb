@@ -7,27 +7,19 @@ module WinFFI
     # VOID CALLBACK MsgBoxCallback(LPHELPINFO lpHelpInfo);
     MsgBoxCallback = callback 'MsgBoxCallback', [HELPINFO.ptr], :void
 
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-msgboxparamsa
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-msgboxparamsw
     class MSGBOXPARAMS < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v); end
-      def hwndOwner; end
-      def hwndOwner=(v); end
-      def hInstance; end
-      def hInstance=(v); end
-      def lpszText; end
-      def lpszText=(v); end
-      def lpszCaption; end
-      def lpszCaption=(v); end
-      def dwStyle; end
-      def dwStyle=(v); end
-      def lpszIcon; end
-      def lpszIcon=(v); end
-      def dwContextHelpId; end
-      def dwContextHelpId=(v); end
-      def lpfnMsgBoxCallback; end
-      def lpfnMsgBoxCallback=(v); end
-      def dwLanguageId; end
-      def dwLanguageId=(v); end
+      attr_accessor :cbSize,
+                    :hwndOwner,
+                    :hInstance,
+                    :lpszText,
+                    :lpszCaption,
+                    :dwStyle,
+                    :lpszIcon,
+                    :dwContextHelpId,
+                    :lpfnMsgBoxCallback,
+                    :dwLanguageId
 
       layout cbSize:             :uint,
              hwndOwner:          :hwnd,

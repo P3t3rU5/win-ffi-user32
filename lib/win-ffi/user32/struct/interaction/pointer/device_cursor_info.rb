@@ -3,12 +3,9 @@ module WinFFI
     require_relative '../../../enum/interaction/pointer/device_cursor_type'
 
     module User32
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/hh802889
+      # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-pointer_device_cursor_info
       class POINTER_DEVICE_CURSOR_INFO < FFIAdditions::Struct
-        def cursorId; end
-        def cursorId=(v) end
-        def cursor; end
-        def cursor=(v) end
+        attr_accessor :cursorId, :cursor
 
         layout cursorId: :uint32,
                cursor:   POINTER_DEVICE_CURSOR_TYPE

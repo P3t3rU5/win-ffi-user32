@@ -1,16 +1,10 @@
 module WinFFI
   if WINDOWS_VERSION >= :vista
     module User32
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/aa379651(v=vs.85).aspx
+      # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-audiodescription
       class AUDIODESCRIPTION < FFIAdditions::Struct
-        def cbSize; end
-        def cbSize=(v); end
-        def Enabled; end
-        def Enabled=(v); end
-        def Locale; end
-        def Locale=(v); end
-
-        layout cbSize:  :uint,
+        attr_accessor :cbSize, :Enabled, :Locale,
+        layout cbSize: :uint,
                Enabled: :bool,
                Locale:  :lcid
 

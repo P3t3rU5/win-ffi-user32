@@ -2,13 +2,9 @@ require_relative '../../enum/accessibility/sticky_keys_flag'
 
 module WinFFI
   module User32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagstickykeys
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-stickykeys
     class STICKYKEYS < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v); end
-      def dwFlags; end
-      def dwFlags=(v); end
-
+      attr_accessor :cbSize, :dwFlags
       layout cbSize:  :uint,
              dwFlags: StickyKeysFlag
 

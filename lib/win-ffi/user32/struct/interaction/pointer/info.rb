@@ -8,40 +8,24 @@ module WinFFI
     require_relative '../../../enum/interaction/pointer/button_change_type'
 
     module User32
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/hh454907(v=vs.85).aspx
+      # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-pointer_info
       class POINTER_INFO < FFIAdditions::Struct
-        def pointerType; end
-        def pointerType=(v) end
-        def pointerId; end
-        def pointerId=(v) end
-        def frameId; end
-        def frameId=(v) end
-        def pointerFlags; end
-        def pointerFlags=(v) end
-        def sourceDevice; end
-        def sourceDevice=(v) end
-        def hwndTarget; end
-        def hwndTarget=(v) end
-        def ptPixelLocation; end
-        def ptPixelLocation=(v) end
-        def ptHimetricLocation; end
-        def ptHimetricLocation=(v) end
-        def ptPixelLocationRaw; end
-        def ptPixelLocationRaw=(v) end
-        def ptHimetricLocationRaw; end
-        def ptHimetricLocationRaw=(v) end
-        def dwTime; end
-        def dwTime=(v) end
-        def historyCount; end
-        def historyCount=(v) end
-        def inputData; end
-        def inputData=(v) end
-        def dwKeyStates; end
-        def dwKeyStates=(v) end
-        def PerformanceCount; end
-        def PerformanceCount=(v) end
-        def ButtonChangeType; end
-        def ButtonChangeType=(v) end
+        attr_accessor :pointerType,
+                      :pointerId,
+                      :frameId,
+                      :pointerFlags,
+                      :sourceDevice,
+                      :hwndTarget,
+                      :ptPixelLocation,
+                      :ptHimetricLocation,
+                      :ptPixelLocationRaw,
+                      :ptHimetricLocationRaw,
+                      :dwTime,
+                      :historyCount,
+                      :inputData,
+                      :dwKeyStates,
+                      :PerformanceCount,
+                      :ButtonChangeType
 
         layout pointerType:           POINTER_INPUT_TYPE,
                pointerId:             :uint32,

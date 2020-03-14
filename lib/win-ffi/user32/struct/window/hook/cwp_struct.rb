@@ -1,16 +1,9 @@
 module WinFFI
   module User32
     # Message structure used by WH_CALLWNDPROC
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms644964(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-cwpstruct
     class CWPSTRUCT < FFIAdditions::Struct
-      def lParam; end
-      def lParam=(v) end
-      def wParam; end
-      def wParam=(v) end
-      def message; end
-      def message=(v) end
-      def hwnd; end
-      def hwnd=(v) end
+      attr_accessor :lParam, :wParam, :message, :hwnd
 
       layout lParam:  :lparam,
              wParam:  :wparam,

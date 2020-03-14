@@ -4,20 +4,14 @@ require_relative '../../../typedef/hmenu'
 
 module WinFFI
   module User32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-tagmenubarinfo
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-menubarinfo
     class MENUBARINFO < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v) end
-      def rcBar; end
-      def rcBar=(v) end
-      def hMenu; end
-      def hMenu=(v) end
-      def hwndMenu; end
-      def hwndMenu=(v) end
-      def fBarFocused; end
-      def fBarFocused=(v) end
-      def fFocused; end
-      def fFocused=(v) end
+      attr_accessor :cbSize,
+                    :rcBar,
+                    :hMenu,
+                    :hwndMenu,
+                    :fBarFocused,
+                    :fFocused
 
       layout cbSize:      :dword,
              rcBar:       RECT,

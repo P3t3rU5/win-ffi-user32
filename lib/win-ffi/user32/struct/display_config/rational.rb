@@ -4,10 +4,7 @@ module WinFFI
     module User32
       # https://docs.microsoft.com/en-us/windows/desktop/api/wingdi/ns-wingdi-displayconfig_rational
       class DISPLAYCONFIG_RATIONAL < FFIAdditions::Struct
-        def Numerator; end
-        def Numerator=(v) end
-        def Denominator; end
-        def Denominator=(v) end
+        attr_accessor :Numerator, :Denominator
 
         layout Numerator:   :uint32,
                Denominator: :uint32

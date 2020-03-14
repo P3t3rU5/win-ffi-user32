@@ -1,15 +1,8 @@
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms645603
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-mousemovepoint
     class MOUSEMOVEPOINT < FFIAdditions::Struct
-      def x; end
-      def x=(v); end
-      def y; end
-      def y=(v); end
-      def time; end
-      def time=(v); end
-      def dwExtraInfo; end
-      def dwExtraInfo=(v); end
+      attr_accessor :x, :y, :time, :dwExtraInfo
 
       layout x:           :int,
              y:           :int,

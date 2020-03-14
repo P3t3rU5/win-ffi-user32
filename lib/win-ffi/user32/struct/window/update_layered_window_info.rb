@@ -6,28 +6,18 @@ require_relative '../../enum/window/function/update_layered_window_flag'
 
 module WinFFI
   module User32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms632609
+    # https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-updatelayeredwindowinfo
     class UPDATELAYEREDWINDOWINFO < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v); end
-      def hdcDst; end
-      def hdcDst=(v); end
-      def pptDst; end
-      def pptDst=(v); end
-      def psize; end
-      def psize=(v); end
-      def hdcSrc; end
-      def hdcSrc=(v); end
-      def pptSrc; end
-      def pptSrc=(v); end
-      def crKey; end
-      def crKey=(v); end
-      def pblend; end
-      def pblend=(v); end
-      def dwFlags; end
-      def dwFlags=(v); end
-      def prcDirty; end
-      def prcDirty=(v); end
+      attr_accessor :cbSize,
+                    :hdcDst,
+                    :pptDst,
+                    :psize,
+                    :hdcSrc,
+                    :pptSrc,
+                    :crKey,
+                    :pblend,
+                    :dwFlags,
+                    :prcDirty
 
       layout cbSize:   :dword,
              hdcDst:   :hdc,
